@@ -2,7 +2,10 @@
  * Fetch gamedata json at regular inverals, using last-modified timestamp to
  * avoid processing already-delivered results.
  *
- * Include this script and register an 'onGameDataUpdate' event listener:
+ * Include this script and register an event listener for any of the following:
+ * - onGameDataUpdate (gets parsed JSON object in event.detail).
+ * - onGameDataStart
+ * - onGameDataStop
  *
  * window.addEventListener("onGameDataUpdate", (event) => {
  *   console.log(`onGameDataUpdate ${event.detail.timestamp}`);
@@ -11,11 +14,19 @@
  * Putting this in a class is primarily for namespace isolation.
  */
 class GameDataRefresh {
+  static getInstance() {
+    if (!GameDataRefresh.__instance) {
+      GameDataRefresh.__instance = new GameDataRefresh();
+    }
+    return GameDataRefresh.__instance;
+  }
+
   constructor() {
     this._loopFetchHandle = undefined;
     this._lastModified = undefined;
     this._refreshInterval = 3000;
     this._verbose = false;
+    this._stopOnError = false;
 
     // Handlers for class functions.
     this._processResponseHandler = (v) => {
@@ -42,7 +53,18 @@ class GameDataRefresh {
     return this;
   }
 
+  setStopOnError(value) {
+    this._stopOnError = value;
+    return this;
+  }
+
   start() {
+    console.log("GameDataRefresh.start");
+
+    // Do before calling loopfetch to happen before update event.
+    const event = new CustomEvent("onGameDataStart");
+    window.dispatchEvent(event);
+
     this._loopFetchHandle = setInterval(
       this._loopFetchHandler,
       this._refreshInterval
@@ -52,6 +74,11 @@ class GameDataRefresh {
   }
 
   stop() {
+    console.log("GameDataRefresh.stop");
+
+    const event = new CustomEvent("onGameDataStop");
+    window.dispatchEvent(event);
+
     clearInterval(this._loopFetchHandle);
     this._loopFetchHandle = undefined;
     return this;
@@ -84,6 +111,9 @@ class GameDataRefresh {
       if (response.status !== 404) {
         this.debugLog(`processRespone response status ${response.status}`);
       }
+      if (this._stopOnError) {
+        this.stop();
+      }
       return;
     }
 
@@ -106,6 +136,9 @@ class GameDataRefresh {
 
   _processError(error) {
     this.debugLog(`ERROR "${error}`);
+    if (this._stopOnError) {
+      this.stop();
+    }
   }
 
   _loopFetch() {
@@ -127,5 +160,5 @@ class GameDataRefresh {
 }
 
 window.addEventListener("DOMContentLoaded", (window, event) => {
-  new GameDataRefresh().start();
+  GameDataRefresh.getInstance().setStopOnError(true).setVerbose(false).start();
 });

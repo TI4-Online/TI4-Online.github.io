@@ -1,0 +1,11 @@
+#game-data-toggle-button {
+  background-color: cornsilk;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  border-radius: 8px; /* rounded corner */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
