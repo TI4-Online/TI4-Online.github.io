@@ -3,9 +3,11 @@
  * avoid processing already-delivered results.
  *
  * Include this script and register an event listener for any of the following:
- * - onGameDataUpdate (gets parsed JSON object in event.detail).
- * - onGameDataStart
- * - onGameDataStop
+ * - onGameDataStart : fetch loop started
+ * - onGameDataStop : fetch loop stopped
+ * - onGameDataUpdate : new data (parsed JSON object in event.detail)
+ * - onGameDataNotModified : received data has not changed
+ * - onGameDataError : response error (string in event.detail)
  *
  * window.addEventListener("onGameDataUpdate", (event) => {
  *   console.log(`onGameDataUpdate ${event.detail.timestamp}`);
@@ -58,12 +60,21 @@ class GameDataRefresh {
     return this;
   }
 
+  isStarted() {
+    return this._loopFetchHandle ? true : false;
+  }
+
   start() {
     console.log("GameDataRefresh.start");
 
     // Do before calling loopfetch to happen before update event.
     const event = new CustomEvent("onGameDataStart");
     window.dispatchEvent(event);
+
+    if (this._loopFetchHandle) {
+      clearInterval(this._loopFetchHandle);
+      this._loopFetchHandle = undefined;
+    }
 
     this._loopFetchHandle = setInterval(
       this._loopFetchHandler,
@@ -103,14 +114,18 @@ class GameDataRefresh {
 
     // Check if the response is "not modified" from our if-modified-since request.
     if (response.status === 304) {
+      const event = new CustomEvent("onGameDataNotModified");
+      window.dispatchEvent(event);
       return; // not modified
     }
 
-    // Stop if error.  Report the status code if other than "not found"
-    if (response.status !== 200) {
-      if (response.status !== 404) {
-        this.debugLog(`processRespone response status ${response.status}`);
-      }
+    // Abort if error.
+    if (!response.ok) {
+      const event = new CustomEvent("onGameDataError", {
+        detail: `response status code ${response.status}`,
+      });
+      window.dispatchEvent(event);
+
       if (this._stopOnError) {
         this.stop();
       }
@@ -122,6 +137,8 @@ class GameDataRefresh {
     const lastModified = response.headers.get("Last-Modified");
     if (lastModified && lastModified === this._lastModified) {
       this.debugLog("processRespone last modified unchanged");
+      const event = new CustomEvent("onGameDataNotModified");
+      window.dispatchEvent(event);
       return;
     }
     this._lastModified = lastModified; // remember
@@ -135,7 +152,19 @@ class GameDataRefresh {
   }
 
   _processError(error) {
-    this.debugLog(`ERROR "${error}`);
+    this.debugLog(`ERROR "${error}"`);
+
+    // Replace "TypeError: failed to fetch" with a more direct error message.
+    let errorString = `${event.detail}`;
+    if (msg.toLowerCase().includes("failed to fetch")) {
+      errorString = "Error: Local server (TI4 Streamer Buddy) not responding";
+    }
+
+    const event = new CustomEvent("onGameDataError", {
+      detail: errorString,
+    });
+    window.dispatchEvent(event);
+
     if (this._stopOnError) {
       this.stop();
     }
@@ -160,5 +189,15 @@ class GameDataRefresh {
 }
 
 window.addEventListener("DOMContentLoaded", (window, event) => {
-  GameDataRefresh.getInstance().setStopOnError(true).setVerbose(false).start();
+  const gameDataRefresh = GameDataRefresh.getInstance() // config here
+    .setStopOnError(true)
+    .setVerbose(false);
+
+  // Start after a short delay, make sure other scripts have event
+  // listeners set up, etc.
+  setTimeout(() => {
+    if (!gameDataRefresh.isStarted()) {
+      gameDataRefresh.start();
+    }
+  }, 100);
 });

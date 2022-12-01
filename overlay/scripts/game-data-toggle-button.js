@@ -27,8 +27,8 @@ class GameDataToggle {
     this._toggleButton = button;
 
     this._toggleButton.addEventListener("click", () => {
+      console.log("GameDataToggle.toggleButton.onClick");
       this._toggle();
-      console.log("GameDataToggle toggleButton.onClick");
     });
 
     this._updateToggleButton();
