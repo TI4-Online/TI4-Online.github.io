@@ -52,7 +52,9 @@ class GameDataHeartbeat {
     if (!this._div) {
       return;
     }
-    this._div.innerText = JSON.stringify(this._history);
+    //this._div.innerText = JSON.stringify(
+    //  this._history[this._history.length - 1] || "n/a"
+    //);
   }
 }
 

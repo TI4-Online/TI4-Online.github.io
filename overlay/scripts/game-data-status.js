@@ -11,20 +11,27 @@ class GameDataStatus {
 
   constructor() {
     this._status = "unknown";
+    this._update();
+
+    window.addEventListener("onGameDataStart", (event) => {
+      this._status = "active";
+      this._update();
+    });
 
     window.addEventListener("onGameDataError", (event) => {
-      const msg = `${event.detail}`;
-      if (msg.toLowerCase().includes("failed to fetch")) {
-        this._status =
-          "Error: Local server (TI4 Streamer Buddy) not responding";
-      } else {
-        this._status = `Error: ${msg}`;
-      }
+      this._status = event.detail;
       this._update();
     });
 
     window.addEventListener("onGameDataUpdate", (event) => {
       this._status = "active";
+      this._update();
+    });
+
+    window.addEventListener("onGameDataStop", (event) => {
+      if (this._status === "active") {
+        this._status = "stopped";
+      }
       this._update();
     });
   }
@@ -39,7 +46,8 @@ class GameDataStatus {
     if (!this._div) {
       return;
     }
-    this._div.innerText = this._status;
+    console.log(`GameDataStatus._update "${this._status}"`);
+    this._div.innerText = `Auto-refresh status:\n${this._status}`;
   }
 }
 

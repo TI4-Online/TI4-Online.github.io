@@ -3,9 +3,7 @@
   <head>
     <title>Leaderboard</title>
     <link rel="stylesheet" href="css/leaderboard.css" />
-    <link rel="stylesheet" href="css/game-data-heartbeat.css" />
-    <link rel="stylesheet" href="css/game-data-status.css" />
-    <link rel="stylesheet" href="css/game-data-toggle-button.css" />
+    <link rel="stylesheet" href="css/game-data-refresh.css" />
     <script src="scripts/game-data-heartbeat.js"></script>
     <script src="scripts/game-data-refresh.js"></script>
     <script src="scripts/game-data-status.js"></script>
@@ -14,18 +12,16 @@
     <script src="scripts/leaderboard.js"></script>
   </head>
   <body>
-    <p></p>
-    <button type="button" id="game-data-toggle-button"></button>
+    <table id="game-data-refresh-table">
+      <tr>
+        <td><button type="button" id="game-data-toggle-button"></button></td>
+        <td id="game-data-status"></td>
+        <td id="game-data-heartbeat"></td>
+      </tr>
+    </table>
 
     <p></p>
-    [
-    <div id="game-data-status"></div>
-    ]
 
-    <p></p>
-    <div id="game-data-heartbeat"></div>
-
-    <p></p>
     <table class="leaderboard">
       <tr>
         <td id="leaderboard-0-0">
