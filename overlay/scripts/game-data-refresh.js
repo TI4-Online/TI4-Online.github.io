@@ -121,8 +121,14 @@ class GameDataRefresh {
 
     // Abort if error.
     if (!response.ok) {
+      let errorString;
+      if (response.status === 404) {
+        errorString = `no data, type "!buddy" in chat to start`;
+      } else {
+        errorString = `response status code ${response.status}`;
+      }
       const event = new CustomEvent("onGameDataError", {
-        detail: `response status code ${response.status}`,
+        detail: errorString,
       });
       window.dispatchEvent(event);
 
@@ -157,7 +163,7 @@ class GameDataRefresh {
     // Replace "TypeError: failed to fetch" with a more direct error message.
     let errorString = `${error}`;
     if (errorString.toLowerCase().includes("failed to fetch")) {
-      errorString = "Server (TI4 Streamer Buddy) not responding";
+      errorString = "Server (TI4 Streamer Buddy) not running?";
     }
 
     const event = new CustomEvent("onGameDataError", {
@@ -190,7 +196,7 @@ class GameDataRefresh {
 
 window.addEventListener("DOMContentLoaded", (window, event) => {
   const gameDataRefresh = GameDataRefresh.getInstance() // config here
-    .setStopOnError(false)
+    .setStopOnError(true)
     .setVerbose(false);
 
   // Start after a short delay, make sure other scripts have event
