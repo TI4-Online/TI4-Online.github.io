@@ -10,7 +10,7 @@ GameDataUtil.escapeForHTML = (string) => {
 };
 
 function getGameData() {
-  const filename = path.join(__dirname, "demo.json");
+  const filename = path.join(__dirname, "../demo/demo.json");
   const content = fs.readFileSync(filename).toString();
   return JSON.parse(content);
 }

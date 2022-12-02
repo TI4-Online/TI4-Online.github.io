@@ -29,6 +29,7 @@ class GameDataRefresh {
     this._refreshInterval = 3000;
     this._verbose = false;
     this._stopOnError = false;
+    this._demo = false;
 
     // Handlers for class functions.
     this._processResponseHandler = (v) => {
@@ -92,6 +93,11 @@ class GameDataRefresh {
 
     clearInterval(this._loopFetchHandle);
     this._loopFetchHandle = undefined;
+    return this;
+  }
+
+  setDemoGameData(value) {
+    this._demo = value;
     return this;
   }
 
@@ -181,7 +187,10 @@ class GameDataRefresh {
     // header for us.  We cannot set it manually due to CORS restrictions.
     const protocol = location.protocol;
     const port = protocol === "http:" ? 8080 : 8081;
-    const url = `${protocol}//localhost:${port}/data?key=buddy`;
+    let url = `${protocol}//localhost:${port}/data?key=buddy`;
+    if (this._demo) {
+      url = "/overlay/demo/demo.json";
+    }
     const options = {
       method: "GET",
       headers: {},
@@ -197,7 +206,8 @@ class GameDataRefresh {
 window.addEventListener("DOMContentLoaded", (window, event) => {
   const gameDataRefresh = GameDataRefresh.getInstance() // config here
     .setStopOnError(true)
-    .setVerbose(false);
+    .setVerbose(false)
+    .setDemoGameData(false);
 
   // Start after a short delay, make sure other scripts have event
   // listeners set up, etc.
