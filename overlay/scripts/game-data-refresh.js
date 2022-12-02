@@ -157,7 +157,7 @@ class GameDataRefresh {
     // Replace "TypeError: failed to fetch" with a more direct error message.
     let errorString = `${error}`;
     if (errorString.toLowerCase().includes("failed to fetch")) {
-      errorString = "Local server (TI4 Streamer Buddy) not responding";
+      errorString = "Server (TI4 Streamer Buddy) not responding";
     }
 
     const event = new CustomEvent("onGameDataError", {
@@ -190,7 +190,7 @@ class GameDataRefresh {
 
 window.addEventListener("DOMContentLoaded", (window, event) => {
   const gameDataRefresh = GameDataRefresh.getInstance() // config here
-    .setStopOnError(true)
+    .setStopOnError(false)
     .setVerbose(false);
 
   // Start after a short delay, make sure other scripts have event

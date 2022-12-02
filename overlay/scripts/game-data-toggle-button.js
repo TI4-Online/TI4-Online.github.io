@@ -36,21 +36,17 @@ class GameDataToggle {
   }
 
   _updateToggleButton() {
-    console.log(
-      `GameDataToggle._updateToggleButton active=${this._gameDataIsActive}`
-    );
     if (!this._toggleButton) {
       return;
     }
     if (this._gameDataIsActive) {
-      this._toggleButton.innerText = "auto-refresh active, click to stop";
+      this._toggleButton.innerText = "Auto-refresh ACTIVE, click to stop";
     } else {
-      this._toggleButton.innerText = "auto-refresh inactive, click to start";
+      this._toggleButton.innerText = "Auto-refresh STOPPED, click to start";
     }
   }
 
   _toggle() {
-    console.log(`GameDataToggle._toggle active=${this._gameDataIsActive}`);
     if (this._gameDataIsActive) {
       GameDataRefresh.getInstance().stop();
     } else {

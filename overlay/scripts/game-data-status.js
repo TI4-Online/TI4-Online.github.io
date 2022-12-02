@@ -11,26 +11,36 @@ class GameDataStatus {
 
   constructor() {
     this._status = "unknown";
+    this._color = "gray";
     this._update();
 
     window.addEventListener("onGameDataStart", (event) => {
       this._status = "active";
+      this._color = "green";
       this._update();
     });
 
     window.addEventListener("onGameDataError", (event) => {
       this._status = event.detail;
+      this._color = "red";
       this._update();
     });
 
     window.addEventListener("onGameDataUpdate", (event) => {
       this._status = "active";
+      this._color = "green";
+      this._update();
+    });
+    window.addEventListener("onGameDataNotModified", (event) => {
+      this._status = "active";
+      this._color = "green";
       this._update();
     });
 
     window.addEventListener("onGameDataStop", (event) => {
       if (this._status === "active") {
         this._status = "stopped";
+        this._color = "gray";
       }
       this._update();
     });
@@ -46,8 +56,9 @@ class GameDataStatus {
     if (!this._div) {
       return;
     }
-    console.log(`GameDataStatus._update "${this._status}"`);
-    this._div.innerText = `Auto-refresh status:\n${this._status}`;
+    const localTime = new Date().toLocaleTimeString();
+    this._div.innerText = `Auto-refresh status:\n${this._status}\n${localTime}`;
+    this._div.style.color = this._color;
   }
 }
 
