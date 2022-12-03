@@ -126,6 +126,14 @@ class Leaderboard {
     cell.style.backgroundColor = bgColor;
   }
 
+  static fillSpeaker(cell) {
+    console.assert(typeof cell === "object");
+
+    const factionIconImg = cell.getElementsByClassName("faction-icon")[0];
+    console.assert(factionIconImg);
+    factionIconImg.src = `/overlay/images/tokens/speaker_square.jpg`;
+  }
+
   static fillAll(gameData) {
     console.assert(typeof gameData === "object");
 
@@ -158,6 +166,18 @@ class Leaderboard {
       Leaderboard.fillScore(cell, score, color);
       Leaderboard.fillStrategyCards(cell, strategyCards, color);
       Leaderboard.fillBackgroundColor(cell, isCurrentTurn, active);
+    });
+
+    const speakerColorName = GameDataUtil.parseSpeakerColorName(gameData);
+    cells.forEach((cell, index) => {
+      const playerData = playerDataArray[index];
+      console.assert(playerData);
+
+      const colorNameAndHex = GameDataUtil.parseColor(playerData);
+      console.log(`${colorNameAndHex.colorName} vs ${speakerColorName}`);
+      if (colorNameAndHex.colorName === speakerColorName) {
+        Leaderboard.fillSpeaker(cell);
+      }
     });
   }
 }

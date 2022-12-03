@@ -33,6 +33,12 @@ it("parseCurrentTurnColorName", () => {
   assert.equal(currentTurn, "white");
 });
 
+it("parseSpeakerColorName", () => {
+  const gameData = getGameData();
+  const speakerColorName = GameDataUtil.parseSpeakerColorName(gameData);
+  assert.equal(speakerColorName, "red");
+});
+
 it("parseColor", () => {
   const gameData = getGameData();
   const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);

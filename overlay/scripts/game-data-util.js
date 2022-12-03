@@ -102,6 +102,21 @@ class GameDataUtil {
   }
 
   /**
+   * Parse current speaker color name from overall game data.
+   *
+   * @param {Object.{speaker:string}} gameData
+   * @returns {string}
+   */
+  static parseSpeakerColorName(gameData) {
+    console.assert(typeof gameData === "object");
+
+    const speaker = gameData?.speaker?.toLowerCase() || "none";
+    console.assert(typeof speaker === "string");
+
+    return speaker;
+  }
+
+  /**
    * Parse color as hex value.
    *
    * @param {Object.{colorActual:string}} playerData

@@ -206,8 +206,15 @@ class GameDataRefresh {
 window.addEventListener("DOMContentLoaded", (window, event) => {
   const gameDataRefresh = GameDataRefresh.getInstance() // config here
     .setStopOnError(true)
-    .setVerbose(false)
-    .setDemoGameData(false);
+    .setVerbose(false);
+
+  const queryString = document.location.search;
+  console.log(`XXX ${queryString}`);
+  const urlParams = new URLSearchParams(queryString);
+  if (urlParams.get("demo") === "true") {
+    console.log("GameDataRefresh: using demo URL");
+    gameDataRefresh.setDemoGameData(true);
+  }
 
   // Start after a short delay, make sure other scripts have event
   // listeners set up, etc.
