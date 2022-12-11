@@ -1,3 +1,7 @@
+/**
+ * Fill the canvas id "game-data-heartbeat" with GameData heath graph.
+ * If the canvas has a (0,0) size, resize to match parent element.
+ */
 class GameDataHeartbeat {
   static getInstance() {
     if (!GameDataHeartbeat.__instance) {
@@ -10,18 +14,37 @@ class GameDataHeartbeat {
     this._canvas = undefined;
     this._history = [];
     this._historyWindowSeconds = 180;
-    this._updateSeconds = 1;
+    this._updateSeconds = 3;
 
+    this._status = "stopped";
+    this._statusColor = "gray";
+
+    window.addEventListener("onGameDataStart", (event) => {
+      this._status = "active";
+      this._statusColor = "green";
+      this._update();
+    });
     window.addEventListener("onGameDataUpdate", (event) => {
+      this._status = "active";
+      this._statusColor = "green";
       this._add(1);
       this._update();
     });
+    window.addEventListener("onGameDataNotModified", (event) => {
+      this._status = "active";
+      this._statusColor = "green";
+      this._add(0);
+      this._update();
+    });
     window.addEventListener("onGameDataError", (event) => {
+      this._status = event.detail;
+      this._statusColor = "red";
       this._add(-1);
       this._update();
     });
-    window.addEventListener("onGameDataNotModified", (event) => {
-      this._add(0);
+    window.addEventListener("onGameDataStop", (event) => {
+      this._status = "stopped";
+      this._statusColor = "gray";
       this._update();
     });
 
@@ -40,9 +63,11 @@ class GameDataHeartbeat {
   }
 
   setDiv(canvas) {
-    // Resize to fit parent.
-    canvas.width = canvas.parentNode.offsetWidth - 4;
-    canvas.height = canvas.parentNode.offsetHeight - 4;
+    // Resize to fit parent?
+    if (canvas.width === 0 && canvas.height === 0) {
+      canvas.width = canvas.parentNode.offsetWidth - 4;
+      canvas.height = canvas.parentNode.offsetHeight - 4;
+    }
 
     this._canvas = canvas;
     this._update();
@@ -85,10 +110,17 @@ class GameDataHeartbeat {
     const h = this._canvas.height;
     const now = Date.now() / 1000;
 
+    const labelWidth = 83;
+    const labelX = w - labelWidth;
+    const dataX = 4;
+    const dataWidth = labelX - dataX * 2;
+
     const statusToY = {
-      "-1": Math.floor((h * 3) / 5),
-      0: Math.floor((h * 2) / 5),
-      1: Math.floor(h / 5),
+      header: Math.floor(h / 6),
+      1: Math.floor((h * 2) / 6),
+      0: Math.floor((h * 3) / 6),
+      "-1": Math.floor((h * 4) / 6),
+      footer: Math.floor((h * 5) / 6),
     };
     const statusToColor = {
       "-1": "red",
@@ -99,49 +131,67 @@ class GameDataHeartbeat {
     // Clear.
     ctx.clearRect(0, 0, w, h);
 
-    // Labels.
-    const labelY = Math.floor((h * 4) / 5) + 4;
+    // Title.
     ctx.font = "bold 13px Arial, Helvetica, sans-serif";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    ctx.fillStyle = statusToColor[-1];
-    ctx.fillText("error", (w * 3) / 4, labelY);
-    ctx.fillStyle = statusToColor[0];
-    ctx.fillText("not-modified", w / 2, labelY);
-    ctx.fillStyle = statusToColor[1];
-    ctx.fillText("update", w / 4, labelY);
+    ctx.fillStyle = this._statusColor;
+    ctx.fillText(`Gamedata: ${this._status}`, w / 2, statusToY.header);
 
-    ctx.fillStyle = "white";
+    // Y axis labels.
+    ctx.font = "bold 13px Arial, Helvetica, sans-serif";
     ctx.textAlign = "left";
-    ctx.fillText("now", 4, labelY);
-    ctx.textAlign = "right";
-    ctx.fillText(`${this._historyWindowSeconds / 60} min`, w - 4, labelY);
+    ctx.textBaseline = "middle";
+    ctx.fillStyle = statusToColor[-1];
+    ctx.fillText("error", labelX, statusToY[-1]);
+    ctx.fillStyle = statusToColor[0];
+    ctx.fillText("not-modified", labelX, statusToY[0]);
+    ctx.fillStyle = statusToColor[1];
+    ctx.fillText("update", labelX, statusToY[1]);
 
-    // Draw a background line.
+    // X axis labels (track minutes).
+    ctx.fillStyle = "white";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    const dSeconds = new Date(now * 1000).getSeconds();
+    for (let i = -1; i <= this._historyWindowSeconds / 60; i++) {
+      const timestamp = now - dSeconds - i * 60;
+      const u = 1 - (now - timestamp) / this._historyWindowSeconds;
+      if (u > 1.05) {
+        continue; // draw text a little off to the right, but not TOO much
+      }
+      const date = new Date(Math.floor(timestamp * 1000));
+      const str = date.toTimeString().substring(0, 5);
+      const x = dataX + u * dataWidth;
+      const y = statusToY.footer;
+      ctx.fillText(str, x, y);
+    }
+
+    // Draw a background line tracking points.
     ctx.lineWidth = 1;
     ctx.strokeStyle = "gray";
     ctx.beginPath();
     let lastY = undefined;
     for (const entry of this._history) {
-      const age = now - entry.timestamp;
-      const x = Math.floor((age * w) / this._historyWindowSeconds);
+      const u = 1 - (now - entry.timestamp) / this._historyWindowSeconds;
+      const x = dataX + u * dataWidth;
       const y = statusToY[entry.status];
       if (lastY === undefined) {
-        ctx.moveTo(w, y);
-        lastY = y;
+        ctx.moveTo(dataX + dataWidth, y);
       }
       ctx.lineTo(x, y);
+      lastY = y;
     }
     if (lastY !== undefined) {
-      ctx.lineTo(0, lastY);
+      ctx.lineTo(dataX, lastY);
     }
     ctx.stroke();
 
     // Draw status colors.
     const r = 2;
     for (const entry of this._history) {
-      const age = now - entry.timestamp;
-      const x = Math.floor((age * w) / this._historyWindowSeconds);
+      const u = 1 - (now - entry.timestamp) / this._historyWindowSeconds;
+      const x = dataX + u * dataWidth;
       const y = statusToY[entry.status];
 
       ctx.fillStyle = statusToColor[entry.status];
