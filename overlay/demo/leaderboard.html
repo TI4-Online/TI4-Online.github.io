@@ -5,19 +5,17 @@
     <link rel="stylesheet" href="/overlay/css/leaderboard.css" />
     <link rel="stylesheet" href="/overlay/css/game-data-refresh.css" />
     <script src="/overlay/scripts/game-data-heartbeat.js"></script>
-    <script src="/overlay/scripts/game-data-refresh.js"></script>
-    <script src="/overlay/scripts/game-data-status.js"></script>
-    <script src="/overlay/scripts/game-data-toggle-button.js"></script>
     <script src="/overlay/scripts/game-data-util.js"></script>
     <script src="/overlay/scripts/leaderboard.js"></script>
+
+    <!-- load last so others can register listeners -->
+    <script src="/overlay/scripts/game-data-refresh.js"></script>
   </head>
   <body>
-    <table id="game-data-refresh-table">
+    <table>
       <tr>
-        <td><button type="button" id="game-data-toggle-button"></button></td>
-        <td><div id="game-data-status"></div></td>
         <td>
-          <canvas width="0" height="0" id="game-data-heartbeat"></canvas>
+          <canvas width="400" height="75" id="game-data-heartbeat"></canvas>
         </td>
       </tr>
     </table>
