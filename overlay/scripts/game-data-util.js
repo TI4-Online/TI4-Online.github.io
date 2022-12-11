@@ -52,7 +52,7 @@ class GameDataUtil {
    * @param {string} string
    * @returns {string}
    */
-  static escapeForHTML(string) {
+  static _escapeForHTML(string) {
     console.assert(typeof string === "string");
     const div = document.createElement("div");
     div.innerText = string;
@@ -60,60 +60,20 @@ class GameDataUtil {
   }
 
   /**
-   * Extract the player data array, in clockwise player order from lower right.
+   * Parse active (not passed).
    *
-   * @param {Object.{playerData.Array.{Object}}} gameData
-   * @returns {Array.{Object}}
+   * @param {Object.{active:boolean}} playerData
+   * @returns {boolean}
    */
-  static parsePlayerDataArray(gameData) {
-    let playerDataArray = gameData?.players;
+  static parseActive(playerData) {
+    console.assert(typeof playerData === "object");
 
-    // If called without gamedata, provide the default 6-player minimal array.
-    if (!playerDataArray) {
-      playerDataArray = [
-        "white",
-        "blue",
-        "purple",
-        "yellow",
-        "red",
-        "green",
-      ].map((color) => {
-        return { colorActual: color };
-      });
+    let active = playerData?.active;
+    if (active === undefined) {
+      active = true;
     }
-
-    console.assert(Array.isArray(playerDataArray));
-    return playerDataArray;
-  }
-
-  /**
-   * Parse current turn color name from overall game data.
-   *
-   * @param {Object.{turn:string}} gameData
-   * @returns {string}
-   */
-  static parseCurrentTurnColorName(gameData) {
-    console.assert(typeof gameData === "object");
-
-    const currentTurn = gameData?.turn?.toLowerCase() || "none";
-    console.assert(typeof currentTurn === "string");
-
-    return COLOR_NAME_TO_HEX[currentTurn] ? currentTurn : UNKNOWN_COLOR_NAME;
-  }
-
-  /**
-   * Parse current speaker color name from overall game data.
-   *
-   * @param {Object.{speaker:string}} gameData
-   * @returns {string}
-   */
-  static parseSpeakerColorName(gameData) {
-    console.assert(typeof gameData === "object");
-
-    const speaker = gameData?.speaker?.toLowerCase() || "none";
-    console.assert(typeof speaker === "string");
-
-    return speaker;
+    console.assert(typeof active === "boolean");
+    return active;
   }
 
   /**
@@ -138,6 +98,21 @@ class GameDataUtil {
   }
 
   /**
+   * Parse current turn color name from overall game data.
+   *
+   * @param {Object.{turn:string}} gameData
+   * @returns {string}
+   */
+  static parseCurrentTurnColorName(gameData) {
+    console.assert(typeof gameData === "object");
+
+    const currentTurn = gameData?.turn?.toLowerCase() || "none";
+    console.assert(typeof currentTurn === "string");
+
+    return COLOR_NAME_TO_HEX[currentTurn] ? currentTurn : UNKNOWN_COLOR_NAME;
+  }
+
+  /**
    * Parse faction name.
    *
    * @param {Object.{factionShort:string}} playerData
@@ -155,77 +130,6 @@ class GameDataUtil {
     }
 
     return FACTION_WHITELIST.has(faction) ? faction : UNKNOWN_FACTION;
-  }
-
-  /**
-   * Parse player name.
-   *
-   * @param {Object.{steamName:string}} playerData
-   * @returns {string}
-   */
-  static parsePlayerName(playerData) {
-    console.assert(typeof playerData === "object");
-
-    const playerName = playerData?.steamName || "-";
-    console.assert(typeof playerName === "string");
-
-    return GameDataUtil.escapeForHTML(playerName);
-  }
-
-  /**
-   * Parse score.
-   *
-   * @param {Object.{score:number}} playerData
-   * @returns {number}
-   */
-  static parseScore(playerData) {
-    console.assert(typeof playerData === "object");
-
-    let score = playerData?.score || 0;
-    console.assert(typeof score === "number");
-
-    return score;
-  }
-
-  /**
-   * Parse active (not passed).
-   *
-   * @param {Object.{active:boolean}} playerData
-   * @returns {boolean}
-   */
-  static parseActive(playerData) {
-    console.assert(typeof playerData === "object");
-
-    let active = playerData?.active;
-    if (active === undefined) {
-      active = true;
-    }
-    console.assert(typeof active === "boolean");
-    return active;
-  }
-
-  /**
-   * Parse strategy cards with face-up/down status.
-   *
-   * @param {Object.{strategyCards:Array.{string},strategyCardsFaceDown:Array.{string}}} playerData
-   * @returns {Array.{Object.{name:string,faceDown:boolean}}}
-   */
-  static parseStrategyCards(playerData) {
-    console.assert(typeof playerData === "object");
-
-    let strategyCards = playerData?.strategyCards || [];
-    console.assert(Array.isArray(strategyCards));
-    strategyCards = strategyCards.map((name) =>
-      GameDataUtil.escapeForHTML(name)
-    );
-
-    let faceDown = playerData?.strategyCardsFaceDown || [];
-    console.assert(Array.isArray(faceDown));
-    faceDown = faceDown.map((name) => GameDataUtil.escapeForHTML(name));
-
-    return strategyCards.map((name) => {
-      return { name, faceDown: faceDown.includes(name) };
-    });
   }
 
   /**
@@ -252,7 +156,7 @@ class GameDataUtil {
       console.assert(typeof name === "string");
       console.assert(Array.isArray(addToList));
       const entry = {
-        name: GameDataUtil.escapeForHTML(name),
+        name: GameDataUtil._escapeForHTML(name),
         scoredBy: [],
       };
       nameToEntry[name] = entry;
@@ -310,6 +214,102 @@ class GameDataUtil {
     }
 
     return objectives;
+  }
+
+  /**
+   * Extract the player data array, in clockwise player order from lower right.
+   *
+   * @param {Object.{playerData.Array.{Object}}} gameData
+   * @returns {Array.{Object}}
+   */
+  static parsePlayerDataArray(gameData) {
+    let playerDataArray = gameData?.players;
+
+    // If called without gamedata, provide the default 6-player minimal array.
+    if (!playerDataArray) {
+      playerDataArray = [
+        "white",
+        "blue",
+        "purple",
+        "yellow",
+        "red",
+        "green",
+      ].map((color) => {
+        return { colorActual: color };
+      });
+    }
+
+    console.assert(Array.isArray(playerDataArray));
+    return playerDataArray;
+  }
+
+  /**
+   * Parse player name.
+   *
+   * @param {Object.{steamName:string}} playerData
+   * @returns {string}
+   */
+  static parsePlayerName(playerData) {
+    console.assert(typeof playerData === "object");
+
+    const playerName = playerData?.steamName || "-";
+    console.assert(typeof playerName === "string");
+
+    return GameDataUtil._escapeForHTML(playerName);
+  }
+
+  /**
+   * Parse score.
+   *
+   * @param {Object.{score:number}} playerData
+   * @returns {number}
+   */
+  static parseScore(playerData) {
+    console.assert(typeof playerData === "object");
+
+    let score = playerData?.score || 0;
+    console.assert(typeof score === "number");
+
+    return score;
+  }
+
+  /**
+   * Parse current speaker color name from overall game data.
+   *
+   * @param {Object.{speaker:string}} gameData
+   * @returns {string}
+   */
+  static parseSpeakerColorName(gameData) {
+    console.assert(typeof gameData === "object");
+
+    const speaker = gameData?.speaker?.toLowerCase() || "none";
+    console.assert(typeof speaker === "string");
+
+    return speaker;
+  }
+
+  /**
+   * Parse strategy cards with face-up/down status.
+   *
+   * @param {Object.{strategyCards:Array.{string},strategyCardsFaceDown:Array.{string}}} playerData
+   * @returns {Array.{Object.{name:string,faceDown:boolean}}}
+   */
+  static parseStrategyCards(playerData) {
+    console.assert(typeof playerData === "object");
+
+    let strategyCards = playerData?.strategyCards || [];
+    console.assert(Array.isArray(strategyCards));
+    strategyCards = strategyCards.map((name) =>
+      GameDataUtil._escapeForHTML(name)
+    );
+
+    let faceDown = playerData?.strategyCardsFaceDown || [];
+    console.assert(Array.isArray(faceDown));
+    faceDown = faceDown.map((name) => GameDataUtil._escapeForHTML(name));
+
+    return strategyCards.map((name) => {
+      return { name, faceDown: faceDown.includes(name) };
+    });
   }
 }
 

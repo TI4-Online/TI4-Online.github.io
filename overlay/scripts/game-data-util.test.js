@@ -5,7 +5,7 @@ const path = require("path");
 const { GameDataUtil } = require("./game-data-util");
 
 // The escape function relies on browser features.
-GameDataUtil.escapeForHTML = (string) => {
+GameDataUtil._escapeForHTML = (string) => {
   return string;
 };
 
@@ -20,23 +20,11 @@ it("getGameData", () => {
   assert.equal(gameData.timestamp, 1614604996);
 });
 
-it("parsePlayerDataArray", () => {
+it("parseActive", () => {
   const gameData = getGameData();
   const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
-  assert.equal(playerDataArray.length, 6);
-  assert.equal(playerDataArray[0].score, 4);
-});
-
-it("parseCurrentTurnColorName", () => {
-  const gameData = getGameData();
-  const currentTurn = GameDataUtil.parseCurrentTurnColorName(gameData);
-  assert.equal(currentTurn, "white");
-});
-
-it("parseSpeakerColorName", () => {
-  const gameData = getGameData();
-  const speakerColorName = GameDataUtil.parseSpeakerColorName(gameData);
-  assert.equal(speakerColorName, "red");
+  const active = GameDataUtil.parseActive(playerDataArray[0]);
+  assert.equal(active, true);
 });
 
 it("parseColor", () => {
@@ -46,39 +34,17 @@ it("parseColor", () => {
   assert.equal(color.colorName, "white");
 });
 
+it("parseCurrentTurnColorName", () => {
+  const gameData = getGameData();
+  const currentTurn = GameDataUtil.parseCurrentTurnColorName(gameData);
+  assert.equal(currentTurn, "white");
+});
+
 it("parseFaction", () => {
   const gameData = getGameData();
   const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
   const faction = GameDataUtil.parseFaction(playerDataArray[0]);
   assert.equal(faction, "ul");
-});
-
-it("parsePlayerName", () => {
-  const gameData = getGameData();
-  const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
-  const playerName = GameDataUtil.parsePlayerName(playerDataArray[0]);
-  assert.equal(playerName, "hello is my name");
-});
-
-it("parseScore", () => {
-  const gameData = getGameData();
-  const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
-  const score = GameDataUtil.parseScore(playerDataArray[0]);
-  assert.equal(score, 4);
-});
-
-it("parseActive", () => {
-  const gameData = getGameData();
-  const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
-  const active = GameDataUtil.parseActive(playerDataArray[0]);
-  assert.equal(active, true);
-});
-
-it("parseStrategyCards", () => {
-  const gameData = getGameData();
-  const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
-  const strategyCards = GameDataUtil.parseStrategyCards(playerDataArray[0]);
-  assert.deepEqual(strategyCards, [{ faceDown: false, name: "Leadership" }]);
 });
 
 it("parseObjectives", () => {
@@ -133,4 +99,38 @@ it("parseObjectives", () => {
     ],
     stage2: [{ name: "Reclaim Ancient Monuments", scoredBy: ["yellow"] }],
   });
+});
+
+it("parsePlayerDataArray", () => {
+  const gameData = getGameData();
+  const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
+  assert.equal(playerDataArray.length, 6);
+  assert.equal(playerDataArray[0].score, 4);
+});
+
+it("parsePlayerName", () => {
+  const gameData = getGameData();
+  const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
+  const playerName = GameDataUtil.parsePlayerName(playerDataArray[0]);
+  assert.equal(playerName, "hello is my name");
+});
+
+it("parseScore", () => {
+  const gameData = getGameData();
+  const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
+  const score = GameDataUtil.parseScore(playerDataArray[0]);
+  assert.equal(score, 4);
+});
+
+it("parseSpeakerColorName", () => {
+  const gameData = getGameData();
+  const speakerColorName = GameDataUtil.parseSpeakerColorName(gameData);
+  assert.equal(speakerColorName, "red");
+});
+
+it("parseStrategyCards", () => {
+  const gameData = getGameData();
+  const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
+  const strategyCards = GameDataUtil.parseStrategyCards(playerDataArray[0]);
+  assert.deepEqual(strategyCards, [{ faceDown: false, name: "Leadership" }]);
 });
