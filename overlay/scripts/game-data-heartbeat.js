@@ -177,13 +177,13 @@ class GameDataHeartbeat {
       const x = dataX + u * dataWidth;
       const y = statusToY[entry.status];
       if (lastY === undefined) {
-        ctx.moveTo(dataX + dataWidth, y);
+        ctx.moveTo(dataX, y);
       }
       ctx.lineTo(x, y);
       lastY = y;
     }
     if (lastY !== undefined) {
-      ctx.lineTo(dataX, lastY);
+      ctx.lineTo(dataX + dataWidth, lastY);
     }
     ctx.stroke();
 
