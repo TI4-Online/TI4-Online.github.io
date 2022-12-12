@@ -259,6 +259,21 @@ class GameDataUtil {
   }
 
   /**
+   * Parse game round.
+   *
+   * @param {Object.{round:number}} gameData
+   * @returns {number}
+   */
+  static parseRound(playerData) {
+    console.assert(typeof playerData === "object");
+
+    const round = playerData?.round || 1;
+    console.assert(typeof round === "number");
+
+    return round;
+  }
+
+  /**
    * Parse score.
    *
    * @param {Object.{score:number}} playerData

@@ -1,3 +1,5 @@
+// jest overlay/scripts/game-data-util.test.js
+
 const assert = require("assert");
 const fs = require("fs");
 const path = require("path");
@@ -113,6 +115,12 @@ it("parsePlayerName", () => {
   const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
   const playerName = GameDataUtil.parsePlayerName(playerDataArray[0]);
   assert.equal(playerName, "hello is my name");
+});
+
+it("parseRound", () => {
+  const gameData = getGameData();
+  const round = GameDataUtil.parseRound(gameData);
+  assert.equal(round, 5);
 });
 
 it("parseScore", () => {
