@@ -62,7 +62,7 @@ class Leaderboard {
 
     const factionIconImg = cell.getElementsByClassName("faction-icon")[0];
     console.assert(factionIconImg);
-    factionIconImg.src = `/overlay/images/faction-icons/${faction}_icon.png`;
+    factionIconImg.src = ImageUtil.getSrc(`faction-icons/${faction}_icon.png`);
 
     const factionNameDiv = cell.getElementsByClassName("faction-name")[0];
     console.assert(factionNameDiv);
@@ -131,7 +131,7 @@ class Leaderboard {
 
     const factionIconImg = cell.getElementsByClassName("faction-icon")[0];
     console.assert(factionIconImg);
-    factionIconImg.src = `/overlay/images/tokens/speaker_square.jpg`;
+    factionIconImg.src = ImageUtil.getSrc(`tokens/speaker_square.png`);
   }
 
   static fillAll(gameData) {
