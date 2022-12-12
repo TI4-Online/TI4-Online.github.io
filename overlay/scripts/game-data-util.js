@@ -125,6 +125,8 @@ class GameDataUtil {
     console.assert(typeof faction === "string");
 
     faction = faction.replace("-", ""); // naaz-rokha
+    faction = faction.replace("'", ""); // vuil'raith, n'orr
+
     if (faction.startsWith("keleres")) {
       faction = "keleres"; // strip off flavor
     }
