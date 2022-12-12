@@ -1,0 +1,16 @@
+body {
+  background-color: #061738;
+}
+
+iframe {
+  border: none;
+}
+
+.leaderboard-frame {
+  width: 1200px;
+  height: 150px;
+}
+
+.standard-border {
+  border: 1px solid yellow;
+}

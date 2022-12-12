@@ -1,38 +1,6 @@
 /* Provide a "console" with toggle button to start/stop refresh, status reporting */
 
-#game-data-refresh-table {
-  width: 1200px;
-  height: 75px;
-  table-layout: fixed;
-  border-collapse: collapse;
-  background-color: black;
-}
-
-#game-data-refresh-table td {
-  border: 1px solid yellow;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
-}
-
-#game-data-toggle-button {
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  font-size: 16px;
-  border: none;
-  background-color: black;
-  color: white;
-}
-
-#game-data-status {
-  display: inline-block;
-  width: 100%;
-  height: auto; /* center vertically */
-  font-size: 14px;
-  color: white;
-  text-align: center;
-}
-
 #game-data-heartbeat {
   display: block; /* must be block otherwise gets space below */
+  border: 1px solid yellow;
 }
