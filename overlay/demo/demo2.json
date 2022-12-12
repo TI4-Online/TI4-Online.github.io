@@ -1,0 +1,462 @@
+{
+    "crc": 3994425052,
+    "extra": {
+        "MiltyDraft": true,
+        "MiltyDraftData": {
+            "pickedSlices": [
+                "65,47,59,40,36",
+                "45,75,24,64,50",
+                "35,78,42,26,72",
+                "31,37,49,25,41",
+                "27,23,48,79,62",
+                "30,63,46,67,61"
+            ],
+            "unpickedFactions": [
+                "Yssaril Tribes",
+                "Sardakk N'orr",
+                "Naaz-Rokha Alliance",
+                "L1Z1X Mindnet",
+                "Universities of Jol-Nar",
+                "Nekro Virus",
+                "Embers of Muaat",
+                "Ghosts of Creuss"
+            ]
+        }
+    },
+    "hexSummary": "3+3+3Gdy2f;Gs4i,7+0+6Rdi3f1t;Rimps,14+0-6;Bimps;,16-3+3Y3f;Yo;Yis;Yo,18+0+0RtWcdh3f1t;W2m3i,23+0+4Rcf;Rmp,24-3+1;Yo,25+2+0;Gi;,26-1-3;Bm;,27+1+5;Ri*i;Ro,30-3-1Yf2d1t;Yi;Pi,31+3+1Wd;Wi;Gi,35-1-5;Bis*W;Bi,36+1-1Wcf*h;Wo;Ws3i,37+2+2BtPtRtWtYt;Go;Gi,40+1-3Brt;,41+1+1Gy*n,42+1-5Br,45-2+4*e,46-2-4Bcf,47+2-2,48-1+5,49+2+4Gc2f1t,50-1+1*e,54+3-3Wi*h;Ws2i,58-3-3Pf2d;Pimps;P2i;P2i,59+3-1Wd;Wi,61-1-1Py;Pi,62+0+2Rd;Rmp,63-2-2Pyt;Pi,64-1+3Ycfr;Yi;,65+2-4Wd;Wp3i,67-2+0Pcft;Po,72+0-2Bcf;Bm;Bim,75-2+2;Yo*d;Yo*z;Yo,78+0-4*e,79+1+3*e;,82+5-1;;",
+    "isFranken": false,
+    "isPoK": true,
+    "laws": [
+        "Committee Formation"
+    ],
+    "mapString": "",
+    "objectives": {
+        "OTHER": [
+            "Support for the Throne (Yellow)"
+        ],
+        "Public Objectives I": [
+            "Lead From the Front",
+            "Sway the Council",
+            "Populate the Outer Rim",
+            "Engineer a Marvel"
+        ],
+        "Relics": [
+            "Shard of the Throne"
+        ],
+        "Secret Objectives": [
+            "Seize an Icon",
+            "Occupy the Seat of the Empire",
+            "Threaten Enemies",
+            "Mechanize the Military",
+            "Unveil Flagship"
+        ],
+        "offBoardPublicObjectives": []
+    },
+    "players": [
+        {
+            "active": true,
+            "alliances": [],
+            "color": "White",
+            "commandTokens": {
+                "fleet": 4,
+                "strategy": 1,
+                "tactics": 4
+            },
+            "commodities": 0,
+            "custodiansPoints": 0,
+            "factionName": "Vuil'raith Cabal",
+            "factionShort": "Vuil'raith",
+            "handSummary": {
+                "Actions": 5,
+                "Promissory": 7
+            },
+            "laws": [],
+            "leaders": {
+                "commander": "locked",
+                "hero": "locked"
+            },
+            "objectives": [
+                "Populate the Outer Rim",
+                "Seize an Icon",
+                "Unveil Flagship"
+            ],
+            "planetTotals": {
+                "influence": {
+                    "avail": 2,
+                    "total": 13
+                },
+                "legendary": 1,
+                "resources": {
+                    "avail": 9,
+                    "total": 12
+                },
+                "techs": {
+                    "blue": 1,
+                    "green": 0,
+                    "red": 0,
+                    "yellow": 1
+                },
+                "traits": {
+                    "cultural": 1,
+                    "hazardous": 1,
+                    "industrial": 3
+                }
+            },
+            "score": 2,
+            "steamName": "The Humble Checkmate",
+            "strategyCards": [
+                "Politics"
+            ],
+            "strategyCardsFaceDown": [
+                "Politics"
+            ],
+            "technologies": [
+                "Self Assembly Routines",
+                "Vortex",
+                "Duranium Armor"
+            ],
+            "tradeGoods": 7
+        },
+        {
+            "active": true,
+            "alliances": [
+                "Purple"
+            ],
+            "color": "Blue",
+            "commandTokens": {
+                "fleet": 4,
+                "strategy": 2,
+                "tactics": 5
+            },
+            "commodities": 0,
+            "custodiansPoints": 0,
+            "factionName": "Xxcha Kingdom",
+            "factionShort": "Xxcha",
+            "handSummary": {
+                "Actions": 7,
+                "Secret Objectives": 2
+            },
+            "laws": [
+                "Committee Formation"
+            ],
+            "leaders": {
+                "commander": "unlocked",
+                "hero": "purged"
+            },
+            "objectives": [
+                "Sway the Council",
+                "Populate the Outer Rim",
+                "Mechanize the Military"
+            ],
+            "planetTotals": {
+                "influence": {
+                    "avail": 7,
+                    "total": 12
+                },
+                "legendary": 0,
+                "resources": {
+                    "avail": 7,
+                    "total": 15
+                },
+                "techs": {
+                    "blue": 0,
+                    "green": 0,
+                    "red": 2,
+                    "yellow": 0
+                },
+                "traits": {
+                    "cultural": 1,
+                    "hazardous": 2,
+                    "industrial": 2
+                }
+            },
+            "score": 3,
+            "steamName": "micmacmoose",
+            "strategyCards": [
+                "Imperial"
+            ],
+            "strategyCardsFaceDown": [],
+            "technologies": [
+                "Graviton Laser System",
+                "Dark Energy Tap",
+                "Gravity Drive",
+                "Plasma Scoring",
+                "War Sun"
+            ],
+            "tradeGoods": 11
+        },
+        {
+            "active": true,
+            "alliances": [
+                "Blue"
+            ],
+            "color": "Purple",
+            "commandTokens": {
+                "fleet": 3,
+                "strategy": 0,
+                "tactics": 2
+            },
+            "commodities": 0,
+            "custodiansPoints": 0,
+            "factionName": "Argent Flight",
+            "factionShort": "Argent",
+            "handSummary": {
+                "Actions": 5,
+                "Promissory": 5,
+                "Secret Objectives": 2
+            },
+            "laws": [],
+            "leaders": {
+                "commander": "unlocked",
+                "hero": "unlocked"
+            },
+            "objectives": [
+                "Lead From the Front",
+                "Sway the Council",
+                "Support for the Throne (Yellow)",
+                "Populate the Outer Rim",
+                "Threaten Enemies"
+            ],
+            "planetTotals": {
+                "influence": {
+                    "avail": 1,
+                    "total": 8
+                },
+                "legendary": 0,
+                "resources": {
+                    "avail": 5,
+                    "total": 10
+                },
+                "techs": {
+                    "blue": 0,
+                    "green": 1,
+                    "red": 1,
+                    "yellow": 0
+                },
+                "traits": {
+                    "cultural": 2,
+                    "hazardous": 2,
+                    "industrial": 1
+                }
+            },
+            "score": 5,
+            "steamName": "Wolphin",
+            "strategyCards": [
+                "Leadership"
+            ],
+            "strategyCardsFaceDown": [
+                "Leadership"
+            ],
+            "technologies": [
+                "Sarween Tools",
+                "Plasma Scoring",
+                "AI Development Algorithm",
+                "War Sun"
+            ],
+            "tradeGoods": 3
+        },
+        {
+            "active": true,
+            "alliances": [],
+            "color": "Yellow",
+            "commandTokens": {
+                "fleet": 3,
+                "strategy": 1,
+                "tactics": 5
+            },
+            "commodities": 0,
+            "custodiansPoints": 0,
+            "factionName": "Emirates of Hacan",
+            "factionShort": "Hacan",
+            "handSummary": {
+                "Actions": 1,
+                "Promissory": 3,
+                "Secret Objectives": 3
+            },
+            "laws": [],
+            "leaders": {
+                "commander": "unlocked",
+                "hero": "locked"
+            },
+            "objectives": [
+                "Sway the Council",
+                "Occupy the Seat of the Empire"
+            ],
+            "planetTotals": {
+                "influence": {
+                    "avail": 5,
+                    "total": 9
+                },
+                "legendary": 0,
+                "resources": {
+                    "avail": 12,
+                    "total": 13
+                },
+                "techs": {
+                    "blue": 0,
+                    "green": 0,
+                    "red": 1,
+                    "yellow": 0
+                },
+                "traits": {
+                    "cultural": 2,
+                    "hazardous": 3,
+                    "industrial": 0
+                }
+            },
+            "score": 2,
+            "steamName": "Alvi",
+            "strategyCards": [
+                "Technology"
+            ],
+            "strategyCardsFaceDown": [
+                "Technology"
+            ],
+            "technologies": [
+                "Antimass Deflectors",
+                "Sarween Tools",
+                "Gravity Drive",
+                "Dreadnought II",
+                "Predictive Intelligence",
+                "Transit Diodes"
+            ],
+            "tradeGoods": 2
+        },
+        {
+            "active": true,
+            "alliances": [],
+            "color": "Red",
+            "commandTokens": {
+                "fleet": 3,
+                "strategy": 1,
+                "tactics": 1
+            },
+            "commodities": 0,
+            "custodiansPoints": 0,
+            "factionName": "Winnu",
+            "factionShort": "Winnu",
+            "handSummary": {
+                "Actions": 5,
+                "Promissory": 5,
+                "Secret Objectives": 3
+            },
+            "laws": [],
+            "leaders": {
+                "commander": "unlocked",
+                "hero": "locked"
+            },
+            "objectives": [
+                "Populate the Outer Rim",
+                "Shard of the Throne"
+            ],
+            "planetTotals": {
+                "influence": {
+                    "avail": 7,
+                    "total": 11
+                },
+                "legendary": 0,
+                "resources": {
+                    "avail": 9,
+                    "total": 13
+                },
+                "techs": {
+                    "blue": 0,
+                    "green": 1,
+                    "red": 0,
+                    "yellow": 1
+                },
+                "traits": {
+                    "cultural": 1,
+                    "hazardous": 1,
+                    "industrial": 2
+                }
+            },
+            "score": 2,
+            "steamName": "the_mantis",
+            "strategyCards": [
+                "Trade"
+            ],
+            "strategyCardsFaceDown": [
+                "Trade"
+            ],
+            "technologies": [
+                "Dark Energy Tap",
+                "Gravity Drive",
+                "Sarween Tools",
+                "Dreadnought II"
+            ],
+            "tradeGoods": 10
+        },
+        {
+            "active": true,
+            "alliances": [],
+            "color": "Green",
+            "commandTokens": {
+                "fleet": 3,
+                "strategy": 1,
+                "tactics": 3
+            },
+            "commodities": 0,
+            "custodiansPoints": 1,
+            "factionName": "Yin Brotherhood",
+            "factionShort": "Yin",
+            "handSummary": {
+                "Actions": 5,
+                "Promissory": 6,
+                "Secret Objectives": 3
+            },
+            "laws": [],
+            "leaders": {
+                "commander": "purged",
+                "hero": "purged"
+            },
+            "objectives": [
+                "Lead From the Front",
+                "Sway the Council"
+            ],
+            "planetTotals": {
+                "influence": {
+                    "avail": 8,
+                    "total": 12
+                },
+                "legendary": 0,
+                "resources": {
+                    "avail": 9,
+                    "total": 9
+                },
+                "techs": {
+                    "blue": 0,
+                    "green": 0,
+                    "red": 1,
+                    "yellow": 0
+                },
+                "traits": {
+                    "cultural": 1,
+                    "hazardous": 2,
+                    "industrial": 1
+                }
+            },
+            "score": 3,
+            "steamName": "Deshuga",
+            "strategyCards": [
+                "Diplomacy"
+            ],
+            "strategyCardsFaceDown": [
+                "Diplomacy"
+            ],
+            "technologies": [
+                "Sarween Tools",
+                "Gravity Drive",
+                "Dark Energy Tap",
+                "Dreadnought II"
+            ],
+            "tradeGoods": 7
+        }
+    ],
+    "round": 3,
+    "scoreboard": 10,
+    "setupTimestamp": 1670074353.102,
+    "speaker": "Green",
+    "timestamp": 1670088961,
+    "turn": "Red"
+}
