@@ -18,7 +18,8 @@ class Leaderboard {
     this._playerCells = [];
 
     new BroadcastChannel("onGameDataEvent").onmessage = (event) => {
-      if (event.data.type === "UPDATE") {
+      console.log(`LEADERBOARD`);
+      if (event.data.type === "UPDATE" || event.data.type === "NOT_MODIFIED") {
         this.fillAll(event.data.detail);
       }
     };
@@ -33,6 +34,10 @@ class Leaderboard {
    */
   getLeaderboardCells(playerCount) {
     console.assert(typeof playerCount === "number");
+
+    if (this._playerCells.length === playerCount) {
+      return this._playerCells;
+    }
 
     const upper = [
       document.getElementById("leaderboard-0-0"),
@@ -66,6 +71,8 @@ class Leaderboard {
     hide.forEach((cell) => {
       cell.style.display = "none";
     });
+
+    this._playerCells = result;
 
     return result;
   }

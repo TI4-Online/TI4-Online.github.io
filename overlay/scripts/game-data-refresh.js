@@ -34,6 +34,7 @@ class GameDataRefresh {
     this._demo = false;
 
     this._broadcastChannel = new BroadcastChannel("onGameDataEvent");
+    this._lastJson = undefined;
 
     // Handlers for class functions.
     this._processResponseHandler = (v) => {
@@ -128,6 +129,7 @@ class GameDataRefresh {
     if (response.status === 304) {
       this._broadcastChannel.postMessage({
         type: "NOT_MODIFIED",
+        detail: this._lastJson,
       });
       return; // not modified
     }
@@ -158,6 +160,7 @@ class GameDataRefresh {
       this.debugLog("processRespone last modified unchanged");
       this._broadcastChannel.postMessage({
         type: "NOT_MODIFIED",
+        detail: this._lastJson,
       });
       return;
     }
@@ -166,6 +169,7 @@ class GameDataRefresh {
     // Report update to listeners via a custom event. The event extra data
     // MUST be stored using the reserved key 'detail'.
     response.json().then((json) => {
+      this._lastJson = json;
       this._broadcastChannel.postMessage({
         type: "UPDATE",
         detail: json,
@@ -213,16 +217,19 @@ class GameDataRefresh {
   }
 }
 
-window.addEventListener("DOMContentLoaded", (window, event) => {
-  const queryString = document.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  const useDemoData = urlParams.get("demo") === "true";
-  const stopOnError = urlParams.get("stop") === "true";
-  const verbose = urlParams.get("verbose") === "true";
+// Only run in the top-most window.  Allows iframe content to pop-out.
+if (window.self === window.top) {
+  window.addEventListener("DOMContentLoaded", (window, event) => {
+    const queryString = document.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const useDemoData = urlParams.get("demo") === "true";
+    const stopOnError = urlParams.get("stop") === "true";
+    const verbose = urlParams.get("verbose") === "true";
 
-  GameDataRefresh.getInstance()
-    .setStopOnError(stopOnError)
-    .setVerbose(verbose)
-    .setDemoGameData(useDemoData)
-    .start();
-});
+    GameDataRefresh.getInstance()
+      .setStopOnError(stopOnError)
+      .setVerbose(verbose)
+      .setDemoGameData(useDemoData)
+      .start();
+  });
+}
