@@ -1,12 +1,29 @@
-const PASSED_BACKGROUND_COLOR = "#414042";
-const ACTIVE_TURN_BACKGROUND_COLOR = "#193a7d";
-
 function capitalizeFirstLetter(string) {
   console.assert(typeof string === "string");
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 class Leaderboard {
+  static getInstance() {
+    if (!Leaderboard.__instance) {
+      Leaderboard.__instance = new Leaderboard();
+    }
+    return Leaderboard.__instance;
+  }
+
+  constructor() {
+    this._passedBgColor = "#414042";
+    this._activeTurnBgColor = "#193a7d";
+
+    this._playerCells = [];
+
+    new BroadcastChannel("onGameDataEvent").onmessage = (event) => {
+      if (event.data.type === "UPDATE") {
+        this.fillAll(event.data.detail);
+      }
+    };
+  }
+
   /**
    * Return an array of table cells for the given player count.
    * Mark the cells visibile, hide any extra.
@@ -14,7 +31,7 @@ class Leaderboard {
    * @param {number} playerCount
    * @return {Array.{object}}
    */
-  static getLeaderboardCells(playerCount) {
+  getLeaderboardCells(playerCount) {
     console.assert(typeof playerCount === "number");
 
     const upper = [
@@ -53,7 +70,7 @@ class Leaderboard {
     return result;
   }
 
-  static fillFaction(cell, faction, color) {
+  fillFaction(cell, faction, color) {
     console.assert(typeof cell === "object");
     console.assert(typeof faction === "string");
     console.assert(typeof color === "string");
@@ -70,7 +87,7 @@ class Leaderboard {
     factionNameDiv.style.color = color;
   }
 
-  static fillPlayerName(cell, playerName, color) {
+  fillPlayerName(cell, playerName, color) {
     console.assert(typeof cell === "object");
     console.assert(typeof playerName === "string");
     console.assert(typeof color === "string");
@@ -81,7 +98,7 @@ class Leaderboard {
     playerNameDiv.style.color = color;
   }
 
-  static fillScore(cell, score, color) {
+  fillScore(cell, score, color) {
     console.assert(typeof cell === "object");
     console.assert(typeof score === "number");
     console.assert(typeof color === "string");
@@ -92,7 +109,7 @@ class Leaderboard {
     scoreDiv.style.color = color;
   }
 
-  static fillStrategyCards(cell, strategyCards, color) {
+  fillStrategyCards(cell, strategyCards, color) {
     console.assert(typeof cell === "object");
     console.assert(Array.isArray(strategyCards));
     console.assert(typeof color === "string");
@@ -112,21 +129,21 @@ class Leaderboard {
     strategyCardsDiv.style.color = color;
   }
 
-  static fillBackgroundColor(cell, isCurrentTurn, active) {
+  fillBackgroundColor(cell, isCurrentTurn, active) {
     console.assert(typeof cell === "object");
     console.assert(typeof isCurrentTurn === "boolean");
     console.assert(typeof active === "boolean");
 
     let bgColor = "";
     if (isCurrentTurn) {
-      bgColor = ACTIVE_TURN_BACKGROUND_COLOR;
+      bgColor = this._activeTurnBgColor;
     } else if (!active) {
-      bgColor = PASSED_BACKGROUND_COLOR;
+      bgColor = this._passedBgColor;
     }
     cell.style.backgroundColor = bgColor;
   }
 
-  static fillSpeaker(cell) {
+  fillSpeaker(cell) {
     console.assert(typeof cell === "object");
 
     const factionIconImg = cell.getElementsByClassName("faction-icon")[0];
@@ -134,7 +151,7 @@ class Leaderboard {
     factionIconImg.src = ImageUtil.getSrc(`tokens/speaker_square.png`);
   }
 
-  static fillAll(gameData) {
+  fillAll(gameData) {
     console.assert(typeof gameData === "object");
 
     const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
@@ -145,7 +162,7 @@ class Leaderboard {
     console.assert(typeof currentTurnColorName === "string");
 
     const playerCount = playerDataArray.length;
-    const cells = Leaderboard.getLeaderboardCells(playerCount);
+    const cells = this.getLeaderboardCells(playerCount);
 
     cells.forEach((cell, index) => {
       const playerData = playerDataArray[index];
@@ -161,11 +178,11 @@ class Leaderboard {
       const color = colorNameAndHex.colorHex;
       const isCurrentTurn = colorNameAndHex.colorName === currentTurnColorName;
 
-      Leaderboard.fillFaction(cell, faction, color);
-      Leaderboard.fillPlayerName(cell, playerName, color);
-      Leaderboard.fillScore(cell, score, color);
-      Leaderboard.fillStrategyCards(cell, strategyCards, color);
-      Leaderboard.fillBackgroundColor(cell, isCurrentTurn, active);
+      this.fillFaction(cell, faction, color);
+      this.fillPlayerName(cell, playerName, color);
+      this.fillScore(cell, score, color);
+      this.fillStrategyCards(cell, strategyCards, color);
+      this.fillBackgroundColor(cell, isCurrentTurn, active);
     });
 
     const speakerColorName = GameDataUtil.parseSpeakerColorName(gameData);
@@ -176,17 +193,11 @@ class Leaderboard {
       const colorNameAndHex = GameDataUtil.parseColor(playerData);
       console.log(`${colorNameAndHex.colorName} vs ${speakerColorName}`);
       if (colorNameAndHex.colorName === speakerColorName) {
-        Leaderboard.fillSpeaker(cell);
+        this.fillSpeaker(cell);
       }
     });
   }
 }
-
-// Listen for game data updates, fill leaderboard.
-window.addEventListener("onGameDataUpdate", (event) => {
-  console.log(`refresh-leaderboard onGameDataUpdate ${event.detail.timestamp}`);
-  Leaderboard.fillAll(event.detail);
-});
 
 // Run with the standard value until told otherwise.
 window.addEventListener("load", () => {
@@ -194,5 +205,5 @@ window.addEventListener("load", () => {
   console.assert(GameDataUtil);
 
   const gameData = {}; // fill with default 6p empty game
-  Leaderboard.fillAll(gameData);
+  Leaderboard.getInstance().fillAll(gameData);
 });

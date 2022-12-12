@@ -19,34 +19,32 @@ class GameDataHeartbeat {
     this._status = "stopped";
     this._statusColor = "gray";
 
-    window.addEventListener("onGameDataStart", (event) => {
-      this._status = "active";
-      this._statusColor = "green";
-      this._update();
-    });
-    window.addEventListener("onGameDataUpdate", (event) => {
-      this._status = "active";
-      this._statusColor = "green";
-      this._add(1);
-      this._update();
-    });
-    window.addEventListener("onGameDataNotModified", (event) => {
-      this._status = "active";
-      this._statusColor = "green";
-      this._add(0);
-      this._update();
-    });
-    window.addEventListener("onGameDataError", (event) => {
-      this._status = event.detail;
-      this._statusColor = "red";
-      this._add(-1);
-      this._update();
-    });
-    window.addEventListener("onGameDataStop", (event) => {
-      this._status = "stopped";
-      this._statusColor = "gray";
-      this._update();
-    });
+    new BroadcastChannel("onGameDataEvent").onmessage = (event) => {
+      if (event.data.type === "START") {
+        this._status = "active";
+        this._statusColor = "green";
+        this._update();
+      } else if (event.data.type === "UPDATE") {
+        this._status = "active";
+        this._statusColor = "green";
+        this._add(1);
+        this._update();
+      } else if (event.data.type === "NOT_MODIFIED") {
+        this._status = "active";
+        this._statusColor = "green";
+        this._add(0);
+        this._update();
+      } else if (event.data.type === "ERROR") {
+        this._status = event.detail;
+        this._statusColor = "red";
+        this._add(-1);
+        this._update();
+      } else if (event.data.type === "STOP") {
+        this._status = "stopped";
+        this._statusColor = "gray";
+        this._update();
+      }
+    };
 
     this._doUpdate = () => {
       this._clearOld();

@@ -2,15 +2,17 @@
  * Fetch gamedata json at regular inverals, using last-modified timestamp to
  * avoid processing already-delivered results.
  *
- * Include this script and register an event listener for any of the following:
- * - onGameDataStart : fetch loop started
- * - onGameDataStop : fetch loop stopped
- * - onGameDataUpdate : new data (parsed JSON object in event.detail)
- * - onGameDataNotModified : received data has not changed
- * - onGameDataError : response error (string in event.detail)
+ * Include this script and register an "onGameDataEvent" broadcast channel.
+ * Event messages are objects, with event.type from:
  *
- * window.addEventListener("onGameDataUpdate", (event) => {
- *   console.log(`onGameDataUpdate ${event.detail.timestamp}`);
+ * - START : fetch loop started
+ * - STOP : fetch loop stopped
+ * - UPDATE : new data (parsed JSON object in event.detail)
+ * - NOT_MODIFIED : received data has not changed
+ * - ERROR : response error (string in event.detail)
+ *
+ * new BroadcastChannel("onGameDataEvent").onmessage = (event) => {
+ *   console.log(`onGameDataEvent ${event.data.type}`);
  * });
  *
  * Putting this in a class is primarily for namespace isolation.
@@ -30,6 +32,8 @@ class GameDataRefresh {
     this._verbose = false;
     this._stopOnError = false;
     this._demo = false;
+
+    this._broadcastChannel = new BroadcastChannel("onGameDataEvent");
 
     // Handlers for class functions.
     this._processResponseHandler = (v) => {
@@ -69,8 +73,9 @@ class GameDataRefresh {
     console.log("GameDataRefresh.start");
 
     // Do before calling loopfetch to happen before update event.
-    const event = new CustomEvent("onGameDataStart");
-    window.dispatchEvent(event);
+    this._broadcastChannel.postMessage({
+      type: "START",
+    });
 
     if (this._loopFetchHandle) {
       clearInterval(this._loopFetchHandle);
@@ -88,8 +93,9 @@ class GameDataRefresh {
   stop() {
     console.log("GameDataRefresh.stop");
 
-    const event = new CustomEvent("onGameDataStop");
-    window.dispatchEvent(event);
+    this._broadcastChannel.postMessage({
+      type: "STOP",
+    });
 
     clearInterval(this._loopFetchHandle);
     this._loopFetchHandle = undefined;
@@ -120,8 +126,9 @@ class GameDataRefresh {
 
     // Check if the response is "not modified" from our if-modified-since request.
     if (response.status === 304) {
-      const event = new CustomEvent("onGameDataNotModified");
-      window.dispatchEvent(event);
+      this._broadcastChannel.postMessage({
+        type: "NOT_MODIFIED",
+      });
       return; // not modified
     }
 
@@ -133,10 +140,10 @@ class GameDataRefresh {
       } else {
         errorString = `response status code ${response.status}`;
       }
-      const event = new CustomEvent("onGameDataError", {
+      this._broadcastChannel.postMessage({
+        type: "ERROR",
         detail: errorString,
       });
-      window.dispatchEvent(event);
 
       if (this._stopOnError) {
         this.stop();
@@ -149,8 +156,9 @@ class GameDataRefresh {
     const lastModified = response.headers.get("Last-Modified");
     if (lastModified && lastModified === this._lastModified) {
       this.debugLog("processRespone last modified unchanged");
-      const event = new CustomEvent("onGameDataNotModified");
-      window.dispatchEvent(event);
+      this._broadcastChannel.postMessage({
+        type: "NOT_MODIFIED",
+      });
       return;
     }
     this._lastModified = lastModified; // remember
@@ -158,8 +166,10 @@ class GameDataRefresh {
     // Report update to listeners via a custom event. The event extra data
     // MUST be stored using the reserved key 'detail'.
     response.json().then((json) => {
-      const event = new CustomEvent("onGameDataUpdate", { detail: json });
-      window.dispatchEvent(event);
+      this._broadcastChannel.postMessage({
+        type: "UPDATE",
+        detail: json,
+      });
     });
   }
 
@@ -172,10 +182,10 @@ class GameDataRefresh {
       errorString = "Server (TI4 Streamer Buddy) not running?";
     }
 
-    const event = new CustomEvent("onGameDataError", {
+    this._broadcastChannel.postMessage({
+      type: "ERROR",
       detail: errorString,
     });
-    window.dispatchEvent(event);
 
     if (this._stopOnError) {
       this.stop();
@@ -210,7 +220,7 @@ window.addEventListener("DOMContentLoaded", (window, event) => {
   const stopOnError = urlParams.get("stop") === "true";
   const verbose = urlParams.get("verbose") === "true";
 
-  const gameDataRefresh = GameDataRefresh.getInstance() // config here
+  GameDataRefresh.getInstance()
     .setStopOnError(stopOnError)
     .setVerbose(verbose)
     .setDemoGameData(useDemoData)
