@@ -207,10 +207,12 @@ window.addEventListener("DOMContentLoaded", (window, event) => {
   const queryString = document.location.search;
   const urlParams = new URLSearchParams(queryString);
   const useDemoData = urlParams.get("demo") === "true";
+  const stopOnError = urlParams.get("stop") === "true";
+  const verbose = urlParams.get("verbose") === "true";
 
   const gameDataRefresh = GameDataRefresh.getInstance() // config here
-    .setStopOnError(false)
-    .setVerbose(true)
+    .setStopOnError(stopOnError)
+    .setVerbose(verbose)
     .setDemoGameData(useDemoData)
     .start();
 });
