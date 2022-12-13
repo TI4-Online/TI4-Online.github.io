@@ -201,9 +201,9 @@ class GameDataHeartbeat {
 }
 
 window.addEventListener("DOMContentLoaded", (window, event) => {
-  const canvas = document.getElementById("game-data-heartbeat");
+  const canvas = document.getElementById("heartbeat");
   if (!canvas) {
-    console.error("GameDataHeartbeat: missing 'game-data-heartbeat' element");
+    console.error("GameDataHeartbeat: missing 'heartbeat' element");
     return;
   }
   GameDataHeartbeat.getInstance().setDiv(canvas);

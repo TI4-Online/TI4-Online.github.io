@@ -2,7 +2,7 @@ iframe {
   border: none;
 }
 
-.game-data-heartbeat-frame {
+.heartbeat-frame {
   width: 400px;
   height: 75px;
 }
