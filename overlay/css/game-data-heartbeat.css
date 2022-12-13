@@ -1,6 +1,12 @@
-/* Provide a "console" with toggle button to start/stop refresh, status reporting */
+#game-data-heartbeat-container {
+  display: flex;
+  overflow: hidden;
+  border: 1px solid yellow;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
 
 #game-data-heartbeat {
   display: block; /* must be block otherwise gets space below */
-  border: 1px solid yellow;
 }

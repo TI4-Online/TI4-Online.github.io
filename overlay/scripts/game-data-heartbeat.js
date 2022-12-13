@@ -35,7 +35,7 @@ class GameDataHeartbeat {
         this._add(0);
         this._update();
       } else if (event.data.type === "ERROR") {
-        this._status = event.detail;
+        this._status = event.data.detail;
         this._statusColor = "red";
         this._add(-1);
         this._update();
@@ -108,7 +108,7 @@ class GameDataHeartbeat {
     const h = this._canvas.height;
     const now = Date.now() / 1000;
 
-    const labelWidth = 83;
+    const labelWidth = 90;
     const labelX = w - labelWidth;
     const dataX = 4;
     const dataWidth = labelX - dataX * 2;
@@ -129,15 +129,15 @@ class GameDataHeartbeat {
     // Clear.
     ctx.clearRect(0, 0, w, h);
 
+    ctx.font = "bold 12px Arial, Helvetica, sans-serif";
+
     // Title.
-    ctx.font = "bold 13px Arial, Helvetica, sans-serif";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.fillStyle = this._statusColor;
     ctx.fillText(`Gamedata: ${this._status}`, w / 2, statusToY.header);
 
     // Y axis labels.
-    ctx.font = "bold 13px Arial, Helvetica, sans-serif";
     ctx.textAlign = "left";
     ctx.textBaseline = "middle";
     ctx.fillStyle = statusToColor[-1];

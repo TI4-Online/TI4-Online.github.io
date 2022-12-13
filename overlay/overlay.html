@@ -2,17 +2,22 @@
 <html lang="en">
   <head>
     <title>TI4 Overlay</title>
+    <link rel="stylesheet" href="/overlay/css/main.css" />
     <link rel="stylesheet" href="/overlay/css/overlay.css" />
-    <link rel="stylesheet" href="/overlay/css/game-data-heartbeat.css" />
-    <script src="/overlay/scripts/game-data-heartbeat.js"></script>
     <script src="/overlay/scripts/game-data-refresh.js"></script>
   </head>
 
   <body>
-    <canvas width="399" height="75" id="game-data-heartbeat"></canvas>
+    <iframe class="round-frame" src="frames/round.html"></iframe>
+    <p></p>
+
+    <iframe class="heartbeat-frame" src="frames/heartbeat.html"></iframe>
+    <p></p>
+
     <p></p>
 
     <iframe class="leaderboard-frame" src="frames/leaderboard.html"></iframe>
+    <p></p>
 
     <li>stage 1</li>
     <li>stage 2</li>

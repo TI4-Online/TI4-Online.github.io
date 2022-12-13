@@ -1,16 +1,18 @@
-body {
-  background-color: #061738;
-}
-
 iframe {
   border: none;
+}
+
+.game-data-heartbeat-frame {
+  width: 400px;
+  height: 75px;
+}
+
+.round-frame {
+  width: 400px;
+  height: 75px;
 }
 
 .leaderboard-frame {
   width: 1200px;
   height: 150px;
-}
-
-.standard-border {
-  border: 1px solid yellow;
 }

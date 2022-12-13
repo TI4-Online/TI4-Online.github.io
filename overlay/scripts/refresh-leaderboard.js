@@ -18,7 +18,6 @@ class Leaderboard {
     this._playerCells = [];
 
     new BroadcastChannel("onGameDataEvent").onmessage = (event) => {
-      console.log(`LEADERBOARD`);
       if (event.data.type === "UPDATE" || event.data.type === "NOT_MODIFIED") {
         this.fillAll(event.data.detail);
       }
@@ -198,7 +197,6 @@ class Leaderboard {
       console.assert(playerData);
 
       const colorNameAndHex = GameDataUtil.parseColor(playerData);
-      console.log(`${colorNameAndHex.colorName} vs ${speakerColorName}`);
       if (colorNameAndHex.colorName === speakerColorName) {
         this.fillSpeaker(cell);
       }
@@ -208,9 +206,6 @@ class Leaderboard {
 
 // Run with the standard value until told otherwise.
 window.addEventListener("load", () => {
-  // Make sure GameDataUtil is available.
-  console.assert(GameDataUtil);
-
   const gameData = {}; // fill with default 6p empty game
   Leaderboard.getInstance().fillAll(gameData);
 });

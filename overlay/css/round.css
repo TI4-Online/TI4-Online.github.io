@@ -1,0 +1,17 @@
+#round-container {
+  border: 1px solid yellow;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#round {
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 24px;
+  text-align: center;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
