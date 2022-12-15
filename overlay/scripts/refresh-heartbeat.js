@@ -22,16 +22,16 @@ class GameDataHeartbeat {
     new BroadcastChannel("onGameDataEvent").onmessage = (event) => {
       if (event.data.type === "START") {
         this._status = "active";
-        this._statusColor = "green";
+        this._statusColor = "white";
         this._update();
       } else if (event.data.type === "UPDATE") {
         this._status = "active";
-        this._statusColor = "green";
+        this._statusColor = "white";
         this._add(1);
         this._update();
       } else if (event.data.type === "NOT_MODIFIED") {
         this._status = "active";
-        this._statusColor = "green";
+        this._statusColor = "white";
         this._add(0);
         this._update();
       } else if (event.data.type === "ERROR") {
@@ -108,7 +108,7 @@ class GameDataHeartbeat {
     const h = this._canvas.height;
     const now = Date.now() / 1000;
 
-    const labelWidth = 90;
+    const labelWidth = 95;
     const labelX = w - labelWidth;
     const dataX = 4;
     const dataWidth = labelX - dataX * 2;
@@ -155,7 +155,7 @@ class GameDataHeartbeat {
     for (let i = -1; i <= this._historyWindowSeconds / 60; i++) {
       const timestamp = now - dSeconds - i * 60;
       const u = 1 - (now - timestamp) / this._historyWindowSeconds;
-      if (u > 1.05) {
+      if (u > 1.03) {
         continue; // draw text a little off to the right, but not TOO much
       }
       const date = new Date(Math.floor(timestamp * 1000));

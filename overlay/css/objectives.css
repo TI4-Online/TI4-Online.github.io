@@ -1,0 +1,16 @@
+.objectives {
+  table-layout: fixed;
+}
+
+.objective-name {
+  width: auto;
+  text-align: right;
+  padding-right: 8px;
+  background-color: darkgreen;
+}
+
+.scored-by {
+  width: 20px;
+  text-align: center;
+  background-color: darkgreen;
+}
