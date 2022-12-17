@@ -3,14 +3,14 @@
 }
 
 .objective-name {
-  width: auto;
+  position: relative;
+  padding-top: 2px; /* all caps has nothing below baseline, centering looks off */
+  padding-right: 6px;
   text-align: right;
-  padding-right: 8px;
-  background-color: darkgreen;
+  text-transform: uppercase;
 }
 
 .scored-by {
-  width: 20px;
+  width: 22px;
   text-align: center;
-  background-color: darkgreen;
 }

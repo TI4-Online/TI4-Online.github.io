@@ -83,11 +83,16 @@ class GameDataRefresh {
       this._loopFetchHandle = undefined;
     }
 
+    // Periodic refresh.
     this._loopFetchHandle = setInterval(
       this._loopFetchHandler,
       this._refreshInterval
     );
-    this._loopFetchHandler(); // run immediately too
+
+    // Run "immediately" but give others a moment to set up.
+    setTimeout(() => {
+      this._loopFetchHandler();
+    }, 100);
     return this;
   }
 

@@ -42,7 +42,12 @@ it("parseObjectives", () => {
       { name: "Mechanize the Military", scoredBy: ["blue"] },
       { name: "Unveil Flagship", scoredBy: ["white"] },
     ],
-    sftt: [{ name: "Support for the Throne (Yellow)", scoredBy: ["purple"] }],
+    sftt: [
+      { name: "Support for the Throne (Yellow)", scoredBy: ["purple"] },
+      { name: "Support for the Throne (Blue)", scoredBy: ["white"] },
+      { name: "Support for the Throne (Purple)", scoredBy: ["white"] },
+      { name: "Support for the Throne (Green)", scoredBy: ["white"] },
+    ],
     stage1: [
       { name: "Lead From the Front", scoredBy: ["purple", "green"] },
       {
@@ -55,7 +60,7 @@ it("parseObjectives", () => {
       },
       { name: "Engineer a Marvel", scoredBy: [] },
     ],
-    stage2: [],
+    stage2: [{ name: "Hold Vast Reserves", scoredBy: [] }],
   });
 });
 

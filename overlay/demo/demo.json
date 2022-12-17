@@ -29,13 +29,19 @@
   "laws": ["Committee Formation"],
   "mapString": "",
   "objectives": {
-    "OTHER": ["Support for the Throne (Yellow)"],
+    "OTHER": [
+      "Support for the Throne (Yellow)",
+      "Support for the Throne (Blue)",
+      "Support for the Throne (Purple)",
+      "Support for the Throne (Green)"
+    ],
     "Public Objectives I": [
       "Lead From the Front",
       "Sway the Council",
       "Populate the Outer Rim",
       "Engineer a Marvel"
     ],
+    "Public Objectives II": ["Hold Vast Reserves"],
     "Relics": ["Shard of the Throne"],
     "Secret Objectives": [
       "Seize an Icon",
@@ -72,7 +78,10 @@
       "objectives": [
         "Populate the Outer Rim",
         "Seize an Icon",
-        "Unveil Flagship"
+        "Unveil Flagship",
+        "Support for the Throne (Blue)",
+        "Support for the Throne (Purple)",
+        "Support for the Throne (Green)"
       ],
       "planetTotals": {
         "influence": {
