@@ -22,31 +22,10 @@ it("getGameData", () => {
   assert.equal(gameData.timestamp, 1670088961);
 });
 
-it("parseActive", () => {
-  const gameData = getGameData();
-  const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
-  const active = GameDataUtil.parseActive(playerDataArray[0]);
-  assert.equal(active, true);
-});
-
-it("parseColor", () => {
-  const gameData = getGameData();
-  const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
-  const color = GameDataUtil.parseColor(playerDataArray[0]);
-  assert.equal(color.colorName, "white");
-});
-
 it("parseCurrentTurnColorName", () => {
   const gameData = getGameData();
   const currentTurn = GameDataUtil.parseCurrentTurnColorName(gameData);
   assert.equal(currentTurn, "red");
-});
-
-it("parseFaction", () => {
-  const gameData = getGameData();
-  const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
-  const faction = GameDataUtil.parseFaction(playerDataArray[0]);
-  assert.equal(faction, "vuilraith");
 });
 
 it("parseObjectives", () => {
@@ -80,11 +59,32 @@ it("parseObjectives", () => {
   });
 });
 
+it("parsePlayerActive", () => {
+  const gameData = getGameData();
+  const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
+  const active = GameDataUtil.parsePlayerActive(playerDataArray[0]);
+  assert.equal(active, true);
+});
+
+it("parsePlayerColor", () => {
+  const gameData = getGameData();
+  const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
+  const color = GameDataUtil.parsePlayerColor(playerDataArray[0]);
+  assert.equal(color.colorName, "white");
+});
+
 it("parsePlayerDataArray", () => {
   const gameData = getGameData();
   const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
   assert.equal(playerDataArray.length, 6);
   assert.equal(playerDataArray[0].score, 2);
+});
+
+it("parsePlayerFaction", () => {
+  const gameData = getGameData();
+  const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
+  const faction = GameDataUtil.parsePlayerFaction(playerDataArray[0]);
+  assert.equal(faction, "vuilraith");
 });
 
 it("parsePlayerName", () => {
@@ -94,28 +94,30 @@ it("parsePlayerName", () => {
   assert.equal(playerName, "thc");
 });
 
+it("parsePlayerScore", () => {
+  const gameData = getGameData();
+  const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
+  const score = GameDataUtil.parsePlayerScore(playerDataArray[0]);
+  assert.equal(score, 2);
+});
+
+it("parsePlayerStrategyCards", () => {
+  const gameData = getGameData();
+  const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
+  const strategyCards = GameDataUtil.parsePlayerStrategyCards(
+    playerDataArray[0]
+  );
+  assert.deepEqual(strategyCards, [{ faceDown: true, name: "Politics" }]);
+});
+
 it("parseRound", () => {
   const gameData = getGameData();
   const round = GameDataUtil.parseRound(gameData);
   assert.equal(round, 3);
 });
 
-it("parseScore", () => {
-  const gameData = getGameData();
-  const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
-  const score = GameDataUtil.parseScore(playerDataArray[0]);
-  assert.equal(score, 2);
-});
-
 it("parseSpeakerColorName", () => {
   const gameData = getGameData();
   const speakerColorName = GameDataUtil.parseSpeakerColorName(gameData);
   assert.equal(speakerColorName, "green");
-});
-
-it("parseStrategyCards", () => {
-  const gameData = getGameData();
-  const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
-  const strategyCards = GameDataUtil.parseStrategyCards(playerDataArray[0]);
-  assert.deepEqual(strategyCards, [{ faceDown: true, name: "Politics" }]);
 });

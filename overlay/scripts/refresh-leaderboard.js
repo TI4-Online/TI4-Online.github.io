@@ -140,7 +140,7 @@ class Leaderboard {
     console.assert(typeof isCurrentTurn === "boolean");
     console.assert(typeof active === "boolean");
 
-    let bgColor = "";
+    let bgColor = "transparent";
     if (isCurrentTurn) {
       bgColor = this._activeTurnBgColor;
     } else if (!active) {
@@ -174,12 +174,12 @@ class Leaderboard {
       const playerData = playerDataArray[index];
       console.assert(playerData);
 
-      const colorNameAndHex = GameDataUtil.parseColor(playerData);
-      const faction = GameDataUtil.parseFaction(playerData);
+      const colorNameAndHex = GameDataUtil.parsePlayerColor(playerData);
+      const faction = GameDataUtil.parsePlayerFaction(playerData);
       const playerName = GameDataUtil.parsePlayerName(playerData);
-      const score = GameDataUtil.parseScore(playerData);
-      const strategyCards = GameDataUtil.parseStrategyCards(playerData);
-      const active = GameDataUtil.parseActive(playerData);
+      const score = GameDataUtil.parsePlayerScore(playerData);
+      const strategyCards = GameDataUtil.parsePlayerStrategyCards(playerData);
+      const active = GameDataUtil.parsePlayerActive(playerData);
 
       const color = colorNameAndHex.colorHex;
       const isCurrentTurn = colorNameAndHex.colorName === currentTurnColorName;
@@ -196,7 +196,7 @@ class Leaderboard {
       const playerData = playerDataArray[index];
       console.assert(playerData);
 
-      const colorNameAndHex = GameDataUtil.parseColor(playerData);
+      const colorNameAndHex = GameDataUtil.parsePlayerColor(playerData);
       if (colorNameAndHex.colorName === speakerColorName) {
         this.fillSpeaker(cell);
       }

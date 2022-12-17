@@ -7,8 +7,11 @@ class Round {
   }
 
   constructor() {
-    this._div = document.getElementById("round");
-    console.assert(this._div);
+    const elementId = "round";
+    this._div = document.getElementById(elementId);
+    if (!this._div) {
+      throw new Error(`Missing element id "${elementId}"`);
+    }
 
     new BroadcastChannel("onGameDataEvent").onmessage = (event) => {
       if (event.data.type === "UPDATE" || event.data.type === "NOT_MODIFIED") {

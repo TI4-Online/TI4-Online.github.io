@@ -60,44 +60,6 @@ class GameDataUtil {
   }
 
   /**
-   * Parse active (not passed).
-   *
-   * @param {Object.{active:boolean}} playerData
-   * @returns {boolean}
-   */
-  static parseActive(playerData) {
-    console.assert(typeof playerData === "object");
-
-    let active = playerData?.active;
-    if (active === undefined) {
-      active = true;
-    }
-    console.assert(typeof active === "boolean");
-    return active;
-  }
-
-  /**
-   * Parse color as hex value.
-   *
-   * @param {Object.{colorActual:string}} playerData
-   * @returns {Object.{colorName:string,colorHex:string}}
-   */
-  static parseColor(playerData) {
-    console.assert(typeof playerData === "object");
-
-    let colorName = playerData?.colorActual?.toLowerCase();
-    if (!colorName) {
-      colorName = playerData?.color.toLowerCase();
-    }
-    let colorHex = COLOR_NAME_TO_HEX[colorName];
-    if (!colorHex) {
-      colorName = UNKNOWN_COLOR_NAME;
-      colorHex = UNKNOWN_COLOR_HEX;
-    }
-    return { colorName, colorHex };
-  }
-
-  /**
    * Parse current turn color name from overall game data.
    *
    * @param {Object.{turn:string}} gameData
@@ -110,28 +72,6 @@ class GameDataUtil {
     console.assert(typeof currentTurn === "string");
 
     return COLOR_NAME_TO_HEX[currentTurn] ? currentTurn : UNKNOWN_COLOR_NAME;
-  }
-
-  /**
-   * Parse faction name.
-   *
-   * @param {Object.{factionShort:string}} playerData
-   * @returns {string}
-   */
-  static parseFaction(playerData) {
-    console.assert(typeof playerData === "object");
-
-    let faction = playerData?.factionShort?.toLowerCase() || "-";
-    console.assert(typeof faction === "string");
-
-    faction = faction.replace("-", ""); // naaz-rokha
-    faction = faction.replace("'", ""); // vuil'raith, n'orr
-
-    if (faction.startsWith("keleres")) {
-      faction = "keleres"; // strip off flavor
-    }
-
-    return FACTION_WHITELIST.has(faction) ? faction : UNKNOWN_FACTION;
   }
 
   /**
@@ -196,7 +136,7 @@ class GameDataUtil {
     // Who scored?
     const gameDataPlayers = gameData?.players || [];
     for (const playerData of gameDataPlayers) {
-      const colorName = GameDataUtil.parseColor(playerData).colorName;
+      const colorName = GameDataUtil.parsePlayerColor(playerData).colorName;
       const playerObjectives = playerData?.objectives || [];
       for (const name of playerObjectives) {
         const entry = nameToEntry[name];
@@ -208,7 +148,7 @@ class GameDataUtil {
     // Add custodians, a player can score more than once.
     const custodiansEntry = addEntry("custodians", objectives.custodians);
     for (const playerData of gameDataPlayers) {
-      const colorName = GameDataUtil.parseColor(playerData).colorName;
+      const colorName = GameDataUtil.parsePlayerColor(playerData).colorName;
       const custodiansPoints = playerData?.custodiansPoints || 0;
       for (let i = 0; i < custodiansPoints; i++) {
         custodiansEntry.scoredBy.push(colorName);
@@ -216,6 +156,44 @@ class GameDataUtil {
     }
 
     return objectives;
+  }
+
+  /**
+   * Parse active (not passed).
+   *
+   * @param {Object.{active:boolean}} playerData
+   * @returns {boolean}
+   */
+  static parsePlayerActive(playerData) {
+    console.assert(typeof playerData === "object");
+
+    let active = playerData?.active;
+    if (active === undefined) {
+      active = true;
+    }
+    console.assert(typeof active === "boolean");
+    return active;
+  }
+
+  /**
+   * Parse color as hex value.
+   *
+   * @param {Object.{colorActual:string}} playerData
+   * @returns {Object.{colorName:string,colorHex:string}}
+   */
+  static parsePlayerColor(playerData) {
+    console.assert(typeof playerData === "object");
+
+    let colorName = playerData?.colorActual?.toLowerCase();
+    if (!colorName) {
+      colorName = playerData?.color.toLowerCase();
+    }
+    let colorHex = COLOR_NAME_TO_HEX[colorName];
+    if (!colorHex) {
+      colorName = UNKNOWN_COLOR_NAME;
+      colorHex = UNKNOWN_COLOR_HEX;
+    }
+    return { colorName, colorHex };
   }
 
   /**
@@ -246,6 +224,28 @@ class GameDataUtil {
   }
 
   /**
+   * Parse faction name.
+   *
+   * @param {Object.{factionShort:string}} playerData
+   * @returns {string}
+   */
+  static parsePlayerFaction(playerData) {
+    console.assert(typeof playerData === "object");
+
+    let faction = playerData?.factionShort?.toLowerCase() || "-";
+    console.assert(typeof faction === "string");
+
+    faction = faction.replace("-", ""); // naaz-rokha
+    faction = faction.replace("'", ""); // vuil'raith, n'orr
+
+    if (faction.startsWith("keleres")) {
+      faction = "keleres"; // strip off flavor
+    }
+
+    return FACTION_WHITELIST.has(faction) ? faction : UNKNOWN_FACTION;
+  }
+
+  /**
    * Parse player name.
    *
    * @param {Object.{steamName:string}} playerData
@@ -261,27 +261,12 @@ class GameDataUtil {
   }
 
   /**
-   * Parse game round.
-   *
-   * @param {Object.{round:number}} gameData
-   * @returns {number}
-   */
-  static parseRound(playerData) {
-    console.assert(typeof playerData === "object");
-
-    const round = playerData?.round || 1;
-    console.assert(typeof round === "number");
-
-    return round;
-  }
-
-  /**
    * Parse score.
    *
    * @param {Object.{score:number}} playerData
    * @returns {number}
    */
-  static parseScore(playerData) {
+  static parsePlayerScore(playerData) {
     console.assert(typeof playerData === "object");
 
     let score = playerData?.score || 0;
@@ -291,27 +276,12 @@ class GameDataUtil {
   }
 
   /**
-   * Parse current speaker color name from overall game data.
-   *
-   * @param {Object.{speaker:string}} gameData
-   * @returns {string}
-   */
-  static parseSpeakerColorName(gameData) {
-    console.assert(typeof gameData === "object");
-
-    const speaker = gameData?.speaker?.toLowerCase() || "none";
-    console.assert(typeof speaker === "string");
-
-    return speaker;
-  }
-
-  /**
    * Parse strategy cards with face-up/down status.
    *
    * @param {Object.{strategyCards:Array.{string},strategyCardsFaceDown:Array.{string}}} playerData
    * @returns {Array.{Object.{name:string,faceDown:boolean}}}
    */
-  static parseStrategyCards(playerData) {
+  static parsePlayerStrategyCards(playerData) {
     console.assert(typeof playerData === "object");
 
     let strategyCards = playerData?.strategyCards || [];
@@ -328,8 +298,37 @@ class GameDataUtil {
       return { name, faceDown: faceDown.includes(name) };
     });
   }
-}
 
+  /**
+   * Parse game round.
+   *
+   * @param {Object.{round:number}} gameData
+   * @returns {number}
+   */
+  static parseRound(gameData) {
+    console.assert(typeof gameData === "object");
+
+    const round = gameData?.round || 1;
+    console.assert(typeof round === "number");
+
+    return round;
+  }
+
+  /**
+   * Parse current speaker color name from overall game data.
+   *
+   * @param {Object.{speaker:string}} gameData
+   * @returns {string}
+   */
+  static parseSpeakerColorName(gameData) {
+    console.assert(typeof gameData === "object");
+
+    const speaker = gameData?.speaker?.toLowerCase() || "none";
+    console.assert(typeof speaker === "string");
+
+    return speaker;
+  }
+}
 // Export for jest test framework.
 if (typeof module !== "undefined") {
   module.exports = { GameDataUtil };
