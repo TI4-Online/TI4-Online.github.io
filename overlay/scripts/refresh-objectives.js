@@ -170,6 +170,13 @@ class Objectives {
       playerColorNamesAndHexValues
     );
 
+    this._fillSupportForTheThrone(
+      getNextObjectiveTR(),
+      objectiveGroups.sftt,
+      playerColorNamesAndHexValues
+    );
+
+    // Do "other" last in case we run out of rows.
     for (const objective of objectiveGroups.other) {
       this._fillObjective(
         getNextObjectiveTR(),
@@ -178,12 +185,6 @@ class Objectives {
         playerColorNamesAndHexValues
       );
     }
-
-    this._fillSupportForTheThrone(
-      getNextObjectiveTR(),
-      objectiveGroups.sftt,
-      playerColorNamesAndHexValues
-    );
   }
 
   _getAbbr(name) {
