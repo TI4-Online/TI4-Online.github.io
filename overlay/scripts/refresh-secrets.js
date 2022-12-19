@@ -44,8 +44,6 @@ class Secrets {
 
     const container = document.getElementById("secrets");
     container.innerHTML = "";
-    container.style.padding = "2px";
-    container.style.boxSizing = "border-box";
 
     const colorNames = playerColorNamesAndHexValues.map(
       (colorNameAndHex) => colorNameAndHex.colorName
@@ -58,10 +56,7 @@ class Secrets {
       }
       for (const secret of data.secrets) {
         const div = document.createElement("div");
-        div.style.display = "inline-block";
-        div.style.margin = "2px";
-        div.style.paddingLeft = "3px";
-        div.style.paddingRight = "3px";
+        div.className = "jumble-entry";
         div.style.backgroundColor = data.colorHex;
         div.style.color = "black";
         div.innerText = secret;

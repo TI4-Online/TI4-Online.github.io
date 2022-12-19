@@ -161,6 +161,17 @@ class GameDataUtil {
   }
 
   /**
+   * Parse laws.
+   *
+   * @param {Object} gameData
+   * @returns {Array.{string}}
+   */
+  static parseLaws(gameData) {
+    const laws = gameData?.laws || [];
+    return laws.map((law) => GameDataUtil._escapeForHTML(law));
+  }
+
+  /**
    * Parse objectives by type and who scored.
    *
    * @param {Object} gameData

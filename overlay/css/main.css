@@ -47,6 +47,19 @@ iframe {
   transform: translateX(-50%) translateY(-50%);
 }
 
+.jumble-container {
+  padding: 2px;
+  box-sizing: border-box;
+}
+
+.jumble-entry {
+  display: inline-block;
+  margin: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  border-radius: 4px;
+}
+
 .font-size-large {
   font-size: 24px;
 }
@@ -69,4 +82,9 @@ iframe {
 .size-secrets {
   width: 400px;
   height: 225px;
+}
+
+.size-laws {
+  width: 400px;
+  height: 150px;
 }
