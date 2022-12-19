@@ -28,39 +28,89 @@ it("parseCurrentTurnColorName", () => {
   assert.equal(currentTurn, "red");
 });
 
+it("parseLaws", () => {
+  const gameData = getGameData();
+  const laws = GameDataUtil.parseLaws(gameData);
+  assert.deepEqual(laws, ["Committee Formation"]);
+});
+
 it("parseObjectives", () => {
   const gameData = getGameData();
   const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
   const objectives = GameDataUtil.parseObjectives(gameData);
   assert.deepEqual(objectives, {
-    custodians: [{ name: "custodians", scoredBy: ["green"] }],
-    other: [{ name: "Shard of the Throne", scoredBy: ["red"] }],
+    custodians: [
+      { abbr: "custodians", name: "custodians", scoredBy: ["green"] },
+    ],
+    other: [
+      {
+        abbr: "Shard of the Throne",
+        name: "Shard of the Throne",
+        scoredBy: ["red"],
+      },
+    ],
     secret: [
-      { name: "Seize an Icon", scoredBy: ["white"] },
-      { name: "Occupy the Seat of the Empire", scoredBy: ["yellow"] },
-      { name: "Threaten Enemies", scoredBy: ["purple"] },
-      { name: "Mechanize the Military", scoredBy: ["blue"] },
-      { name: "Unveil Flagship", scoredBy: ["white"] },
+      { abbr: "LEGENDARY PLANET", name: "Seize an Icon", scoredBy: ["white"] },
+      {
+        abbr: "MR W/ 3 SHIPS",
+        name: "Occupy the Seat of the Empire",
+        scoredBy: ["yellow"],
+      },
+      {
+        abbr: "SYS ADJ TO HOME",
+        name: "Threaten Enemies",
+        scoredBy: ["purple"],
+      },
+      {
+        abbr: "4 PLANETS W/ MECH",
+        name: "Mechanize the Military",
+        scoredBy: ["blue"],
+      },
+      { abbr: "WIN W/ FLAGSHIP", name: "Unveil Flagship", scoredBy: ["white"] },
     ],
     sftt: [
-      { name: "Support for the Throne (Yellow)", scoredBy: ["purple"] },
-      { name: "Support for the Throne (Blue)", scoredBy: ["white"] },
-      { name: "Support for the Throne (Purple)", scoredBy: ["white"] },
-      { name: "Support for the Throne (Green)", scoredBy: ["white"] },
+      {
+        abbr: "Support for the Throne (Yellow)",
+        name: "Support for the Throne (Yellow)",
+        scoredBy: ["purple"],
+      },
+      {
+        abbr: "Support for the Throne (Blue)",
+        name: "Support for the Throne (Blue)",
+        scoredBy: ["white"],
+      },
+      {
+        abbr: "Support for the Throne (Purple)",
+        name: "Support for the Throne (Purple)",
+        scoredBy: ["white"],
+      },
+      {
+        abbr: "Support for the Throne (Green)",
+        name: "Support for the Throne (Green)",
+        scoredBy: ["white"],
+      },
     ],
     stage1: [
-      { name: "Lead From the Front", scoredBy: ["purple", "green"] },
       {
+        abbr: "3 COMMAND TOKENS",
+        name: "Lead From the Front",
+        scoredBy: ["purple", "green"],
+      },
+      {
+        abbr: "8 INFLUENCE",
         name: "Sway the Council",
         scoredBy: ["blue", "purple", "yellow", "green"],
       },
       {
+        abbr: "3 EDGE SYS",
         name: "Populate the Outer Rim",
         scoredBy: ["white", "blue", "purple", "red"],
       },
-      { name: "Engineer a Marvel", scoredBy: [] },
+      { abbr: "FLAG/WAR SUN", name: "Engineer a Marvel", scoredBy: [] },
     ],
-    stage2: [{ name: "Hold Vast Reserves", scoredBy: [] }],
+    stage2: [
+      { abbr: "6 INF 6 RES 6 TG", name: "Hold Vast Reserves", scoredBy: [] },
+    ],
   });
 });
 
@@ -115,6 +165,16 @@ it("parsePlayerStrategyCards", () => {
   assert.deepEqual(strategyCards, [{ faceDown: true, name: "Politics" }]);
 });
 
+it("parsePlayerTechnologies", () => {
+  const gameData = getGameData();
+  const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
+  const technologies = GameDataUtil.parsePlayerTechnologies(playerDataArray[0]);
+  assert.deepEqual(technologies, [
+    { colorHex: "#e46d72", colorName: "red", name: "Self Assembly Routines" },
+    { colorHex: "#e46d72", colorName: "red", name: "Vortex" },
+    { colorHex: "#e46d72", colorName: "red", name: "Duranium Armor" },
+  ]);
+});
 it("parseRound", () => {
   const gameData = getGameData();
   const round = GameDataUtil.parseRound(gameData);

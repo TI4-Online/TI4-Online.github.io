@@ -127,6 +127,90 @@ OBJECTIVE_NAME_ABBREVIATIONS = {
   "Strengthen Bonds": "PROM NOTE",
 };
 
+TECHNOLOGY_COLOR = {
+  "AI Development Algorithm": "red",
+  "Advanced Carrier II": "white",
+  "Aerie Hololattice": "yellow",
+  Aetherstream: "blue",
+  "Antimass Deflectors": "blue",
+  "Assault Cannon": "red",
+  "Bio-Stims": "green",
+  Bioplasmosis: "green",
+  "Carrier II": "white",
+  "Chaos Mapping": "blue",
+  "Crimson Legionnaire II": "white",
+  "Cruiser II": "white",
+  "Dacxive Animators": "green",
+  "Dark Energy Tap": "blue",
+  "Destroyer II": "white",
+  "Dimensional Splicer": "red",
+  "Dimensional Tear II": "white",
+  "Dreadnought II": "white",
+  "Duranium Armor": "red",
+  "E-res Siphons": "yellow",
+  "Exotrireme II": "white",
+  "Fighter II": "white",
+  "Fleet Logistics": "blue",
+  "Floating Factory II": "white",
+  "Genetic Recombination": "green",
+  "Graviton Laser System": "yellow",
+  "Gravity Drive": "blue",
+  "Hegemonic Trade Policy": "yellow",
+  "Hel-Titan II": "white",
+  "Hybrid Crystal Fighter II": "white",
+  "Hyper Metabolism": "green",
+  "Impulse Core": "yellow",
+  "Infantry II": "white",
+  "Inheritance Systems": "yellow",
+  "Instinct Training": "green",
+  "Integrated Economy": "yellow",
+  "L4 Disruptors": "yellow",
+  "Lazax Gate Folding": "blue",
+  "Letani Warrior II": "white",
+  "Light-Wave Deflector": "blue",
+  "Magen Defense Grid": "red",
+  "Mageon Implants": "green",
+  "Magmus Reactor": "red",
+  "Memoria II": "white",
+  "Mirror Computing": "yellow",
+  "Neural Motivator": "green",
+  Neuroglaive: "green",
+  "Non-Euclidean Shielding": "red",
+  "Nullification Field": "yellow",
+  "PDS II": "white",
+  "Plasma Scoring": "red",
+  "Pre-Fab Arcologies": "green",
+  "Predictive Intelligence": "yellow",
+  "Production Biomes": "green",
+  "Prototype War Sun II": "white",
+  Psychoarchaeology: "green",
+  "Quantum Datahub Node": "yellow",
+  "Salvage Operations": "yellow",
+  "Sarween Tools": "yellow",
+  "Saturn Engine II": "white",
+  "Scanlink Drone Network": "yellow",
+  "Self Assembly Routines": "red",
+  "Sling Relay": "blue",
+  "Space Dock II": "white",
+  "Spacial Conduit Cylinder": "blue",
+  "Spec Ops II": "white",
+  "Strike Wing Alpha II": "white",
+  "Super-Dreadnought II": "white",
+  Supercharge: "red",
+  "Temporal Command Suite": "yellow",
+  "Transit Diodes": "yellow",
+  "Transparasteel Plating": "green",
+  "Valefar Assimilator X": "white",
+  "Valefar Assimilator Y": "white",
+  "Valkyrie Particle Weave": "red",
+  Voidwatch: "green",
+  Vortex: "red",
+  "Wormhole Generator": "blue",
+  "X-89 Bacterial Weapon": "green",
+  "Yin Spinner": "green",
+  "War Sun": "white",
+};
+
 /**
  * This class parses data from the game-provided json.  It validates against
  * whitelists when possible, and escapes strings when not (e.g. player name).
@@ -396,6 +480,26 @@ class GameDataUtil {
 
     return strategyCards.map((name) => {
       return { name, faceDown: faceDown.includes(name) };
+    });
+  }
+
+  /**
+   * Parse technologies.
+   *
+   * @param {Object.{technologies:Array.{string}}} playerData
+   * @returns {Array.{Object.{name:string,colorName:string,colorHex:string}}}
+   */
+  static parsePlayerTechnologies(playerData) {
+    console.assert(typeof playerData === "object");
+
+    const technologies = playerData?.technologies || [];
+    return technologies.map((name) => {
+      const colorName = TECHNOLOGY_COLOR[name] || "white";
+      return {
+        name,
+        colorName,
+        colorHex: COLOR_NAME_TO_HEX[colorName],
+      };
     });
   }
 

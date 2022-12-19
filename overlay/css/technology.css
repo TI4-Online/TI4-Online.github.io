@@ -1,0 +1,19 @@
+.technology {
+  white-space: nowrap;
+  overflow: hidden;
+  table-layout: fixed;
+}
+
+.technology th {
+  height: 20px;
+  font-size: larger;
+  text-transform: capitalize;
+}
+.technology td {
+  vertical-align: top;
+  text-align: center;
+}
+.technology div {
+  padding-top: 6px;
+  overflow: hidden;
+}
