@@ -26,6 +26,10 @@ iframe {
   margin: 0;
 }
 
+.frame-container {
+  display: inline-block;
+}
+
 /* Match parent size, trim any overflow. */
 .canvas-container {
   display: flex;
@@ -60,4 +64,9 @@ iframe {
 .size-objectives {
   width: 400px;
   height: 442px; /* 26px per row (17x) */
+}
+
+.size-secrets {
+  width: 400px;
+  height: 225px;
 }
