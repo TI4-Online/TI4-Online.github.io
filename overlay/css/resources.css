@@ -1,0 +1,20 @@
+.resources {
+  white-space: nowrap;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.resources th {
+  height: 30px;
+  overflow: hidden;
+}
+
+.resources td {
+  border: 1px solid yellow;
+  text-align: center;
+  overflow: hidden;
+}
+
+.resources .asset-column-header {
+  width: 120px;
+}

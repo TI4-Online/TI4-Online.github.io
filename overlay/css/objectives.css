@@ -1,16 +1,20 @@
 .objectives {
   table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.objectives td {
+  border: 1px solid #222;
 }
 
 .objective-name {
   position: relative;
-  padding-top: 2px; /* all caps has nothing below baseline, centering looks off */
   padding-right: 6px;
   text-align: right;
   text-transform: uppercase;
 }
 
 .scored-by {
-  width: 22px;
+  width: 26px;
   text-align: center;
 }

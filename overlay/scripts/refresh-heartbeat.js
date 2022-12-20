@@ -63,8 +63,8 @@ class GameDataHeartbeat {
   setDiv(canvas) {
     // Resize to fit parent?
     if (canvas.width === 0 && canvas.height === 0) {
-      canvas.width = canvas.parentNode.offsetWidth - 4;
-      canvas.height = canvas.parentNode.offsetHeight - 4;
+      canvas.width = canvas.parentNode.offsetWidth;
+      canvas.height = canvas.parentNode.offsetHeight;
     }
 
     this._canvas = canvas;
@@ -129,7 +129,7 @@ class GameDataHeartbeat {
     // Clear.
     ctx.clearRect(0, 0, w, h);
 
-    ctx.font = "bold 12px Arial, Helvetica, sans-serif";
+    ctx.font = "12px Open Sans, sans-serif";
 
     // Title.
     ctx.textAlign = "center";

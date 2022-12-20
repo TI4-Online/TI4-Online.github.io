@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Technology</title>
+    <title>Technology (Rotating)</title>
     <link rel="stylesheet" href="/overlay/css/main.css" />
     <link rel="stylesheet" href="/overlay/css/technology.css" />
     <script src="/overlay/scripts/game-data-util.js"></script>
@@ -9,13 +9,29 @@
     <script src="/overlay/scripts/game-data-refresh.js"></script>
   </head>
   <body class="no-margin">
-    <table class="size-technology-rotating technology" id="technology-rotating">
-      <tr>
-        <th class="tech-header">PLAYER 1</th>
-      </tr>
-      <tr>
-        <td class="tech-column">TECH 1</td>
-      </tr>
-    </table>
+    <div class="size-technology-rotating rotating-container">
+      <table
+        class="size-technology-rotating technology rotating-content"
+        id="technology-rotating-1"
+      >
+        <tr>
+          <th class="tech-header">PLAYER 1</th>
+        </tr>
+        <tr>
+          <td class="tech-column">TECH 1</td>
+        </tr>
+      </table>
+      <table
+        class="size-technology-rotating technology rotating-content"
+        id="technology-rotating-2"
+      >
+        <tr>
+          <th class="tech-header">PLAYER 1</th>
+        </tr>
+        <tr>
+          <td class="tech-column">TECH 1</td>
+        </tr>
+      </table>
+    </div>
   </body>
 </html>

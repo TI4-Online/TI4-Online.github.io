@@ -7,18 +7,13 @@
 
 .leaderboard td {
   position: relative;
-  border: 1px solid yellow;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
+  border: 1px solid #aaa;
 }
 
 .faction-icon {
   position: absolute;
-  left: 0%;
-  top: 0%;
-  padding-top: 8px;
-  padding-left: 15px;
-  padding-right: 15px;
+  left: 8px;
+  top: 8px;
   width: 45px;
   height: 45px;
   z-index: 1;
@@ -38,7 +33,7 @@
   position: absolute;
   left: 0%;
   bottom: 0%;
-  width: 75px;
+  width: 61px;
   height: 20px;
   z-index: 2;
 }
@@ -52,7 +47,7 @@
   position: absolute;
   right: 0%;
   top: 0%;
-  width: 75px;
+  width: 61px;
   height: 100%;
   z-index: 2;
 }

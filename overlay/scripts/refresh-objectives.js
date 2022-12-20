@@ -116,7 +116,7 @@ class Objectives {
       bgColor = "transparent";
     } else if (objectiveType === "other") {
       bgColor = "transparent";
-      color = "white";
+      color = "inherit";
     } else if (objectiveType === "sftt") {
       bgColor = "transparent";
     }
