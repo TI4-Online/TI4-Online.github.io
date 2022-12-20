@@ -9,12 +9,12 @@ class Technology {
   constructor() {
     this._rotateSeconds = 10;
 
-    let elementId = "technology-rotating-1";
+    let elementId = "rotating-1";
     this._table1 = document.getElementById(elementId);
     if (!this._table1) {
       throw new Error(`Missing element id "${elementId}"`);
     }
-    elementId = "technology-rotating-2";
+    elementId = "rotating-2";
     this._table2 = document.getElementById(elementId);
     if (!this._table2) {
       throw new Error(`Missing element id "${elementId}"`);
@@ -23,6 +23,8 @@ class Technology {
     this._lastIndex = undefined;
     this._lastTable = undefined;
     this._gameData = undefined;
+
+    this._table1.style.opacity = 1;
 
     new BroadcastChannel("onGameDataEvent").onmessage = (event) => {
       if (event.data.type === "UPDATE" || event.data.type === "NOT_MODIFIED") {
