@@ -248,11 +248,36 @@ class GameDataUtil {
    * Parse laws.
    *
    * @param {Object} gameData
-   * @returns {Array.{string}}
+   * @returns {Array.{{name:string,colors:Array.{string}}}
    */
   static parseLaws(gameData) {
     const laws = gameData?.laws || [];
-    return laws.map((law) => GameDataUtil._escapeForHTML(law));
+
+    const lawToPlayers = {};
+    for (const law of laws) {
+      lawToPlayers[law] = [];
+    }
+
+    const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
+    for (const playerData of playerDataArray) {
+      const colorNameAndHex = GameDataUtil.parsePlayerColor(playerData);
+      const playerLaws = playerData?.laws || [];
+      for (const playerLaw of playerLaws) {
+        const entry = lawToPlayers[playerLaw];
+        if (!entry) {
+          continue; // law not registered at top?
+        }
+        entry.push({
+          colorName: colorNameAndHex.colorName,
+          colorHex: colorNameAndHex.colorHex,
+        });
+      }
+    }
+
+    return laws.map((law) => {
+      const players = lawToPlayers[law] || [];
+      return { name: GameDataUtil._escapeForHTML(law), players };
+    });
   }
 
   /**

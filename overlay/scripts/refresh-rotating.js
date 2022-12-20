@@ -44,6 +44,11 @@ class Technology {
   update(gameData) {
     console.assert(typeof gameData === "object");
 
+    if (this._gameData) {
+      console.log("SUPPRESS UPDATES");
+      return;
+    }
+
     // Remember most recent for timer-driven updates.
     this._gameData = gameData;
 

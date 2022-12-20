@@ -23,11 +23,20 @@ class Laws {
     container.innerHTML = "";
 
     for (const law of laws) {
+      let color = "unset";
+      let bgColor = "unset";
+
+      if (law.players.length === 1) {
+        const player = law.players[0];
+        color = "black";
+        bgColor = player.colorHex;
+      }
+
       const div = document.createElement("div");
       div.className = "jumble-entry";
-      div.style.backgroundColor = "white";
-      div.style.color = "black";
-      div.innerText = law;
+      div.style.backgroundColor = bgColor;
+      div.style.color = color;
+      div.innerText = law.name;
 
       container.appendChild(div);
     }

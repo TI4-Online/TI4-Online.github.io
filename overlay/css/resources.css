@@ -5,14 +5,15 @@
 }
 
 .resources th {
-  height: 30px;
   overflow: hidden;
+  height: 30px;
 }
 
 .resources td {
   border: 1px solid yellow;
   text-align: center;
   overflow: hidden;
+  height: 30px;
 }
 
 .resources .asset-column-header {

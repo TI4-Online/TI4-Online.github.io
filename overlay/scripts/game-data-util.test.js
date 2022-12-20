@@ -31,7 +31,12 @@ it("parseCurrentTurnColorName", () => {
 it("parseLaws", () => {
   const gameData = getGameData();
   const laws = GameDataUtil.parseLaws(gameData);
-  assert.deepEqual(laws, ["Committee Formation"]);
+  assert.deepEqual(laws, [
+    {
+      name: "Committee Formation",
+      players: [{ colorHex: "#6EC1E4", colorName: "blue" }],
+    },
+  ]);
 });
 
 it("parseObjectives", () => {

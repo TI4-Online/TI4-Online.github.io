@@ -81,6 +81,11 @@ iframe {
   opacity: 0;
 }
 
+.size-fill {
+  width: 100%;
+  height: 100%;
+}
+
 .size-std {
   width: 400px;
   height: 75px;
@@ -113,7 +118,7 @@ iframe {
 
 .size-rotating {
   width: 400px;
-  height: 442px;
+  height: 544px;
 }
 
 .size-resources {

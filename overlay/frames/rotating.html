@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Technology (Rotating)</title>
+    <title>Rotating</title>
     <link rel="stylesheet" href="/overlay/css/main.css" />
+    <link rel="stylesheet" href="/overlay/css/resources.css" />
     <link rel="stylesheet" href="/overlay/css/technology.css" />
     <script src="/overlay/scripts/game-data-util.js"></script>
     <script src="/overlay/scripts/refresh-rotating.js"></script>
@@ -10,24 +11,78 @@
   </head>
   <body class="no-margin">
     <div class="size-rotating rotating-container">
-      <table class="size-rotating technology rotating-content" id="rotating-1">
+      <!------------>
+      <!-- copy 1 -->
+      <!------------>
+      <table class="size-rotating rotating-content" id="rotating-1">
         <tr>
-          <th class="tech-header" colspan="2">PLAYER</th>
-        </tr>
-        <tr>
-          <td class="tech-column">TECH</td>
-          <td class="tech-column">RESOURCES</td>
+          <td>
+            <table class="size-fill technology">
+              <tr>
+                <th class="tech-header">PLAYER</th>
+              </tr>
+              <tr>
+                <td class="tech-column">TECH</td>
+              </tr>
+            </table>
+          </td>
+          <td>
+            <table class="size-fill resources">
+              <tr id="asset-resources">
+                <th>Resources<br />(avail/total)</th>
+                <td class="player-value">VALUE 1</td>
+              </tr>
+              <tr id="asset-influence">
+                <th>Influence<br />(avail/total)</th>
+                <td class="player-value">VALUE 1</td>
+              </tr>
+              <tr id="asset-tradegoods">
+                <th>Tradegoods<br />(tgs/cs)</th>
+                <td class="player-value">VALUE 1</td>
+              </tr>
+              <tr id="asset-tokens">
+                <th>Tokens<br />(T/F/S)</th>
+                <td class="player-value">VALUE 1</td>
+              </tr>
+              <tr id="asset-commander">
+                <th>Commander</th>
+                <td class="player-value">VALUE 1</td>
+              </tr>
+              <tr id="asset-hero">
+                <th>Hero</th>
+                <td class="player-value">VALUE 1</td>
+              </tr>
+              <tr id="asset-alliances">
+                <th>Alliances</th>
+                <td class="player-value">VALUE 1</td>
+              </tr>
+              <tr id="asset-tech-skips">
+                <th>Tech Skips<br />(B/G/Y/R)</th>
+                <td class="player-value">VALUE 1</td>
+              </tr>
+              <tr id="asset-traits">
+                <th>Traits<br />(C/H/I)</th>
+                <td class="player-value">VALUE 1</td>
+              </tr>
+            </table>
+          </td>
         </tr>
       </table>
+
+      <!------------>
+      <!-- copy 2 -->
+      <!------------>
       <table class="size-rotating technology rotating-content" id="rotating-2">
         <tr>
           <th class="tech-header" colspan="2">PLAYER</th>
         </tr>
         <tr>
-          <td class="tech-column">TECH</td>
-          <td class="tech-column">RESOURCES</td>
+          <td class="tech-column">xxx</td>
+          <td class="tech-column">xxx</td>
         </tr>
       </table>
+
+      <!------------>
     </div>
   </body>
 </html>
