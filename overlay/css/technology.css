@@ -2,6 +2,7 @@
   white-space: nowrap;
   overflow: hidden;
   table-layout: fixed;
+  border-collapse: collapse;
 }
 
 .technology th {

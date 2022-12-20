@@ -28,6 +28,7 @@ iframe {
 
 .frame-container {
   display: inline-block;
+  vertical-align: top;
 }
 
 /* Match parent size, trim any overflow. */
@@ -92,4 +93,9 @@ iframe {
 .size-technology {
   width: 1200px;
   height: 600px;
+}
+
+.size-technology-rotating {
+  width: 400px;
+  height: 442px;
 }
