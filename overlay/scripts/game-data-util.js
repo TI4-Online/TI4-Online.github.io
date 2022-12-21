@@ -470,6 +470,57 @@ class GameDataUtil {
   }
 
   /**
+   * Parse player resources.
+   *
+   * @param {Object} playerData
+   * @returns {Object}
+   */
+  static parsePlayerResources(playerData) {
+    console.assert(typeof playerData === "object");
+
+    return {
+      influence: {
+        avail: playerData?.planetTotals?.influence?.avail || 0,
+        total: playerData?.planetTotals?.influence?.total || 0,
+      },
+      resources: {
+        avail: playerData?.planetTotals?.resources?.avail || 0,
+        total: playerData?.planetTotals?.resources?.total || 0,
+      },
+      tradegoods: playerData?.tradeGoods || 0,
+      commodities: playerData?.commodities || 0,
+      teckSkips: {
+        blue: playerData?.planetTotals?.techs?.blue || 0,
+        green: playerData?.planetTotals?.techs?.green || 0,
+        red: playerData?.planetTotals?.techs?.red || 0,
+        yellow: playerData?.planetTotals?.techs?.yellow || 0,
+      },
+      traits: {
+        cultural: playerData?.planetTotals?.traits?.cultural || 0,
+        hazardous: playerData?.planetTotals?.traits?.hazardous || 0,
+        industrial: playerData?.planetTotals?.traits?.industrial || 0,
+      },
+      tokens: {
+        fleet: playerData?.commandTokens?.fleet || 0,
+        strategy: playerData?.commandTokens?.strategy || 0,
+        tactics: playerData?.commandTokens?.tactics || 0,
+      },
+      alliances: (playerData?.alliances || []).map((x) =>
+        GameDataUtil._escapeForHTML(x).toLowerCase()
+      ),
+      leaders: {
+        // "locked|unlocked|purged"
+        commander: GameDataUtil._escapeForHTML(
+          playerData?.leaders?.commander || "purged"
+        ),
+        hero: GameDataUtil._escapeForHTML(
+          playerData?.leaders?.hero || "purged"
+        ),
+      },
+    };
+  }
+
+  /**
    * Parse score.
    *
    * @param {Object.{score:number}} playerData

@@ -36,6 +36,10 @@ it("parseLaws", () => {
       name: "Committee Formation",
       players: [{ colorHex: "#6EC1E4", colorName: "blue" }],
     },
+    {
+      name: "Representative Government",
+      players: [],
+    },
   ]);
 });
 
@@ -152,6 +156,23 @@ it("parsePlayerName", () => {
   const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
   const playerName = GameDataUtil.parsePlayerName(playerDataArray[0]);
   assert.equal(playerName, "thc");
+});
+
+it("parsePlayerResources", () => {
+  const gameData = getGameData();
+  const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
+  const resources = GameDataUtil.parsePlayerResources(playerDataArray[0]);
+  assert.deepEqual(resources, {
+    alliances: ["blue"],
+    commodities: 2,
+    influence: { avail: 2, total: 13 },
+    leaders: { commander: "locked", hero: "locked" },
+    resources: { avail: 9, total: 12 },
+    teckSkips: { blue: 1, green: 0, red: 0, yellow: 1 },
+    tokens: { fleet: 4, strategy: 1, tactics: 4 },
+    tradegoods: 7,
+    traits: { cultural: 1, hazardous: 1, industrial: 3 },
+  });
 });
 
 it("parsePlayerScore", () => {
