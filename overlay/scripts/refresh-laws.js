@@ -23,12 +23,11 @@ class Laws {
     container.innerHTML = "";
 
     for (const law of laws) {
-      let color = "unset";
-      let bgColor = "unset";
+      const color = "black";
+      let bgColor = "#aaa";
 
       if (law.players.length === 1) {
         const player = law.players[0];
-        color = "black";
         bgColor = player.colorHex;
       }
 
