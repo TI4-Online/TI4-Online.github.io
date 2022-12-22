@@ -13,6 +13,8 @@ class GameDataHeartbeat {
   constructor() {
     this._canvas = undefined;
     this._history = [];
+
+    this._scale = 2;
     this._historyWindowSeconds = 180;
     this._updateSeconds = 3;
 
@@ -67,7 +69,19 @@ class GameDataHeartbeat {
       canvas.height = canvas.parentNode.offsetHeight;
     }
 
+    // Record canvas and (unscaled) size.
     this._canvas = canvas;
+    this._w = canvas.width;
+    this._h = canvas.height;
+
+    // Set CSS for "real" size, then scale for anti-aliasing.
+    canvas.style.width = `${canvas.width}px`;
+    canvas.style.height = `${canvas.height}px`;
+    canvas.width *= this._scale;
+    canvas.height *= this._scale;
+
+    console.log(`XXX ${canvas.width} x ${canvas.height}`);
+
     this._update();
     return this;
   }
@@ -104,11 +118,14 @@ class GameDataHeartbeat {
       return; // browser does not support canvas
     }
     const ctx = this._canvas.getContext("2d");
-    const w = this._canvas.width;
-    const h = this._canvas.height;
+    ctx.save();
+    ctx.scale(this._scale, this._scale);
+
+    const w = this._w;
+    const h = this._h;
     const now = Date.now() / 1000;
 
-    const labelWidth = 95;
+    const labelWidth = 77;
     const labelX = w - labelWidth;
     const dataX = 4;
     const dataWidth = labelX - dataX * 2;
@@ -197,6 +214,8 @@ class GameDataHeartbeat {
       ctx.arc(x, y, r, 0, Math.PI * 2, true);
       ctx.fill();
     }
+
+    ctx.restore();
   }
 }
 
