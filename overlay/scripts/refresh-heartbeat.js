@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * Fill the canvas id "game-data-heartbeat" with GameData heath graph.
  * If the canvas has a (0,0) size, resize to match parent element.

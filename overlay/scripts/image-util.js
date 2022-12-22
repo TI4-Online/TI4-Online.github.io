@@ -1,3 +1,5 @@
+"use strict";
+
 class ImageUtil {
   constructor() {
     throw new Error("static only");
