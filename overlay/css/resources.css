@@ -1,21 +1,17 @@
 .resources {
-  white-space: nowrap;
   table-layout: fixed;
   border-collapse: collapse;
-}
-
-.resources th {
-  overflow: hidden;
-  height: 30px;
+  box-sizing: border-box;
 }
 
 .resources td {
-  border: 1px solid yellow;
+  height: 50%;
+  border: 1px solid #aaa;
+  box-sizing: border-box;
   text-align: center;
-  overflow: hidden;
-  height: 30px;
 }
 
-.resources .asset-column-header {
-  width: 120px;
+.resources canvas {
+  margin-left: auto;
+  margin-right: auto;
 }
