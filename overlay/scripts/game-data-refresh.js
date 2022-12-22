@@ -92,7 +92,7 @@ class GameDataRefresh {
     // Run "immediately" but give others a moment to set up.
     setTimeout(() => {
       this._loopFetchHandler();
-    }, 100);
+    }, 500);
     return this;
   }
 
