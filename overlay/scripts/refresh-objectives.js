@@ -254,17 +254,23 @@ class Objectives {
       //td.innerText = String(count);
 
       // Show supports!
-      const w = 20; //td.offsetWidth - 2;
-      const h = 20; //td.offsetHeight - 2;
+      const w = Math.min(td.offsetWidth, td.offsetHeight) - 4; // inline borders
+      const h = w;
+      const scale = 2;
+
       const canvas = document.createElement("canvas");
       canvas.style.paddingLeft = 0;
       canvas.style.paddingRight = 0;
       canvas.style.marginLeft = "auto";
       canvas.style.marginRight = "auto";
       canvas.style.display = "block";
-      canvas.width = w;
-      canvas.height = h;
+      canvas.style.width = `${w}px`;
+      canvas.style.height = `${h}px`;
+      canvas.width = w * scale;
+      canvas.height = h * scale;
       const ctx = canvas.getContext("2d");
+      ctx.scale(scale, scale); // applies to coords used by ctx
+      ctx.off;
       const x = w / 2;
       const y = h / 2;
       const r = Math.min(x, y);
@@ -282,8 +288,17 @@ class Objectives {
         ctx.beginPath();
         ctx.moveTo(x, y);
         ctx.arc(x, y, r, a, b);
+        ctx.closePath();
         ctx.fill();
       });
+
+      // Frame.
+      // ctx.lineWidth = 2;
+      // ctx.fillStyle = "black";
+      // ctx.beginPath();
+      // ctx.arc(x, y, r - 1, 0, Math.PI * 2);
+      // ctx.closePath();
+      // ctx.stroke();
 
       td.appendChild(canvas);
     });
