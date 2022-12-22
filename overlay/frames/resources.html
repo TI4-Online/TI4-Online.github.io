@@ -4,121 +4,41 @@
     <title>Resources</title>
     <link rel="stylesheet" href="/overlay/css/main.css" />
     <link rel="stylesheet" href="/overlay/css/resources.css" />
+    <script src="/overlay/scripts/image-util.js"></script>
+    <script src="/overlay/scripts/draw-player-resources.js"></script>
     <script src="/overlay/scripts/game-data-util.js"></script>
     <script src="/overlay/scripts/refresh-resources.js"></script>
     <script src="/overlay/scripts/game-data-refresh.js"></script>
   </head>
   <body class="no-margin">
     <table class="resources size-resources" id="resources">
-      <tr id="player-names">
-        <th class="asset-column-header">Asset</th>
-        <th class="player-name">PLAYER 1</th>
-        <th class="player-name">PLAYER 2</th>
-        <th class="player-name">PLAYER 3</th>
-        <th class="player-name">PLAYER 4</th>
-        <th class="player-name">PLAYER 5</th>
-        <th class="player-name">PLAYER 6</th>
-        <th class="player-name">PLAYER 7</th>
-        <th class="player-name">PLAYER 8</th>
+      <tr>
+        <td id="resources-0-0">
+          <canvas class="resources-canvas" width="0" height="0"></canvas>
+        </td>
+        <td id="resources-0-1">
+          <canvas class="resources-canvas" width="0" height="0"></canvas>
+        </td>
+        <td id="resources-0-2">
+          <canvas class="resources-canvas" width="0" height="0"></canvas>
+        </td>
+        <td id="resources-0-3">
+          <canvas class="resources-canvas" width="0" height="0"></canvas>
+        </td>
       </tr>
-      <tr id="asset-resources">
-        <th>Resources<br />(avail/total)</th>
-        <td class="player-value">VALUE 1</td>
-        <td class="player-value">VALUE 2</td>
-        <td class="player-value">VALUE 3</td>
-        <td class="player-value">VALUE 4</td>
-        <td class="player-value">VALUE 5</td>
-        <td class="player-value">VALUE 6</td>
-        <td class="player-value">VALUE 7</td>
-        <td class="player-value">VALUE 8</td>
-      </tr>
-      <tr id="asset-influence">
-        <th>Influence<br />(avail/total)</th>
-        <td class="player-value">VALUE 1</td>
-        <td class="player-value">VALUE 2</td>
-        <td class="player-value">VALUE 3</td>
-        <td class="player-value">VALUE 4</td>
-        <td class="player-value">VALUE 5</td>
-        <td class="player-value">VALUE 6</td>
-        <td class="player-value">VALUE 7</td>
-        <td class="player-value">VALUE 8</td>
-      </tr>
-      <tr id="asset-tradegoods">
-        <th>Tradegoods<br />(tgs/cs)</th>
-        <td class="player-value">VALUE 1</td>
-        <td class="player-value">VALUE 2</td>
-        <td class="player-value">VALUE 3</td>
-        <td class="player-value">VALUE 4</td>
-        <td class="player-value">VALUE 5</td>
-        <td class="player-value">VALUE 6</td>
-        <td class="player-value">VALUE 7</td>
-        <td class="player-value">VALUE 8</td>
-      </tr>
-      <tr id="asset-tokens">
-        <th>Tokens<br />(T/F/S)</th>
-        <td class="player-value">VALUE 1</td>
-        <td class="player-value">VALUE 2</td>
-        <td class="player-value">VALUE 3</td>
-        <td class="player-value">VALUE 4</td>
-        <td class="player-value">VALUE 5</td>
-        <td class="player-value">VALUE 6</td>
-        <td class="player-value">VALUE 7</td>
-        <td class="player-value">VALUE 8</td>
-      </tr>
-      <tr id="asset-commander">
-        <th>Commander</th>
-        <td class="player-value">VALUE 1</td>
-        <td class="player-value">VALUE 2</td>
-        <td class="player-value">VALUE 3</td>
-        <td class="player-value">VALUE 4</td>
-        <td class="player-value">VALUE 5</td>
-        <td class="player-value">VALUE 6</td>
-        <td class="player-value">VALUE 7</td>
-        <td class="player-value">VALUE 8</td>
-      </tr>
-      <tr id="asset-hero">
-        <th>Hero</th>
-        <td class="player-value">VALUE 1</td>
-        <td class="player-value">VALUE 2</td>
-        <td class="player-value">VALUE 3</td>
-        <td class="player-value">VALUE 4</td>
-        <td class="player-value">VALUE 5</td>
-        <td class="player-value">VALUE 6</td>
-        <td class="player-value">VALUE 7</td>
-        <td class="player-value">VALUE 8</td>
-      </tr>
-      <tr id="asset-alliances">
-        <th>Alliances</th>
-        <td class="player-value">VALUE 1</td>
-        <td class="player-value">VALUE 2</td>
-        <td class="player-value">VALUE 3</td>
-        <td class="player-value">VALUE 4</td>
-        <td class="player-value">VALUE 5</td>
-        <td class="player-value">VALUE 6</td>
-        <td class="player-value">VALUE 7</td>
-        <td class="player-value">VALUE 8</td>
-      </tr>
-      <tr id="asset-tech-skips">
-        <th>Tech Skips<br />(B/G/Y/R)</th>
-        <td class="player-value">VALUE 1</td>
-        <td class="player-value">VALUE 2</td>
-        <td class="player-value">VALUE 3</td>
-        <td class="player-value">VALUE 4</td>
-        <td class="player-value">VALUE 5</td>
-        <td class="player-value">VALUE 6</td>
-        <td class="player-value">VALUE 7</td>
-        <td class="player-value">VALUE 8</td>
-      </tr>
-      <tr id="asset-traits">
-        <th>Traits<br />(C/H/I)</th>
-        <td class="player-value">VALUE 1</td>
-        <td class="player-value">VALUE 2</td>
-        <td class="player-value">VALUE 3</td>
-        <td class="player-value">VALUE 4</td>
-        <td class="player-value">VALUE 5</td>
-        <td class="player-value">VALUE 6</td>
-        <td class="player-value">VALUE 7</td>
-        <td class="player-value">VALUE 8</td>
+      <tr>
+        <td id="resources-1-0">
+          <canvas class="resources-canvas" width="0" height="0"></canvas>
+        </td>
+        <td id="resources-1-1">
+          <canvas class="resources-canvas" width="0" height="0"></canvas>
+        </td>
+        <td id="resources-1-2">
+          <canvas class="resources-canvas" width="0" height="0"></canvas>
+        </td>
+        <td id="resources-1-3">
+          <canvas class="resources-canvas" width="0" height="0"></canvas>
+        </td>
       </tr>
     </table>
   </body>
