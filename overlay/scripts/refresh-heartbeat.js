@@ -80,8 +80,6 @@ class GameDataHeartbeat {
     canvas.width *= this._scale;
     canvas.height *= this._scale;
 
-    console.log(`XXX ${canvas.width} x ${canvas.height}`);
-
     this._update();
     return this;
   }
