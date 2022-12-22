@@ -1,3 +1,5 @@
+"use strict";
+
 // jest overlay/scripts/game-data-util.test.js
 
 const assert = require("assert");

@@ -1,3 +1,5 @@
+"use strict";
+
 class Technology {
   static getInstance() {
     if (!Technology.__instance) {

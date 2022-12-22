@@ -1,3 +1,5 @@
+"use strict";
+
 class Objectives {
   static getInstance() {
     if (!Objectives.__instance) {

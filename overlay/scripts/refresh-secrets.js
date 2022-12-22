@@ -1,3 +1,5 @@
+"use strict";
+
 class Secrets {
   static getInstance() {
     if (!Secrets.__instance) {

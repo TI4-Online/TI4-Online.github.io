@@ -1,9 +1,11 @@
-class Technology {
+"use strict";
+
+class Rotating {
   static getInstance() {
-    if (!Technology.__instance) {
-      Technology.__instance = new Technology();
+    if (!Rotating.__instance) {
+      Rotating.__instance = new Rotating();
     }
-    return Technology.__instance;
+    return Rotating.__instance;
   }
 
   constructor() {
@@ -95,5 +97,5 @@ class Technology {
 }
 
 window.addEventListener("load", () => {
-  Technology.getInstance();
+  Rotating.getInstance();
 });

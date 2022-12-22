@@ -1,3 +1,5 @@
+"use strict";
+
 class Laws {
   static getInstance() {
     if (!Laws.__instance) {

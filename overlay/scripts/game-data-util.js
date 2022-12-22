@@ -1,3 +1,5 @@
+"use strict";
+
 const COLOR_NAME_TO_HEX = {
   white: "#FFFFFF",
   blue: "#6EC1E4",
@@ -41,7 +43,7 @@ const FACTION_WHITELIST = new Set([
 ]);
 const UNKNOWN_FACTION = "bobert";
 
-OBJECTIVE_NAME_ABBREVIATIONS = {
+const OBJECTIVE_NAME_ABBREVIATIONS = {
   // Public
   "Diversify Research": "2 TECH 2 COLORS",
   "Develop Weaponry": "2 UNIT UPGRADES",
@@ -127,7 +129,7 @@ OBJECTIVE_NAME_ABBREVIATIONS = {
   "Strengthen Bonds": "PROM NOTE",
 };
 
-TECHNOLOGY_COLOR = {
+const TECHNOLOGY_COLOR = {
   "AI Development Algorithm": "red",
   "Advanced Carrier II": "white",
   "Aerie Hololattice": "yellow",

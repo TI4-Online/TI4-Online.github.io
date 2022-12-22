@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * Fetch gamedata json at regular inverals, using last-modified timestamp to
  * avoid processing already-delivered results.

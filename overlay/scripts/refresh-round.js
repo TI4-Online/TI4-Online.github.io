@@ -1,3 +1,5 @@
+"use strict";
+
 class Round {
   static getInstance() {
     if (!Round.__instance) {
