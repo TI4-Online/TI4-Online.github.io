@@ -34,6 +34,13 @@ iframe {
   margin: 0;
 }
 
+/* keep main overlay items from shifting with window size */
+.no-wrap {
+  display: inline-block;
+  white-space: nowrap;
+  vertical-align: top;
+}
+
 .frame-container {
   display: inline-block;
 }
