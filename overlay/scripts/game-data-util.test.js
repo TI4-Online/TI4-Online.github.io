@@ -157,7 +157,7 @@ it("parsePlayerName", () => {
   const gameData = getGameData();
   const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
   const playerName = GameDataUtil.parsePlayerName(playerDataArray[0]);
-  assert.equal(playerName, "thc");
+  assert.equal(playerName, "Player Name");
 });
 
 it("parsePlayerResources", () => {
@@ -201,6 +201,9 @@ it("parsePlayerTechnologies", () => {
     { colorHex: "#e46d72", colorName: "red", name: "Self Assembly Routines" },
     { colorHex: "#e46d72", colorName: "red", name: "Vortex" },
     { colorHex: "#e46d72", colorName: "red", name: "Duranium Armor" },
+    { colorHex: "#FFFFFF", colorName: "white", name: "Carrier II" },
+    { colorHex: "#FFFFFF", colorName: "white", name: "Fighter II" },
+    { colorHex: "#FFFFFF", colorName: "white", name: "Dimensional Tear II" },
   ]);
 });
 
