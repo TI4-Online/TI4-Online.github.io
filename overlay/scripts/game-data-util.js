@@ -258,6 +258,49 @@ class GameDataUtil {
     console.assert(typeof gameData === "object");
 
     const hexSummary = gameData?.hexSummary || "";
+
+    const colorCodeToColorName = {
+      W: "white",
+      B: "blue",
+      P: "purple",
+      Y: "yellow",
+      R: "red",
+      G: "green",
+      E: "orange",
+      K: "pink",
+    };
+
+    // TILE +-X +-Y SPACE ; PLANET1 ; PLANET2 ; ...
+    const firstRegionPattern = new RegExp(
+      /^([0-9AB]+)([-+][0-9]+)([-+][0-9]+)(.*)?$/
+    );
+    const rotPattern = new RegExp(/^(\d+)([AB])(\d)$/);
+
+    const entries = hexSummary.split(",");
+    return entries.map((entry) => {
+      const regions = entry.split(";");
+      const m = regions[0].match(firstRegionPattern);
+      if (!m) {
+        throw new Error(`mismatch first region "${regions[0]}"`);
+      }
+      console.assert(m);
+
+      let tile = m[1];
+      const x = Number.parseInt(m[2]);
+      const y = Number.parseInt(m[3]);
+      regions[0] = m[4]; // return remaining to be first region
+
+      let stickyColor = undefined;
+      let stickyCount = 1;
+
+      return {
+        tile,
+        x,
+        y,
+        regions,
+      };
+    });
+
     return hexSummary;
   }
 

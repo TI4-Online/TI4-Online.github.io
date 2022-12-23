@@ -41,6 +41,26 @@ class Map {
     const playerColorNamesAndHexValues = playerDataArray.map((playerData) => {
       return GameDataUtil.parsePlayerColor(playerData);
     });
+    const colorCodeToHex = {};
+    for (const colorNameAndHex of playerColorNamesAndHexValues) {
+      if (colorNameAndHex.colorName === "white") {
+        colorCodeToHex["W"] = colorNameAndHex.colorHex;
+      } else if (colorNameAndHex.colorName === "blue") {
+        colorCodeToHex["B"] = colorNameAndHex.colorHex;
+      } else if (colorNameAndHex.colorName === "purple") {
+        colorCodeToHex["P"] = colorNameAndHex.colorHex;
+      } else if (colorNameAndHex.colorName === "yellow") {
+        colorCodeToHex["Y"] = colorNameAndHex.colorHex;
+      } else if (colorNameAndHex.colorName === "red") {
+        colorCodeToHex["R"] = colorNameAndHex.colorHex;
+      } else if (colorNameAndHex.colorName === "green") {
+        colorCodeToHex["G"] = colorNameAndHex.colorHex;
+      } else if (colorNameAndHex.colorName === "orange") {
+        colorCodeToHex["E"] = colorNameAndHex.colorHex;
+      } else if (colorNameAndHex.colorName === "pink") {
+        colorCodeToHex["K"] = colorNameAndHex.colorHex;
+      }
+    }
 
     const hexSummary = GameDataUtil.parseHexSummary(gameData);
 
