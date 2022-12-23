@@ -49,21 +49,21 @@ class Rotating {
     // Remember most recent for timer-driven updates.
     this._gameData = gameData;
 
-    const players = GameDataUtil.parsePlayerDataArray(gameData);
-    const playerColorNamesAndHexValues = players.map((playerData) => {
+    const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
+    const playerColorNamesAndHexValues = playerDataArray.map((playerData) => {
       return GameDataUtil.parsePlayerColor(playerData);
     });
-    const playerCount = players.length;
+    const playerCount = playerDataArray.length;
 
     const timestamp = Math.floor(Date.now() / 1000);
     const index = Math.floor(timestamp / this._rotateSeconds) % playerCount;
-    const player = players[index];
+    const playerData = playerDataArray[index];
     const colorNameAndHex = playerColorNamesAndHexValues[index];
 
     const table = index % 2 === 0 ? this._table1 : this._table2;
 
     // Header.
-    let faction = GameDataUtil.parsePlayerFaction(player);
+    let faction = GameDataUtil.parsePlayerFaction(playerData);
     if (!faction || faction === "bobert") {
       faction = "-";
     }
@@ -72,7 +72,7 @@ class Rotating {
     headerTH.style.color = colorNameAndHex.colorHex || "white";
 
     // Techs.
-    const techs = GameDataUtil.parsePlayerTechnologies(player);
+    const techs = GameDataUtil.parsePlayerTechnologies(playerData);
     const columnTD = table.getElementsByClassName("tech-column")[0];
     columnTD.innerHTML = "";
     for (const tech of techs) {
@@ -81,6 +81,28 @@ class Rotating {
       div.innerText = tech.name;
       columnTD.appendChild(div);
     }
+
+    // Resources.
+    const canvas = table.getElementsByClassName("resources-canvas")[0];
+
+    // Set canvas size to match parent, but 2x internal canvas size.
+    if (canvas.width === 0 && canvas.height === 0) {
+      // Size slightly smaller to prevent growing table size, then pad
+      const w = canvas.parentNode.offsetWidth - 4 - 10;
+      const h = canvas.parentNode.offsetHeight - 4 - 10;
+      canvas.style.width = `${w}px`;
+      canvas.style.height = `${h}px`;
+      canvas.width = w * 2;
+      canvas.height = h * 2;
+    }
+
+    const boundingBox = {
+      left: 0,
+      top: 0,
+      width: canvas.width,
+      height: canvas.height,
+    };
+    DrawPlayerResources.getInstance().draw(canvas, boundingBox, playerData);
 
     // Swap tables?
     if (this._lastTable && this._lastTable !== table) {

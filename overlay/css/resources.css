@@ -14,4 +14,12 @@
 .resources canvas {
   margin-left: auto;
   margin-right: auto;
+  vertical-align: middle;
+}
+
+.player-resources-aspect-ratio-bottom {
+  position: absolute;
+  width: 100%;
+  bottom: 0%;
+  aspect-ratio: 1343/512;
 }

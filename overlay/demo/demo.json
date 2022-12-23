@@ -106,7 +106,7 @@
         }
       },
       "score": 2,
-      "steamName": "thc",
+      "steamName": "Player Name",
       "strategyCards": ["Politics"],
       "strategyCardsFaceDown": ["Politics"],
       "technologies": [
@@ -170,7 +170,7 @@
         }
       },
       "score": 3,
-      "steamName": "mmm",
+      "steamName": "Player Name",
       "strategyCards": ["Imperial"],
       "strategyCardsFaceDown": [],
       "technologies": [
@@ -236,7 +236,7 @@
         }
       },
       "score": 5,
-      "steamName": "w",
+      "steamName": "Player Name",
       "strategyCards": ["Leadership"],
       "strategyCardsFaceDown": ["Leadership"],
       "technologies": [
@@ -295,7 +295,7 @@
         }
       },
       "score": 2,
-      "steamName": "a",
+      "steamName": "Player Name",
       "strategyCards": ["Technology"],
       "strategyCardsFaceDown": ["Technology"],
       "technologies": [
@@ -356,7 +356,7 @@
         }
       },
       "score": 2,
-      "steamName": "tm",
+      "steamName": "Player Name",
       "strategyCards": ["Trade"],
       "strategyCardsFaceDown": ["Trade"],
       "technologies": [
@@ -415,7 +415,7 @@
         }
       },
       "score": 3,
-      "steamName": "d",
+      "steamName": "Player Name",
       "strategyCards": ["Diplomacy"],
       "strategyCardsFaceDown": ["Diplomacy"],
       "technologies": [
