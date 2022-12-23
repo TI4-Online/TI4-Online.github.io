@@ -109,8 +109,16 @@
       "steamName": "thc",
       "strategyCards": ["Politics"],
       "strategyCardsFaceDown": ["Politics"],
-      "technologies": ["Self Assembly Routines", "Vortex", "Duranium Armor"],
-      "tradeGoods": 7
+      "technologies": [
+        "Self Assembly Routines",
+        "Vortex",
+        "Duranium Armor",
+        "Carrier II",
+        "Fighter II",
+        "Dimensional Tear II"
+      ],
+      "tradeGoods": 7,
+      "unitUpgrades": ["carrier", "fighter", "space_dock"]
     },
     {
       "active": true,
@@ -172,7 +180,8 @@
         "Plasma Scoring",
         "War Sun"
       ],
-      "tradeGoods": 11
+      "tradeGoods": 11,
+      "unitUpgrades": ["war_sun"]
     },
     {
       "active": true,
@@ -236,7 +245,8 @@
         "AI Development Algorithm",
         "War Sun"
       ],
-      "tradeGoods": 3
+      "tradeGoods": 3,
+      "unitUpgrades": ["war_sun"]
     },
     {
       "active": true,
@@ -296,7 +306,8 @@
         "Predictive Intelligence",
         "Transit Diodes"
       ],
-      "tradeGoods": 2
+      "tradeGoods": 2,
+      "unitUpgrades": ["dreadnought"]
     },
     {
       "active": true,
@@ -354,7 +365,8 @@
         "Sarween Tools",
         "Dreadnought II"
       ],
-      "tradeGoods": 10
+      "tradeGoods": 10,
+      "unitUpgrades": ["dreadnought"]
     },
     {
       "active": true,
@@ -412,7 +424,8 @@
         "Dark Energy Tap",
         "Dreadnought II"
       ],
-      "tradeGoods": 7
+      "tradeGoods": 7,
+      "unitUpgrades": ["dreadnought"]
     }
   ],
   "round": 3,
