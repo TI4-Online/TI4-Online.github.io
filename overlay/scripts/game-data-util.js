@@ -625,7 +625,47 @@ class GameDataUtil {
 
     return speaker;
   }
+
+  /**
+   * Parse recent whispers.
+   *
+   * @param {Object.{whispers:Array}} gameData
+   * @returns {Array.{Object}}
+   */
+  static parseWhispers(gameData) {
+    console.assert(typeof gameData === "object");
+
+    const sanitizeWhisper = (s) => {
+      return [...s]
+        .map((c) => {
+          if (c === " ") {
+            return "&nbsp;";
+          }
+          if (c === "<") {
+            return "&lt;";
+          }
+          if (c === ">") {
+            return "&gt;";
+          }
+          return "";
+        })
+        .join("");
+    };
+
+    const whispers = gameData?.whispers || [];
+    return whispers.map((entry) => {
+      return {
+        colorNameA: GameDataUtil._escapeForHTML(entry.colorNameA),
+        colorNameB: GameDataUtil._escapeForHTML(entry.colorNameB),
+        colorHexA: COLOR_NAME_TO_HEX[entry.colorNameA],
+        colorHexB: COLOR_NAME_TO_HEX[entry.colorNameB],
+        forwardStr: sanitizeWhisper(entry.forwardStr),
+        backwardStr: sanitizeWhisper(entry.backwardStr),
+      };
+    });
+  }
 }
+
 // Export for jest test framework.
 if (typeof module !== "undefined") {
   module.exports = { GameDataUtil };

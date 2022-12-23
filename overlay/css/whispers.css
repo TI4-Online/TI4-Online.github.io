@@ -1,0 +1,32 @@
+.whispers {
+  table-layout: fixed;
+  border-collapse: collapse;
+  overflow: hidden;
+}
+
+.whispers td {
+  border: 1px solid #aaa;
+}
+
+.whisper-pair-container {
+  width: 120px;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.whisper-pair-container div {
+  display: inline-block;
+}
+
+.whisper-direction-container {
+  position: relative;
+  padding-left: 10px;
+}
+
+.whisper-direction-container div {
+  position: absolute;
+  font-family: "Roboto Mono", monospace;
+  font-size: 18px;
+  line-height: 0px;
+  vertical-align: middle;
+}

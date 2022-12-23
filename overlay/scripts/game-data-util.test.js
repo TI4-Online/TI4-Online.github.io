@@ -225,3 +225,17 @@ it("parseSpeakerColorName", () => {
   const speakerColorName = GameDataUtil.parseSpeakerColorName(gameData);
   assert.equal(speakerColorName, "green");
 });
+
+it("parseWhispers", () => {
+  const gameData = getGameData();
+  const whispers = GameDataUtil.parseWhispers(gameData);
+  assert.equal(whispers.length, 8);
+  assert.deepEqual(whispers[0], {
+    backwardStr: "             <<             <   <                          <",
+    colorHexA: "#00a14b",
+    colorHexB: "#e46d72",
+    colorNameA: "green",
+    colorNameB: "red",
+    forwardStr: "          >      >                       >>                 ",
+  });
+});

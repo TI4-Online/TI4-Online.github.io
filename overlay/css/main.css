@@ -1,5 +1,5 @@
 /* https://gist.github.com/ZachSaucier/8295d9dc926d7064ff0d4f3f04b35b55 */
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&family=Roboto+Mono&display=swap");
 
 html {
   height: 100%;
@@ -131,4 +131,9 @@ iframe {
 .size-resources {
   width: 1200px;
   height: 312px;
+}
+
+.size-whispers {
+  width: 800px;
+  height: 300px;
 }

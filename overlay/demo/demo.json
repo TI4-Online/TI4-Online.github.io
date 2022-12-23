@@ -388,7 +388,7 @@
       },
       "laws": [],
       "leaders": {
-        "commander": "purged",
+        "commander": "unlocked",
         "hero": "purged"
       },
       "objectives": ["Lead From the Front", "Sway the Council"],
@@ -433,5 +433,55 @@
   "setupTimestamp": 1670074353.102,
   "speaker": "Green",
   "timestamp": 1670088961,
-  "turn": "Red"
+  "turn": "Red",
+  "whispers": [
+    {
+      "backwardStr": "             <<             <   <                          <",
+      "colorNameA": "green",
+      "colorNameB": "red",
+      "forwardStr": "          >      >                       >>                 "
+    },
+    {
+      "backwardStr": "                         <<<<    <                          ",
+      "colorNameA": "yellow",
+      "colorNameB": "red",
+      "forwardStr": "                   >  >                         >           "
+    },
+    {
+      "backwardStr": "                                 <  <                       ",
+      "colorNameA": "blue",
+      "colorNameB": "red",
+      "forwardStr": "                                                 >          "
+    },
+    {
+      "backwardStr": "                                                            ",
+      "colorNameA": "purple",
+      "colorNameB": "white",
+      "forwardStr": "                                                            "
+    },
+    {
+      "backwardStr": "                                                            ",
+      "colorNameA": "blue",
+      "colorNameB": "white",
+      "forwardStr": "                                                            "
+    },
+    {
+      "backwardStr": "                                                            ",
+      "colorNameA": "purple",
+      "colorNameB": "blue",
+      "forwardStr": "                                                            "
+    },
+    {
+      "backwardStr": "                                                            ",
+      "colorNameA": "red",
+      "colorNameB": "white",
+      "forwardStr": "                                                            "
+    },
+    {
+      "backwardStr": "                                                            ",
+      "colorNameA": "green",
+      "colorNameB": "blue",
+      "forwardStr": "                                                            "
+    }
+  ]
 }
