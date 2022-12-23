@@ -55,17 +55,20 @@ class DrawPlayerResources {
     const colorName = colorNameAndHex.colorName;
 
     const resources = GameDataUtil.parsePlayerResources(playerData);
+    const unitUpgrades = GameDataUtil.parsePlayerUnitUpgrades(playerData);
 
     const ctx = canvas.getContext("2d");
     ctx.save();
     try {
       this._clear(ctx, boundingBox);
       this._drawPlayerSheets(ctx, boundingBox, colorName);
+
+      this._drawUnitUpgrades(ctx, boundingBox, colorName, unitUpgrades);
+
       this._drawLeaders(ctx, boundingBox, resources);
       this._drawTokens(ctx, boundingBox, resources);
       this._drawCommodities(ctx, boundingBox, resources);
       this._drawTradegoods(ctx, boundingBox, resources);
-      this._drawUnitUpgrades(ctx, boundingBox, colorName, playerData);
       this._drawPlanetResources();
       this._drawPlanetInfluence();
     } finally {
@@ -201,13 +204,13 @@ class DrawPlayerResources {
     ctx.textBaseline = "middle";
     ctx.strokeStyle = "white";
     ctx.fillStyle = "black";
-    ctx.lineWidth = Math.floor(fontSize * 0.15);
+    ctx.lineWidth = fontSize * 0.15;
     ctx.strokeText(resources.tradegoods, textX, textY);
     ctx.fillText(resources.tradegoods, textX, textY);
     ctx.restore();
   }
 
-  _drawUnitUpgrades(ctx, boundingBox, colorName, playerData) {
+  _drawUnitUpgrades(ctx, boundingBox, colorName, unitUpgrades) {
     // Use full white instead of the gray version.
     if (colorName === "white") {
       colorName = "mask";
@@ -218,7 +221,7 @@ class DrawPlayerResources {
       const img = this._image[unitName];
       console.assert(img);
 
-      let has = Math.random() < 0.5;
+      const has = unitUpgrades.includes(unitName);
 
       // shadow outline
       ctx.save();

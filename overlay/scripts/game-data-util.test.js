@@ -203,6 +203,14 @@ it("parsePlayerTechnologies", () => {
     { colorHex: "#e46d72", colorName: "red", name: "Duranium Armor" },
   ]);
 });
+
+it("parsePlayerUnitUpgrades", () => {
+  const gameData = getGameData();
+  const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
+  const unitUpgrades = GameDataUtil.parsePlayerUnitUpgrades(playerDataArray[0]);
+  assert.deepEqual(unitUpgrades, ["carrier", "fighter", "space_dock"]);
+});
+
 it("parseRound", () => {
   const gameData = getGameData();
   const round = GameDataUtil.parseRound(gameData);

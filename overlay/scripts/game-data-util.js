@@ -226,9 +226,11 @@ class GameDataUtil {
    */
   static _escapeForHTML(string) {
     console.assert(typeof string === "string");
-    const div = document.createElement("div");
-    div.innerText = string;
-    return div.innerHTML;
+    if (!GameDataUtil.__escapeDiv) {
+      GameDataUtil.__escapeDiv = document.createElement("div");
+    }
+    GameDataUtil.__escapeDiv.innerText = string;
+    return GameDataUtil.__escapeDiv.innerHTML;
   }
 
   /**
@@ -574,11 +576,24 @@ class GameDataUtil {
     return technologies.map((name) => {
       const colorName = TECHNOLOGY_COLOR[name] || "white";
       return {
-        name,
+        name: GameDataUtil._escapeForHTML(name),
         colorName,
         colorHex: COLOR_NAME_TO_HEX[colorName],
       };
     });
+  }
+
+  /**
+   * Parse unit upgrades - returns "nsid" style unit types, e.g. "war_sun".
+   *
+   * @param {Object.{unitUpgrades:Array.{string}}} playerData
+   * @returns {Array.{string}}
+   */
+  static parsePlayerUnitUpgrades(playerData) {
+    console.assert(typeof playerData === "object");
+
+    const unitUpgrades = playerData?.unitUpgrades || [];
+    return unitUpgrades.map((name) => GameDataUtil._escapeForHTML(name));
   }
 
   /**
