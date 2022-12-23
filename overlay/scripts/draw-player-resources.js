@@ -20,14 +20,16 @@ class DrawPlayerResources {
    */
   constructor() {
     this._image = {
-      playerSheets: new Image(),
-      playerSheetsMask: new Image(),
+      playerSheets: "sheets/player-sheets.png",
+      playerSheetsMask: "sheets/player-sheets-mask.png",
+      commodity: "tokens/commodity_1.png",
+      tradegood: "tokens/tradegood_1.png",
     };
 
-    this._image.playerSheets.src = ImageUtil.getSrc("sheets/player-sheets.png");
-    this._image.playerSheetsMask.src = ImageUtil.getSrc(
-      "sheets/player-sheets-mask.png"
-    );
+    for (const [key, path] of Object.entries(this._image)) {
+      this._image[key] = new Image();
+      this._image[key].src = ImageUtil.getSrc(path);
+    }
   }
 
   draw(canvas, boundingBox, playerData) {
@@ -38,13 +40,20 @@ class DrawPlayerResources {
     console.assert(typeof boundingBox.height === "number");
     console.assert(playerData);
 
+    const colorNameAndHex = GameDataUtil.parsePlayerColor(playerData);
+    const colorName = colorNameAndHex.colorName;
+
+    const resources = GameDataUtil.parsePlayerResources(playerData);
+
     const ctx = canvas.getContext("2d");
     ctx.save();
     try {
       this._clear(ctx, boundingBox);
-      this._drawPlayerSheets(ctx, boundingBox, playerData);
-      this._drawLeaders(ctx, boundingBox, playerData);
-      this._drawTokens(ctx, boundingBox, playerData);
+      this._drawPlayerSheets(ctx, boundingBox, colorName);
+      this._drawLeaders(ctx, boundingBox, resources);
+      this._drawTokens(ctx, boundingBox, resources);
+      this._drawCommodities(ctx, boundingBox, resources);
+      this._drawTradegoods(ctx, boundingBox, resources);
       this._drawUnitUpgrades(ctx, boundingBox, playerData);
     } finally {
       ctx.restore();
@@ -63,9 +72,7 @@ class DrawPlayerResources {
     );
   }
 
-  _drawPlayerSheets(ctx, boundingBox, playerData) {
-    const offscreen = document.c;
-
+  _drawPlayerSheets(ctx, boundingBox, colorName) {
     // Unfortunately there is no simple tint.  We could get the raw RGBA and manually
     // multiply and cache, but assume native operations will be fast.
     // https://angel-rs.github.io/css-color-filter-generator/
@@ -85,8 +92,7 @@ class DrawPlayerResources {
       pink: "brightness(0) saturate(100%) invert(55%) sepia(60%) saturate(1316%) hue-rotate(297deg) brightness(104%) contrast(101%)",
     };
 
-    const colorNameAndHex = GameDataUtil.parsePlayerColor(playerData);
-    const filter = colorNameToFilter[colorNameAndHex.colorName];
+    const filter = colorNameToFilter[colorName];
 
     ctx.save();
     ctx.filter = filter;
@@ -112,9 +118,73 @@ class DrawPlayerResources {
     ctx.restore();
   }
 
-  _drawLeaders(ctx, boundingBox, playerData) {}
+  _drawLeaders(ctx, boundingBox, resources) {}
 
-  _drawTokens(ctx, boundingBox, playerData) {}
+  _drawTokens(ctx, boundingBox, resources) {}
+
+  _drawCommodities(ctx, boundingBox, resources) {
+    const center = {
+      x: boundingBox.left + boundingBox.width * 0.636,
+      y: boundingBox.top + boundingBox.height * 0.66,
+    };
+
+    ctx.strokeStyle = "red";
+    ctx.lineWidth = 2;
+
+    const tokenSize = Math.floor(boundingBox.width * 0.06);
+    const tokenX = center.x - tokenSize * 1.1;
+    const tokenY = center.y - tokenSize / 2;
+
+    const fontSize = Math.floor(boundingBox.width * 0.1);
+    const textBumpY = Math.floor(boundingBox.width * 0.004);
+    const textX = center.x + tokenSize * 0.1;
+    const textY = center.y + textBumpY;
+
+    ctx.filter = "brightness(150%)";
+    ctx.drawImage(this._image.commodity, tokenX, tokenY, tokenSize, tokenSize);
+    ctx.filter = undefined;
+
+    ctx.font = `800 ${fontSize}px Open Sans, sans-serif`;
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.strokeStyle = "white";
+    ctx.fillStyle = "black";
+    ctx.lineWidth = Math.floor(fontSize * 0.15);
+    ctx.strokeText(resources.commodities, textX, textY);
+    ctx.fillText(resources.commodities, textX, textY);
+  }
+
+  _drawTradegoods(ctx, boundingBox, resources) {
+    const center = {
+      x: boundingBox.left + boundingBox.width * 0.77,
+      y: boundingBox.top + boundingBox.height * 0.78,
+    };
+
+    ctx.strokeStyle = "red";
+    ctx.lineWidth = 2;
+
+    const tokenSize = Math.floor(boundingBox.width * 0.06);
+    const tokenX = center.x - tokenSize * 1.1;
+    const tokenY = center.y - tokenSize / 2;
+
+    const fontSize = Math.floor(boundingBox.width * 0.1);
+    const textBumpY = Math.floor(boundingBox.width * 0.004);
+    const textX = center.x + tokenSize * 0.1;
+    const textY = center.y + textBumpY;
+
+    ctx.filter = "brightness(150%)";
+    ctx.drawImage(this._image.tradegood, tokenX, tokenY, tokenSize, tokenSize);
+    ctx.filter = undefined;
+
+    ctx.font = `800 ${fontSize}px Open Sans, sans-serif`;
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.strokeStyle = "white";
+    ctx.fillStyle = "black";
+    ctx.lineWidth = Math.floor(fontSize * 0.15);
+    ctx.strokeText(resources.tradegoods, textX, textY);
+    ctx.fillText(resources.tradegoods, textX, textY);
+  }
 
   _drawUnitUpgrades(ctx, boundingBox, playerData) {}
 }

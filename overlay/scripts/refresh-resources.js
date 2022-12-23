@@ -57,17 +57,19 @@ class Resources {
 
     // Extract the leaderboard cells, clockwise from
     // lower right.
-    const tds = [];
+    let tds = [];
     tds.push(...lower.slice(0, lowerCount));
     tds.push(...upper.slice(0, upperCount));
+    tds = tds.filter((cell) => cell); // so tests can use a single cell
     tds.forEach((cell) => {
       cell.style.display = "";
     });
 
     // Any unused cells should be hidden.
-    const hide = [];
+    let hide = [];
     hide.push(...lower.slice(lowerCount));
     hide.push(...upper.slice(upperCount));
+    hide = hide.filter((cell) => cell);
     hide.forEach((cell) => {
       cell.style.display = "none";
     });
@@ -103,7 +105,6 @@ class Resources {
     const playerCount = playerDataArray.length;
 
     const canvases = this.getCanvases(playerCount);
-    console.assert(canvases.length === playerCount);
     canvases.forEach((canvas, index) => {
       const playerData = playerDataArray[index];
       console.assert(playerData);

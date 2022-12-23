@@ -1,5 +1,5 @@
 /* https://gist.github.com/ZachSaucier/8295d9dc926d7064ff0d4f3f04b35b55 */
-@import "https://fonts.googleapis.com/css?family=Open+Sans";
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;800&display=swap");
 
 html {
   height: 100%;
@@ -9,7 +9,7 @@ body {
   height: 100%;
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 600;
   line-height: 1.75em;
   background-color: #222;
   color: #aaa;
