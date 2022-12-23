@@ -30,6 +30,15 @@ it("parseCurrentTurnColorName", () => {
   assert.equal(currentTurn, "red");
 });
 
+it("parseHexSummary", () => {
+  const gameData = getGameData();
+  const hexSummary = GameDataUtil.parseHexSummary(gameData);
+  assert.equal(
+    hexSummary,
+    "3+3+3Gdy2f;Gs4i,7+0+6Rdi3f1t;Rimps,14+0-6;Bimps;,16-3+3Y3f;Yo;Yis;Yo,18+0+0RtWcdh3f1t;W2m3i,23+0+4Rcf;Rmp,24-3+1;Yo,25+2+0;Gi;,26-1-3;Bm;,27+1+5;Ri*i;Ro,30-3-1Yf2d1t;Yi;Pi,31+3+1Wd;Wi;Gi,35-1-5;Bis*W;Bi,36+1-1Wcf*h;Wo;Ws3i,37+2+2BtPtRtWtYt;Go;Gi,40+1-3Brt;,41+1+1Gy*n,42+1-5Br,45-2+4*e,46-2-4Bcf,47+2-2,48-1+5,49+2+4Gc2f1t,50-1+1*e,54+3-3Wi*h;Ws2i,58-3-3Pf2d;Pimps;P2i;P2i,59+3-1Wd;Wi,61-1-1Py;Pi,62+0+2Rd;Rmp,63-2-2Pyt;Pi,64-1+3Ycfr;Yi;,65+2-4Wd;Wp3i,67-2+0Pcft;Po,72+0-2Bcf;Bm;Bim,75-2+2;Yo*d;Yo*z;Yo,78+0-4*e,79+1+3*e;,82+5-1;;"
+  );
+});
+
 it("parseLaws", () => {
   const gameData = getGameData();
   const laws = GameDataUtil.parseLaws(gameData);
@@ -231,11 +240,13 @@ it("parseWhispers", () => {
   const whispers = GameDataUtil.parseWhispers(gameData);
   assert.equal(whispers.length, 8);
   assert.deepEqual(whispers[0], {
-    backwardStr: "             <<             <   <                          <",
+    backwardStr:
+      "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;&lt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;&nbsp;&nbsp;&nbsp;&lt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;",
     colorHexA: "#00a14b",
     colorHexB: "#e46d72",
     colorNameA: "green",
     colorNameB: "red",
-    forwardStr: "          >      >                       >>                 ",
+    forwardStr:
+      "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",
   });
 });

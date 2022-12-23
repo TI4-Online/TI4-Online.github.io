@@ -249,12 +249,27 @@ class GameDataUtil {
   }
 
   /**
+   * Parse encoded hex summary.  Never used directly no need to escape.
+   *
+   * @param {Object.{hexSummary:string}} gameData
+   * @returns {string}
+   */
+  static parseHexSummary(gameData) {
+    console.assert(typeof gameData === "object");
+
+    const hexSummary = gameData?.hexSummary || "";
+    return hexSummary;
+  }
+
+  /**
    * Parse laws.
    *
    * @param {Object} gameData
    * @returns {Array.{{name:string,colors:Array.{string}}}
    */
   static parseLaws(gameData) {
+    console.assert(typeof gameData === "object");
+
     const laws = gameData?.laws || [];
 
     const lawToPlayers = {};
