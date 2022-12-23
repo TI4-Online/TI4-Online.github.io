@@ -24,6 +24,17 @@ class DrawPlayerResources {
       playerSheetsMask: "sheets/player-sheets-mask.png",
       commodity: "tokens/commodity_1.png",
       tradegood: "tokens/tradegood_1.png",
+      flagship: "units/unit_h_Flagship.png",
+      war_sun: "units/unit_w_War_Sun.png",
+      dreadnought: "units/unit_d_Dreadnought.png",
+      carrier: "units/unit_c_Carrier.png",
+      cruiser: "units/unit_r_Cruiser.png",
+      destroyer: "units/unit_y_Destroyer.png",
+      fighter: "units/unit_f_Fighter.png",
+      pds: "units/unit_p_PDS.png",
+      infantry: "units/unit_i_Infantry.png",
+      space_dock: "units/unit_s_Space_Dock.png",
+      mech: "units/unit_m_Mech.png",
     };
 
     for (const [key, path] of Object.entries(this._image)) {
@@ -54,7 +65,9 @@ class DrawPlayerResources {
       this._drawTokens(ctx, boundingBox, resources);
       this._drawCommodities(ctx, boundingBox, resources);
       this._drawTradegoods(ctx, boundingBox, resources);
-      this._drawUnitUpgrades(ctx, boundingBox, playerData);
+      this._drawUnitUpgrades(ctx, boundingBox, colorName, playerData);
+      this._drawPlanetResources();
+      this._drawPlanetInfluence();
     } finally {
       ctx.restore();
     }
@@ -72,11 +85,12 @@ class DrawPlayerResources {
     );
   }
 
-  _drawPlayerSheets(ctx, boundingBox, colorName) {
+  _getColorFilter(colorName) {
     // Unfortunately there is no simple tint.  We could get the raw RGBA and manually
     // multiply and cache, but assume native operations will be fast.
     // https://angel-rs.github.io/css-color-filter-generator/
     const colorNameToFilter = {
+      mask: "brightness(0) saturate(100%) invert(100%)",
       white:
         "brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(5%) hue-rotate(185deg) brightness(102%) contrast(101%);",
       blue: "brightness(0) saturate(100%) invert(75%) sepia(24%) saturate(963%) hue-rotate(166deg) brightness(94%) contrast(90%)",
@@ -90,12 +104,15 @@ class DrawPlayerResources {
       orange:
         "brightness(0) saturate(100%) invert(53%) sepia(97%) saturate(1903%) hue-rotate(345deg) brightness(100%) contrast(101%)",
       pink: "brightness(0) saturate(100%) invert(55%) sepia(60%) saturate(1316%) hue-rotate(297deg) brightness(104%) contrast(101%)",
+      black: "brightness(0) saturate(100%)",
     };
 
-    const filter = colorNameToFilter[colorName];
+    return colorNameToFilter[colorName];
+  }
 
+  _drawPlayerSheets(ctx, boundingBox, colorName) {
     ctx.save();
-    ctx.filter = filter;
+    ctx.filter = this._getColorFilter(colorName);
     ctx.drawImage(
       this._image.playerSheetsMask,
       boundingBox.left,
@@ -123,6 +140,7 @@ class DrawPlayerResources {
   _drawTokens(ctx, boundingBox, resources) {}
 
   _drawCommodities(ctx, boundingBox, resources) {
+    ctx.save();
     const center = {
       x: boundingBox.left + boundingBox.width * 0.636,
       y: boundingBox.top + boundingBox.height * 0.66,
@@ -152,9 +170,11 @@ class DrawPlayerResources {
     ctx.lineWidth = Math.floor(fontSize * 0.15);
     ctx.strokeText(resources.commodities, textX, textY);
     ctx.fillText(resources.commodities, textX, textY);
+    ctx.restore();
   }
 
   _drawTradegoods(ctx, boundingBox, resources) {
+    ctx.save();
     const center = {
       x: boundingBox.left + boundingBox.width * 0.77,
       y: boundingBox.top + boundingBox.height * 0.78,
@@ -184,7 +204,87 @@ class DrawPlayerResources {
     ctx.lineWidth = Math.floor(fontSize * 0.15);
     ctx.strokeText(resources.tradegoods, textX, textY);
     ctx.fillText(resources.tradegoods, textX, textY);
+    ctx.restore();
   }
 
-  _drawUnitUpgrades(ctx, boundingBox, playerData) {}
+  _drawUnitUpgrades(ctx, boundingBox, colorName, playerData) {
+    // Use full white instead of the gray version.
+    if (colorName === "white") {
+      colorName = "mask";
+    }
+
+    const unitSize = boundingBox.width * 0.1;
+    const drawUnit = (x, y, unitName) => {
+      const img = this._image[unitName];
+      console.assert(img);
+
+      let has = Math.random() < 0.5;
+
+      // shadow outline
+      ctx.save();
+      ctx.shadowColor = has ? "black" : "white";
+      ctx.shadowBlur = unitSize * 0.1;
+      ctx.drawImage(
+        img,
+        x - unitSize / 2,
+        y - unitSize / 2,
+        unitSize,
+        unitSize
+      );
+      ctx.restore();
+
+      ctx.save();
+      ctx.filter = this._getColorFilter(has ? colorName : "black");
+      ctx.drawImage(
+        img,
+        x - unitSize / 2,
+        y - unitSize / 2,
+        unitSize,
+        unitSize
+      );
+      ctx.restore();
+    };
+
+    let x = boundingBox.left + boundingBox.width * 0.235;
+    let y = boundingBox.top + boundingBox.height * 0.18;
+    drawUnit(x, y, "flagship");
+
+    y = boundingBox.top + boundingBox.height * 0.4;
+    drawUnit(x, y, "war_sun");
+
+    y = boundingBox.top + boundingBox.height * 0.625;
+    drawUnit(x, y, "dreadnought");
+
+    y = boundingBox.top + boundingBox.height * 0.85;
+    drawUnit(x, y, "carrier");
+
+    x = boundingBox.left + boundingBox.width * 0.36;
+    y = boundingBox.top + boundingBox.height * 0.39;
+    drawUnit(x, y, "cruiser");
+
+    y = boundingBox.top + boundingBox.height * 0.62;
+    drawUnit(x, y, "destroyer");
+
+    y = boundingBox.top + boundingBox.height * 0.83;
+    drawUnit(x, y, "fighter");
+
+    x = boundingBox.left + boundingBox.width * 0.495;
+    y = boundingBox.top + boundingBox.height * 0.62;
+    drawUnit(x, y, "pds");
+
+    y = boundingBox.top + boundingBox.height * 0.84;
+    drawUnit(x, y, "infantry");
+
+    x = boundingBox.left + boundingBox.width * 0.62;
+    y = boundingBox.top + boundingBox.height * 0.835;
+    drawUnit(x, y, "space_dock");
+
+    x = boundingBox.left + boundingBox.width * 0.1;
+    y = boundingBox.top + boundingBox.height * 0.86;
+    drawUnit(x, y, "mech");
+  }
+
+  _drawPlanetResources() {}
+
+  _drawPlanetInfluence() {}
 }
