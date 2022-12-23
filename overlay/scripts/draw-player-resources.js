@@ -188,7 +188,36 @@ class DrawPlayerResources {
     ctx.restore();
   }
 
-  _drawLeaders(ctx, boundingBox, resources) {}
+  _drawLeaders(ctx, boundingBox, resources) {
+    const fontSize = Math.floor(boundingBox.width * 0.075);
+
+    const commander = {
+      x: boundingBox.left + boundingBox.width * 0.1,
+      y: boundingBox.top + boundingBox.height * 0.39,
+      text: resources.leaders?.commander?.substring(0, 1).toUpperCase() || "?",
+    };
+    const hero = {
+      x: boundingBox.left + boundingBox.width * 0.1,
+      y: boundingBox.top + boundingBox.height * 0.63,
+      text: resources.leaders?.hero?.substring(0, 1).toUpperCase() || "?",
+    };
+
+    ctx.save();
+    ctx.font = `800 ${fontSize}px Open Sans, sans-serif`;
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.strokeStyle = "white";
+    ctx.fillStyle = "black";
+    ctx.lineWidth = Math.floor(fontSize * 0.15);
+
+    ctx.strokeText(commander.text, commander.x, commander.y);
+    ctx.fillText(commander.text, commander.x, commander.y);
+
+    ctx.strokeText(hero.text, hero.x, hero.y);
+    ctx.fillText(hero.text, hero.x, hero.y);
+
+    ctx.restore();
+  }
 
   _drawTokens(ctx, boundingBox, colorName, resources) {
     let center = {
