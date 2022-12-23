@@ -22,8 +22,12 @@ class DrawPlayerResources {
     this._image = {
       playerSheets: "sheets/player-sheets.png",
       playerSheetsMask: "sheets/player-sheets-mask.png",
+
+      // Economy.
       commodity: "tokens/commodity_1.png",
       tradegood: "tokens/tradegood_1.png",
+
+      // Units.
       flagship: "units/unit_h_Flagship.png",
       war_sun: "units/unit_w_War_Sun.png",
       dreadnought: "units/unit_d_Dreadnought.png",
@@ -35,6 +39,12 @@ class DrawPlayerResources {
       infantry: "units/unit_i_Infantry.png",
       space_dock: "units/unit_s_Space_Dock.png",
       mech: "units/unit_m_Mech.png",
+
+      // Planet resources.
+      resources: "symbols/resources.png",
+      influence: "symbols/influence.png",
+
+      commandToken: "units/unit_t_Command_Token.png",
     };
 
     for (const [key, path] of Object.entries(this._image)) {
@@ -66,11 +76,11 @@ class DrawPlayerResources {
       this._drawUnitUpgrades(ctx, boundingBox, colorName, unitUpgrades);
 
       this._drawLeaders(ctx, boundingBox, resources);
-      this._drawTokens(ctx, boundingBox, resources);
+      this._drawTokens(ctx, boundingBox, colorName, resources);
       this._drawCommodities(ctx, boundingBox, resources);
       this._drawTradegoods(ctx, boundingBox, resources);
-      this._drawPlanetResources();
-      this._drawPlanetInfluence();
+      this._drawPlanetResources(ctx, boundingBox, resources);
+      this._drawPlanetInfluence(ctx, boundingBox, resources);
     } finally {
       ctx.restore();
     }
@@ -86,6 +96,46 @@ class DrawPlayerResources {
       boundingBox.width,
       boundingBox.height
     );
+  }
+
+  _drawTokenAndText(
+    ctx,
+    boundingBox,
+    center,
+    tokenImage,
+    text,
+    optionalColorName
+  ) {
+    const tokenSize = Math.floor(boundingBox.width * 0.06);
+    const tokenX = center.x - tokenSize;
+    const tokenY = center.y - tokenSize / 2;
+
+    const fontSize = Math.floor(boundingBox.width * 0.075);
+    const textBumpY = Math.floor(boundingBox.width * 0.004);
+    const textX = center.x + tokenSize * 0.1;
+    const textY = center.y + textBumpY;
+
+    ctx.save();
+    if (optionalColorName) {
+      ctx.filter = this._getColorFilter(optionalColorName);
+      ctx.shadowColor = "black";
+      ctx.shadowBlur = tokenSize * 0.1;
+    } else {
+      ctx.filter = "brightness(150%)";
+    }
+    ctx.drawImage(tokenImage, tokenX, tokenY, tokenSize, tokenSize);
+    ctx.restore();
+
+    ctx.save();
+    ctx.font = `800 ${fontSize}px Open Sans, sans-serif`;
+    ctx.textAlign = "left";
+    ctx.textBaseline = "middle";
+    ctx.strokeStyle = "white";
+    ctx.fillStyle = "black";
+    ctx.lineWidth = Math.floor(fontSize * 0.15);
+    ctx.strokeText(text, textX, textY);
+    ctx.fillText(text, textX, textY);
+    ctx.restore();
   }
 
   _getColorFilter(colorName) {
@@ -140,76 +190,110 @@ class DrawPlayerResources {
 
   _drawLeaders(ctx, boundingBox, resources) {}
 
-  _drawTokens(ctx, boundingBox, resources) {}
+  _drawTokens(ctx, boundingBox, colorName, resources) {
+    let center = {
+      x: boundingBox.left + boundingBox.width * 0.77,
+      y: boundingBox.top + boundingBox.height * 0.2,
+    };
+    this._drawTokenAndText(
+      ctx,
+      boundingBox,
+      center,
+      this._image.commandToken,
+      resources.tokens.tactics,
+      colorName
+    );
+
+    center = {
+      x: boundingBox.left + boundingBox.width * 0.86,
+      y: boundingBox.top + boundingBox.height * 0.35,
+    };
+    this._drawTokenAndText(
+      ctx,
+      boundingBox,
+      center,
+      this._image.commandToken,
+      resources.tokens.fleet,
+      colorName
+    );
+
+    center = {
+      x: boundingBox.left + boundingBox.width * 0.86,
+      y: boundingBox.top + boundingBox.height * 0.63,
+    };
+    this._drawTokenAndText(
+      ctx,
+      boundingBox,
+      center,
+      this._image.commandToken,
+      resources.tokens.strategy,
+      colorName
+    );
+  }
 
   _drawCommodities(ctx, boundingBox, resources) {
-    ctx.save();
     const center = {
       x: boundingBox.left + boundingBox.width * 0.636,
       y: boundingBox.top + boundingBox.height * 0.66,
     };
 
-    ctx.strokeStyle = "red";
-    ctx.lineWidth = 2;
-
-    const tokenSize = Math.floor(boundingBox.width * 0.06);
-    const tokenX = center.x - tokenSize * 1.1;
-    const tokenY = center.y - tokenSize / 2;
-
-    const fontSize = Math.floor(boundingBox.width * 0.1);
-    const textBumpY = Math.floor(boundingBox.width * 0.004);
-    const textX = center.x + tokenSize * 0.1;
-    const textY = center.y + textBumpY;
-
-    ctx.filter = "brightness(150%)";
-    ctx.drawImage(this._image.commodity, tokenX, tokenY, tokenSize, tokenSize);
-    ctx.filter = undefined;
-
-    ctx.font = `800 ${fontSize}px Open Sans, sans-serif`;
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.strokeStyle = "white";
-    ctx.fillStyle = "black";
-    ctx.lineWidth = Math.floor(fontSize * 0.15);
-    ctx.strokeText(resources.commodities, textX, textY);
-    ctx.fillText(resources.commodities, textX, textY);
-    ctx.restore();
+    this._drawTokenAndText(
+      ctx,
+      boundingBox,
+      center,
+      this._image.commodity,
+      resources.commodities
+    );
   }
 
   _drawTradegoods(ctx, boundingBox, resources) {
-    ctx.save();
     const center = {
       x: boundingBox.left + boundingBox.width * 0.77,
       y: boundingBox.top + boundingBox.height * 0.78,
     };
 
-    ctx.strokeStyle = "red";
-    ctx.lineWidth = 2;
-
-    const tokenSize = Math.floor(boundingBox.width * 0.06);
-    const tokenX = center.x - tokenSize * 1.1;
-    const tokenY = center.y - tokenSize / 2;
-
-    const fontSize = Math.floor(boundingBox.width * 0.1);
-    const textBumpY = Math.floor(boundingBox.width * 0.004);
-    const textX = center.x + tokenSize * 0.1;
-    const textY = center.y + textBumpY;
-
-    ctx.filter = "brightness(150%)";
-    ctx.drawImage(this._image.tradegood, tokenX, tokenY, tokenSize, tokenSize);
-    ctx.filter = undefined;
-
-    ctx.font = `800 ${fontSize}px Open Sans, sans-serif`;
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.strokeStyle = "white";
-    ctx.fillStyle = "black";
-    ctx.lineWidth = fontSize * 0.15;
-    ctx.strokeText(resources.tradegoods, textX, textY);
-    ctx.fillText(resources.tradegoods, textX, textY);
-    ctx.restore();
+    this._drawTokenAndText(
+      ctx,
+      boundingBox,
+      center,
+      this._image.tradegood,
+      resources.tradegoods
+    );
   }
 
+  _drawPlanetResources(ctx, boundingBox, resources) {
+    const center = {
+      x: boundingBox.left + boundingBox.width * 0.5,
+      y: boundingBox.top + boundingBox.height * 0.18,
+    };
+
+    const text = `${resources.resources.avail}/${resources.resources.total}`;
+
+    this._drawTokenAndText(
+      ctx,
+      boundingBox,
+      center,
+      this._image.resources,
+      text
+    );
+  }
+
+  _drawPlanetInfluence(ctx, boundingBox, resources) {
+    const center = {
+      x: boundingBox.left + boundingBox.width * 0.5,
+      y: boundingBox.top + boundingBox.height * 0.4,
+    };
+
+    const text = `${resources.influence.avail}/${resources.influence.total}`;
+
+    this._drawTokenAndText(
+      ctx,
+      boundingBox,
+      center,
+      this._image.influence,
+      text
+    );
+  }
   _drawUnitUpgrades(ctx, boundingBox, colorName, unitUpgrades) {
     // Use full white instead of the gray version.
     if (colorName === "white") {
@@ -286,8 +370,4 @@ class DrawPlayerResources {
     y = boundingBox.top + boundingBox.height * 0.86;
     drawUnit(x, y, "mech");
   }
-
-  _drawPlanetResources() {}
-
-  _drawPlanetInfluence() {}
 }
