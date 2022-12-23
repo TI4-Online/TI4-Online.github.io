@@ -214,7 +214,9 @@ class GameDataRefresh {
     }
     const options = {
       method: "GET",
-      headers: {},
+      headers: {
+        "Cache-Control": "no-store",
+      },
       mode: "cors",
     };
     this.debugLog(`loopFetch url=${url} options=${JSON.stringify(options)}`);
