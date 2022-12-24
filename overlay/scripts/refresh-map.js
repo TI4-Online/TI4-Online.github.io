@@ -22,10 +22,64 @@ class Map {
       space_dock: "units/unit_s_Space_Dock.png",
       mech: "units/unit_m_Mech.png",
       command_token: "units/unit_t_Command_Token.png",
-      control_token: "units/unit_o_Command_Token.png",
+      control_token: "units/unit_o_Control_Token.png",
     };
 
-    this._attachmentToPath = {};
+    this._attachmentToPath = {
+      cybernetic_research_facility_face:
+        "tokens/token_C#_Cybernetic_Research_Facility.png",
+      biotic_research_facility_face:
+        "tokens/token_I#_Biotic_Research_Facility.png",
+      propulsion_research_facility_face:
+        "tokens/token_O#_Propulsion_Research_Facility.png",
+      warfare_research_facility_face:
+        "tokens/token_W#_Warfare_Research_Facility.png",
+      alpha_wormhole: "tokens/token_a_Alpha_Wormhole.png",
+      beta_wormhole: "tokens/token_b_Beta_Wormhole.png",
+      cybernetic_Research_Facility_back:
+        "tokens/token_c_Cybernetic_Research_Facility.png",
+      dyson_sphere: "tokens/token_d_Dyson_Sphere.png",
+      frontier: "tokens/token_e_Frontier.png",
+      nano_forge: "tokens/token_f_Nano-Forge.png",
+      gamma_wormhole: "tokens/token_g_Gamma_Wormhole.png",
+      grav_tear: "tokens/token_h_Grav_Tear.png",
+      biotic_research_facility_back:
+        "tokens/token_i_Biotic_Research_Facility.png",
+      tomb_of_emphidia: "tokens/token_j_Tomb_of_Emphidia.png",
+      mirage: "tokens/token_k_Mirage.png",
+      stellar_converter: "tokens/token_l_Stellar_Converter.png",
+      mining_world: "tokens/token_m_Mining_World.png",
+      ion_storm: "tokens/token_n_Ion_Storm.png",
+      propulsion_research_facility_back:
+        "tokens/token_o_Propulsion_Research_Facility.png",
+      paradise_world: "tokens/token_p_Paradise_World.png",
+      ul_sleeper: "tokens/token_q_Ul_Sleeper.png",
+      rich_world: "tokens/token_r_Rich_World.png",
+      warfare_research_facility_back:
+        "tokens/token_w_Warfare_Research_Facility.png",
+      lazax_survivors: "tokens/token_x_Lazax_Survivors.png",
+      dmz: "tokens/token_z_DMZ.png",
+    };
+
+    // cx, cy, avail
+    this._numRegionsToCenters = {
+      1: [[0, 0, 1.3]],
+      2: [
+        [0, -0.58, 0.8],
+        [0, 0, 0.5],
+      ],
+      3: [
+        [0, 0, 1.3],
+        [-0.2, -0.58, 0.5],
+        [0.18, 0.58, 0.5],
+      ],
+      4: [
+        [0.4, 0, 0.7],
+        [-0.5, 0, 0.4],
+        [0.25, -0.58, 0.4],
+        [0.3, 0.58, 0.4],
+      ],
+    };
 
     const elementId = "map";
     this._canvas = document.getElementById(elementId);
@@ -45,6 +99,11 @@ class Map {
 
     this._tileWidth = this._canvas.width * 0.16;
     this._tileHeight = (this._tileWidth * 433) / 500;
+    this._unitSize = this._tileWidth * 0.2;
+    this._deltaX = this._unitSize * 0.5;
+    this._fontSize = this._unitSize * 0.5;
+    this._textY = this._unitSize * 0.3;
+
     this._colorNameToHex = {};
     this._srcToImage = {};
 
@@ -104,7 +163,13 @@ class Map {
       const y = this._canvas.height / 2 - (entry.y * this._tileHeight) / 2;
 
       this._drawTile(ctx, x, y, entry);
-      this._drawSpaceOccupants(ctx, x, y, entry);
+      for (
+        let regionIndex = 0;
+        regionIndex < entry.regions.length;
+        regionIndex++
+      ) {
+        this._drawOccupants(ctx, x, y, entry, regionIndex);
+      }
     }
   }
 
@@ -117,13 +182,13 @@ class Map {
     ctx.drawImage(tileImage, x, y, this._tileWidth, this._tileWidth); // images have transparent top/botom for square
   }
 
-  _drawSpaceOccupants(ctx, x, y, hexSummaryEntry) {
+  _drawOccupants(ctx, x, y, hexSummaryEntry, regionIndex) {
     console.assert(typeof hexSummaryEntry.x === "number");
     console.assert(typeof hexSummaryEntry.y === "number");
     console.assert(Array.isArray(hexSummaryEntry.regions));
     console.assert(typeof hexSummaryEntry.regions[0] === "object");
 
-    const space = hexSummaryEntry.regions[0];
+    const region = hexSummaryEntry.regions[regionIndex];
 
     const drawOrder = [
       "flagship",
@@ -133,43 +198,106 @@ class Map {
       "cruiser",
       "destroyer",
       "fighter",
+      "pds",
+      "space_dock",
       "mech",
       "infantry",
+      "control_token",
     ];
 
-    for (const [color, unitNameToCount] of Object.entries(
-      space.colorToUnitNameToCount
+    const drawEntries = [];
+    for (const [colorName, unitNameToCount] of Object.entries(
+      region.colorToUnitNameToCount
     )) {
-      const colorHex = this._colorNameToHex[color];
-      if (!colorHex) {
-        continue;
-      }
-
-      let drawIndex = 0;
       for (const unitName of drawOrder) {
         const count = unitNameToCount[unitName];
         if (!count || count <= 0) {
           continue;
         }
-        console.log(`XXX ${color} ${unitName} ${count} ${drawIndex}`);
 
-        const unitImage = this._getUnitImage(unitName);
-
-        ctx.save();
-        ctx.filter = this._getColorFilter(color) + " brightness(120%)";
-        ctx.shadowColor = "black";
-        ctx.shadowBlur = 10;
-        ctx.drawImage(unitImage, x + drawIndex * 50, y, 100, 100);
-        ctx.restore();
-
-        ctx.save();
-        ctx.filter = "brightness(120%)";
-        ctx.globalCompositeOperation = "multiply";
-        ctx.drawImage(unitImage, x + drawIndex * 50, y, 100, 100);
-        ctx.restore();
-
-        drawIndex += 1;
+        drawEntries.push({
+          colorName,
+          image: this._getUnitImage(unitName),
+          count,
+        });
       }
+    }
+
+    const numRegions = hexSummaryEntry.regions.length;
+    const [cx, cy, avail] = this._numRegionsToCenters[numRegions][regionIndex];
+    x += (cx / 2 + 0.5) * this._tileWidth;
+    y += (cy / 2 + 0.5) * this._tileWidth;
+
+    // Draw space units in center
+    this._drawImagesWithCounts(ctx, drawEntries, x, y);
+  }
+
+  _drawImagesWithCounts(ctx, entries, x, y) {
+    console.assert(Array.isArray(entries));
+
+    // x is center, start units to left.
+    if (entries.length > 1) {
+      x -= ((entries.length - 1) * this._deltaX) / 2;
+    }
+
+    const unitY = y - this._unitSize / 2;
+    const textY = y + this._textY;
+
+    for (const entry of entries) {
+      console.assert(entry.image);
+      console.assert(entry.colorName);
+      console.assert(entry.count > 0);
+
+      if (!entry.image.complete) {
+        continue;
+      }
+
+      const colorHex = this._colorNameToHex[entry.colorName];
+      if (!colorHex) {
+        continue;
+      }
+
+      ctx.save();
+      ctx.filter = this._getColorFilter(entry.colorName) + " brightness(120%)";
+      ctx.shadowColor = "black";
+      ctx.shadowBlur = 10;
+      ctx.drawImage(
+        entry.image,
+        x - this._unitSize / 2,
+        unitY,
+        this._unitSize,
+        this._unitSize
+      );
+      ctx.restore();
+
+      ctx.save();
+      ctx.filter = "brightness(120%)";
+      ctx.globalCompositeOperation = "multiply";
+      ctx.drawImage(
+        entry.image,
+        x - this._unitSize / 2,
+        unitY,
+        this._unitSize,
+        this._unitSize
+      );
+      ctx.restore();
+
+      if (entry.count > 1) {
+        const text = entry.count;
+
+        ctx.save();
+        ctx.font = `800 ${this._fontSize}px Open Sans, sans-serif`;
+        ctx.textAlign = "center";
+        ctx.textBaseline = "top";
+        ctx.strokeStyle = "white";
+        ctx.fillStyle = "black";
+        ctx.lineWidth = Math.floor(this._fontSize * 0.15);
+        ctx.strokeText(text, x + this._unitSize / 8, textY);
+        ctx.fillText(text, x + this._unitSize / 8, textY);
+        ctx.restore();
+      }
+
+      x += this._deltaX;
     }
   }
 
