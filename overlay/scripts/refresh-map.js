@@ -239,7 +239,7 @@ class Map {
 
     const unitY = y - this._unitSize / 2;
     const textY = y + this._textY;
-    const lineWidth = Math.ceil(this._unitSize * 0.05);
+    const lineWidth = Math.ceil(this._unitSize * 0.02);
 
     for (const entry of entries) {
       console.assert(entry.imageSrc);
@@ -251,9 +251,12 @@ class Map {
       ImageUtil.drawMagic(ctx, entry.imageSrc, x - this._unitSize / 2, unitY, {
         width: this._unitSize,
         height: this._unitSize,
-        filter: "brightness(150%)",
+        filter: "brightness(110%)",
         tintColor: colorHex,
-        shadowWidth: lineWidth,
+        outlineWidth: lineWidth,
+        outlineColor: "black",
+        shadowWidth: lineWidth * 2,
+        shadowColor: "white",
       });
 
       if (entry.count > 1) {
@@ -263,10 +266,22 @@ class Map {
         ctx.font = `800 ${this._fontSize}px Open Sans, sans-serif`;
         ctx.textAlign = "center";
         ctx.textBaseline = "top";
+
+        // White fade out background.
+        ctx.lineWidth = lineWidth * 4;
         ctx.strokeStyle = "white";
-        ctx.fillStyle = "black";
-        ctx.lineWidth = lineWidth;
+        ctx.shadowColor = "white";
+        ctx.shadowBlur = lineWidth * 4;
         ctx.strokeText(text, x + this._unitSize / 8, textY);
+        ctx.shadowBlur = 0;
+
+        // Black outline.
+        ctx.lineWidth = lineWidth * 3;
+        ctx.strokeStyle = "black";
+        ctx.strokeText(text, x + this._unitSize / 8, textY);
+
+        // Player color text.
+        ctx.fillStyle = colorHex;
         ctx.fillText(text, x + this._unitSize / 8, textY);
         ctx.restore();
       }

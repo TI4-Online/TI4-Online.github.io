@@ -10,6 +10,16 @@ const COLOR_NAME_TO_HEX = {
   orange: "#FF781F",
   pink: "#FF69B4",
 };
+// const ALT_COLOR_NAME_TO_HEX = {
+//   white: "#BBBBBB",
+//   blue: "#07B2FF",
+//   purple: "#7400B7",
+//   yellow: "#D6B700",
+//   red: "#CB0000",
+//   green: "#007306",
+//   orange: "#F3631C",
+//   pink: "#F46FCD",
+// };
 const UNKNOWN_COLOR_NAME = "-";
 const UNKNOWN_COLOR_HEX = "#ffffff";
 
@@ -218,6 +228,15 @@ const TECHNOLOGY_COLOR = {
  * whitelists when possible, and escapes strings when not (e.g. player name).
  */
 class GameDataUtil {
+  static colorNameToHex(colorName) {
+    console.assert(typeof colorName === "string");
+    const result = COLOR_NAME_TO_HEX[colorName];
+    if (!result) {
+      throw new Error(`colorNameToHex: bad colorName "${colorName}"`);
+    }
+    return result;
+  }
+
   /**
    * Escape any characters for a "in-HTML friendly" string.
    *

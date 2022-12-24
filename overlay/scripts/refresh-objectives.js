@@ -106,21 +106,21 @@ class Objectives {
 
     // Name.
     const nameTD = this._getObjectiveNameTD(objectiveTR);
-    let bgColor = "transparent";
+    let bgColor = "unset";
     let color = "black";
     if (objectiveType === "stage1") {
-      bgColor = "#ffde17";
+      bgColor = GameDataUtil.colorNameToHex("yellow");
     } else if (objectiveType === "stage2") {
-      bgColor = "#6EC1E4";
+      bgColor = GameDataUtil.colorNameToHex("blue");
     } else if (objectiveType === "secret") {
-      bgColor = "#e46d72";
+      bgColor = GameDataUtil.colorNameToHex("red");
     } else if (objectiveType === "custodians") {
-      bgColor = "transparent";
+      bgColor = "unset";
     } else if (objectiveType === "other") {
-      bgColor = "transparent";
-      color = "inherit";
+      bgColor = "unset";
+      color = "unset";
     } else if (objectiveType === "sftt") {
-      bgColor = "transparent";
+      bgColor = "unset";
     }
     nameTD.style.backgroundColor = bgColor;
     nameTD.style.color = color;
