@@ -12,6 +12,7 @@
   padding-right: 6px;
   text-align: right;
   text-transform: uppercase;
+  overflow: hidden;
 }
 
 .scored-by {
