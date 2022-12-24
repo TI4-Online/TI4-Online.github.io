@@ -12,6 +12,7 @@ class ImageUtil {
    * @returns {string} suitable for Image.src value
    */
   static getSrc(imagePath) {
+    console.assert(typeof imagePath === "string");
     //return `/overlay/images/${imagePath}`;
     const protocol = location.protocol;
     const port = protocol === "http:" ? 8080 : 8081;

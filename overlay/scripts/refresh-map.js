@@ -105,7 +105,6 @@ class Map {
     this._textY = this._unitSize * 0.3;
 
     this._colorNameToHex = {};
-    this._srcToImage = {};
 
     new BroadcastChannel("onGameDataEvent").onmessage = (event) => {
       if (event.data.type === "UPDATE" || event.data.type === "NOT_MODIFIED") {
@@ -130,19 +129,6 @@ class Map {
 
     const ctx = this._canvas.getContext("2d");
     ctx.clearRect(0, 0, this._canvas.width, this._canvas.height);
-
-    // ctx.strokeStyle = "red";
-    // ctx.lineWidth = 2;
-    // ctx.beginPath();
-    // ctx.moveTo(this._canvas.width / 2, 0);
-    // ctx.lineTo(this._canvas.width / 2, this._canvas.height);
-    // ctx.closePath();
-    // ctx.stroke();
-    // ctx.beginPath();
-    // ctx.moveTo(0, this._canvas.height / 2);
-    // ctx.lineTo(this._canvas.width, this._canvas.height / 2);
-    // ctx.closePath();
-    // ctx.stroke();
 
     // Fix locations.
     for (const entry of hexSummary) {
@@ -186,8 +172,11 @@ class Map {
     console.assert(typeof hexSummaryEntry.x === "number");
     console.assert(typeof hexSummaryEntry.y === "number");
 
-    const tileImage = this._getTileImage(hexSummaryEntry.tile);
-    ctx.drawImage(tileImage, x, y, this._tileWidth, this._tileWidth); // images have transparent top/botom for square
+    const src = this._getTileImageSrc(hexSummaryEntry.tile);
+    ImageUtil.drawMagic(ctx, src, x, y, {
+      width: this._tileWidth,
+      height: this._tileWidth, // images have transparent top/botom for square
+    });
   }
 
   _drawOccupants(ctx, x, y, hexSummaryEntry, regionIndex) {
@@ -225,7 +214,7 @@ class Map {
 
         drawEntries.push({
           colorName,
-          image: this._getUnitImage(unitName),
+          imageSrc: this._getUnitImageSrc(unitName),
           count,
         });
       }
@@ -250,47 +239,22 @@ class Map {
 
     const unitY = y - this._unitSize / 2;
     const textY = y + this._textY;
+    const lineWidth = Math.ceil(this._unitSize * 0.05);
 
     for (const entry of entries) {
-      console.assert(entry.image);
+      console.assert(entry.imageSrc);
       console.assert(entry.colorName);
       console.assert(entry.count > 0);
 
-      if (!entry.image.complete) {
-        continue;
-      }
-
       const colorHex = this._colorNameToHex[entry.colorName];
-      if (!colorHex) {
-        continue;
-      }
 
-      ctx.restore();
-
-      ctx.save();
-      ctx.filter = this._getColorFilter(entry.colorName);
-      ctx.shadowColor = "black";
-      ctx.shadowBlur = 10;
-      ctx.drawImage(
-        entry.image,
-        x - this._unitSize / 2,
-        unitY,
-        this._unitSize,
-        this._unitSize
-      );
-      ctx.restore();
-
-      ctx.save();
-      //ctx.filter = "brightness(120%)";
-      ctx.globalCompositeOperation = "multiply";
-      ctx.drawImage(
-        entry.image,
-        x - this._unitSize / 2,
-        unitY,
-        this._unitSize,
-        this._unitSize
-      );
-      ctx.restore();
+      ImageUtil.drawMagic(ctx, entry.imageSrc, x - this._unitSize / 2, unitY, {
+        width: this._unitSize,
+        height: this._unitSize,
+        filter: "brightness(150%)",
+        tintColor: colorHex,
+        shadowWidth: lineWidth,
+      });
 
       if (entry.count > 1) {
         const text = entry.count;
@@ -301,7 +265,7 @@ class Map {
         ctx.textBaseline = "top";
         ctx.strokeStyle = "white";
         ctx.fillStyle = "black";
-        ctx.lineWidth = Math.floor(this._fontSize * 0.15);
+        ctx.lineWidth = lineWidth;
         ctx.strokeText(text, x + this._unitSize / 8, textY);
         ctx.fillText(text, x + this._unitSize / 8, textY);
         ctx.restore();
@@ -311,54 +275,13 @@ class Map {
     }
   }
 
-  _getTileImage(tile) {
-    const src = ImageUtil.getSrc(
-      `tiles/tile_${String(tile).padStart(3, "0")}.png`
-    );
-    let image = this._srcToImage[src];
-    if (!image) {
-      image = new Image();
-      image.src = src;
-      this._srcToImage[src] = image;
-    }
-    return image;
+  _getTileImageSrc(tile) {
+    return ImageUtil.getSrc(`tiles/tile_${String(tile).padStart(3, "0")}.png`);
   }
 
-  _getUnitImage(unitName) {
+  _getUnitImageSrc(unitName) {
     const path = this._unitToPath[unitName];
-    const src = ImageUtil.getSrc(path);
-    let image = this._srcToImage[src];
-    if (!image) {
-      image = new Image();
-      image.src = src;
-      this._srcToImage[src] = image;
-    }
-    return image;
-  }
-
-  _getColorFilter(colorName) {
-    // Unfortunately there is no simple tint.  We could get the raw RGBA and manually
-    // multiply and cache, but assume native operations will be fast.
-    // https://angel-rs.github.io/css-color-filter-generator/
-    const colorNameToFilter = {
-      mask: "brightness(0) saturate(100%) invert(100%)",
-      white:
-        "brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(5%) hue-rotate(185deg) brightness(102%) contrast(101%);",
-      blue: "brightness(0) saturate(100%) invert(75%) sepia(24%) saturate(963%) hue-rotate(166deg) brightness(94%) contrast(90%)",
-      purple:
-        "brightness(0) saturate(100%) invert(44%) sepia(10%) saturate(1930%) hue-rotate(236deg) brightness(96%) contrast(95%)",
-      yellow:
-        "brightness(0) saturate(100%) invert(93%) sepia(20%) saturate(2680%) hue-rotate(342deg) brightness(106%) contrast(101%)",
-      red: "brightness(0) saturate(100%) invert(54%) sepia(46%) saturate(1077%) hue-rotate(313deg) brightness(98%) contrast(82%)",
-      green:
-        "brightness(0) saturate(100%) invert(30%) sepia(89%) saturate(1237%) hue-rotate(123deg) brightness(108%) contrast(101%)",
-      orange:
-        "brightness(0) saturate(100%) invert(53%) sepia(97%) saturate(1903%) hue-rotate(345deg) brightness(100%) contrast(101%)",
-      pink: "brightness(0) saturate(100%) invert(55%) sepia(60%) saturate(1316%) hue-rotate(297deg) brightness(104%) contrast(101%)",
-      black: "brightness(0) saturate(100%)",
-    };
-
-    return colorNameToFilter[colorName];
+    return ImageUtil.getSrc(path);
   }
 }
 
