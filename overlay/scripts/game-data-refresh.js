@@ -38,6 +38,13 @@ class GameDataRefresh {
     this._broadcastChannel = new BroadcastChannel("onGameDataEvent");
     this._lastJson = undefined;
 
+    // If response includes Last-Modified header chrome will set the if-modified-since
+    // header for us.  We cannot set it manually due to CORS restrictions.
+    const protocol = location.protocol;
+    const port = protocol === "http:" ? 8080 : 8081;
+    this._localhostUrl = `${protocol}//localhost:${port}/data?key=buddy`;
+    this._url = this._localhostUrl;
+
     // Handlers for class functions.
     this._processResponseHandler = (v) => {
       this._processResponse(v);
@@ -48,6 +55,15 @@ class GameDataRefresh {
     this._loopFetchHandler = () => {
       this._loopFetch();
     };
+  }
+
+  setDemoGameData(value) {
+    if (value) {
+      this._url = "/overlay/demo/demo.json";
+    } else {
+      this._url = this._localhostUrl;
+    }
+    return this;
   }
 
   setRefreshIntervalMsecs(value) {
@@ -85,6 +101,11 @@ class GameDataRefresh {
       this._loopFetchHandle = undefined;
     }
 
+    // Watch for remote URLs, reduce fetch frequency.
+    if (!this._url.startsWith("/") && !this._url.includes("://localhost")) {
+      this._refreshInterval = 60 * 1000;
+    }
+
     // Periodic refresh.
     this._loopFetchHandle = setInterval(
       this._loopFetchHandler,
@@ -107,11 +128,6 @@ class GameDataRefresh {
 
     clearInterval(this._loopFetchHandle);
     this._loopFetchHandle = undefined;
-    return this;
-  }
-
-  setDemoGameData(value) {
-    this._demo = value;
     return this;
   }
 
@@ -204,14 +220,7 @@ class GameDataRefresh {
   }
 
   _loopFetch() {
-    // If response includes Last-Modified header chrome will set the if-modified-since
-    // header for us.  We cannot set it manually due to CORS restrictions.
-    const protocol = location.protocol;
-    const port = protocol === "http:" ? 8080 : 8081;
-    let url = `${protocol}//localhost:${port}/data?key=buddy`;
-    if (this._demo) {
-      url = "/overlay/demo/demo.json";
-    }
+    let url = this._url;
     const options = {
       method: "GET",
       headers: {
