@@ -269,36 +269,153 @@ class GameDataUtil {
       E: "orange",
       K: "pink",
     };
+    const unitCodeToUnitName = {
+      c: "carrier",
+      d: "dreadnought",
+      f: "fighter",
+      h: "flagship",
+      i: "infantry",
+      m: "mech",
+      o: "control_token",
+      p: "pds",
+      r: "cruiser",
+      s: "space_dock",
+      t: "command_token",
+      w: "war_sun",
+      y: "destroyer",
+    };
+    const attachmentCodeToName = {
+      C: "cybernetic_research_facility_face",
+      I: "biotic_research_facility_face",
+      O: "propulsion_research_facility_face",
+      W: "warfare_research_facility_face",
+      a: "alpha_wormhole",
+      b: "beta_wormhole",
+      c: "cybernetic_Research_Facility_back",
+      d: "dyson_sphere",
+      e: "frontier",
+      f: "nano_forge",
+      g: "gamma_wormhole",
+      h: "grav_tear",
+      i: "biotic_research_facility_back",
+      j: "tomb_of_emphidia",
+      k: "mirage",
+      l: "stellar_converter",
+      m: "mining_world",
+      n: "ion_Storm.png",
+      o: "propulsion_research_facility_back",
+      p: "paradise_world",
+      q: "ul_sleeper",
+      r: "rich_world",
+      w: "warfare_research_facility_back",
+      x: "lazax_survivors",
+      z: "dmz",
+    };
 
     // TILE +-X +-Y SPACE ; PLANET1 ; PLANET2 ; ...
     const firstRegionPattern = new RegExp(
       /^([0-9AB]+)([-+][0-9]+)([-+][0-9]+)(.*)?$/
     );
     const rotPattern = new RegExp(/^(\d+)([AB])(\d)$/);
+    const regionAttachmentsPattern = new RegExp(/^(.*)\*(.*)$/);
 
     const entries = hexSummary.split(",");
-    return entries.map((entry) => {
-      const regions = entry.split(";");
-      const m = regions[0].match(firstRegionPattern);
+    return entries.map((entryEncoded) => {
+      const regions = entryEncoded.split(";");
+      let m = regions[0].match(firstRegionPattern);
       if (!m) {
         throw new Error(`mismatch first region "${regions[0]}"`);
       }
       console.assert(m);
 
-      let tile = m[1];
-      const x = Number.parseInt(m[2]);
-      const y = Number.parseInt(m[3]);
-      regions[0] = m[4]; // return remaining to be first region
-
-      let stickyColor = undefined;
-      let stickyCount = 1;
-
-      return {
-        tile,
-        x,
-        y,
-        regions,
+      // Extract the tile number and location, preserve remaining first region.
+      const entry = {
+        tile: m[1],
+        x: Number.parseInt(m[2]),
+        y: Number.parseInt(m[3]),
       };
+      regions[0] = m[4] || ""; // strip off tile, etc, preserve space region
+
+      // Tile may have hyperlane info, add if present.
+      m = entry.tile.match(rotPattern);
+      if (m) {
+        entry.tile = m[1];
+        entry.ab = m[2];
+        entry.rot = Number.parseInt(m[3]);
+      }
+
+      // Now fully parsed, tile is a number.
+      entry.tile = Number.parseInt(entry.tile);
+
+      // Parse per-region encoding.
+      let stickyColor = undefined; // reset for each SYSTEM
+
+      const isNumber = (c) => {
+        if (c === undefined) {
+          return false;
+        }
+        return "0" <= c && c <= "9";
+      };
+
+      entry.regions = regions.map((region) => {
+        // Split off attachments, if any.
+        m = region.match(regionAttachmentsPattern);
+        let attachments = "";
+        if (m) {
+          region = m[1];
+          attachments = m[2];
+        }
+
+        let stickyCount = 1; // reset for each REGION
+        const colorToUnitNameToCount = {};
+
+        let prevC = undefined;
+        for (let i = 0; i < region.length; i++) {
+          const c = region[i];
+          const prev = region[i - 1];
+
+          // Uppercase characters are player colors.
+          const colorName = colorCodeToColorName[c];
+          if (colorName) {
+            stickyColor = colorName;
+            continue;
+          }
+
+          // Numbers are unit counts.
+          if (isNumber(c)) {
+            if (isNumber(prevC)) {
+              stickyCount = stickyCount * 10 + Number.parseInt(c);
+            } else {
+              stickyCount = Number.parseInt(c);
+            }
+            continue;
+          }
+
+          // Units get encoded after their quantiy value.
+          const unit = unitCodeToUnitName[c];
+          if (unit) {
+            let unitToCount = colorToUnitNameToCount[stickyColor];
+            if (!unitToCount) {
+              unitToCount = {};
+              colorToUnitNameToCount[stickyColor] = unitToCount;
+            }
+            unitToCount[unit] = (unitToCount[unit] || 0) + stickyCount;
+          }
+        }
+
+        attachments = [...attachments]
+          .map((c) => {
+            return attachmentCodeToName[c];
+          })
+          .filter((v) => v);
+
+        return {
+          colorToUnitNameToCount,
+          attachments,
+        };
+      });
+
+      return entry;
     });
 
     return hexSummary;
