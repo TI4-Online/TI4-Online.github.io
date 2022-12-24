@@ -144,6 +144,7 @@ class Map {
     // ctx.closePath();
     // ctx.stroke();
 
+    // Fix locations.
     for (const entry of hexSummary) {
       console.assert(typeof entry.x === "number");
       console.assert(typeof entry.y === "number");
@@ -159,16 +160,23 @@ class Map {
       entry.x -= 0.7;
       entry.y += 1.2;
 
-      const x = this._canvas.width / 2 + (entry.x * this._tileWidth * 3) / 4;
-      const y = this._canvas.height / 2 - (entry.y * this._tileHeight) / 2;
+      entry.x = this._canvas.width / 2 + (entry.x * this._tileWidth * 3) / 4;
+      entry.y = this._canvas.height / 2 - (entry.y * this._tileHeight) / 2;
+    }
 
-      this._drawTile(ctx, x, y, entry);
+    // Draw tiles first.
+    for (const entry of hexSummary) {
+      this._drawTile(ctx, entry.x, entry.y, entry);
+    }
+
+    // Draw occupants (may overflow tile)
+    for (const entry of hexSummary) {
       for (
         let regionIndex = 0;
         regionIndex < entry.regions.length;
         regionIndex++
       ) {
-        this._drawOccupants(ctx, x, y, entry, regionIndex);
+        this._drawOccupants(ctx, entry.x, entry.y, entry, regionIndex);
       }
     }
   }
@@ -257,8 +265,25 @@ class Map {
         continue;
       }
 
+      // white outline
       ctx.save();
-      ctx.filter = this._getColorFilter(entry.colorName) + " brightness(120%)";
+      ctx.filter = this._getColorFilter("mask");
+      const d = 4;
+      for (let dx = -d; dx <= d; dx += 1) {
+        for (let dy = -d; dy <= d; dy += 1) {
+          ctx.drawImage(
+            entry.image,
+            x - this._unitSize / 2 + dx,
+            unitY + dy,
+            this._unitSize,
+            this._unitSize
+          );
+        }
+      }
+      ctx.restore();
+
+      ctx.save();
+      ctx.filter = this._getColorFilter(entry.colorName);
       ctx.shadowColor = "black";
       ctx.shadowBlur = 10;
       ctx.drawImage(
@@ -271,7 +296,7 @@ class Map {
       ctx.restore();
 
       ctx.save();
-      ctx.filter = "brightness(120%)";
+      //ctx.filter = "brightness(120%)";
       ctx.globalCompositeOperation = "multiply";
       ctx.drawImage(
         entry.image,
