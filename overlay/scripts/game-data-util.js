@@ -528,6 +528,9 @@ class GameDataUtil {
       const playerObjectives = playerData?.objectives || [];
       for (const name of playerObjectives) {
         const entry = nameToEntry[name];
+        if (!entry) {
+          throw new Error(`missing entry for "${name}"`);
+        }
         console.assert(entry);
         entry.scoredBy.push(colorName);
       }
@@ -591,6 +594,8 @@ class GameDataUtil {
    * @returns {Array.{Object}}
    */
   static parsePlayerDataArray(gameData) {
+    console.assert(typeof gameData === "object");
+
     let playerDataArray = gameData?.players;
 
     // If called without gamedata, provide the default 6-player minimal array.

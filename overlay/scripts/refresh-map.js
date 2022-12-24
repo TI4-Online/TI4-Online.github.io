@@ -117,7 +117,7 @@ class Map {
   update(gameData) {
     console.assert(typeof gameData === "object");
 
-    const playerDataArray = GameDataUtil.parsePlayerDataArray();
+    const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
     const playerColorNamesAndHexValues = playerDataArray.map((playerData) => {
       return GameDataUtil.parsePlayerColor(playerData);
     });
@@ -265,21 +265,6 @@ class Map {
         continue;
       }
 
-      // white outline
-      ctx.save();
-      ctx.filter = this._getColorFilter("mask");
-      const d = 4;
-      for (let dx = -d; dx <= d; dx += 1) {
-        for (let dy = -d; dy <= d; dy += 1) {
-          ctx.drawImage(
-            entry.image,
-            x - this._unitSize / 2 + dx,
-            unitY + dy,
-            this._unitSize,
-            this._unitSize
-          );
-        }
-      }
       ctx.restore();
 
       ctx.save();

@@ -19,7 +19,7 @@ class Objectives {
   update(gameData) {
     console.assert(typeof gameData === "object");
 
-    const players = GameDataUtil.parsePlayerDataArray();
+    const players = GameDataUtil.parsePlayerDataArray(gameData);
     const playerColorNamesAndHexValues = players.map((playerData) => {
       return GameDataUtil.parsePlayerColor(playerData);
     });

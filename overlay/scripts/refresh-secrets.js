@@ -19,11 +19,10 @@ class Secrets {
   update(gameData) {
     console.assert(typeof gameData === "object");
 
-    const players = GameDataUtil.parsePlayerDataArray();
-    const playerColorNamesAndHexValues = players.map((playerData) => {
+    const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
+    const playerColorNamesAndHexValues = playerDataArray.map((playerData) => {
       return GameDataUtil.parsePlayerColor(playerData);
     });
-    const playerCount = players.length;
 
     const colorData = {};
     for (const colorNameAndHex of playerColorNamesAndHexValues) {
@@ -37,7 +36,8 @@ class Secrets {
       for (const scoredBy of objective.scoredBy) {
         const data = colorData[scoredBy];
         if (!data) {
-          console.log(`Secrets: bad scoredBy ${scoredBy}`);
+          console.log(JSON.stringify(playerColorNamesAndHexValues));
+          console.log(`Secrets: bad scoredBy "${scoredBy}"`);
           continue;
         }
         data.secrets.push(objective.abbr);
