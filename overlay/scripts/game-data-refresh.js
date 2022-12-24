@@ -224,7 +224,7 @@ class GameDataRefresh {
     const options = {
       method: "GET",
       headers: {
-        "Cache-Control": "no-store",
+        //"Cache-Control": "no-store", // cannot use with CORS
       },
       mode: "cors",
     };
