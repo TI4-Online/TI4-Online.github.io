@@ -95,6 +95,7 @@ class Map {
     this._deltaX = this._unitSize * 0.5;
     this._fontSize = this._unitSize * 0.5;
     this._textY = this._unitSize * 0.3;
+    this._lineWidth = Math.ceil(this._unitSize * 0.04);
 
     this._colorNameToHex = {};
 
@@ -252,7 +253,6 @@ class Map {
 
     const unitY = y - this._unitSize / 2;
     const textY = y + this._textY;
-    const lineWidth = Math.ceil(this._unitSize * 0.02);
 
     for (const drawEntry of drawEntries) {
       console.assert(drawEntry.imageSrc);
@@ -270,9 +270,9 @@ class Map {
           height: this._unitSize,
           filter: "brightness(110%)",
           tintColor: colorHex,
-          outlineWidth: lineWidth,
+          outlineWidth: this._lineWidth,
           outlineColor: "black",
-          shadowWidth: lineWidth * 2,
+          shadowWidth: this._lineWidth * 2,
           shadowColor: "white",
         }
       );
@@ -288,15 +288,15 @@ class Map {
         ctx.textBaseline = "top";
 
         // White fade out background.
-        ctx.lineWidth = lineWidth * 4;
+        ctx.lineWidth = this._lineWidth * 4;
         ctx.strokeStyle = "white";
         ctx.shadowColor = "white";
-        ctx.shadowBlur = lineWidth * 4;
+        ctx.shadowBlur = this._lineWidth * 4;
         ctx.strokeText(text, textX, textY);
         ctx.shadowBlur = 0;
 
         // Black outline.
-        ctx.lineWidth = lineWidth * 3;
+        ctx.lineWidth = this._lineWidth * 3;
         ctx.strokeStyle = "black";
         ctx.strokeText(text, textX, textY);
 
@@ -331,7 +331,6 @@ class Map {
     y = y + this._tileHeight * 0.95;
 
     x = x - ((tokenColorHexes.length - 1) * this._deltaX) / 2;
-    const lineWidth = Math.ceil(this._unitSize * 0.02);
 
     const src = this._getUnitImageSrc("command_token");
     for (const colorHex of tokenColorHexes) {
@@ -344,9 +343,9 @@ class Map {
           width: this._unitSize,
           height: this._unitSize,
           tintColor: colorHex,
-          outlineWidth: lineWidth,
+          outlineWidth: this._lineWidth,
           outlineColor: "black",
-          shadowWidth: lineWidth * 2,
+          shadowWidth: this._lineWidth * 2,
           shadowColor: "white",
         }
       );
