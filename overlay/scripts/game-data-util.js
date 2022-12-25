@@ -2,10 +2,10 @@
 
 const COLOR_NAME_TO_HEX = {
   white: "#FFFFFF",
-  blue: "#6EC1E4",
-  purple: "#9161a8",
+  blue: "#00a8cc", //"#6EC1E4",
+  purple: "#c147e9", //"#9161a8",
   yellow: "#ffde17",
-  red: "#e46d72",
+  red: "#e94f64", //"#e46d72",
   green: "#00a14b",
   orange: "#FF781F",
   pink: "#FF69B4",
@@ -321,7 +321,7 @@ class GameDataUtil {
       k: "mirage",
       l: "stellar_converter",
       m: "mining_world",
-      n: "ion_Storm.png",
+      n: "ion_storm",
       o: "propulsion_research_facility_back",
       p: "paradise_world",
       q: "ul_sleeper",

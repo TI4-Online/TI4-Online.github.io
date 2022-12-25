@@ -102,6 +102,16 @@ class Rotating {
       width: canvas.width,
       height: canvas.height,
     };
+
+    // If lastTable is not set this is the first draw.
+    // Warm the draw cache with all colors.
+    if (!this._lastTable) {
+      for (const pd of playerDataArray) {
+        DrawPlayerResources.getInstance().draw(canvas, boundingBox, pd);
+      }
+    }
+
+    // Draw the intended player.
     DrawPlayerResources.getInstance().draw(canvas, boundingBox, playerData);
 
     // Swap tables?

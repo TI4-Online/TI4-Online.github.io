@@ -26,39 +26,31 @@ class Map {
     };
 
     this._attachmentToPath = {
-      cybernetic_research_facility_face:
-        "tokens/token_C#_Cybernetic_Research_Facility.png",
-      biotic_research_facility_face:
-        "tokens/token_I#_Biotic_Research_Facility.png",
-      propulsion_research_facility_face:
-        "tokens/token_O#_Propulsion_Research_Facility.png",
-      warfare_research_facility_face:
-        "tokens/token_W#_Warfare_Research_Facility.png",
-      alpha_wormhole: "tokens/token_a_Alpha_Wormhole.png",
-      beta_wormhole: "tokens/token_b_Beta_Wormhole.png",
-      cybernetic_Research_Facility_back:
-        "tokens/token_c_Cybernetic_Research_Facility.png",
-      dyson_sphere: "tokens/token_d_Dyson_Sphere.png",
-      frontier: "tokens/token_e_Frontier.png",
-      nano_forge: "tokens/token_f_Nano-Forge.png",
-      gamma_wormhole: "tokens/token_g_Gamma_Wormhole.png",
-      grav_tear: "tokens/token_h_Grav_Tear.png",
-      biotic_research_facility_back:
-        "tokens/token_i_Biotic_Research_Facility.png",
-      tomb_of_emphidia: "tokens/token_j_Tomb_of_Emphidia.png",
-      mirage: "tokens/token_k_Mirage.png",
-      stellar_converter: "tokens/token_l_Stellar_Converter.png",
-      mining_world: "tokens/token_m_Mining_World.png",
-      ion_storm: "tokens/token_n_Ion_Storm.png",
-      propulsion_research_facility_back:
-        "tokens/token_o_Propulsion_Research_Facility.png",
-      paradise_world: "tokens/token_p_Paradise_World.png",
+      cybernetic_research_facility_face: "tokens/exploration_cybernetic.png",
+      biotic_research_facility_face: "tokens/exploration_biotic.png",
+      propulsion_research_facility_face: "tokens/exploration_propulsion.png",
+      warfare_research_facility_face: "tokens/exploration_warfare.png",
+      alpha_wormhole: "tokens/wormhole_ca.png",
+      beta_wormhole: "tokens/wormhole_cb.png",
+      cybernetic_Research_Facility_back: "tokens/exploration_1-1_yellow.png",
+      dyson_sphere: "tokens/exploration_2-1.png",
+      frontier: "tokens/frontier.png",
+      nano_forge: "tokens/exploration_2-2-legend.png",
+      gamma_wormhole: "tokens/wormhole_g.png",
+      grav_tear: "tokens/rift.png",
+      biotic_research_facility_back: "tokens/exploration_1-1_green.png",
+      tomb_of_emphidia: "tokens/exploration_0-1-tomb.png",
+      mirage: "tokens/mirage.png",
+      stellar_converter: "tokens/stellar_converter.png",
+      mining_world: "tokens/exploration_2-0.png",
+      ion_storm: "tokens/ionstorm_alpha.png",
+      propulsion_research_facility_back: "tokens/exploration_1-1_blue.png",
+      paradise_world: "tokens/exploration_0-2.png",
       ul_sleeper: "tokens/token_q_Ul_Sleeper.png",
       rich_world: "tokens/token_r_Rich_World.png",
-      warfare_research_facility_back:
-        "tokens/token_w_Warfare_Research_Facility.png",
-      lazax_survivors: "tokens/token_x_Lazax_Survivors.png",
-      dmz: "tokens/token_z_DMZ.png",
+      warfare_research_facility_back: "tokens/exploration_1-1_red.png",
+      lazax_survivors: "tokens/exploration_1-2.png",
+      dmz: "tokens/exploration_dmz.png",
     };
 
     // cx, cy, avail
@@ -106,9 +98,19 @@ class Map {
 
     this._colorNameToHex = {};
 
+    // This is somewhat expensive, update on a slower timer.
+    this._gamedata = undefined;
+    const updateSeconds = 15;
+    setInterval(() => {
+      if (this._gamedata) {
+        this.update(this._gamedata);
+        this._gamedata = undefined;
+      }
+    }, updateSeconds * 1000);
+
     new BroadcastChannel("onGameDataEvent").onmessage = (event) => {
       if (event.data.type === "UPDATE" || event.data.type === "NOT_MODIFIED") {
-        this.update(event.data.detail);
+        this._gamedata = event.data.detail;
       }
     };
   }
@@ -153,6 +155,10 @@ class Map {
     // Draw tiles first.
     for (const entry of hexSummary) {
       this._drawTile(ctx, entry.x, entry.y, entry);
+    }
+
+    for (const entry of hexSummary) {
+      this._drawCommandTokens(ctx, entry.x, entry.y, entry);
     }
 
     // Draw occupants (may overflow tile)
@@ -203,6 +209,20 @@ class Map {
     ];
 
     const drawEntries = [];
+
+    for (const attachment of region.attachments) {
+      const path = this._attachmentToPath[attachment];
+      if (!path) {
+        throw new Error(`no attachment for ${attachment}`);
+      }
+      const imageSrc = ImageUtil.getSrc(path);
+      drawEntries.push({
+        colorName: undefined,
+        imageSrc,
+        count: 1,
+      });
+    }
+
     for (const [colorName, unitNameToCount] of Object.entries(
       region.colorToUnitNameToCount
     )) {
@@ -225,42 +245,42 @@ class Map {
     x += (cx / 2 + 0.5) * this._tileWidth;
     y += (cy / 2 + 0.5) * this._tileWidth;
 
-    // Draw space units in center
-    this._drawImagesWithCounts(ctx, drawEntries, x, y);
-  }
-
-  _drawImagesWithCounts(ctx, entries, x, y) {
-    console.assert(Array.isArray(entries));
-
     // x is center, start units to left.
-    if (entries.length > 1) {
-      x -= ((entries.length - 1) * this._deltaX) / 2;
+    if (drawEntries.length > 1) {
+      x -= ((drawEntries.length - 1) * this._deltaX) / 2;
     }
 
     const unitY = y - this._unitSize / 2;
     const textY = y + this._textY;
     const lineWidth = Math.ceil(this._unitSize * 0.02);
 
-    for (const entry of entries) {
-      console.assert(entry.imageSrc);
-      console.assert(entry.colorName);
-      console.assert(entry.count > 0);
+    for (const drawEntry of drawEntries) {
+      console.assert(drawEntry.imageSrc);
+      console.assert(drawEntry.count > 0);
 
-      const colorHex = this._colorNameToHex[entry.colorName];
+      const colorHex = this._colorNameToHex[drawEntry.colorName];
 
-      ImageUtil.drawMagic(ctx, entry.imageSrc, x - this._unitSize / 2, unitY, {
-        width: this._unitSize,
-        height: this._unitSize,
-        filter: "brightness(110%)",
-        tintColor: colorHex,
-        outlineWidth: lineWidth,
-        outlineColor: "black",
-        shadowWidth: lineWidth * 2,
-        shadowColor: "white",
-      });
+      ImageUtil.drawMagic(
+        ctx,
+        drawEntry.imageSrc,
+        x - this._unitSize / 2,
+        unitY,
+        {
+          width: this._unitSize,
+          height: this._unitSize,
+          filter: "brightness(110%)",
+          tintColor: colorHex,
+          outlineWidth: lineWidth,
+          outlineColor: "black",
+          shadowWidth: lineWidth * 2,
+          shadowColor: "white",
+        }
+      );
 
-      if (entry.count > 1) {
-        const text = entry.count;
+      if (drawEntry.count > 1) {
+        const text = drawEntry.count;
+
+        const textX = x + this._unitSize * 0.1;
 
         ctx.save();
         ctx.font = `800 ${this._fontSize}px Open Sans, sans-serif`;
@@ -272,20 +292,64 @@ class Map {
         ctx.strokeStyle = "white";
         ctx.shadowColor = "white";
         ctx.shadowBlur = lineWidth * 4;
-        ctx.strokeText(text, x + this._unitSize / 8, textY);
+        ctx.strokeText(text, textX, textY);
         ctx.shadowBlur = 0;
 
         // Black outline.
         ctx.lineWidth = lineWidth * 3;
         ctx.strokeStyle = "black";
-        ctx.strokeText(text, x + this._unitSize / 8, textY);
+        ctx.strokeText(text, textX, textY);
 
         // Player color text.
         ctx.fillStyle = colorHex;
-        ctx.fillText(text, x + this._unitSize / 8, textY);
+        ctx.fillText(text, textX, textY);
         ctx.restore();
       }
 
+      x += this._deltaX;
+    }
+  }
+
+  _drawCommandTokens(ctx, x, y, hexSummaryEntry) {
+    const region = hexSummaryEntry.regions[0]; // command tokens always in space entry
+    const tokenColorNames = [];
+    for (const [colorName, unitNameToCount] of Object.entries(
+      region.colorToUnitNameToCount
+    )) {
+      for (const unitName of Object.keys(unitNameToCount)) {
+        if (unitName === "command_token") {
+          tokenColorNames.push(colorName);
+        }
+      }
+    }
+
+    const tokenColorHexes = tokenColorNames
+      .map((colorName) => this._colorNameToHex[colorName])
+      .filter((x) => x);
+
+    x = x + this._tileWidth * 0.5;
+    y = y + this._tileHeight * 0.95;
+
+    x = x - ((tokenColorHexes.length - 1) * this._deltaX) / 2;
+    const lineWidth = Math.ceil(this._unitSize * 0.02);
+
+    const src = this._getUnitImageSrc("command_token");
+    for (const colorHex of tokenColorHexes) {
+      ImageUtil.drawMagic(
+        ctx,
+        src,
+        x - this._unitSize / 2,
+        y - this._unitSize / 2,
+        {
+          width: this._unitSize,
+          height: this._unitSize,
+          tintColor: colorHex,
+          outlineWidth: lineWidth,
+          outlineColor: "black",
+          shadowWidth: lineWidth * 2,
+          shadowColor: "white",
+        }
+      );
       x += this._deltaX;
     }
   }
