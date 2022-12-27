@@ -811,6 +811,36 @@ class GameDataUtil {
   }
 
   /**
+   * Given the main game data, get per-round partial game data entries.
+   *
+   * @param {Object} gameData
+   * @returns {Object}
+   */
+  static parseRoundToStartOfRoundGameData(gameData) {
+    console.assert(typeof gameData === "object");
+
+    const history = gameData?.history || [];
+
+    const result = {};
+    for (const entry of history) {
+      const round = entry.round;
+      if (round === undefined) {
+        continue;
+      }
+      result[round] = entry;
+    }
+    return result;
+  }
+
+  static parseScoreboard(gameData) {
+    console.assert(typeof gameData === "object");
+
+    const scoreboard = gameData?.scoreboard || 10;
+    console.assert(typeof scoreboard === "number");
+    return scoreboard;
+  }
+
+  /**
    * Parse current speaker color name from overall game data.
    *
    * @param {Object.{speaker:string}} gameData

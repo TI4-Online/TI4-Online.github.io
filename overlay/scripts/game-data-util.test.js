@@ -243,6 +243,12 @@ it("parseRound", () => {
   assert.equal(round, 3);
 });
 
+it("parseScoreboard", () => {
+  const gameData = getGameData();
+  const scoreboard = GameDataUtil.parseScoreboard(gameData);
+  assert.equal(scoreboard, 10);
+});
+
 it("parseSpeakerColorName", () => {
   const gameData = getGameData();
   const speakerColorName = GameDataUtil.parseSpeakerColorName(gameData);

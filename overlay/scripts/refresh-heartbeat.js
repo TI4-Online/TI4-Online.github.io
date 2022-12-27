@@ -147,7 +147,7 @@ class GameDataHeartbeat {
       // Clear.
       ctx.clearRect(0, 0, w, h);
 
-      ctx.font = "12px Open Sans, sans-serif";
+      ctx.font = "600 12px Open Sans, sans-serif";
 
       // Title.
       ctx.textAlign = "center";

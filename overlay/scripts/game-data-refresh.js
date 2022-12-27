@@ -59,7 +59,7 @@ class GameDataRefresh {
 
   setDemoGameData(value) {
     if (value) {
-      this._url = "/overlay/demo/demo.json";
+      this._url = "/overlay/demo/demo2.json";
     } else {
       this._url = this._localhostUrl;
     }
@@ -228,6 +228,7 @@ class GameDataRefresh {
       },
       mode: "cors",
     };
+    console.log("xxx : " + url);
     this.debugLog(`loopFetch url=${url} options=${JSON.stringify(options)}`);
     fetch(url, options)
       .then(this._processResponseHandler)
