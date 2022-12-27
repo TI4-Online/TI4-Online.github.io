@@ -64,7 +64,6 @@ class Tempo {
         playerColorNameToScore[colorNameAndHex.colorName] = score;
       }
     }
-    console.log(JSON.stringify(roundToPlayerColorNameToScore));
 
     const margin = Math.floor(this._canvas.width * 0.1);
     const bb = {
@@ -118,6 +117,16 @@ class Tempo {
     ctx.translate(bb.left + bb.width / 2, bb.top + bb.height + 50);
     ctx.fillText("ROUND", 0, 0);
     ctx.restore();
+
+    // TODO WORK IN PROGRESS
+
+    ctx.textBaseline = "middle";
+    ctx.textAlign = "center";
+    ctx.fillText(
+      "WORK IN PROGRESS",
+      this._canvas.width / 2,
+      this._canvas.height / 2
+    );
   }
 }
 

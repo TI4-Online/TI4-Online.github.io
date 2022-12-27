@@ -228,7 +228,6 @@ class GameDataRefresh {
       },
       mode: "cors",
     };
-    console.log("xxx : " + url);
     this.debugLog(`loopFetch url=${url} options=${JSON.stringify(options)}`);
     fetch(url, options)
       .then(this._processResponseHandler)
