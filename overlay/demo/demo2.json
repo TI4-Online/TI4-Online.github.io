@@ -1,2305 +1,2192 @@
 {
-    "activeSystem": {
-        "planets": [],
-        "tile": 40
-    },
-    "config": {
-        "baseMagen": true,
-        "codex1": true,
-        "codex2": true,
-        "codex3": true
-    },
-    "hexSummary": "2-3-3Pfh2i1y;6i2m1s,82+3+5;Gip,80+1-1*e,79-2+0,78+0-4Bcd2f1rt;i*k,75-2+2;Yip;ip;i,72+0-2Bcd7f1w2y;3i1p;imp,69+3-1Wcf*h;W7i2m1p;s,67+1+3Rcfy;mp*x,66+2-2W2f*h;W4i2m1s,64-1+3Ys;3i,63+0+4Rd*g;Ro*fpz,62-1-1P2d4f1m*b;Pims,61+0+2Rcf;2i1mp,50-1+1Pc3d5f1t,49+2+4Wcd4f1t,48-2-4Pr,46-1+5Rdhmrt*e,45-2+4*e,42+1-5Wy,41+1+1*e,40+1-3Yc2y1t,37+2+2Gdp*a;Gi*I;Gi,35-1-5Bd7f1hw;is;ims,31+3+1;Gi;i*W,30+1+5Gfht;Ro;Gi*m,27-3-1Pct;ip*c;P2i1so,26-1-3Bcd3f;Ro*j,25+2+0Gd;o,24-3+1Yfy;m,23-2-2Pcf;o,21+2-4Wd;o,18+0+0Y3y1t*g;Yi3m*v,54+3-3*g;Go,57+0+6GtR2d1t;i;m,16+0-6Bd4f2r1y;imp;i2p1s;3i1mp,51+4+3BtGc5f1psPtRtWtYt;G6i1m,17+3+3Wcd2f1t*g,58-3+3Yy;2i1s;2i1p;3i",
-    "history": [
+  "activeSystem": {
+    "planets": [],
+    "tile": 40
+  },
+  "config": {
+    "baseMagen": true,
+    "codex1": true,
+    "codex2": true,
+    "codex3": true
+  },
+  "hexSummary": "2-3-3Pfh2i1y;6i2m1s,82+3+5;Gip,80+1-1*e,79-2+0,78+0-4Bcd2f1rt;i*k,75-2+2;Yip;ip;i,72+0-2Bcd7f1w2y;3i1p;imp,69+3-1Wcf*h;W7i2m1p;s,67+1+3Rcfy;mp*x,66+2-2W2f*h;W4i2m1s,64-1+3Ys;3i,63+0+4Rd*g;Ro*fpz,62-1-1P2d4f1m*b;Pims,61+0+2Rcf;2i1mp,50-1+1Pc3d5f1t,49+2+4Wcd4f1t,48-2-4Pr,46-1+5Rdhmrt*e,45-2+4*e,42+1-5Wy,41+1+1*e,40+1-3Yc2y1t,37+2+2Gdp*a;Gi*I;Gi,35-1-5Bd7f1hw;is;ims,31+3+1;Gi;i*W,30+1+5Gfht;Ro;Gi*m,27-3-1Pct;ip*c;P2i1so,26-1-3Bcd3f;Ro*j,25+2+0Gd;o,24-3+1Yfy;m,23-2-2Pcf;o,21+2-4Wd;o,18+0+0Y3y1t*g;Yi3m*v,54+3-3*g;Go,57+0+6GtR2d1t;i;m,16+0-6Bd4f2r1y;imp;i2p1s;3i1mp,51+4+3BtGc5f1psPtRtWtYt;G6i1m,17+3+3Wcd2f1t*g,58-3+3Yy;2i1s;2i1p;3i",
+  "history": [
+    {
+      "hexSummary": "2-3-3Pcfir;s,82-4-3,80+1-1*e,79-2+0*e,78+0-4*e,75-2+2Ycft;2i;2i;i,72+0-2,69+3-1,67+1+3,66+2-2Wdt;m,64-1+3,63+0+4,62-1-1Pcft;i,61+0+2,50-1+1*e,49+2+4*e,48-2-4*e,46-1+5*e,45-2+4*e,42+1-5*e,41+1+1*e,40+1-3*e,37+2+2Gcft;i*I;Gi,35-1-5Bcft;o;o,31+3+1,30+1+5Rcft;i;m,27-3-1,26-1-3,25+2+0,24-3+1,23-2-2,21+2-4,18+0+0,54+3-3Wc3f1r*h;W2i1s,57+0+6Rcfy;is;i,16+0-6Bcfr;i;s;i,51+4+3Gf2i1s2y,17+3+3*e,58-3+3Yf2y;s;ip;i",
+      "laws": [],
+      "perf": {
+        "mean": 10.978,
+        "median": null,
+        "scrubbed": 33.916,
+        "stdDev": 51.993
+      },
+      "players": [
         {
-            "hexSummary": "2-3-3Pcfir;s,82-4-3,80+1-1*e,79-2+0*e,78+0-4*e,75-2+2Ycft;2i;2i;i,72+0-2,69+3-1,67+1+3,66+2-2Wdt;m,64-1+3,63+0+4,62-1-1Pcft;i,61+0+2,50-1+1*e,49+2+4*e,48-2-4*e,46-1+5*e,45-2+4*e,42+1-5*e,41+1+1*e,40+1-3*e,37+2+2Gcft;i*I;Gi,35-1-5Bcft;o;o,31+3+1,30+1+5Rcft;i;m,27-3-1,26-1-3,25+2+0,24-3+1,23-2-2,21+2-4,18+0+0,54+3-3Wc3f1r*h;W2i1s,57+0+6Rcfy;is;i,16+0-6Bcfr;i;s;i,51+4+3Gf2i1s2y,17+3+3*e,58-3+3Yf2y;s;ip;i",
-            "laws": [],
-            "perf": {
-                "mean": 10.978,
-                "median": null,
-                "scrubbed": 33.916,
-                "stdDev": 51.993
+          "alliances": [],
+          "color": "White",
+          "colorActual": "White",
+          "commandTokens": {
+            "fleet": 3,
+            "strategy": 2,
+            "tactics": 2
+          },
+          "commodities": 0,
+          "custodiansPoints": 0,
+          "handSummary": {
+            "Promissory": 5,
+            "Secret Objectives": 1
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "locked",
+            "hero": "locked"
+          },
+          "maxCommodities": 2,
+          "objectives": [],
+          "planetTotals": {
+            "influence": {
+              "avail": 0,
+              "total": 0
             },
-            "players": [
-                {
-                    "alliances": [],
-                    "color": "White",
-                    "colorActual": "White",
-                    "commandTokens": {
-                        "fleet": 3,
-                        "strategy": 2,
-                        "tactics": 2
-                    },
-                    "commodities": 0,
-                    "custodiansPoints": 0,
-                    "handSummary": {
-                        "Promissory": 5,
-                        "Secret Objectives": 1
-                    },
-                    "laws": [],
-                    "leaders": {
-                        "commander": "locked",
-                        "hero": "locked"
-                    },
-                    "maxCommodities": 2,
-                    "objectives": [],
-                    "planetTotals": {
-                        "influence": {
-                            "avail": 0,
-                            "total": 0
-                        },
-                        "legendary": 1,
-                        "resources": {
-                            "avail": 4,
-                            "total": 7
-                        },
-                        "techs": {
-                            "blue": 0,
-                            "green": 0,
-                            "red": 0,
-                            "yellow": 0
-                        },
-                        "traits": {
-                            "cultural": 0,
-                            "hazardous": 1,
-                            "industrial": 0
-                        }
-                    },
-                    "score": 0,
-                    "strategyCards": [
-                        "Politics"
-                    ],
-                    "technologies": 1,
-                    "tradeGoods": 1
-                },
-                {
-                    "alliances": [],
-                    "color": "Blue",
-                    "colorActual": "Blue",
-                    "commandTokens": {
-                        "fleet": 3,
-                        "strategy": 3,
-                        "tactics": 2
-                    },
-                    "commodities": 0,
-                    "custodiansPoints": 0,
-                    "handSummary": {
-                        "Promissory": 6,
-                        "Secret Objectives": 1
-                    },
-                    "laws": [],
-                    "leaders": {
-                        "commander": "locked",
-                        "hero": "locked"
-                    },
-                    "maxCommodities": 6,
-                    "objectives": [],
-                    "planetTotals": {
-                        "influence": {
-                            "avail": 3,
-                            "total": 6
-                        },
-                        "legendary": 0,
-                        "resources": {
-                            "avail": 6,
-                            "total": 8
-                        },
-                        "techs": {
-                            "blue": 0,
-                            "green": 0,
-                            "red": 0,
-                            "yellow": 0
-                        },
-                        "traits": {
-                            "cultural": 0,
-                            "hazardous": 2,
-                            "industrial": 0
-                        }
-                    },
-                    "score": 0,
-                    "strategyCards": [
-                        "Leadership"
-                    ],
-                    "technologies": 2,
-                    "tradeGoods": 1
-                },
-                {
-                    "alliances": [],
-                    "color": "Purple",
-                    "colorActual": "Purple",
-                    "commandTokens": {
-                        "fleet": 3,
-                        "strategy": 2,
-                        "tactics": 2
-                    },
-                    "commodities": 1,
-                    "custodiansPoints": 0,
-                    "handSummary": {
-                        "Promissory": 6,
-                        "Secret Objectives": 1
-                    },
-                    "laws": [],
-                    "leaders": {
-                        "commander": "locked",
-                        "hero": "locked"
-                    },
-                    "maxCommodities": 2,
-                    "objectives": [],
-                    "planetTotals": {
-                        "influence": {
-                            "avail": 1,
-                            "total": 3
-                        },
-                        "legendary": 0,
-                        "resources": {
-                            "avail": 4,
-                            "total": 7
-                        },
-                        "techs": {
-                            "blue": 0,
-                            "green": 0,
-                            "red": 0,
-                            "yellow": 1
-                        },
-                        "traits": {
-                            "cultural": 1,
-                            "hazardous": 0,
-                            "industrial": 0
-                        }
-                    },
-                    "score": 0,
-                    "strategyCards": [
-                        "Technology"
-                    ],
-                    "technologies": 2,
-                    "tradeGoods": 2
-                },
-                {
-                    "alliances": [],
-                    "color": "Yellow",
-                    "colorActual": "Yellow",
-                    "commandTokens": {
-                        "fleet": 3,
-                        "strategy": 2,
-                        "tactics": 2
-                    },
-                    "commodities": 0,
-                    "custodiansPoints": 0,
-                    "handSummary": {
-                        "Promissory": 6,
-                        "Secret Objectives": 1
-                    },
-                    "laws": [],
-                    "leaders": {
-                        "commander": "locked",
-                        "hero": "locked"
-                    },
-                    "maxCommodities": 3,
-                    "objectives": [],
-                    "planetTotals": {
-                        "influence": {
-                            "avail": 3,
-                            "total": 5
-                        },
-                        "legendary": 0,
-                        "resources": {
-                            "avail": 3,
-                            "total": 7
-                        },
-                        "techs": {
-                            "blue": 0,
-                            "green": 0,
-                            "red": 0,
-                            "yellow": 0
-                        },
-                        "traits": {
-                            "cultural": 2,
-                            "hazardous": 1,
-                            "industrial": 0
-                        }
-                    },
-                    "score": 0,
-                    "strategyCards": [
-                        "Construction"
-                    ],
-                    "technologies": 2,
-                    "tradeGoods": 0
-                },
-                {
-                    "alliances": [],
-                    "color": "Red",
-                    "colorActual": "Red",
-                    "commandTokens": {
-                        "fleet": 3,
-                        "strategy": 2,
-                        "tactics": 2
-                    },
-                    "commodities": 0,
-                    "custodiansPoints": 0,
-                    "handSummary": {
-                        "Promissory": 6,
-                        "Secret Objectives": 1
-                    },
-                    "laws": [],
-                    "leaders": {
-                        "commander": "locked",
-                        "hero": "locked"
-                    },
-                    "maxCommodities": 3,
-                    "objectives": [],
-                    "planetTotals": {
-                        "influence": {
-                            "avail": 4,
-                            "total": 6
-                        },
-                        "legendary": 0,
-                        "resources": {
-                            "avail": 6,
-                            "total": 6
-                        },
-                        "techs": {
-                            "blue": 0,
-                            "green": 0,
-                            "red": 0,
-                            "yellow": 0
-                        },
-                        "traits": {
-                            "cultural": 1,
-                            "hazardous": 1,
-                            "industrial": 0
-                        }
-                    },
-                    "score": 0,
-                    "strategyCards": [
-                        "Warfare"
-                    ],
-                    "technologies": 2,
-                    "tradeGoods": 0
-                },
-                {
-                    "alliances": [
-                        "green"
-                    ],
-                    "color": "Green",
-                    "colorActual": "Green",
-                    "commandTokens": {
-                        "fleet": 3,
-                        "strategy": 2,
-                        "tactics": 2
-                    },
-                    "commodities": 0,
-                    "custodiansPoints": 0,
-                    "handSummary": {
-                        "Secret Objectives": 1
-                    },
-                    "laws": [],
-                    "leaders": {
-                        "commander": "locked",
-                        "hero": "locked"
-                    },
-                    "maxCommodities": 4,
-                    "objectives": [],
-                    "planetTotals": {
-                        "influence": {
-                            "avail": 2,
-                            "total": 8
-                        },
-                        "legendary": 0,
-                        "resources": {
-                            "avail": 4,
-                            "total": 5
-                        },
-                        "techs": {
-                            "blue": 0,
-                            "green": 1,
-                            "red": 1,
-                            "yellow": 0
-                        },
-                        "traits": {
-                            "cultural": 0,
-                            "hazardous": 1,
-                            "industrial": 1
-                        }
-                    },
-                    "score": 0,
-                    "strategyCards": [
-                        "Trade"
-                    ],
-                    "technologies": 1,
-                    "tradeGoods": 5
-                }
-            ],
-            "round": 1,
-            "setupTimestamp": 1671379420.865,
-            "timestamp": 1671382840.758
+            "legendary": 1,
+            "resources": {
+              "avail": 4,
+              "total": 7
+            },
+            "techs": {
+              "blue": 0,
+              "green": 0,
+              "red": 0,
+              "yellow": 0
+            },
+            "traits": {
+              "cultural": 0,
+              "hazardous": 1,
+              "industrial": 0
+            }
+          },
+          "score": 0,
+          "strategyCards": ["Politics"],
+          "technologies": 1,
+          "tradeGoods": 1
         },
         {
-            "hexSummary": "2-3-3Pd2f1y;2i1s,82-4-3Gd;i,80+1-1*e,79-2+0*e,78+0-4*e,75-2+2Ycf;2i1p;2i1p;i,72+0-2Wcd2f;m;2i,69+3-1Wcf;i;i,67+1+3,66+2-2Wd*h;Wms,64-1+3Yy;o,63+0+4;Ro*z,62-1-1Pcf;is,61+0+2Rcf;2i1m,50-1+1Pr*e,49+2+4*e,48-2-4*e,46-1+5*e,45-2+4*e,42+1-5*e,41+1+1Ry*e,40+1-3Bcf2i*e,37+2+2Gcf;i*I;Gi,35-1-5Bcf;is;i,31+3+1Gc2f;i;i*W,30+1+5Rcf;i;ms,27-3-1Pc;i*c;Po,26-1-3Bc2f;2i1m,25+2+0Gy,24-3+1Yfy;m,23-2-2Pcf;i,21+2-4,18+0+0*ab;*v,54+3-3Wr*h;Ws,57+0+6Rr;ms;o,16+0-6B2fr;i;is;i,51+4+3Gfs;i,17+3+3*e,58-3+3Yy;s;ip",
-            "laws": [],
-            "perf": {
-                "mean": 33.558,
-                "median": 33.333,
-                "scrubbed": 33.333,
-                "stdDev": 1.726
+          "alliances": [],
+          "color": "Blue",
+          "colorActual": "Blue",
+          "commandTokens": {
+            "fleet": 3,
+            "strategy": 3,
+            "tactics": 2
+          },
+          "commodities": 0,
+          "custodiansPoints": 0,
+          "handSummary": {
+            "Promissory": 6,
+            "Secret Objectives": 1
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "locked",
+            "hero": "locked"
+          },
+          "maxCommodities": 6,
+          "objectives": [],
+          "planetTotals": {
+            "influence": {
+              "avail": 3,
+              "total": 6
             },
-            "players": [
-                {
-                    "alliances": [],
-                    "color": "White",
-                    "colorActual": "White",
-                    "commandTokens": {
-                        "fleet": 2,
-                        "strategy": 2,
-                        "tactics": 1
-                    },
-                    "commodities": 3,
-                    "custodiansPoints": 0,
-                    "handSummary": {
-                        "Actions": 3,
-                        "Promissory": 5
-                    },
-                    "laws": [],
-                    "leaders": {
-                        "commander": "locked",
-                        "hero": "locked"
-                    },
-                    "maxCommodities": 2,
-                    "objectives": [
-                        "Learn the Secrets of the Cosmos"
-                    ],
-                    "planetTotals": {
-                        "influence": {
-                            "avail": 9,
-                            "total": 9
-                        },
-                        "legendary": 1,
-                        "resources": {
-                            "avail": 15,
-                            "total": 15
-                        },
-                        "techs": {
-                            "blue": 0,
-                            "green": 0,
-                            "red": 1,
-                            "yellow": 0
-                        },
-                        "traits": {
-                            "cultural": 0,
-                            "hazardous": 1,
-                            "industrial": 4
-                        }
-                    },
-                    "score": 1,
-                    "strategyCards": [
-                        "Leadership"
-                    ],
-                    "technologies": 1,
-                    "tradeGoods": 5
-                },
-                {
-                    "alliances": [],
-                    "color": "Blue",
-                    "colorActual": "Blue",
-                    "commandTokens": {
-                        "fleet": 2,
-                        "strategy": 3,
-                        "tactics": 2
-                    },
-                    "commodities": 0,
-                    "custodiansPoints": 0,
-                    "handSummary": {
-                        "Actions": 1,
-                        "Promissory": 7,
-                        "Secret Objectives": 1
-                    },
-                    "laws": [],
-                    "leaders": {
-                        "commander": "locked",
-                        "hero": "locked"
-                    },
-                    "maxCommodities": 6,
-                    "objectives": [
-                        "Intimidate Council"
-                    ],
-                    "planetTotals": {
-                        "influence": {
-                            "avail": 7,
-                            "total": 7
-                        },
-                        "legendary": 0,
-                        "resources": {
-                            "avail": 11,
-                            "total": 11
-                        },
-                        "techs": {
-                            "blue": 0,
-                            "green": 0,
-                            "red": 0,
-                            "yellow": 0
-                        },
-                        "traits": {
-                            "cultural": 1,
-                            "hazardous": 2,
-                            "industrial": 0
-                        }
-                    },
-                    "score": 1,
-                    "strategyCards": [
-                        "Construction"
-                    ],
-                    "technologies": 3,
-                    "tradeGoods": 0
-                },
-                {
-                    "alliances": [],
-                    "color": "Purple",
-                    "colorActual": "Purple",
-                    "commandTokens": {
-                        "fleet": 2,
-                        "strategy": 2,
-                        "tactics": 1
-                    },
-                    "commodities": 0,
-                    "custodiansPoints": 0,
-                    "handSummary": {
-                        "Actions": 1,
-                        "Promissory": 5,
-                        "Secret Objectives": 1
-                    },
-                    "laws": [],
-                    "leaders": {
-                        "commander": "locked",
-                        "hero": "locked"
-                    },
-                    "maxCommodities": 2,
-                    "objectives": [
-                        "Intimidate Council"
-                    ],
-                    "planetTotals": {
-                        "influence": {
-                            "avail": 11,
-                            "total": 11
-                        },
-                        "legendary": 1,
-                        "resources": {
-                            "avail": 16,
-                            "total": 16
-                        },
-                        "techs": {
-                            "blue": 0,
-                            "green": 1,
-                            "red": 0,
-                            "yellow": 1
-                        },
-                        "traits": {
-                            "cultural": 1,
-                            "hazardous": 1,
-                            "industrial": 2
-                        }
-                    },
-                    "score": 1,
-                    "strategyCards": [
-                        "Politics"
-                    ],
-                    "technologies": 3,
-                    "tradeGoods": 0
-                },
-                {
-                    "alliances": [],
-                    "color": "Yellow",
-                    "colorActual": "Yellow",
-                    "commandTokens": {
-                        "fleet": 2,
-                        "strategy": 2,
-                        "tactics": 2
-                    },
-                    "commodities": 0,
-                    "custodiansPoints": 0,
-                    "handSummary": {
-                        "Actions": 1,
-                        "Promissory": 6,
-                        "Secret Objectives": 1
-                    },
-                    "laws": [],
-                    "leaders": {
-                        "commander": "unlocked",
-                        "hero": "locked"
-                    },
-                    "maxCommodities": 3,
-                    "objectives": [
-                        "Build Defenses"
-                    ],
-                    "planetTotals": {
-                        "influence": {
-                            "avail": 9,
-                            "total": 9
-                        },
-                        "legendary": 0,
-                        "resources": {
-                            "avail": 11,
-                            "total": 11
-                        },
-                        "techs": {
-                            "blue": 0,
-                            "green": 0,
-                            "red": 1,
-                            "yellow": 0
-                        },
-                        "traits": {
-                            "cultural": 2,
-                            "hazardous": 3,
-                            "industrial": 0
-                        }
-                    },
-                    "score": 1,
-                    "strategyCards": [],
-                    "technologies": 3,
-                    "tradeGoods": 0
-                },
-                {
-                    "alliances": [],
-                    "color": "Red",
-                    "colorActual": "Red",
-                    "commandTokens": {
-                        "fleet": 2,
-                        "strategy": 2,
-                        "tactics": 1
-                    },
-                    "commodities": 0,
-                    "custodiansPoints": 0,
-                    "handSummary": {
-                        "Actions": 1,
-                        "Promissory": 5,
-                        "Secret Objectives": 1
-                    },
-                    "laws": [],
-                    "leaders": {
-                        "commander": "unlocked",
-                        "hero": "locked"
-                    },
-                    "maxCommodities": 3,
-                    "objectives": [
-                        "Intimidate Council"
-                    ],
-                    "planetTotals": {
-                        "influence": {
-                            "avail": 8,
-                            "total": 8
-                        },
-                        "legendary": 0,
-                        "resources": {
-                            "avail": 8,
-                            "total": 8
-                        },
-                        "techs": {
-                            "blue": 0,
-                            "green": 1,
-                            "red": 1,
-                            "yellow": 0
-                        },
-                        "traits": {
-                            "cultural": 2,
-                            "hazardous": 1,
-                            "industrial": 1
-                        }
-                    },
-                    "score": 1,
-                    "strategyCards": [],
-                    "technologies": 3,
-                    "tradeGoods": 0
-                },
-                {
-                    "alliances": [
-                        "green"
-                    ],
-                    "color": "Green",
-                    "colorActual": "Green",
-                    "commandTokens": {
-                        "fleet": 2,
-                        "strategy": 1,
-                        "tactics": 2
-                    },
-                    "commodities": 0,
-                    "custodiansPoints": 0,
-                    "handSummary": {
-                        "Actions": 1
-                    },
-                    "laws": [],
-                    "leaders": {
-                        "commander": "locked",
-                        "hero": "locked"
-                    },
-                    "maxCommodities": 4,
-                    "objectives": [
-                        "Intimidate Council",
-                        "Establish Hegemony"
-                    ],
-                    "planetTotals": {
-                        "influence": {
-                            "avail": 12,
-                            "total": 12
-                        },
-                        "legendary": 1,
-                        "resources": {
-                            "avail": 8,
-                            "total": 8
-                        },
-                        "techs": {
-                            "blue": 0,
-                            "green": 1,
-                            "red": 2,
-                            "yellow": 1
-                        },
-                        "traits": {
-                            "cultural": 1,
-                            "hazardous": 2,
-                            "industrial": 2
-                        }
-                    },
-                    "score": 2,
-                    "strategyCards": [
-                        "Technology"
-                    ],
-                    "technologies": 2,
-                    "tradeGoods": 5
-                }
-            ],
-            "round": 2,
-            "setupTimestamp": 1671379420.865,
-            "timestamp": 1671385346.321
+            "legendary": 0,
+            "resources": {
+              "avail": 6,
+              "total": 8
+            },
+            "techs": {
+              "blue": 0,
+              "green": 0,
+              "red": 0,
+              "yellow": 0
+            },
+            "traits": {
+              "cultural": 0,
+              "hazardous": 2,
+              "industrial": 0
+            }
+          },
+          "score": 0,
+          "strategyCards": ["Leadership"],
+          "technologies": 2,
+          "tradeGoods": 1
         },
         {
-            "hexSummary": "2-3-3Pd2f1y;2i1s,82+3+5Gd;ip,80+1-1*e,79-2+0,78+0-4*e,75-2+2Yc;2i1p;2i1p;i,72+0-2Bcf;i;i,69+3-1Wcf*h;Wi;is,67+1+3Rcfy;m*x,66+2-2*h;W2m1s,64-1+3Yy;o,63+0+4;Ro*z,62-1-1Pcd3f;i2m1s,61+0+2Rcf;2i1m,50-1+1Yfy*e,49+2+4Gy*e,48-2-4Pr,46-1+5*e,45-2+4*e,42+1-5*eg,41+1+1Wr*e,40+1-3Wd*e,37+2+2;Gi*I;Gi,35-1-5Bc2d3f;2i1s;is,31+3+1Gc2f;i;i*W,30+1+5R2f1r;i;ms*m,27-3-1Pc;i*c;Pso,26-1-3Bc2f;2i1mp,25+2+0G2d;i,24-3+1Yfy;m,23-2-2Pcf;i,21+2-4,18+0+0Wcd2f*ab;W2i1m*v,54+3-3Wcdy*h;W2i1s,57+0+6Rd2f1r;ms;o,16+0-6B2fr;i;is;i,51+4+3Gc4f2i1sy;m,17+3+3*e,58-3+3Y2f3y;i3m1s;p",
-            "laws": [],
-            "perf": {
-                "mean": 33.356,
-                "median": 33.333,
-                "scrubbed": 33.333,
-                "stdDev": 0.174
+          "alliances": [],
+          "color": "Purple",
+          "colorActual": "Purple",
+          "commandTokens": {
+            "fleet": 3,
+            "strategy": 2,
+            "tactics": 2
+          },
+          "commodities": 1,
+          "custodiansPoints": 0,
+          "handSummary": {
+            "Promissory": 6,
+            "Secret Objectives": 1
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "locked",
+            "hero": "locked"
+          },
+          "maxCommodities": 2,
+          "objectives": [],
+          "planetTotals": {
+            "influence": {
+              "avail": 1,
+              "total": 3
             },
-            "players": [
-                {
-                    "alliances": [],
-                    "color": "White",
-                    "colorActual": "White",
-                    "commandTokens": {
-                        "fleet": 3,
-                        "strategy": 2,
-                        "tactics": 3
-                    },
-                    "commodities": 3,
-                    "custodiansPoints": 1,
-                    "handSummary": {
-                        "Actions": 4,
-                        "Promissory": 5
-                    },
-                    "laws": [],
-                    "leaders": {
-                        "commander": "unlocked",
-                        "hero": "locked"
-                    },
-                    "maxCommodities": 2,
-                    "objectives": [
-                        "Intimidate Council",
-                        "Learn the Secrets of the Cosmos"
-                    ],
-                    "planetTotals": {
-                        "influence": {
-                            "avail": 12,
-                            "total": 12
-                        },
-                        "legendary": 1,
-                        "resources": {
-                            "avail": 12,
-                            "total": 12
-                        },
-                        "techs": {
-                            "blue": 0,
-                            "green": 0,
-                            "red": 0,
-                            "yellow": 0
-                        },
-                        "traits": {
-                            "cultural": 0,
-                            "hazardous": 1,
-                            "industrial": 2
-                        }
-                    },
-                    "score": 3,
-                    "strategyCards": [],
-                    "technologies": 2,
-                    "tradeGoods": 5
-                },
-                {
-                    "alliances": [
-                        "red"
-                    ],
-                    "color": "Blue",
-                    "colorActual": "Blue",
-                    "commandTokens": {
-                        "fleet": 4,
-                        "strategy": 1,
-                        "tactics": 2
-                    },
-                    "commodities": 0,
-                    "custodiansPoints": 0,
-                    "handSummary": {
-                        "Actions": 4,
-                        "Promissory": 7
-                    },
-                    "laws": [],
-                    "leaders": {
-                        "commander": "locked",
-                        "hero": "unlocked"
-                    },
-                    "maxCommodities": 6,
-                    "objectives": [
-                        "Build Defenses",
-                        "Intimidate Council",
-                        "Strengthen Bonds"
-                    ],
-                    "planetTotals": {
-                        "influence": {
-                            "avail": 10,
-                            "total": 10
-                        },
-                        "legendary": 0,
-                        "resources": {
-                            "avail": 15,
-                            "total": 15
-                        },
-                        "techs": {
-                            "blue": 0,
-                            "green": 0,
-                            "red": 1,
-                            "yellow": 0
-                        },
-                        "traits": {
-                            "cultural": 1,
-                            "hazardous": 2,
-                            "industrial": 2
-                        }
-                    },
-                    "score": 3,
-                    "strategyCards": [],
-                    "technologies": 4,
-                    "tradeGoods": 2
-                },
-                {
-                    "alliances": [],
-                    "color": "Purple",
-                    "colorActual": "Purple",
-                    "commandTokens": {
-                        "fleet": 3,
-                        "strategy": 0,
-                        "tactics": 3
-                    },
-                    "commodities": 0,
-                    "custodiansPoints": 0,
-                    "handSummary": {
-                        "Actions": 5,
-                        "Promissory": 5,
-                        "Secret Objectives": 1
-                    },
-                    "laws": [],
-                    "leaders": {
-                        "commander": "locked",
-                        "hero": "locked"
-                    },
-                    "maxCommodities": 2,
-                    "objectives": [
-                        "Intimidate Council",
-                        "Diversify Research"
-                    ],
-                    "planetTotals": {
-                        "influence": {
-                            "avail": 11,
-                            "total": 11
-                        },
-                        "legendary": 1,
-                        "resources": {
-                            "avail": 16,
-                            "total": 16
-                        },
-                        "techs": {
-                            "blue": 0,
-                            "green": 1,
-                            "red": 0,
-                            "yellow": 1
-                        },
-                        "traits": {
-                            "cultural": 1,
-                            "hazardous": 1,
-                            "industrial": 2
-                        }
-                    },
-                    "score": 2,
-                    "strategyCards": [],
-                    "technologies": 4,
-                    "tradeGoods": 2
-                },
-                {
-                    "alliances": [],
-                    "color": "Yellow",
-                    "colorActual": "Yellow",
-                    "commandTokens": {
-                        "fleet": 3,
-                        "strategy": 1,
-                        "tactics": 1
-                    },
-                    "commodities": 0,
-                    "custodiansPoints": 0,
-                    "handSummary": {
-                        "Actions": 3,
-                        "Promissory": 6,
-                        "Secret Objectives": 1
-                    },
-                    "laws": [],
-                    "leaders": {
-                        "commander": "unlocked",
-                        "hero": "locked"
-                    },
-                    "maxCommodities": 3,
-                    "objectives": [
-                        "Build Defenses",
-                        "Intimidate Council"
-                    ],
-                    "planetTotals": {
-                        "influence": {
-                            "avail": 9,
-                            "total": 9
-                        },
-                        "legendary": 0,
-                        "resources": {
-                            "avail": 11,
-                            "total": 11
-                        },
-                        "techs": {
-                            "blue": 0,
-                            "green": 0,
-                            "red": 1,
-                            "yellow": 0
-                        },
-                        "traits": {
-                            "cultural": 2,
-                            "hazardous": 3,
-                            "industrial": 0
-                        }
-                    },
-                    "score": 2,
-                    "strategyCards": [],
-                    "technologies": 4,
-                    "tradeGoods": 2
-                },
-                {
-                    "alliances": [],
-                    "color": "Red",
-                    "colorActual": "Red",
-                    "commandTokens": {
-                        "fleet": 2,
-                        "strategy": 2,
-                        "tactics": 2
-                    },
-                    "commodities": 0,
-                    "custodiansPoints": 0,
-                    "handSummary": {
-                        "Actions": 2,
-                        "Promissory": 5,
-                        "Secret Objectives": 1
-                    },
-                    "laws": [],
-                    "leaders": {
-                        "commander": "unlocked",
-                        "hero": "locked"
-                    },
-                    "maxCommodities": 3,
-                    "objectives": [
-                        "Intimidate Council",
-                        "Diversify Research"
-                    ],
-                    "planetTotals": {
-                        "influence": {
-                            "avail": 10,
-                            "total": 10
-                        },
-                        "legendary": 0,
-                        "resources": {
-                            "avail": 13,
-                            "total": 13
-                        },
-                        "techs": {
-                            "blue": 0,
-                            "green": 1,
-                            "red": 1,
-                            "yellow": 0
-                        },
-                        "traits": {
-                            "cultural": 2,
-                            "hazardous": 2,
-                            "industrial": 1
-                        }
-                    },
-                    "score": 2,
-                    "strategyCards": [],
-                    "technologies": 4,
-                    "tradeGoods": 2
-                },
-                {
-                    "alliances": [
-                        "green"
-                    ],
-                    "color": "Green",
-                    "colorActual": "Green",
-                    "commandTokens": {
-                        "fleet": 3,
-                        "strategy": 1,
-                        "tactics": 2
-                    },
-                    "commodities": 0,
-                    "custodiansPoints": 0,
-                    "handSummary": {
-                        "Actions": 2
-                    },
-                    "laws": [],
-                    "leaders": {
-                        "commander": "locked",
-                        "hero": "unlocked"
-                    },
-                    "maxCommodities": 4,
-                    "objectives": [
-                        "Intimidate Council",
-                        "Establish Hegemony",
-                        "Diversify Research"
-                    ],
-                    "planetTotals": {
-                        "influence": {
-                            "avail": 13,
-                            "total": 13
-                        },
-                        "legendary": 1,
-                        "resources": {
-                            "avail": 10,
-                            "total": 10
-                        },
-                        "techs": {
-                            "blue": 0,
-                            "green": 1,
-                            "red": 2,
-                            "yellow": 1
-                        },
-                        "traits": {
-                            "cultural": 2,
-                            "hazardous": 2,
-                            "industrial": 2
-                        }
-                    },
-                    "score": 3,
-                    "strategyCards": [],
-                    "technologies": 4,
-                    "tradeGoods": 5
-                }
-            ],
-            "round": 3,
-            "setupTimestamp": 1671379420.865,
-            "timestamp": 1671387956.333
+            "legendary": 0,
+            "resources": {
+              "avail": 4,
+              "total": 7
+            },
+            "techs": {
+              "blue": 0,
+              "green": 0,
+              "red": 0,
+              "yellow": 1
+            },
+            "traits": {
+              "cultural": 1,
+              "hazardous": 0,
+              "industrial": 0
+            }
+          },
+          "score": 0,
+          "strategyCards": ["Technology"],
+          "technologies": 2,
+          "tradeGoods": 2
         },
         {
-            "hexSummary": "2-3-3Pd2f1hyt;4i1ms,82+3+5Gd;ip,80+1-1*e,79-2+0,78+0-4Brt*e,75-2+2Y2y1t;ip;ip;im,72+0-2Bcf;i;i,69+3-1Wcft*h;Wip;is,67+1+3Rcfy;m*x,66+2-2Wd*h;Wms,64-1+3Yc2f1s2y1t;2im,63+0+4;Ro*pz,62-1-1Pd4f1t;ims,61+0+2Rcft;2i1mp,50-1+1Yfy*e,49+2+4Gy*e,48-2-4Pr,46-1+5*e,45-2+4*e,42+1-5Wyt*g,41+1+1Rt*e,40+1-3Wc2dfi1mt,37+2+2Gp*a;Gi*I;Gi,35-1-5Bc2d7f1h2w1t;2i1s;ims,31+3+1Gc2f;i;i*W,30+1+5Rc2d6f1mt;i;so*m,27-3-1Pct;ip*c;Pso,26-1-3B2cd4f1t;2i1mp,25+2+0G2d;i,24-3+1Yfy;m,23-2-2Pcf;o,21+2-4Wdt;m,18+0+0Pcd4f1t*b;Pim*v,54+3-3W2c1t*h;W8i1ms,57+0+6Rcd4f1mrt;so;o,16+0-6B2f3r2y1t;imp;is;i,51+4+3Gc2d6f8i1pst;2m,17+3+3Gyt*e,58-3+3Y2y1t;is;ip;i",
-            "laws": [
-                "Representative Government"
-            ],
-            "perf": {
-                "mean": 34.095,
-                "median": 33.333,
-                "scrubbed": 33.373,
-                "stdDev": 3.693
+          "alliances": [],
+          "color": "Yellow",
+          "colorActual": "Yellow",
+          "commandTokens": {
+            "fleet": 3,
+            "strategy": 2,
+            "tactics": 2
+          },
+          "commodities": 0,
+          "custodiansPoints": 0,
+          "handSummary": {
+            "Promissory": 6,
+            "Secret Objectives": 1
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "locked",
+            "hero": "locked"
+          },
+          "maxCommodities": 3,
+          "objectives": [],
+          "planetTotals": {
+            "influence": {
+              "avail": 3,
+              "total": 5
             },
-            "players": [
-                {
-                    "alliances": [
-                        "green"
-                    ],
-                    "color": "White",
-                    "colorActual": "White",
-                    "commandTokens": {
-                        "fleet": 4,
-                        "strategy": 1,
-                        "tactics": 1
-                    },
-                    "commodities": 4,
-                    "custodiansPoints": 2,
-                    "handSummary": {
-                        "Actions": 7,
-                        "Promissory": 3
-                    },
-                    "laws": [],
-                    "leaders": {
-                        "commander": "unlocked",
-                        "hero": "unlocked"
-                    },
-                    "maxCommodities": 2,
-                    "objectives": [
-                        "Build Defenses",
-                        "Intimidate Council",
-                        "Learn the Secrets of the Cosmos",
-                        "Support for the Throne (Blue)",
-                        "Diversify Research"
-                    ],
-                    "planetTotals": {
-                        "influence": {
-                            "avail": 0,
-                            "total": 7
-                        },
-                        "legendary": 1,
-                        "resources": {
-                            "avail": 0,
-                            "total": 12
-                        },
-                        "techs": {
-                            "blue": 1,
-                            "green": 0,
-                            "red": 0,
-                            "yellow": 0
-                        },
-                        "traits": {
-                            "cultural": 0,
-                            "hazardous": 1,
-                            "industrial": 3
-                        }
-                    },
-                    "score": 7,
-                    "strategyCards": [
-                        "Imperial"
-                    ],
-                    "technologies": 4,
-                    "tradeGoods": 6
-                },
-                {
-                    "alliances": [
-                        "red"
-                    ],
-                    "color": "Blue",
-                    "colorActual": "Blue",
-                    "commandTokens": {
-                        "fleet": 6,
-                        "strategy": 0,
-                        "tactics": 1
-                    },
-                    "commodities": 0,
-                    "custodiansPoints": 0,
-                    "handSummary": {
-                        "Actions": 4,
-                        "Promissory": 5
-                    },
-                    "laws": [],
-                    "leaders": {
-                        "commander": "locked"
-                    },
-                    "maxCommodities": 6,
-                    "objectives": [
-                        "Build Defenses",
-                        "Intimidate Council",
-                        "Support for the Throne (White)",
-                        "Strengthen Bonds",
-                        "Diversify Research"
-                    ],
-                    "planetTotals": {
-                        "influence": {
-                            "avail": 0,
-                            "total": 10
-                        },
-                        "legendary": 0,
-                        "resources": {
-                            "avail": 0,
-                            "total": 15
-                        },
-                        "techs": {
-                            "blue": 0,
-                            "green": 0,
-                            "red": 1,
-                            "yellow": 0
-                        },
-                        "traits": {
-                            "cultural": 1,
-                            "hazardous": 2,
-                            "industrial": 2
-                        }
-                    },
-                    "score": 5,
-                    "strategyCards": [
-                        "Technology"
-                    ],
-                    "technologies": 6,
-                    "tradeGoods": 0
-                },
-                {
-                    "alliances": [],
-                    "color": "Purple",
-                    "colorActual": "Purple",
-                    "commandTokens": {
-                        "fleet": 4,
-                        "strategy": 1,
-                        "tactics": 2
-                    },
-                    "commodities": 0,
-                    "custodiansPoints": 0,
-                    "handSummary": {
-                        "Actions": 5,
-                        "Promissory": 6,
-                        "Secret Objectives": 1
-                    },
-                    "laws": [],
-                    "leaders": {
-                        "commander": "locked",
-                        "hero": "locked"
-                    },
-                    "maxCommodities": 2,
-                    "objectives": [
-                        "Build Defenses",
-                        "Intimidate Council",
-                        "Diversify Research",
-                        "Fuel the War Machine"
-                    ],
-                    "planetTotals": {
-                        "influence": {
-                            "avail": 0,
-                            "total": 17
-                        },
-                        "legendary": 1,
-                        "resources": {
-                            "avail": 0,
-                            "total": 17
-                        },
-                        "techs": {
-                            "blue": 0,
-                            "green": 1,
-                            "red": 0,
-                            "yellow": 1
-                        },
-                        "traits": {
-                            "cultural": 1,
-                            "hazardous": 1,
-                            "industrial": 2
-                        }
-                    },
-                    "score": 4,
-                    "strategyCards": [
-                        "Politics"
-                    ],
-                    "technologies": 5,
-                    "tradeGoods": 3
-                },
-                {
-                    "alliances": [],
-                    "color": "Yellow",
-                    "colorActual": "Yellow",
-                    "commandTokens": {
-                        "fleet": 5,
-                        "strategy": 0,
-                        "tactics": 2
-                    },
-                    "commodities": 0,
-                    "custodiansPoints": 0,
-                    "handSummary": {
-                        "Actions": 3,
-                        "Promissory": 6,
-                        "Secret Objectives": 2
-                    },
-                    "laws": [],
-                    "leaders": {
-                        "commander": "unlocked",
-                        "hero": "locked"
-                    },
-                    "maxCommodities": 3,
-                    "objectives": [
-                        "Build Defenses",
-                        "Intimidate Council",
-                        "Develop Weaponry"
-                    ],
-                    "planetTotals": {
-                        "influence": {
-                            "avail": 0,
-                            "total": 9
-                        },
-                        "legendary": 0,
-                        "resources": {
-                            "avail": 1,
-                            "total": 11
-                        },
-                        "techs": {
-                            "blue": 0,
-                            "green": 0,
-                            "red": 1,
-                            "yellow": 0
-                        },
-                        "traits": {
-                            "cultural": 2,
-                            "hazardous": 3,
-                            "industrial": 0
-                        }
-                    },
-                    "score": 3,
-                    "strategyCards": [
-                        "Leadership"
-                    ],
-                    "technologies": 5,
-                    "tradeGoods": 7
-                },
-                {
-                    "alliances": [],
-                    "color": "Red",
-                    "colorActual": "Red",
-                    "commandTokens": {
-                        "fleet": 3,
-                        "strategy": 0,
-                        "tactics": 1
-                    },
-                    "commodities": 0,
-                    "custodiansPoints": 0,
-                    "handSummary": {
-                        "Actions": 1,
-                        "Promissory": 5,
-                        "Secret Objectives": 1
-                    },
-                    "laws": [],
-                    "leaders": {
-                        "commander": "unlocked",
-                        "hero": "unlocked"
-                    },
-                    "maxCommodities": 3,
-                    "objectives": [
-                        "Intimidate Council",
-                        "Diversify Research",
-                        "Develop Weaponry",
-                        "Turn Their Fleets to Dust"
-                    ],
-                    "planetTotals": {
-                        "influence": {
-                            "avail": 0,
-                            "total": 12
-                        },
-                        "legendary": 0,
-                        "resources": {
-                            "avail": 0,
-                            "total": 13
-                        },
-                        "techs": {
-                            "blue": 0,
-                            "green": 1,
-                            "red": 1,
-                            "yellow": 0
-                        },
-                        "traits": {
-                            "cultural": 2,
-                            "hazardous": 2,
-                            "industrial": 1
-                        }
-                    },
-                    "score": 4,
-                    "strategyCards": [
-                        "Trade"
-                    ],
-                    "technologies": 6,
-                    "tradeGoods": 3
-                },
-                {
-                    "alliances": [
-                        "white"
-                    ],
-                    "color": "Green",
-                    "colorActual": "Green",
-                    "commandTokens": {
-                        "fleet": 3,
-                        "strategy": 0,
-                        "tactics": 2
-                    },
-                    "commodities": 0,
-                    "custodiansPoints": 0,
-                    "handSummary": {
-                        "Actions": 4
-                    },
-                    "laws": [],
-                    "leaders": {
-                        "commander": "unlocked",
-                        "hero": "unlocked"
-                    },
-                    "maxCommodities": 4,
-                    "objectives": [
-                        "Build Defenses",
-                        "Intimidate Council",
-                        "Establish Hegemony",
-                        "Diversify Research",
-                        "Gather a Mighty Fleet"
-                    ],
-                    "planetTotals": {
-                        "influence": {
-                            "avail": 0,
-                            "total": 13
-                        },
-                        "legendary": 1,
-                        "resources": {
-                            "avail": 0,
-                            "total": 10
-                        },
-                        "techs": {
-                            "blue": 0,
-                            "green": 1,
-                            "red": 2,
-                            "yellow": 1
-                        },
-                        "traits": {
-                            "cultural": 2,
-                            "hazardous": 2,
-                            "industrial": 2
-                        }
-                    },
-                    "score": 5,
-                    "strategyCards": [
-                        "Construction"
-                    ],
-                    "technologies": 5,
-                    "tradeGoods": 4
-                }
-            ],
-            "round": 4,
-            "setupTimestamp": 1671379420.865,
-            "timestamp": 1671392775.468
+            "legendary": 0,
+            "resources": {
+              "avail": 3,
+              "total": 7
+            },
+            "techs": {
+              "blue": 0,
+              "green": 0,
+              "red": 0,
+              "yellow": 0
+            },
+            "traits": {
+              "cultural": 2,
+              "hazardous": 1,
+              "industrial": 0
+            }
+          },
+          "score": 0,
+          "strategyCards": ["Construction"],
+          "technologies": 2,
+          "tradeGoods": 0
         },
         {
-            "hexSummary": "2-3-3Pd2f1h2i1yt;6i2m1s,82+3+5Y2fy1t;Gip,80+1-1*e,79-2+0Pc2d5f1t,78+0-4Pdt;o*k,75-2+2;Yip;ip;i,72+0-2Bcd5f1w2y1t;3i1p;imp,69+3-1W3c7f1t*h;W7i2m1p;s,67+1+3Rcfyt;mp*x,66+2-2W2d4f1t*h;W4i2m1s,64-1+3Y2cf1is3y1t;3im,63+0+4Rd*g;Ro*pz,62-1-1P4f*b;Pims,61+0+2Rcf;2i1mp,50-1+1Yfy*e,49+2+4Gy*e,48-2-4Pr,46-1+5Rrt*e,45-2+4*e,42+1-5Wy*g,41+1+1*e,40+1-3Wdf,37+2+2Gdpt*a;Gi*I;Gi,35-1-5Bd9f1hwt;2i1s;ims,31+3+1;Gi;i*W,30+1+5Rc2d6f1m;i;so*m,27-3-1Pc;ip*c;Pso,26-1-3B2cd4f1rt;Ro*j,25+2+0Gd;o,24-3+1Yfy;m,23-2-2Pcf;o,21+2-4Wd;o,18+0+0*g;Pim*v,54+3-3Gc3d1myt;3i,57+0+6Rcd8f1hmt;so;o,16+0-6Bd4f2r1yt;imp;is;3i1mp,51+4+3Gc6f1pst;7i1m,17+3+3Gy*e,58-3+3Yyt;2i1s;2i1p;3i",
-            "laws": [
-                "Representative Government",
-                "Political Censure"
-            ],
-            "perf": {
-                "mean": 34.348,
-                "median": 33.333,
-                "scrubbed": 33.337,
-                "stdDev": 3.979
+          "alliances": [],
+          "color": "Red",
+          "colorActual": "Red",
+          "commandTokens": {
+            "fleet": 3,
+            "strategy": 2,
+            "tactics": 2
+          },
+          "commodities": 0,
+          "custodiansPoints": 0,
+          "handSummary": {
+            "Promissory": 6,
+            "Secret Objectives": 1
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "locked",
+            "hero": "locked"
+          },
+          "maxCommodities": 3,
+          "objectives": [],
+          "planetTotals": {
+            "influence": {
+              "avail": 4,
+              "total": 6
             },
-            "players": [
-                {
-                    "alliances": [
-                        "green"
-                    ],
-                    "color": "White",
-                    "colorActual": "White",
-                    "commandTokens": {
-                        "fleet": 4,
-                        "strategy": 0,
-                        "tactics": 5
-                    },
-                    "commodities": 3,
-                    "custodiansPoints": 2,
-                    "handSummary": {
-                        "Actions": 5,
-                        "Promissory": 4
-                    },
-                    "laws": [],
-                    "leaders": {
-                        "commander": "unlocked",
-                        "hero": "unlocked"
-                    },
-                    "maxCommodities": 2,
-                    "objectives": [
-                        "Build Defenses",
-                        "Intimidate Council",
-                        "Learn the Secrets of the Cosmos",
-                        "Support for the Throne (Blue)",
-                        "Diversify Research",
-                        "Occupy the Fringe"
-                    ],
-                    "planetTotals": {
-                        "influence": {
-                            "avail": 0,
-                            "total": 7
-                        },
-                        "legendary": 1,
-                        "resources": {
-                            "avail": 0,
-                            "total": 8
-                        },
-                        "techs": {
-                            "blue": 1,
-                            "green": 0,
-                            "red": 0,
-                            "yellow": 0
-                        },
-                        "traits": {
-                            "cultural": 0,
-                            "hazardous": 1,
-                            "industrial": 3
-                        }
-                    },
-                    "score": 8,
-                    "strategyCards": [
-                        "Leadership"
-                    ],
-                    "technologies": 5,
-                    "tradeGoods": 5
-                },
-                {
-                    "alliances": [
-                        "red"
-                    ],
-                    "color": "Blue",
-                    "colorActual": "Blue",
-                    "commandTokens": {
-                        "fleet": 5,
-                        "strategy": 0,
-                        "tactics": 2
-                    },
-                    "commodities": 0,
-                    "custodiansPoints": 0,
-                    "handSummary": {
-                        "Actions": 4,
-                        "Promissory": 5,
-                        "Secret Objectives": 1
-                    },
-                    "laws": [
-                        "Political Censure"
-                    ],
-                    "leaders": {
-                        "commander": "locked"
-                    },
-                    "maxCommodities": 6,
-                    "objectives": [
-                        "Build Defenses",
-                        "Intimidate Council",
-                        "Support for the Throne (White)",
-                        "Strengthen Bonds",
-                        "Diversify Research",
-                        "Establish a Perimeter",
-                        "Negotiate Trade Routes",
-                        "Political Censure"
-                    ],
-                    "planetTotals": {
-                        "influence": {
-                            "avail": 0,
-                            "total": 9
-                        },
-                        "legendary": 0,
-                        "resources": {
-                            "avail": 0,
-                            "total": 12
-                        },
-                        "techs": {
-                            "blue": 0,
-                            "green": 0,
-                            "red": 1,
-                            "yellow": 0
-                        },
-                        "traits": {
-                            "cultural": 0,
-                            "hazardous": 2,
-                            "industrial": 2
-                        }
-                    },
-                    "score": 8,
-                    "strategyCards": [
-                        "Construction"
-                    ],
-                    "technologies": 7,
-                    "tradeGoods": 4
-                },
-                {
-                    "alliances": [],
-                    "color": "Purple",
-                    "colorActual": "Purple",
-                    "commandTokens": {
-                        "fleet": 4,
-                        "strategy": 1,
-                        "tactics": 2
-                    },
-                    "commodities": 0,
-                    "custodiansPoints": 1,
-                    "handSummary": {
-                        "Actions": 5,
-                        "Promissory": 4
-                    },
-                    "laws": [],
-                    "leaders": {
-                        "commander": "locked"
-                    },
-                    "maxCommodities": 2,
-                    "objectives": [
-                        "Build Defenses",
-                        "Intimidate Council",
-                        "Become the Gatekeeper",
-                        "Diversify Research",
-                        "Support for the Throne (Green)",
-                        "Negotiate Trade Routes",
-                        "Develop Weaponry",
-                        "Fuel the War Machine"
-                    ],
-                    "planetTotals": {
-                        "influence": {
-                            "avail": 2,
-                            "total": 19
-                        },
-                        "legendary": 2,
-                        "resources": {
-                            "avail": 1,
-                            "total": 18
-                        },
-                        "techs": {
-                            "blue": 0,
-                            "green": 1,
-                            "red": 0,
-                            "yellow": 1
-                        },
-                        "traits": {
-                            "cultural": 2,
-                            "hazardous": 1,
-                            "industrial": 2
-                        }
-                    },
-                    "score": 9,
-                    "strategyCards": [
-                        "Imperial"
-                    ],
-                    "technologies": 7,
-                    "tradeGoods": 1
-                },
-                {
-                    "alliances": [],
-                    "color": "Yellow",
-                    "colorActual": "Yellow",
-                    "commandTokens": {
-                        "fleet": 5,
-                        "strategy": 0,
-                        "tactics": 2
-                    },
-                    "commodities": 0,
-                    "custodiansPoints": 0,
-                    "handSummary": {
-                        "Actions": 5,
-                        "Promissory": 4,
-                        "Secret Objectives": 2
-                    },
-                    "laws": [],
-                    "leaders": {
-                        "commander": "unlocked",
-                        "hero": "locked"
-                    },
-                    "maxCommodities": 3,
-                    "objectives": [
-                        "Build Defenses",
-                        "Intimidate Council",
-                        "Support for the Throne (Red)",
-                        "Diversify Research",
-                        "Defy Space and Time",
-                        "Develop Weaponry"
-                    ],
-                    "planetTotals": {
-                        "influence": {
-                            "avail": 0,
-                            "total": 9
-                        },
-                        "legendary": 0,
-                        "resources": {
-                            "avail": 0,
-                            "total": 11
-                        },
-                        "techs": {
-                            "blue": 0,
-                            "green": 0,
-                            "red": 1,
-                            "yellow": 0
-                        },
-                        "traits": {
-                            "cultural": 2,
-                            "hazardous": 3,
-                            "industrial": 0
-                        }
-                    },
-                    "score": 6,
-                    "strategyCards": [
-                        "Politics"
-                    ],
-                    "technologies": 6,
-                    "tradeGoods": 6
-                },
-                {
-                    "alliances": [],
-                    "color": "Red",
-                    "colorActual": "Red",
-                    "commandTokens": {
-                        "fleet": 3,
-                        "strategy": 0,
-                        "tactics": 2
-                    },
-                    "commodities": 0,
-                    "custodiansPoints": 0,
-                    "handSummary": {
-                        "Actions": 1,
-                        "Promissory": 3,
-                        "Secret Objectives": 2
-                    },
-                    "laws": [],
-                    "leaders": {
-                        "commander": "unlocked",
-                        "hero": "unlocked"
-                    },
-                    "maxCommodities": 3,
-                    "objectives": [
-                        "Build Defenses",
-                        "Intimidate Council",
-                        "Support for the Throne (Yellow)",
-                        "Diversify Research",
-                        "Develop Weaponry",
-                        "Turn Their Fleets to Dust",
-                        "The Crown of Emphidia (PoK)"
-                    ],
-                    "planetTotals": {
-                        "influence": {
-                            "avail": 0,
-                            "total": 14
-                        },
-                        "legendary": 0,
-                        "resources": {
-                            "avail": 0,
-                            "total": 16
-                        },
-                        "techs": {
-                            "blue": 0,
-                            "green": 1,
-                            "red": 1,
-                            "yellow": 0
-                        },
-                        "traits": {
-                            "cultural": 3,
-                            "hazardous": 2,
-                            "industrial": 1
-                        }
-                    },
-                    "score": 7,
-                    "strategyCards": [
-                        "Trade"
-                    ],
-                    "technologies": 7,
-                    "tradeGoods": 8
-                },
-                {
-                    "alliances": [],
-                    "color": "Green",
-                    "colorActual": "Green",
-                    "commandTokens": {
-                        "fleet": 6,
-                        "strategy": 0,
-                        "tactics": 3
-                    },
-                    "commodities": 0,
-                    "custodiansPoints": 0,
-                    "handSummary": {
-                        "Actions": 3,
-                        "Promissory": 1,
-                        "Secret Objectives": 1
-                    },
-                    "laws": [],
-                    "leaders": {
-                        "commander": "unlocked",
-                        "hero": "unlocked"
-                    },
-                    "maxCommodities": 4,
-                    "objectives": [
-                        "Build Defenses",
-                        "Intimidate Council",
-                        "Support for the Throne (Purple)",
-                        "Establish Hegemony",
-                        "Diversify Research",
-                        "Develop Weaponry",
-                        "Gather a Mighty Fleet"
-                    ],
-                    "planetTotals": {
-                        "influence": {
-                            "avail": 0,
-                            "total": 13
-                        },
-                        "legendary": 1,
-                        "resources": {
-                            "avail": 0,
-                            "total": 14
-                        },
-                        "techs": {
-                            "blue": 0,
-                            "green": 1,
-                            "red": 2,
-                            "yellow": 1
-                        },
-                        "traits": {
-                            "cultural": 2,
-                            "hazardous": 2,
-                            "industrial": 2
-                        }
-                    },
-                    "score": 7,
-                    "strategyCards": [
-                        "Technology"
-                    ],
-                    "technologies": 8,
-                    "tradeGoods": 14
-                }
-            ],
-            "round": 5,
-            "setupTimestamp": 1671379420.865,
-            "timestamp": 1671399265.478
+            "legendary": 0,
+            "resources": {
+              "avail": 6,
+              "total": 6
+            },
+            "techs": {
+              "blue": 0,
+              "green": 0,
+              "red": 0,
+              "yellow": 0
+            },
+            "traits": {
+              "cultural": 1,
+              "hazardous": 1,
+              "industrial": 0
+            }
+          },
+          "score": 0,
+          "strategyCards": ["Warfare"],
+          "technologies": 2,
+          "tradeGoods": 0
+        },
+        {
+          "alliances": ["green"],
+          "color": "Green",
+          "colorActual": "Green",
+          "commandTokens": {
+            "fleet": 3,
+            "strategy": 2,
+            "tactics": 2
+          },
+          "commodities": 0,
+          "custodiansPoints": 0,
+          "handSummary": {
+            "Secret Objectives": 1
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "locked",
+            "hero": "locked"
+          },
+          "maxCommodities": 4,
+          "objectives": [],
+          "planetTotals": {
+            "influence": {
+              "avail": 2,
+              "total": 8
+            },
+            "legendary": 0,
+            "resources": {
+              "avail": 4,
+              "total": 5
+            },
+            "techs": {
+              "blue": 0,
+              "green": 1,
+              "red": 1,
+              "yellow": 0
+            },
+            "traits": {
+              "cultural": 0,
+              "hazardous": 1,
+              "industrial": 1
+            }
+          },
+          "score": 0,
+          "strategyCards": ["Trade"],
+          "technologies": 1,
+          "tradeGoods": 5
         }
-    ],
-    "isPoK": true,
-    "laws": [
-        "Political Censure"
-    ],
-    "mapString": "61 41 80 72 62 50 63 67 37 25 66 40 78 26 23 79 75 64 57 30 49 17 31 69 54 21 42 16 35 48 2 27 24 58 45 46",
-    "objectives": {
-        "Agenda": [
-            "Political Censure"
-        ],
-        "Public Objectives I": [
+      ],
+      "round": 1,
+      "setupTimestamp": 1671379420.865,
+      "timestamp": 1671382840.758
+    },
+    {
+      "hexSummary": "2-3-3Pd2f1y;2i1s,82-4-3Gd;i,80+1-1*e,79-2+0*e,78+0-4*e,75-2+2Ycf;2i1p;2i1p;i,72+0-2Wcd2f;m;2i,69+3-1Wcf;i;i,67+1+3,66+2-2Wd*h;Wms,64-1+3Yy;o,63+0+4;Ro*z,62-1-1Pcf;is,61+0+2Rcf;2i1m,50-1+1Pr*e,49+2+4*e,48-2-4*e,46-1+5*e,45-2+4*e,42+1-5*e,41+1+1Ry*e,40+1-3Bcf2i*e,37+2+2Gcf;i*I;Gi,35-1-5Bcf;is;i,31+3+1Gc2f;i;i*W,30+1+5Rcf;i;ms,27-3-1Pc;i*c;Po,26-1-3Bc2f;2i1m,25+2+0Gy,24-3+1Yfy;m,23-2-2Pcf;i,21+2-4,18+0+0*ab;*v,54+3-3Wr*h;Ws,57+0+6Rr;ms;o,16+0-6B2fr;i;is;i,51+4+3Gfs;i,17+3+3*e,58-3+3Yy;s;ip",
+      "laws": [],
+      "perf": {
+        "mean": 33.558,
+        "median": 33.333,
+        "scrubbed": 33.333,
+        "stdDev": 1.726
+      },
+      "players": [
+        {
+          "alliances": [],
+          "color": "White",
+          "colorActual": "White",
+          "commandTokens": {
+            "fleet": 2,
+            "strategy": 2,
+            "tactics": 1
+          },
+          "commodities": 3,
+          "custodiansPoints": 0,
+          "handSummary": {
+            "Actions": 3,
+            "Promissory": 5
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "locked",
+            "hero": "locked"
+          },
+          "maxCommodities": 2,
+          "objectives": ["Learn the Secrets of the Cosmos"],
+          "planetTotals": {
+            "influence": {
+              "avail": 9,
+              "total": 9
+            },
+            "legendary": 1,
+            "resources": {
+              "avail": 15,
+              "total": 15
+            },
+            "techs": {
+              "blue": 0,
+              "green": 0,
+              "red": 1,
+              "yellow": 0
+            },
+            "traits": {
+              "cultural": 0,
+              "hazardous": 1,
+              "industrial": 4
+            }
+          },
+          "score": 1,
+          "strategyCards": ["Leadership"],
+          "technologies": 1,
+          "tradeGoods": 5
+        },
+        {
+          "alliances": [],
+          "color": "Blue",
+          "colorActual": "Blue",
+          "commandTokens": {
+            "fleet": 2,
+            "strategy": 3,
+            "tactics": 2
+          },
+          "commodities": 0,
+          "custodiansPoints": 0,
+          "handSummary": {
+            "Actions": 1,
+            "Promissory": 7,
+            "Secret Objectives": 1
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "locked",
+            "hero": "locked"
+          },
+          "maxCommodities": 6,
+          "objectives": ["Intimidate Council"],
+          "planetTotals": {
+            "influence": {
+              "avail": 7,
+              "total": 7
+            },
+            "legendary": 0,
+            "resources": {
+              "avail": 11,
+              "total": 11
+            },
+            "techs": {
+              "blue": 0,
+              "green": 0,
+              "red": 0,
+              "yellow": 0
+            },
+            "traits": {
+              "cultural": 1,
+              "hazardous": 2,
+              "industrial": 0
+            }
+          },
+          "score": 1,
+          "strategyCards": ["Construction"],
+          "technologies": 3,
+          "tradeGoods": 0
+        },
+        {
+          "alliances": [],
+          "color": "Purple",
+          "colorActual": "Purple",
+          "commandTokens": {
+            "fleet": 2,
+            "strategy": 2,
+            "tactics": 1
+          },
+          "commodities": 0,
+          "custodiansPoints": 0,
+          "handSummary": {
+            "Actions": 1,
+            "Promissory": 5,
+            "Secret Objectives": 1
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "locked",
+            "hero": "locked"
+          },
+          "maxCommodities": 2,
+          "objectives": ["Intimidate Council"],
+          "planetTotals": {
+            "influence": {
+              "avail": 11,
+              "total": 11
+            },
+            "legendary": 1,
+            "resources": {
+              "avail": 16,
+              "total": 16
+            },
+            "techs": {
+              "blue": 0,
+              "green": 1,
+              "red": 0,
+              "yellow": 1
+            },
+            "traits": {
+              "cultural": 1,
+              "hazardous": 1,
+              "industrial": 2
+            }
+          },
+          "score": 1,
+          "strategyCards": ["Politics"],
+          "technologies": 3,
+          "tradeGoods": 0
+        },
+        {
+          "alliances": [],
+          "color": "Yellow",
+          "colorActual": "Yellow",
+          "commandTokens": {
+            "fleet": 2,
+            "strategy": 2,
+            "tactics": 2
+          },
+          "commodities": 0,
+          "custodiansPoints": 0,
+          "handSummary": {
+            "Actions": 1,
+            "Promissory": 6,
+            "Secret Objectives": 1
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "unlocked",
+            "hero": "locked"
+          },
+          "maxCommodities": 3,
+          "objectives": ["Build Defenses"],
+          "planetTotals": {
+            "influence": {
+              "avail": 9,
+              "total": 9
+            },
+            "legendary": 0,
+            "resources": {
+              "avail": 11,
+              "total": 11
+            },
+            "techs": {
+              "blue": 0,
+              "green": 0,
+              "red": 1,
+              "yellow": 0
+            },
+            "traits": {
+              "cultural": 2,
+              "hazardous": 3,
+              "industrial": 0
+            }
+          },
+          "score": 1,
+          "strategyCards": [],
+          "technologies": 3,
+          "tradeGoods": 0
+        },
+        {
+          "alliances": [],
+          "color": "Red",
+          "colorActual": "Red",
+          "commandTokens": {
+            "fleet": 2,
+            "strategy": 2,
+            "tactics": 1
+          },
+          "commodities": 0,
+          "custodiansPoints": 0,
+          "handSummary": {
+            "Actions": 1,
+            "Promissory": 5,
+            "Secret Objectives": 1
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "unlocked",
+            "hero": "locked"
+          },
+          "maxCommodities": 3,
+          "objectives": ["Intimidate Council"],
+          "planetTotals": {
+            "influence": {
+              "avail": 8,
+              "total": 8
+            },
+            "legendary": 0,
+            "resources": {
+              "avail": 8,
+              "total": 8
+            },
+            "techs": {
+              "blue": 0,
+              "green": 1,
+              "red": 1,
+              "yellow": 0
+            },
+            "traits": {
+              "cultural": 2,
+              "hazardous": 1,
+              "industrial": 1
+            }
+          },
+          "score": 1,
+          "strategyCards": [],
+          "technologies": 3,
+          "tradeGoods": 0
+        },
+        {
+          "alliances": ["green"],
+          "color": "Green",
+          "colorActual": "Green",
+          "commandTokens": {
+            "fleet": 2,
+            "strategy": 1,
+            "tactics": 2
+          },
+          "commodities": 0,
+          "custodiansPoints": 0,
+          "handSummary": {
+            "Actions": 1
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "locked",
+            "hero": "locked"
+          },
+          "maxCommodities": 4,
+          "objectives": ["Intimidate Council", "Establish Hegemony"],
+          "planetTotals": {
+            "influence": {
+              "avail": 12,
+              "total": 12
+            },
+            "legendary": 1,
+            "resources": {
+              "avail": 8,
+              "total": 8
+            },
+            "techs": {
+              "blue": 0,
+              "green": 1,
+              "red": 2,
+              "yellow": 1
+            },
+            "traits": {
+              "cultural": 1,
+              "hazardous": 2,
+              "industrial": 2
+            }
+          },
+          "score": 2,
+          "strategyCards": ["Technology"],
+          "technologies": 2,
+          "tradeGoods": 5
+        }
+      ],
+      "round": 2,
+      "setupTimestamp": 1671379420.865,
+      "timestamp": 1671385346.321
+    },
+    {
+      "hexSummary": "2-3-3Pd2f1y;2i1s,82+3+5Gd;ip,80+1-1*e,79-2+0,78+0-4*e,75-2+2Yc;2i1p;2i1p;i,72+0-2Bcf;i;i,69+3-1Wcf*h;Wi;is,67+1+3Rcfy;m*x,66+2-2*h;W2m1s,64-1+3Yy;o,63+0+4;Ro*z,62-1-1Pcd3f;i2m1s,61+0+2Rcf;2i1m,50-1+1Yfy*e,49+2+4Gy*e,48-2-4Pr,46-1+5*e,45-2+4*e,42+1-5*eg,41+1+1Wr*e,40+1-3Wd*e,37+2+2;Gi*I;Gi,35-1-5Bc2d3f;2i1s;is,31+3+1Gc2f;i;i*W,30+1+5R2f1r;i;ms*m,27-3-1Pc;i*c;Pso,26-1-3Bc2f;2i1mp,25+2+0G2d;i,24-3+1Yfy;m,23-2-2Pcf;i,21+2-4,18+0+0Wcd2f*ab;W2i1m*v,54+3-3Wcdy*h;W2i1s,57+0+6Rd2f1r;ms;o,16+0-6B2fr;i;is;i,51+4+3Gc4f2i1sy;m,17+3+3*e,58-3+3Y2f3y;i3m1s;p",
+      "laws": [],
+      "perf": {
+        "mean": 33.356,
+        "median": 33.333,
+        "scrubbed": 33.333,
+        "stdDev": 0.174
+      },
+      "players": [
+        {
+          "alliances": [],
+          "color": "White",
+          "colorActual": "White",
+          "commandTokens": {
+            "fleet": 3,
+            "strategy": 2,
+            "tactics": 3
+          },
+          "commodities": 3,
+          "custodiansPoints": 1,
+          "handSummary": {
+            "Actions": 4,
+            "Promissory": 5
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "unlocked",
+            "hero": "locked"
+          },
+          "maxCommodities": 2,
+          "objectives": [
+            "Intimidate Council",
+            "Learn the Secrets of the Cosmos"
+          ],
+          "planetTotals": {
+            "influence": {
+              "avail": 12,
+              "total": 12
+            },
+            "legendary": 1,
+            "resources": {
+              "avail": 12,
+              "total": 12
+            },
+            "techs": {
+              "blue": 0,
+              "green": 0,
+              "red": 0,
+              "yellow": 0
+            },
+            "traits": {
+              "cultural": 0,
+              "hazardous": 1,
+              "industrial": 2
+            }
+          },
+          "score": 3,
+          "strategyCards": [],
+          "technologies": 2,
+          "tradeGoods": 5
+        },
+        {
+          "alliances": ["red"],
+          "color": "Blue",
+          "colorActual": "Blue",
+          "commandTokens": {
+            "fleet": 4,
+            "strategy": 1,
+            "tactics": 2
+          },
+          "commodities": 0,
+          "custodiansPoints": 0,
+          "handSummary": {
+            "Actions": 4,
+            "Promissory": 7
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "locked",
+            "hero": "unlocked"
+          },
+          "maxCommodities": 6,
+          "objectives": [
+            "Build Defenses",
+            "Intimidate Council",
+            "Strengthen Bonds"
+          ],
+          "planetTotals": {
+            "influence": {
+              "avail": 10,
+              "total": 10
+            },
+            "legendary": 0,
+            "resources": {
+              "avail": 15,
+              "total": 15
+            },
+            "techs": {
+              "blue": 0,
+              "green": 0,
+              "red": 1,
+              "yellow": 0
+            },
+            "traits": {
+              "cultural": 1,
+              "hazardous": 2,
+              "industrial": 2
+            }
+          },
+          "score": 3,
+          "strategyCards": [],
+          "technologies": 4,
+          "tradeGoods": 2
+        },
+        {
+          "alliances": [],
+          "color": "Purple",
+          "colorActual": "Purple",
+          "commandTokens": {
+            "fleet": 3,
+            "strategy": 0,
+            "tactics": 3
+          },
+          "commodities": 0,
+          "custodiansPoints": 0,
+          "handSummary": {
+            "Actions": 5,
+            "Promissory": 5,
+            "Secret Objectives": 1
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "locked",
+            "hero": "locked"
+          },
+          "maxCommodities": 2,
+          "objectives": ["Intimidate Council", "Diversify Research"],
+          "planetTotals": {
+            "influence": {
+              "avail": 11,
+              "total": 11
+            },
+            "legendary": 1,
+            "resources": {
+              "avail": 16,
+              "total": 16
+            },
+            "techs": {
+              "blue": 0,
+              "green": 1,
+              "red": 0,
+              "yellow": 1
+            },
+            "traits": {
+              "cultural": 1,
+              "hazardous": 1,
+              "industrial": 2
+            }
+          },
+          "score": 2,
+          "strategyCards": [],
+          "technologies": 4,
+          "tradeGoods": 2
+        },
+        {
+          "alliances": [],
+          "color": "Yellow",
+          "colorActual": "Yellow",
+          "commandTokens": {
+            "fleet": 3,
+            "strategy": 1,
+            "tactics": 1
+          },
+          "commodities": 0,
+          "custodiansPoints": 0,
+          "handSummary": {
+            "Actions": 3,
+            "Promissory": 6,
+            "Secret Objectives": 1
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "unlocked",
+            "hero": "locked"
+          },
+          "maxCommodities": 3,
+          "objectives": ["Build Defenses", "Intimidate Council"],
+          "planetTotals": {
+            "influence": {
+              "avail": 9,
+              "total": 9
+            },
+            "legendary": 0,
+            "resources": {
+              "avail": 11,
+              "total": 11
+            },
+            "techs": {
+              "blue": 0,
+              "green": 0,
+              "red": 1,
+              "yellow": 0
+            },
+            "traits": {
+              "cultural": 2,
+              "hazardous": 3,
+              "industrial": 0
+            }
+          },
+          "score": 2,
+          "strategyCards": [],
+          "technologies": 4,
+          "tradeGoods": 2
+        },
+        {
+          "alliances": [],
+          "color": "Red",
+          "colorActual": "Red",
+          "commandTokens": {
+            "fleet": 2,
+            "strategy": 2,
+            "tactics": 2
+          },
+          "commodities": 0,
+          "custodiansPoints": 0,
+          "handSummary": {
+            "Actions": 2,
+            "Promissory": 5,
+            "Secret Objectives": 1
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "unlocked",
+            "hero": "locked"
+          },
+          "maxCommodities": 3,
+          "objectives": ["Intimidate Council", "Diversify Research"],
+          "planetTotals": {
+            "influence": {
+              "avail": 10,
+              "total": 10
+            },
+            "legendary": 0,
+            "resources": {
+              "avail": 13,
+              "total": 13
+            },
+            "techs": {
+              "blue": 0,
+              "green": 1,
+              "red": 1,
+              "yellow": 0
+            },
+            "traits": {
+              "cultural": 2,
+              "hazardous": 2,
+              "industrial": 1
+            }
+          },
+          "score": 2,
+          "strategyCards": [],
+          "technologies": 4,
+          "tradeGoods": 2
+        },
+        {
+          "alliances": ["green"],
+          "color": "Green",
+          "colorActual": "Green",
+          "commandTokens": {
+            "fleet": 3,
+            "strategy": 1,
+            "tactics": 2
+          },
+          "commodities": 0,
+          "custodiansPoints": 0,
+          "handSummary": {
+            "Actions": 2
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "locked",
+            "hero": "unlocked"
+          },
+          "maxCommodities": 4,
+          "objectives": [
+            "Intimidate Council",
+            "Establish Hegemony",
+            "Diversify Research"
+          ],
+          "planetTotals": {
+            "influence": {
+              "avail": 13,
+              "total": 13
+            },
+            "legendary": 1,
+            "resources": {
+              "avail": 10,
+              "total": 10
+            },
+            "techs": {
+              "blue": 0,
+              "green": 1,
+              "red": 2,
+              "yellow": 1
+            },
+            "traits": {
+              "cultural": 2,
+              "hazardous": 2,
+              "industrial": 2
+            }
+          },
+          "score": 3,
+          "strategyCards": [],
+          "technologies": 4,
+          "tradeGoods": 5
+        }
+      ],
+      "round": 3,
+      "setupTimestamp": 1671379420.865,
+      "timestamp": 1671387956.333
+    },
+    {
+      "hexSummary": "2-3-3Pd2f1hyt;4i1ms,82+3+5Gd;ip,80+1-1*e,79-2+0,78+0-4Brt*e,75-2+2Y2y1t;ip;ip;im,72+0-2Bcf;i;i,69+3-1Wcft*h;Wip;is,67+1+3Rcfy;m*x,66+2-2Wd*h;Wms,64-1+3Yc2f1s2y1t;2im,63+0+4;Ro*pz,62-1-1Pd4f1t;ims,61+0+2Rcft;2i1mp,50-1+1Yfy*e,49+2+4Gy*e,48-2-4Pr,46-1+5*e,45-2+4*e,42+1-5Wyt*g,41+1+1Rt*e,40+1-3Wc2dfi1mt,37+2+2Gp*a;Gi*I;Gi,35-1-5Bc2d7f1h2w1t;2i1s;ims,31+3+1Gc2f;i;i*W,30+1+5Rc2d6f1mt;i;so*m,27-3-1Pct;ip*c;Pso,26-1-3B2cd4f1t;2i1mp,25+2+0G2d;i,24-3+1Yfy;m,23-2-2Pcf;o,21+2-4Wdt;m,18+0+0Pcd4f1t*b;Pim*v,54+3-3W2c1t*h;W8i1ms,57+0+6Rcd4f1mrt;so;o,16+0-6B2f3r2y1t;imp;is;i,51+4+3Gc2d6f8i1pst;2m,17+3+3Gyt*e,58-3+3Y2y1t;is;ip;i",
+      "laws": ["Representative Government"],
+      "perf": {
+        "mean": 34.095,
+        "median": 33.333,
+        "scrubbed": 33.373,
+        "stdDev": 3.693
+      },
+      "players": [
+        {
+          "alliances": ["green"],
+          "color": "White",
+          "colorActual": "White",
+          "commandTokens": {
+            "fleet": 4,
+            "strategy": 1,
+            "tactics": 1
+          },
+          "commodities": 4,
+          "custodiansPoints": 2,
+          "handSummary": {
+            "Actions": 7,
+            "Promissory": 3
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "unlocked",
+            "hero": "unlocked"
+          },
+          "maxCommodities": 2,
+          "objectives": [
+            "Build Defenses",
+            "Intimidate Council",
+            "Learn the Secrets of the Cosmos",
+            "Support for the Throne (Blue)",
+            "Diversify Research"
+          ],
+          "planetTotals": {
+            "influence": {
+              "avail": 0,
+              "total": 7
+            },
+            "legendary": 1,
+            "resources": {
+              "avail": 0,
+              "total": 12
+            },
+            "techs": {
+              "blue": 1,
+              "green": 0,
+              "red": 0,
+              "yellow": 0
+            },
+            "traits": {
+              "cultural": 0,
+              "hazardous": 1,
+              "industrial": 3
+            }
+          },
+          "score": 7,
+          "strategyCards": ["Imperial"],
+          "technologies": 4,
+          "tradeGoods": 6
+        },
+        {
+          "alliances": ["red"],
+          "color": "Blue",
+          "colorActual": "Blue",
+          "commandTokens": {
+            "fleet": 6,
+            "strategy": 0,
+            "tactics": 1
+          },
+          "commodities": 0,
+          "custodiansPoints": 0,
+          "handSummary": {
+            "Actions": 4,
+            "Promissory": 5
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "locked"
+          },
+          "maxCommodities": 6,
+          "objectives": [
+            "Build Defenses",
+            "Intimidate Council",
+            "Support for the Throne (White)",
+            "Strengthen Bonds",
+            "Diversify Research"
+          ],
+          "planetTotals": {
+            "influence": {
+              "avail": 0,
+              "total": 10
+            },
+            "legendary": 0,
+            "resources": {
+              "avail": 0,
+              "total": 15
+            },
+            "techs": {
+              "blue": 0,
+              "green": 0,
+              "red": 1,
+              "yellow": 0
+            },
+            "traits": {
+              "cultural": 1,
+              "hazardous": 2,
+              "industrial": 2
+            }
+          },
+          "score": 5,
+          "strategyCards": ["Technology"],
+          "technologies": 6,
+          "tradeGoods": 0
+        },
+        {
+          "alliances": [],
+          "color": "Purple",
+          "colorActual": "Purple",
+          "commandTokens": {
+            "fleet": 4,
+            "strategy": 1,
+            "tactics": 2
+          },
+          "commodities": 0,
+          "custodiansPoints": 0,
+          "handSummary": {
+            "Actions": 5,
+            "Promissory": 6,
+            "Secret Objectives": 1
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "locked",
+            "hero": "locked"
+          },
+          "maxCommodities": 2,
+          "objectives": [
             "Build Defenses",
             "Intimidate Council",
             "Diversify Research",
+            "Fuel the War Machine"
+          ],
+          "planetTotals": {
+            "influence": {
+              "avail": 0,
+              "total": 17
+            },
+            "legendary": 1,
+            "resources": {
+              "avail": 0,
+              "total": 17
+            },
+            "techs": {
+              "blue": 0,
+              "green": 1,
+              "red": 0,
+              "yellow": 1
+            },
+            "traits": {
+              "cultural": 1,
+              "hazardous": 1,
+              "industrial": 2
+            }
+          },
+          "score": 4,
+          "strategyCards": ["Politics"],
+          "technologies": 5,
+          "tradeGoods": 3
+        },
+        {
+          "alliances": [],
+          "color": "Yellow",
+          "colorActual": "Yellow",
+          "commandTokens": {
+            "fleet": 5,
+            "strategy": 0,
+            "tactics": 2
+          },
+          "commodities": 0,
+          "custodiansPoints": 0,
+          "handSummary": {
+            "Actions": 3,
+            "Promissory": 6,
+            "Secret Objectives": 2
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "unlocked",
+            "hero": "locked"
+          },
+          "maxCommodities": 3,
+          "objectives": [
+            "Build Defenses",
+            "Intimidate Council",
+            "Develop Weaponry"
+          ],
+          "planetTotals": {
+            "influence": {
+              "avail": 0,
+              "total": 9
+            },
+            "legendary": 0,
+            "resources": {
+              "avail": 1,
+              "total": 11
+            },
+            "techs": {
+              "blue": 0,
+              "green": 0,
+              "red": 1,
+              "yellow": 0
+            },
+            "traits": {
+              "cultural": 2,
+              "hazardous": 3,
+              "industrial": 0
+            }
+          },
+          "score": 3,
+          "strategyCards": ["Leadership"],
+          "technologies": 5,
+          "tradeGoods": 7
+        },
+        {
+          "alliances": [],
+          "color": "Red",
+          "colorActual": "Red",
+          "commandTokens": {
+            "fleet": 3,
+            "strategy": 0,
+            "tactics": 1
+          },
+          "commodities": 0,
+          "custodiansPoints": 0,
+          "handSummary": {
+            "Actions": 1,
+            "Promissory": 5,
+            "Secret Objectives": 1
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "unlocked",
+            "hero": "unlocked"
+          },
+          "maxCommodities": 3,
+          "objectives": [
+            "Intimidate Council",
+            "Diversify Research",
             "Develop Weaponry",
-            "Negotiate Trade Routes"
-        ],
-        "Public Objectives II": [
-            "Hold Vast Reserves"
-        ],
-        "Relics": [
-            "Shard of the Throne (PoK)",
-            "Shard of the Throne (PoK)",
-            "The Crown of Emphidia (PoK)"
-        ],
-        "Secret Objectives": [
-            "Learn the Secrets of the Cosmos",
-            "Strengthen Bonds",
-            "Become the Gatekeeper",
-            "Prove Endurance",
+            "Turn Their Fleets to Dust"
+          ],
+          "planetTotals": {
+            "influence": {
+              "avail": 0,
+              "total": 12
+            },
+            "legendary": 0,
+            "resources": {
+              "avail": 0,
+              "total": 13
+            },
+            "techs": {
+              "blue": 0,
+              "green": 1,
+              "red": 1,
+              "yellow": 0
+            },
+            "traits": {
+              "cultural": 2,
+              "hazardous": 2,
+              "industrial": 1
+            }
+          },
+          "score": 4,
+          "strategyCards": ["Trade"],
+          "technologies": 6,
+          "tradeGoods": 3
+        },
+        {
+          "alliances": ["white"],
+          "color": "Green",
+          "colorActual": "Green",
+          "commandTokens": {
+            "fleet": 3,
+            "strategy": 0,
+            "tactics": 2
+          },
+          "commodities": 0,
+          "custodiansPoints": 0,
+          "handSummary": {
+            "Actions": 4
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "unlocked",
+            "hero": "unlocked"
+          },
+          "maxCommodities": 4,
+          "objectives": [
+            "Build Defenses",
+            "Intimidate Council",
             "Establish Hegemony",
-            "Establish a Perimeter",
-            "Defy Space and Time",
-            "Seize an Icon",
-            "Become a Martyr",
-            "Form a Spy Network",
-            "Turn Their Fleets to Dust",
-            "Fuel the War Machine",
-            "Gather a Mighty Fleet",
-            "Occupy the Fringe",
-            "Fight with Precision",
-            "Mechanize the Military",
-            "Dictate Policy"
-        ]
+            "Diversify Research",
+            "Gather a Mighty Fleet"
+          ],
+          "planetTotals": {
+            "influence": {
+              "avail": 0,
+              "total": 13
+            },
+            "legendary": 1,
+            "resources": {
+              "avail": 0,
+              "total": 10
+            },
+            "techs": {
+              "blue": 0,
+              "green": 1,
+              "red": 2,
+              "yellow": 1
+            },
+            "traits": {
+              "cultural": 2,
+              "hazardous": 2,
+              "industrial": 2
+            }
+          },
+          "score": 5,
+          "strategyCards": ["Construction"],
+          "technologies": 5,
+          "tradeGoods": 4
+        }
+      ],
+      "round": 4,
+      "setupTimestamp": 1671379420.865,
+      "timestamp": 1671392775.468
     },
-    "perf": {
-        "mean": 33.333,
+    {
+      "hexSummary": "2-3-3Pd2f1h2i1yt;6i2m1s,82+3+5Y2fy1t;Gip,80+1-1*e,79-2+0Pc2d5f1t,78+0-4Pdt;o*k,75-2+2;Yip;ip;i,72+0-2Bcd5f1w2y1t;3i1p;imp,69+3-1W3c7f1t*h;W7i2m1p;s,67+1+3Rcfyt;mp*x,66+2-2W2d4f1t*h;W4i2m1s,64-1+3Y2cf1is3y1t;3im,63+0+4Rd*g;Ro*pz,62-1-1P4f*b;Pims,61+0+2Rcf;2i1mp,50-1+1Yfy*e,49+2+4Gy*e,48-2-4Pr,46-1+5Rrt*e,45-2+4*e,42+1-5Wy*g,41+1+1*e,40+1-3Wdf,37+2+2Gdpt*a;Gi*I;Gi,35-1-5Bd9f1hwt;2i1s;ims,31+3+1;Gi;i*W,30+1+5Rc2d6f1m;i;so*m,27-3-1Pc;ip*c;Pso,26-1-3B2cd4f1rt;Ro*j,25+2+0Gd;o,24-3+1Yfy;m,23-2-2Pcf;o,21+2-4Wd;o,18+0+0*g;Pim*v,54+3-3Gc3d1myt;3i,57+0+6Rcd8f1hmt;so;o,16+0-6Bd4f2r1yt;imp;is;3i1mp,51+4+3Gc6f1pst;7i1m,17+3+3Gy*e,58-3+3Yyt;2i1s;2i1p;3i",
+      "laws": ["Representative Government", "Political Censure"],
+      "perf": {
+        "mean": 34.348,
         "median": 33.333,
-        "scrubbed": 33.333,
-        "stdDev": 0
-    },
-    "platform": "ttpg",
-    "players": [
+        "scrubbed": 33.337,
+        "stdDev": 3.979
+      },
+      "players": [
         {
-            "active": true,
-            "alliances": [],
-            "color": "White",
-            "colorActual": "White",
-            "commandTokens": {
-                "fleet": 5,
-                "strategy": 2,
-                "tactics": 1
+          "alliances": ["green"],
+          "color": "White",
+          "colorActual": "White",
+          "commandTokens": {
+            "fleet": 4,
+            "strategy": 0,
+            "tactics": 5
+          },
+          "commodities": 3,
+          "custodiansPoints": 2,
+          "handSummary": {
+            "Actions": 5,
+            "Promissory": 4
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "unlocked",
+            "hero": "unlocked"
+          },
+          "maxCommodities": 2,
+          "objectives": [
+            "Build Defenses",
+            "Intimidate Council",
+            "Learn the Secrets of the Cosmos",
+            "Support for the Throne (Blue)",
+            "Diversify Research",
+            "Occupy the Fringe"
+          ],
+          "planetTotals": {
+            "influence": {
+              "avail": 0,
+              "total": 7
             },
-            "commodities": 3,
-            "custodiansPoints": 2,
-            "factionName": "The Vuil'raith Cabal",
-            "factionShort": "Vuilraith",
-            "handSummary": {
-                "Actions": 6,
-                "Promissory": 4
+            "legendary": 1,
+            "resources": {
+              "avail": 0,
+              "total": 8
             },
-            "laws": [],
-            "leaders": {
-                "commander": "unlocked",
-                "hero": "unlocked"
+            "techs": {
+              "blue": 1,
+              "green": 0,
+              "red": 0,
+              "yellow": 0
             },
-            "maxCommodities": 2,
-            "objectives": [
-                "Build Defenses",
-                "Intimidate Council",
-                "Learn the Secrets of the Cosmos",
-                "Support for the Throne (Blue)",
-                "Diversify Research",
-                "Occupy the Fringe"
-            ],
-            "planetTotals": {
-                "influence": {
-                    "avail": 7,
-                    "total": 7
-                },
-                "legendary": 1,
-                "resources": {
-                    "avail": 8,
-                    "total": 8
-                },
-                "techs": {
-                    "blue": 1,
-                    "green": 0,
-                    "red": 0,
-                    "yellow": 0
-                },
-                "traits": {
-                    "cultural": 0,
-                    "hazardous": 1,
-                    "industrial": 3
-                }
-            },
-            "score": 8,
-            "steamName": "-",
-            "strategyCards": [
-                "Politics"
-            ],
-            "strategyCardsFaceDown": [],
-            "technologies": [
-                "Self Assembly Routines",
-                "Vortex",
-                "Dark Energy Tap",
-                "Sling Relay",
-                "Dreadnought II",
-                "Duranium Armor"
-            ],
-            "tradeGoods": 6
+            "traits": {
+              "cultural": 0,
+              "hazardous": 1,
+              "industrial": 3
+            }
+          },
+          "score": 8,
+          "strategyCards": ["Leadership"],
+          "technologies": 5,
+          "tradeGoods": 5
         },
         {
-            "active": true,
-            "alliances": [
-                "red"
-            ],
-            "color": "Blue",
-            "colorActual": "Blue",
-            "commandTokens": {
-                "fleet": 5,
-                "strategy": 0,
-                "tactics": 2
+          "alliances": ["red"],
+          "color": "Blue",
+          "colorActual": "Blue",
+          "commandTokens": {
+            "fleet": 5,
+            "strategy": 0,
+            "tactics": 2
+          },
+          "commodities": 0,
+          "custodiansPoints": 0,
+          "handSummary": {
+            "Actions": 4,
+            "Promissory": 5,
+            "Secret Objectives": 1
+          },
+          "laws": ["Political Censure"],
+          "leaders": {
+            "commander": "locked"
+          },
+          "maxCommodities": 6,
+          "objectives": [
+            "Build Defenses",
+            "Intimidate Council",
+            "Support for the Throne (White)",
+            "Strengthen Bonds",
+            "Diversify Research",
+            "Establish a Perimeter",
+            "Negotiate Trade Routes",
+            "Political Censure"
+          ],
+          "planetTotals": {
+            "influence": {
+              "avail": 0,
+              "total": 9
             },
-            "commodities": 0,
-            "custodiansPoints": 0,
-            "factionName": "The Emirates of Hacan",
-            "factionShort": "Hacan",
-            "handSummary": {
-                "Actions": 5,
-                "Promissory": 5
+            "legendary": 0,
+            "resources": {
+              "avail": 0,
+              "total": 12
             },
-            "laws": [
-                "Political Censure"
-            ],
-            "leaders": {
-                "commander": "locked"
+            "techs": {
+              "blue": 0,
+              "green": 0,
+              "red": 1,
+              "yellow": 0
             },
-            "maxCommodities": 6,
-            "objectives": [
-                "Build Defenses",
-                "Intimidate Council",
-                "Support for the Throne (White)",
-                "Strengthen Bonds",
-                "Diversify Research",
-                "Establish a Perimeter",
-                "Negotiate Trade Routes",
-                "Political Censure",
-                "Shard of the Throne (PoK)"
-            ],
-            "planetTotals": {
-                "influence": {
-                    "avail": 9,
-                    "total": 11
-                },
-                "legendary": 1,
-                "resources": {
-                    "avail": 12,
-                    "total": 13
-                },
-                "techs": {
-                    "blue": 0,
-                    "green": 0,
-                    "red": 1,
-                    "yellow": 0
-                },
-                "traits": {
-                    "cultural": 1,
-                    "hazardous": 2,
-                    "industrial": 2
-                }
-            },
-            "score": 9,
-            "steamName": "-",
-            "strategyCards": [
-                "Construction"
-            ],
-            "strategyCardsFaceDown": [
-                "Construction"
-            ],
-            "technologies": [
-                "Sarween Tools",
-                "Antimass Deflectors",
-                "Gravity Drive",
-                "Scanlink Drone Network",
-                "Dreadnought II",
-                "AI Development Algorithm",
-                "War Sun",
-                "Duranium Armor"
-            ],
-            "tradeGoods": 4
+            "traits": {
+              "cultural": 0,
+              "hazardous": 2,
+              "industrial": 2
+            }
+          },
+          "score": 8,
+          "strategyCards": ["Construction"],
+          "technologies": 7,
+          "tradeGoods": 4
         },
         {
-            "active": true,
-            "alliances": [],
-            "color": "Purple",
-            "colorActual": "Purple",
-            "commandTokens": {
-                "fleet": 4,
-                "strategy": 1,
-                "tactics": 4
+          "alliances": [],
+          "color": "Purple",
+          "colorActual": "Purple",
+          "commandTokens": {
+            "fleet": 4,
+            "strategy": 1,
+            "tactics": 2
+          },
+          "commodities": 0,
+          "custodiansPoints": 1,
+          "handSummary": {
+            "Actions": 5,
+            "Promissory": 4
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "locked"
+          },
+          "maxCommodities": 2,
+          "objectives": [
+            "Build Defenses",
+            "Intimidate Council",
+            "Become the Gatekeeper",
+            "Diversify Research",
+            "Support for the Throne (Green)",
+            "Negotiate Trade Routes",
+            "Develop Weaponry",
+            "Fuel the War Machine"
+          ],
+          "planetTotals": {
+            "influence": {
+              "avail": 2,
+              "total": 19
             },
-            "commodities": 0,
-            "custodiansPoints": 1,
-            "factionName": "The Council Keleres - Mentak",
-            "factionShort": "Keleres - Mentak",
-            "handSummary": {
-                "Actions": 4,
-                "Promissory": 4
+            "legendary": 2,
+            "resources": {
+              "avail": 1,
+              "total": 18
             },
-            "laws": [],
-            "leaders": {
-                "commander": "unlocked"
+            "techs": {
+              "blue": 0,
+              "green": 1,
+              "red": 0,
+              "yellow": 1
             },
-            "maxCommodities": 2,
-            "objectives": [
-                "Build Defenses",
-                "Intimidate Council",
-                "Become the Gatekeeper",
-                "Diversify Research",
-                "Support for the Throne (Green)",
-                "Negotiate Trade Routes",
-                "Develop Weaponry",
-                "Fuel the War Machine"
-            ],
-            "planetTotals": {
-                "influence": {
-                    "avail": 7,
-                    "total": 11
-                },
-                "legendary": 1,
-                "resources": {
-                    "avail": 7,
-                    "total": 16
-                },
-                "techs": {
-                    "blue": 0,
-                    "green": 1,
-                    "red": 0,
-                    "yellow": 1
-                },
-                "traits": {
-                    "cultural": 1,
-                    "hazardous": 1,
-                    "industrial": 2
-                }
-            },
-            "score": 9,
-            "steamName": "-",
-            "strategyCards": [
-                "Warfare"
-            ],
-            "strategyCardsFaceDown": [],
-            "technologies": [
-                "Gravity Drive",
-                "Sarween Tools",
-                "I.I.H.Q. Modernization",
-                "Carrier II",
-                "Antimass Deflectors",
-                "Dreadnought II",
-                "Agency Supply Network",
-                "Dark Energy Tap"
-            ],
-            "tradeGoods": 5
+            "traits": {
+              "cultural": 2,
+              "hazardous": 1,
+              "industrial": 2
+            }
+          },
+          "score": 9,
+          "strategyCards": ["Imperial"],
+          "technologies": 7,
+          "tradeGoods": 1
         },
         {
-            "active": true,
-            "alliances": [],
-            "color": "Yellow",
-            "colorActual": "Yellow",
-            "commandTokens": {
-                "fleet": 6,
-                "strategy": 1,
-                "tactics": 0
+          "alliances": [],
+          "color": "Yellow",
+          "colorActual": "Yellow",
+          "commandTokens": {
+            "fleet": 5,
+            "strategy": 0,
+            "tactics": 2
+          },
+          "commodities": 0,
+          "custodiansPoints": 0,
+          "handSummary": {
+            "Actions": 5,
+            "Promissory": 4,
+            "Secret Objectives": 2
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "unlocked",
+            "hero": "locked"
+          },
+          "maxCommodities": 3,
+          "objectives": [
+            "Build Defenses",
+            "Intimidate Council",
+            "Support for the Throne (Red)",
+            "Diversify Research",
+            "Defy Space and Time",
+            "Develop Weaponry"
+          ],
+          "planetTotals": {
+            "influence": {
+              "avail": 0,
+              "total": 9
             },
-            "commodities": 0,
-            "custodiansPoints": 1,
-            "factionName": "The Argent Flight",
-            "factionShort": "Argent",
-            "handSummary": {
-                "Actions": 5,
-                "Promissory": 5
+            "legendary": 0,
+            "resources": {
+              "avail": 0,
+              "total": 11
             },
-            "laws": [],
-            "leaders": {
-                "commander": "unlocked",
-                "hero": "locked"
+            "techs": {
+              "blue": 0,
+              "green": 0,
+              "red": 1,
+              "yellow": 0
             },
-            "maxCommodities": 3,
-            "objectives": [
-                "Build Defenses",
-                "Intimidate Council",
-                "Support for the Throne (Red)",
-                "Diversify Research",
-                "Hold Vast Reserves",
-                "Defy Space and Time",
-                "Develop Weaponry",
-                "Fight with Precision"
-            ],
-            "planetTotals": {
-                "influence": {
-                    "avail": 3,
-                    "total": 15
-                },
-                "legendary": 0,
-                "resources": {
-                    "avail": 3,
-                    "total": 12
-                },
-                "techs": {
-                    "blue": 0,
-                    "green": 0,
-                    "red": 1,
-                    "yellow": 0
-                },
-                "traits": {
-                    "cultural": 2,
-                    "hazardous": 3,
-                    "industrial": 0
-                }
-            },
-            "score": 10,
-            "steamName": "-",
-            "strategyCards": [
-                "Imperial"
-            ],
-            "strategyCardsFaceDown": [
-                "Imperial"
-            ],
-            "technologies": [
-                "Plasma Scoring",
-                "Sarween Tools",
-                "PDS II",
-                "AI Development Algorithm",
-                "Strike Wing Alpha II",
-                "Aerie Hololattice",
-                "Graviton Laser System"
-            ],
-            "tradeGoods": 0
+            "traits": {
+              "cultural": 2,
+              "hazardous": 3,
+              "industrial": 0
+            }
+          },
+          "score": 6,
+          "strategyCards": ["Politics"],
+          "technologies": 6,
+          "tradeGoods": 6
         },
         {
-            "active": true,
-            "alliances": [],
-            "color": "Red",
-            "colorActual": "Red",
-            "commandTokens": {
-                "fleet": 3,
-                "strategy": 0,
-                "tactics": 5
+          "alliances": [],
+          "color": "Red",
+          "colorActual": "Red",
+          "commandTokens": {
+            "fleet": 3,
+            "strategy": 0,
+            "tactics": 2
+          },
+          "commodities": 0,
+          "custodiansPoints": 0,
+          "handSummary": {
+            "Actions": 1,
+            "Promissory": 3,
+            "Secret Objectives": 2
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "unlocked",
+            "hero": "unlocked"
+          },
+          "maxCommodities": 3,
+          "objectives": [
+            "Build Defenses",
+            "Intimidate Council",
+            "Support for the Throne (Yellow)",
+            "Diversify Research",
+            "Develop Weaponry",
+            "Turn Their Fleets to Dust",
+            "The Crown of Emphidia (PoK)"
+          ],
+          "planetTotals": {
+            "influence": {
+              "avail": 0,
+              "total": 14
             },
-            "commodities": 0,
-            "custodiansPoints": 0,
-            "factionName": "The Naaz-Rokha Alliance",
-            "factionShort": "Naaz-Rokha",
-            "handSummary": {
-                "Promissory": 4,
-                "Secret Objectives": 1
+            "legendary": 0,
+            "resources": {
+              "avail": 0,
+              "total": 16
             },
-            "laws": [],
-            "leaders": {
-                "commander": "unlocked"
+            "techs": {
+              "blue": 0,
+              "green": 1,
+              "red": 1,
+              "yellow": 0
             },
-            "maxCommodities": 3,
-            "objectives": [
-                "Build Defenses",
-                "Intimidate Council",
-                "Support for the Throne (Yellow)",
-                "Diversify Research",
-                "Develop Weaponry",
-                "Turn Their Fleets to Dust",
-                "The Crown of Emphidia (PoK)"
-            ],
-            "planetTotals": {
-                "influence": {
-                    "avail": 12,
-                    "total": 15
-                },
-                "legendary": 1,
-                "resources": {
-                    "avail": 10,
-                    "total": 13
-                },
-                "techs": {
-                    "blue": 0,
-                    "green": 1,
-                    "red": 1,
-                    "yellow": 0
-                },
-                "traits": {
-                    "cultural": 3,
-                    "hazardous": 1,
-                    "industrial": 1
-                }
-            },
-            "score": 7,
-            "steamName": "SCPT Hunter",
-            "strategyCards": [
-                "Leadership"
-            ],
-            "strategyCardsFaceDown": [],
-            "technologies": [
-                "Sling Relay",
-                "AI Development Algorithm",
-                "Psychoarchaeology",
-                "Hyper Metabolism",
-                "Dreadnought II",
-                "Assault Cannon",
-                "PDS II",
-                "Scanlink Drone Network"
-            ],
-            "tradeGoods": 9
+            "traits": {
+              "cultural": 3,
+              "hazardous": 2,
+              "industrial": 1
+            }
+          },
+          "score": 7,
+          "strategyCards": ["Trade"],
+          "technologies": 7,
+          "tradeGoods": 8
         },
         {
-            "active": true,
-            "alliances": [
-                "green"
-            ],
-            "color": "Green",
-            "colorActual": "Green",
-            "commandTokens": {
-                "fleet": 5,
-                "strategy": 1,
-                "tactics": 3
+          "alliances": [],
+          "color": "Green",
+          "colorActual": "Green",
+          "commandTokens": {
+            "fleet": 6,
+            "strategy": 0,
+            "tactics": 3
+          },
+          "commodities": 0,
+          "custodiansPoints": 0,
+          "handSummary": {
+            "Actions": 3,
+            "Promissory": 1,
+            "Secret Objectives": 1
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "unlocked",
+            "hero": "unlocked"
+          },
+          "maxCommodities": 4,
+          "objectives": [
+            "Build Defenses",
+            "Intimidate Council",
+            "Support for the Throne (Purple)",
+            "Establish Hegemony",
+            "Diversify Research",
+            "Develop Weaponry",
+            "Gather a Mighty Fleet"
+          ],
+          "planetTotals": {
+            "influence": {
+              "avail": 0,
+              "total": 13
             },
-            "commodities": 0,
-            "custodiansPoints": 0,
-            "factionName": "The Ghosts of Creuss",
-            "factionShort": "Creuss",
-            "handSummary": {
-                "Actions": 2
+            "legendary": 1,
+            "resources": {
+              "avail": 0,
+              "total": 14
             },
-            "laws": [],
-            "leaders": {
-                "commander": "unlocked",
-                "hero": "unlocked"
+            "techs": {
+              "blue": 0,
+              "green": 1,
+              "red": 2,
+              "yellow": 1
             },
-            "maxCommodities": 4,
-            "objectives": [
-                "Build Defenses",
-                "Intimidate Council",
-                "Support for the Throne (Purple)",
-                "Establish Hegemony",
-                "Diversify Research",
-                "Become a Martyr",
-                "Develop Weaponry",
-                "Gather a Mighty Fleet"
-            ],
-            "planetTotals": {
-                "influence": {
-                    "avail": 12,
-                    "total": 14
-                },
-                "legendary": 1,
-                "resources": {
-                    "avail": 8,
-                    "total": 19
-                },
-                "techs": {
-                    "blue": 0,
-                    "green": 1,
-                    "red": 2,
-                    "yellow": 1
-                },
-                "traits": {
-                    "cultural": 2,
-                    "hazardous": 3,
-                    "industrial": 2
-                }
-            },
-            "score": 8,
-            "steamName": "-",
-            "strategyCards": [
-                "Diplomacy"
-            ],
-            "strategyCardsFaceDown": [
-                "Diplomacy"
-            ],
-            "technologies": [
-                "Assault Cannon",
-                "Gravity Drive",
-                "Sling Relay",
-                "Plasma Scoring",
-                "Dimensional Splicer",
-                "Light-Wave Deflector",
-                "PDS II",
-                "Dreadnought II",
-                "Fleet Logistics"
-            ],
-            "tradeGoods": 17
+            "traits": {
+              "cultural": 2,
+              "hazardous": 2,
+              "industrial": 2
+            }
+          },
+          "score": 7,
+          "strategyCards": ["Technology"],
+          "technologies": 8,
+          "tradeGoods": 14
         }
+      ],
+      "round": 5,
+      "setupTimestamp": 1671379420.865,
+      "timestamp": 1671399265.478
+    }
+  ],
+  "isPoK": true,
+  "laws": ["Political Censure"],
+  "mapString": "61 41 80 72 62 50 63 67 37 25 66 40 78 26 23 79 75 64 57 30 49 17 31 69 54 21 42 16 35 48 2 27 24 58 45 46",
+  "objectives": {
+    "Agenda": ["Political Censure"],
+    "Public Objectives I": [
+      "Build Defenses",
+      "Intimidate Council",
+      "Diversify Research",
+      "Develop Weaponry",
+      "Negotiate Trade Routes"
     ],
-    "round": 5,
-    "scoreboard": 10,
-    "setupTimestamp": 1671379420.865,
-    "timestamp": 1671404458.994,
-    "turn": "Yellow",
-    "whispers": [
-        {
-            "backwardStr": "                                                            ",
-            "colorNameA": "purple",
-            "colorNameB": "blue",
-            "forwardStr": "                                                            "
-        },
-        {
-            "backwardStr": "                                                            ",
-            "colorNameA": "blue",
-            "colorNameB": "white",
-            "forwardStr": "                                                            "
-        },
-        {
-            "backwardStr": "                                                            ",
-            "colorNameA": "blue",
-            "colorNameB": "red",
-            "forwardStr": "                                                            "
-        },
-        {
-            "backwardStr": "                                                            ",
-            "colorNameA": "purple",
-            "colorNameB": "red",
-            "forwardStr": "                                                            "
-        },
-        {
-            "backwardStr": "                                                            ",
-            "colorNameA": "green",
-            "colorNameB": "white",
-            "forwardStr": "                                                            "
-        },
-        {
-            "backwardStr": "                                                            ",
-            "colorNameA": "yellow",
-            "colorNameB": "red",
-            "forwardStr": "                                                            "
-        },
-        {
-            "backwardStr": "                                                            ",
-            "colorNameA": "green",
-            "colorNameB": "red",
-            "forwardStr": "                                                            "
-        },
-        {
-            "backwardStr": "                                                            ",
-            "colorNameA": "green",
-            "colorNameB": "blue",
-            "forwardStr": "                                                            "
-        }
+    "Public Objectives II": ["Hold Vast Reserves"],
+    "Relics": [
+      "Shard of the Throne (PoK)",
+      "Shard of the Throne (PoK)",
+      "The Crown of Emphidia (PoK)"
+    ],
+    "Secret Objectives": [
+      "Learn the Secrets of the Cosmos",
+      "Strengthen Bonds",
+      "Become the Gatekeeper",
+      "Prove Endurance",
+      "Establish Hegemony",
+      "Establish a Perimeter",
+      "Defy Space and Time",
+      "Seize an Icon",
+      "Become a Martyr",
+      "Form a Spy Network",
+      "Turn Their Fleets to Dust",
+      "Fuel the War Machine",
+      "Gather a Mighty Fleet",
+      "Occupy the Fringe",
+      "Fight with Precision",
+      "Mechanize the Military",
+      "Dictate Policy"
+    ],
+    "OTHER": [
+      "Support for the Throne (Blue)",
+      "Support for the Throne (White)",
+      "Support for the Throne (Green)",
+      "Support for the Throne (Red)",
+      "Support for the Throne (Yellow)",
+      "Support for the Throne (Purple)"
     ]
+  },
+  "perf": {
+    "mean": 33.333,
+    "median": 33.333,
+    "scrubbed": 33.333,
+    "stdDev": 0
+  },
+  "platform": "ttpg",
+  "players": [
+    {
+      "active": true,
+      "alliances": [],
+      "color": "White",
+      "colorActual": "White",
+      "commandTokens": {
+        "fleet": 5,
+        "strategy": 2,
+        "tactics": 1
+      },
+      "commodities": 3,
+      "custodiansPoints": 2,
+      "factionName": "The Vuil'raith Cabal",
+      "factionShort": "Vuilraith",
+      "handSummary": {
+        "Actions": 6,
+        "Promissory": 4
+      },
+      "laws": [],
+      "leaders": {
+        "commander": "unlocked",
+        "hero": "unlocked"
+      },
+      "maxCommodities": 2,
+      "objectives": [
+        "Build Defenses",
+        "Intimidate Council",
+        "Learn the Secrets of the Cosmos",
+        "Support for the Throne (Blue)",
+        "Diversify Research",
+        "Occupy the Fringe"
+      ],
+      "planetTotals": {
+        "influence": {
+          "avail": 7,
+          "total": 7
+        },
+        "legendary": 1,
+        "resources": {
+          "avail": 8,
+          "total": 8
+        },
+        "techs": {
+          "blue": 1,
+          "green": 0,
+          "red": 0,
+          "yellow": 0
+        },
+        "traits": {
+          "cultural": 0,
+          "hazardous": 1,
+          "industrial": 3
+        }
+      },
+      "score": 8,
+      "steamName": "-",
+      "strategyCards": ["Politics"],
+      "strategyCardsFaceDown": [],
+      "technologies": [
+        "Self Assembly Routines",
+        "Vortex",
+        "Dark Energy Tap",
+        "Sling Relay",
+        "Dreadnought II",
+        "Duranium Armor"
+      ],
+      "tradeGoods": 6
+    },
+    {
+      "active": true,
+      "alliances": ["red"],
+      "color": "Blue",
+      "colorActual": "Blue",
+      "commandTokens": {
+        "fleet": 5,
+        "strategy": 0,
+        "tactics": 2
+      },
+      "commodities": 0,
+      "custodiansPoints": 0,
+      "factionName": "The Emirates of Hacan",
+      "factionShort": "Hacan",
+      "handSummary": {
+        "Actions": 5,
+        "Promissory": 5
+      },
+      "laws": ["Political Censure"],
+      "leaders": {
+        "commander": "locked"
+      },
+      "maxCommodities": 6,
+      "objectives": [
+        "Build Defenses",
+        "Intimidate Council",
+        "Support for the Throne (White)",
+        "Strengthen Bonds",
+        "Diversify Research",
+        "Establish a Perimeter",
+        "Negotiate Trade Routes",
+        "Political Censure",
+        "Shard of the Throne (PoK)"
+      ],
+      "planetTotals": {
+        "influence": {
+          "avail": 9,
+          "total": 11
+        },
+        "legendary": 1,
+        "resources": {
+          "avail": 12,
+          "total": 13
+        },
+        "techs": {
+          "blue": 0,
+          "green": 0,
+          "red": 1,
+          "yellow": 0
+        },
+        "traits": {
+          "cultural": 1,
+          "hazardous": 2,
+          "industrial": 2
+        }
+      },
+      "score": 9,
+      "steamName": "-",
+      "strategyCards": ["Construction"],
+      "strategyCardsFaceDown": ["Construction"],
+      "technologies": [
+        "Sarween Tools",
+        "Antimass Deflectors",
+        "Gravity Drive",
+        "Scanlink Drone Network",
+        "Dreadnought II",
+        "AI Development Algorithm",
+        "War Sun",
+        "Duranium Armor"
+      ],
+      "tradeGoods": 4
+    },
+    {
+      "active": true,
+      "alliances": [],
+      "color": "Purple",
+      "colorActual": "Purple",
+      "commandTokens": {
+        "fleet": 4,
+        "strategy": 1,
+        "tactics": 4
+      },
+      "commodities": 0,
+      "custodiansPoints": 1,
+      "factionName": "The Council Keleres - Mentak",
+      "factionShort": "Keleres - Mentak",
+      "handSummary": {
+        "Actions": 4,
+        "Promissory": 4
+      },
+      "laws": [],
+      "leaders": {
+        "commander": "unlocked"
+      },
+      "maxCommodities": 2,
+      "objectives": [
+        "Build Defenses",
+        "Intimidate Council",
+        "Become the Gatekeeper",
+        "Diversify Research",
+        "Support for the Throne (Green)",
+        "Negotiate Trade Routes",
+        "Develop Weaponry",
+        "Fuel the War Machine"
+      ],
+      "planetTotals": {
+        "influence": {
+          "avail": 7,
+          "total": 11
+        },
+        "legendary": 1,
+        "resources": {
+          "avail": 7,
+          "total": 16
+        },
+        "techs": {
+          "blue": 0,
+          "green": 1,
+          "red": 0,
+          "yellow": 1
+        },
+        "traits": {
+          "cultural": 1,
+          "hazardous": 1,
+          "industrial": 2
+        }
+      },
+      "score": 9,
+      "steamName": "-",
+      "strategyCards": ["Warfare"],
+      "strategyCardsFaceDown": [],
+      "technologies": [
+        "Gravity Drive",
+        "Sarween Tools",
+        "I.I.H.Q. Modernization",
+        "Carrier II",
+        "Antimass Deflectors",
+        "Dreadnought II",
+        "Agency Supply Network",
+        "Dark Energy Tap"
+      ],
+      "tradeGoods": 5
+    },
+    {
+      "active": true,
+      "alliances": [],
+      "color": "Yellow",
+      "colorActual": "Yellow",
+      "commandTokens": {
+        "fleet": 6,
+        "strategy": 1,
+        "tactics": 0
+      },
+      "commodities": 0,
+      "custodiansPoints": 1,
+      "factionName": "The Argent Flight",
+      "factionShort": "Argent",
+      "handSummary": {
+        "Actions": 5,
+        "Promissory": 5
+      },
+      "laws": [],
+      "leaders": {
+        "commander": "unlocked",
+        "hero": "locked"
+      },
+      "maxCommodities": 3,
+      "objectives": [
+        "Build Defenses",
+        "Intimidate Council",
+        "Support for the Throne (Red)",
+        "Diversify Research",
+        "Hold Vast Reserves",
+        "Defy Space and Time",
+        "Develop Weaponry",
+        "Fight with Precision"
+      ],
+      "planetTotals": {
+        "influence": {
+          "avail": 3,
+          "total": 15
+        },
+        "legendary": 0,
+        "resources": {
+          "avail": 3,
+          "total": 12
+        },
+        "techs": {
+          "blue": 0,
+          "green": 0,
+          "red": 1,
+          "yellow": 0
+        },
+        "traits": {
+          "cultural": 2,
+          "hazardous": 3,
+          "industrial": 0
+        }
+      },
+      "score": 10,
+      "steamName": "-",
+      "strategyCards": ["Imperial"],
+      "strategyCardsFaceDown": ["Imperial"],
+      "technologies": [
+        "Plasma Scoring",
+        "Sarween Tools",
+        "PDS II",
+        "AI Development Algorithm",
+        "Strike Wing Alpha II",
+        "Aerie Hololattice",
+        "Graviton Laser System"
+      ],
+      "tradeGoods": 0
+    },
+    {
+      "active": true,
+      "alliances": [],
+      "color": "Red",
+      "colorActual": "Red",
+      "commandTokens": {
+        "fleet": 3,
+        "strategy": 0,
+        "tactics": 5
+      },
+      "commodities": 0,
+      "custodiansPoints": 0,
+      "factionName": "The Naaz-Rokha Alliance",
+      "factionShort": "Naaz-Rokha",
+      "handSummary": {
+        "Promissory": 4,
+        "Secret Objectives": 1
+      },
+      "laws": [],
+      "leaders": {
+        "commander": "unlocked"
+      },
+      "maxCommodities": 3,
+      "objectives": [
+        "Build Defenses",
+        "Intimidate Council",
+        "Support for the Throne (Yellow)",
+        "Diversify Research",
+        "Develop Weaponry",
+        "Turn Their Fleets to Dust",
+        "The Crown of Emphidia (PoK)"
+      ],
+      "planetTotals": {
+        "influence": {
+          "avail": 12,
+          "total": 15
+        },
+        "legendary": 1,
+        "resources": {
+          "avail": 10,
+          "total": 13
+        },
+        "techs": {
+          "blue": 0,
+          "green": 1,
+          "red": 1,
+          "yellow": 0
+        },
+        "traits": {
+          "cultural": 3,
+          "hazardous": 1,
+          "industrial": 1
+        }
+      },
+      "score": 7,
+      "steamName": "SCPT Hunter",
+      "strategyCards": ["Leadership"],
+      "strategyCardsFaceDown": [],
+      "technologies": [
+        "Sling Relay",
+        "AI Development Algorithm",
+        "Psychoarchaeology",
+        "Hyper Metabolism",
+        "Dreadnought II",
+        "Assault Cannon",
+        "PDS II",
+        "Scanlink Drone Network"
+      ],
+      "tradeGoods": 9
+    },
+    {
+      "active": true,
+      "alliances": ["green"],
+      "color": "Green",
+      "colorActual": "Green",
+      "commandTokens": {
+        "fleet": 5,
+        "strategy": 1,
+        "tactics": 3
+      },
+      "commodities": 0,
+      "custodiansPoints": 0,
+      "factionName": "The Ghosts of Creuss",
+      "factionShort": "Creuss",
+      "handSummary": {
+        "Actions": 2
+      },
+      "laws": [],
+      "leaders": {
+        "commander": "unlocked",
+        "hero": "unlocked"
+      },
+      "maxCommodities": 4,
+      "objectives": [
+        "Build Defenses",
+        "Intimidate Council",
+        "Support for the Throne (Purple)",
+        "Establish Hegemony",
+        "Diversify Research",
+        "Become a Martyr",
+        "Develop Weaponry",
+        "Gather a Mighty Fleet"
+      ],
+      "planetTotals": {
+        "influence": {
+          "avail": 12,
+          "total": 14
+        },
+        "legendary": 1,
+        "resources": {
+          "avail": 8,
+          "total": 19
+        },
+        "techs": {
+          "blue": 0,
+          "green": 1,
+          "red": 2,
+          "yellow": 1
+        },
+        "traits": {
+          "cultural": 2,
+          "hazardous": 3,
+          "industrial": 2
+        }
+      },
+      "score": 8,
+      "steamName": "-",
+      "strategyCards": ["Diplomacy"],
+      "strategyCardsFaceDown": ["Diplomacy"],
+      "technologies": [
+        "Assault Cannon",
+        "Gravity Drive",
+        "Sling Relay",
+        "Plasma Scoring",
+        "Dimensional Splicer",
+        "Light-Wave Deflector",
+        "PDS II",
+        "Dreadnought II",
+        "Fleet Logistics"
+      ],
+      "tradeGoods": 17
+    }
+  ],
+  "round": 5,
+  "scoreboard": 10,
+  "setupTimestamp": 1671379420.865,
+  "timestamp": 1671404458.994,
+  "turn": "Yellow",
+  "whispers": [
+    {
+      "backwardStr": "                                                            ",
+      "colorNameA": "purple",
+      "colorNameB": "blue",
+      "forwardStr": "                                                            "
+    },
+    {
+      "backwardStr": "                                                            ",
+      "colorNameA": "blue",
+      "colorNameB": "white",
+      "forwardStr": "                                                            "
+    },
+    {
+      "backwardStr": "                                                            ",
+      "colorNameA": "blue",
+      "colorNameB": "red",
+      "forwardStr": "                                                            "
+    },
+    {
+      "backwardStr": "                                                            ",
+      "colorNameA": "purple",
+      "colorNameB": "red",
+      "forwardStr": "                                                            "
+    },
+    {
+      "backwardStr": "                                                            ",
+      "colorNameA": "green",
+      "colorNameB": "white",
+      "forwardStr": "                                                            "
+    },
+    {
+      "backwardStr": "                                                            ",
+      "colorNameA": "yellow",
+      "colorNameB": "red",
+      "forwardStr": "                                                            "
+    },
+    {
+      "backwardStr": "                                                            ",
+      "colorNameA": "green",
+      "colorNameB": "red",
+      "forwardStr": "                                                            "
+    },
+    {
+      "backwardStr": "                                                            ",
+      "colorNameA": "green",
+      "colorNameB": "blue",
+      "forwardStr": "                                                            "
+    }
+  ]
 }
