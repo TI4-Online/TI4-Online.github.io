@@ -432,6 +432,7 @@
   "scoreboard": 10,
   "setupTimestamp": 1670074353.102,
   "speaker": "Green",
+  "timer": { "seconds": 30, "direction": 1 },
   "timestamp": 1670088961,
   "turn": "Red",
   "whispers": [

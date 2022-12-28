@@ -9,6 +9,7 @@ const COLOR_NAME_TO_HEX = {
   green: "#00a14b",
   orange: "#FF781F",
   pink: "#FF69B4",
+  "-": "unset",
 };
 // const ALT_COLOR_NAME_TO_HEX = {
 //   white: "#BBBBBB",
@@ -451,9 +452,9 @@ class GameDataUtil {
 
     const laws = gameData?.laws || [];
 
-    const lawToPlayers = {};
+    const lawToColorNames = {};
     for (const law of laws) {
-      lawToPlayers[law] = [];
+      lawToColorNames[law] = [];
     }
 
     const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
@@ -461,20 +462,17 @@ class GameDataUtil {
       const colorNameAndHex = GameDataUtil.parsePlayerColor(playerData);
       const playerLaws = playerData?.laws || [];
       for (const playerLaw of playerLaws) {
-        const entry = lawToPlayers[playerLaw];
+        const entry = lawToColorNames[playerLaw];
         if (!entry) {
           continue; // law not registered at top?
         }
-        entry.push({
-          colorName: colorNameAndHex.colorName,
-          colorHex: colorNameAndHex.colorHex,
-        });
+        entry.push(colorNameAndHex.colorName);
       }
     }
 
     return laws.map((law) => {
-      const players = lawToPlayers[law] || [];
-      return { name: GameDataUtil._escapeForHTML(law), players };
+      const colorNames = lawToColorNames[law] || [];
+      return { name: GameDataUtil._escapeForHTML(law), colorNames };
     });
   }
 
@@ -501,6 +499,9 @@ class GameDataUtil {
     const addEntry = (name, addToList) => {
       console.assert(typeof name === "string");
       console.assert(Array.isArray(addToList));
+      if (nameToEntry[name]) {
+        return; // already added!
+      }
       const entry = {
         name: GameDataUtil._escapeForHTML(name),
         abbr:
@@ -766,7 +767,7 @@ class GameDataUtil {
    * Parse technologies.
    *
    * @param {Object.{technologies:Array.{string}}} playerData
-   * @returns {Array.{Object.{name:string,colorName:string,colorHex:string}}}
+   * @returns {Array.{Object.{name:string,colorName:string}}}
    */
   static parsePlayerTechnologies(playerData) {
     console.assert(typeof playerData === "object");
@@ -777,7 +778,6 @@ class GameDataUtil {
       return {
         name: GameDataUtil._escapeForHTML(name),
         colorName,
-        colorHex: COLOR_NAME_TO_HEX[colorName],
       };
     });
   }
@@ -856,6 +856,24 @@ class GameDataUtil {
   }
 
   /**
+   * Parse current timer from overall game data.
+   *
+   * @param {Object.{timer:Object.{seconds:number,directin:number}} gameData
+   * @returns Object.{seconds:number,directin:number}
+   */
+
+  static parseTimer(gameData) {
+    console.assert(typeof gameData === "object");
+
+    const seconds = gameData?.timer?.seconds || 0;
+    const direction = gameData?.timer?.direction || 0;
+    console.assert(typeof seconds === "number");
+    console.assert(typeof direction === "number");
+
+    return { seconds, direction };
+  }
+
+  /**
    * Parse recent whispers.
    *
    * @param {Object.{whispers:Array}} gameData
@@ -886,8 +904,6 @@ class GameDataUtil {
       return {
         colorNameA: GameDataUtil._escapeForHTML(entry.colorNameA),
         colorNameB: GameDataUtil._escapeForHTML(entry.colorNameB),
-        colorHexA: COLOR_NAME_TO_HEX[entry.colorNameA],
-        colorHexB: COLOR_NAME_TO_HEX[entry.colorNameB],
         forwardStr: sanitizeWhisper(entry.forwardStr),
         backwardStr: sanitizeWhisper(entry.backwardStr),
       };

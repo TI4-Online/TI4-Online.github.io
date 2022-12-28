@@ -15,6 +15,8 @@ class Tempo {
       throw new Error(`Missing element id "${elementId}"`);
     }
 
+    this._bezier = true;
+
     if (this._canvas.width === 0 && this._canvas.height === 0) {
       // Size slightly smaller to prevent growing table size, then pad
       const w = this._canvas.parentNode.offsetWidth - 4;
@@ -39,6 +41,9 @@ class Tempo {
     const playerColorNamesAndHexValues = playerDataArray.map((playerData) => {
       return GameDataUtil.parsePlayerColor(playerData);
     });
+    const colorNames = playerColorNamesAndHexValues.map(
+      (colorNameAndHex) => colorNameAndHex.colorName
+    );
 
     const scoreboard = GameDataUtil.parseScoreboard(gameData);
     const currentRound = GameDataUtil.parseRound(gameData);
@@ -118,15 +123,48 @@ class Tempo {
     ctx.fillText("ROUND", 0, 0);
     ctx.restore();
 
-    // TODO WORK IN PROGRESS
+    const pointRadius = Math.ceil(bb.width * 0.01);
+    for (const colorName of colorNames) {
+      ctx.fillStyle = GameDataUtil.colorNameToHex(colorName);
+      ctx.strokeStyle = GameDataUtil.colorNameToHex(colorName);
+      const points = [[bb.left, bb.top + bb.height]];
+      for (let round = 1; round < maxRound; round++) {
+        const colorNameToScore = roundToPlayerColorNameToScore[round];
+        if (!colorNameToScore) {
+          continue;
+        }
+        const score = colorNameToScore[colorName];
+        if (score === undefined) {
+          continue;
+        }
+        let x = Math.floor(bb.left + (bb.width * round) / maxRound);
+        let y = Math.floor(
+          bb.top + (bb.height * (maxScore - score)) / maxScore
+        );
+        points.push([x, y]);
 
-    ctx.textBaseline = "middle";
-    ctx.textAlign = "center";
-    ctx.fillText(
-      "WORK IN PROGRESS",
-      this._canvas.width / 2,
-      this._canvas.height / 2
-    );
+        // Draw point.
+        ctx.beginPath();
+        ctx.arc(x, y, pointRadius, 0, Math.PI * 2, true);
+        ctx.fill();
+      }
+
+      if (this._bezier) {
+        ImageUtil.bezierCurveThrough(ctx, points);
+      } else {
+        ctx.beginPath();
+        let first = true;
+        for (const point of points) {
+          if (first) {
+            first = false;
+            ctx.moveTo(point[0], point[1]);
+          } else {
+            ctx.lineTo(point[0], point[1]);
+          }
+        }
+        ctx.stroke();
+      }
+    }
   }
 }
 

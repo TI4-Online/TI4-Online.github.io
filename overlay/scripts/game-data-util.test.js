@@ -59,11 +59,11 @@ it("parseLaws", () => {
   assert.deepEqual(laws, [
     {
       name: "Committee Formation",
-      players: [{ colorHex: "#6EC1E4", colorName: "blue" }],
+      colorNames: ["blue"],
     },
     {
       name: "Representative Government",
-      players: [],
+      colorNames: [],
     },
   ]);
 });
@@ -221,12 +221,12 @@ it("parsePlayerTechnologies", () => {
   const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
   const technologies = GameDataUtil.parsePlayerTechnologies(playerDataArray[0]);
   assert.deepEqual(technologies, [
-    { colorHex: "#e46d72", colorName: "red", name: "Self Assembly Routines" },
-    { colorHex: "#e46d72", colorName: "red", name: "Vortex" },
-    { colorHex: "#e46d72", colorName: "red", name: "Duranium Armor" },
-    { colorHex: "#FFFFFF", colorName: "white", name: "Carrier II" },
-    { colorHex: "#FFFFFF", colorName: "white", name: "Fighter II" },
-    { colorHex: "#FFFFFF", colorName: "white", name: "Dimensional Tear II" },
+    { colorName: "red", name: "Self Assembly Routines" },
+    { colorName: "red", name: "Vortex" },
+    { colorName: "red", name: "Duranium Armor" },
+    { colorName: "white", name: "Carrier II" },
+    { colorName: "white", name: "Fighter II" },
+    { colorName: "white", name: "Dimensional Tear II" },
   ]);
 });
 
@@ -255,6 +255,12 @@ it("parseSpeakerColorName", () => {
   assert.equal(speakerColorName, "green");
 });
 
+it("parseTimer", () => {
+  const gameData = getGameData();
+  const timer = GameDataUtil.parseTimer(gameData);
+  assert.deepEqual(timer, { seconds: 30, direction: 1 });
+});
+
 it("parseWhispers", () => {
   const gameData = getGameData();
   const whispers = GameDataUtil.parseWhispers(gameData);
@@ -262,8 +268,6 @@ it("parseWhispers", () => {
   assert.deepEqual(whispers[0], {
     backwardStr:
       "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;&lt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;&nbsp;&nbsp;&nbsp;&lt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;",
-    colorHexA: "#00a14b",
-    colorHexB: "#e46d72",
     colorNameA: "green",
     colorNameB: "red",
     forwardStr:

@@ -56,7 +56,7 @@ class Technology {
 
       for (const tech of techs) {
         const div = document.createElement("div");
-        div.style.color = tech.colorHex;
+        div.style.color = GameDataUtil.colorNameToHex(tech.colorName);
         div.innerText = tech.name;
         td.appendChild(div);
       }

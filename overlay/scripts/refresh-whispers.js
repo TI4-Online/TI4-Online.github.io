@@ -45,21 +45,19 @@ class Whispers {
         entry = {
           colorNameA: "-",
           colorNameB: "-",
-          colorHexA: "unset",
-          colorHexB: "unset",
           forwardStr: "-",
           backwardStr: "-",
         };
       }
       nameA.innerText = entry.colorNameA;
-      nameA.style.color = entry.colorHexA;
+      nameA.style.color = GameDataUtil.colorNameToHex(entry.colorNameA);
       nameB.innerText = entry.colorNameB;
-      nameB.style.color = entry.colorHexB;
+      nameB.style.color = GameDataUtil.colorNameToHex(entry.colorNameB);
 
       forward.innerHTML = entry.forwardStr.replace(/ /, "&nbsp;");
-      forward.style.color = entry.colorHexA;
+      forward.style.color = GameDataUtil.colorNameToHex(entry.colorNameA);
       backward.innerHTML = entry.backwardStr.replace(/ /, "&nbsp;");
-      backward.style.color = entry.colorHexB;
+      backward.style.color = GameDataUtil.colorNameToHex(entry.colorNameB);
     });
   }
 }

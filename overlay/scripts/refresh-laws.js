@@ -28,9 +28,9 @@ class Laws {
       const color = "black";
       let bgColor = "#aaa";
 
-      if (law.players.length === 1) {
-        const player = law.players[0];
-        bgColor = player.colorHex;
+      if (law.colorNames.length === 1) {
+        const colorName = law.colorNames[0];
+        bgColor = GameDataUtil.colorNameToHex(colorName);
       }
 
       const div = document.createElement("div");
