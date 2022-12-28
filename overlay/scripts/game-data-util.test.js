@@ -258,7 +258,12 @@ it("parseSpeakerColorName", () => {
 it("parseTimer", () => {
   const gameData = getGameData();
   const timer = GameDataUtil.parseTimer(gameData);
-  assert.deepEqual(timer, { seconds: 30, direction: 1 });
+  assert.deepEqual(timer, {
+    anchorTimestamp: 1670088961,
+    anchorSeconds: 3600,
+    seconds: 3632,
+    direction: 1,
+  });
 });
 
 it("parseWhispers", () => {

@@ -866,11 +866,15 @@ class GameDataUtil {
     console.assert(typeof gameData === "object");
 
     const seconds = gameData?.timer?.seconds || 0;
+    const anchorTimestamp = gameData?.timer?.anchorTimestamp || 0;
+    const anchorSeconds = gameData?.timer?.anchorSeconds || 0;
     const direction = gameData?.timer?.direction || 0;
     console.assert(typeof seconds === "number");
+    console.assert(typeof anchorTimestamp === "number");
+    console.assert(typeof anchorSeconds === "number");
     console.assert(typeof direction === "number");
 
-    return { seconds, direction };
+    return { seconds, anchorTimestamp, anchorSeconds, direction };
   }
 
   /**
