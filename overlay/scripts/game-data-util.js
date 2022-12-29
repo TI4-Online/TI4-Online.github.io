@@ -339,12 +339,14 @@ class GameDataUtil {
     const rotPattern = new RegExp(/^(\d+)([AB])(\d)$/);
     const regionAttachmentsPattern = new RegExp(/^(.*)\*(.*)$/);
 
-    const entries = hexSummary.split(",");
+    const entries = hexSummary.split(",").filter((s) => s.length > 0);
     return entries.map((entryEncoded) => {
       const regions = entryEncoded.split(";");
       let m = regions[0].match(firstRegionPattern);
       if (!m) {
-        throw new Error(`mismatch first region "${regions[0]}"`);
+        throw new Error(
+          `mismatch first region "${regions[0]}" ("${entryEncoded}")`
+        );
       }
       console.assert(m);
 
