@@ -871,12 +871,14 @@ class GameDataUtil {
     const anchorTimestamp = gameData?.timer?.anchorTimestamp || 0;
     const anchorSeconds = gameData?.timer?.anchorSeconds || 0;
     const direction = gameData?.timer?.direction || 0;
+    const countDown = gameData?.timer?.countDown || 0;
     console.assert(typeof seconds === "number");
     console.assert(typeof anchorTimestamp === "number");
     console.assert(typeof anchorSeconds === "number");
     console.assert(typeof direction === "number");
+    console.assert(typeof countDown === "number");
 
-    return { seconds, anchorTimestamp, anchorSeconds, direction };
+    return { seconds, anchorTimestamp, anchorSeconds, direction, countDown };
   }
 
   /**
