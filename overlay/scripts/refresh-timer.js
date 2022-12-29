@@ -19,6 +19,7 @@ class Timer {
     this._anchorSeconds = undefined;
     this._anchorDirection = undefined;
     this._valueSeconds = undefined;
+    this._countDown = undefined;
 
     new BroadcastChannel("onGameDataEvent").onmessage = (event) => {
       if (event.data.type === "UPDATE" || event.data.type === "NOT_MODIFIED") {
@@ -42,6 +43,7 @@ class Timer {
       this._anchorSeconds = timer.anchorSeconds;
       this._anchorDirection = timer.direction;
       this._valueSeconds = timer.seconds;
+      this._countDown = timer.countDown;
     }
 
     let timerSeconds = 0;
@@ -50,13 +52,14 @@ class Timer {
       // Timer is running, do the time computation here because updates
       // do not come every second.
       const deltaSeconds = now - this._anchorTimestamp;
-      timerSeconds = Math.max(
-        this._anchorSeconds + deltaSeconds * this._anchorDirection,
-        0
-      );
+      timerSeconds = this._anchorSeconds + deltaSeconds;
     } else if (this._valueSeconds) {
       // Timer is paused, use the displayed value.
       timerSeconds = this._valueSeconds;
+    }
+
+    if (this._countDown) {
+      timerSeconds = Math.max(this._countDown - timerSeconds, 0);
     }
 
     let hours = Math.floor(timerSeconds / 3600);
