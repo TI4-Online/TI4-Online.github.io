@@ -81,16 +81,9 @@ class Tempo {
     const ctx = this._canvas.getContext("2d");
     ctx.clearRect(0, 0, this._canvas.width, this._canvas.height);
 
-    // Axis.
+    // Dotted horizontal lines.
     ctx.strokeStyle = "#aaa";
     ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.moveTo(bb.left, bb.top);
-    ctx.lineTo(bb.left, bb.top + bb.height);
-    ctx.lineTo(bb.left + bb.width, bb.top + bb.height);
-    ctx.stroke();
-
-    // Dotted horizontal lines.
     ctx.setLineDash([3, 10]);
     for (let value = 2; value <= maxScore; value += 2) {
       const y = bb.top + ((maxScore - value) / maxScore) * bb.height;
@@ -135,8 +128,8 @@ class Tempo {
 
     // Compute lines for each player. Do this once, then draw lines and
     // finally draw points OVER lines.
-    const pointRadius = Math.ceil(bb.width * 0.01);
-    const pointOffset = Math.ceil(pointRadius * 2);
+    const pointRadius = Math.ceil(bb.width * 0.015);
+    const pointOffset = Math.ceil(bb.width * 0.02);
     const playerColorNameToXYs = {};
     for (const colorName of colorNames) {
       playerColorNameToXYs[colorName] = [];
@@ -183,7 +176,6 @@ class Tempo {
 
     // Draw lines.
     for (const colorName of colorNames) {
-      ctx.fillStyle = GameDataUtil.colorNameToHex(colorName);
       ctx.strokeStyle = GameDataUtil.colorNameToHex(colorName);
       const points = playerColorNameToXYs[colorName];
       ImageUtil.bezierCurveThrough(ctx, points);
@@ -191,16 +183,32 @@ class Tempo {
 
     // Draw points.
     for (const colorName of colorNames) {
-      ctx.fillStyle = GameDataUtil.colorNameToHex(colorName);
-      ctx.strokeStyle = GameDataUtil.colorNameToHex(colorName);
       const points = playerColorNameToXYs[colorName];
-      points.shift(); // remove [0,0]
       for (const [x, y] of points) {
+        if (y >= bb.top + bb.height) {
+          continue; // only draw points when 1+.
+        }
+
+        ctx.fillStyle = "#222";
+        ctx.beginPath();
+        ctx.arc(x, y, pointRadius + 3, 0, Math.PI * 2, true);
+        ctx.fill();
+
+        ctx.fillStyle = GameDataUtil.colorNameToHex(colorName);
         ctx.beginPath();
         ctx.arc(x, y, pointRadius, 0, Math.PI * 2, true);
         ctx.fill();
       }
     }
+
+    // Axis.
+    ctx.strokeStyle = "#aaa";
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(bb.left, bb.top);
+    ctx.lineTo(bb.left, bb.top + bb.height);
+    ctx.lineTo(bb.left + bb.width, bb.top + bb.height);
+    ctx.stroke();
   }
 }
 
