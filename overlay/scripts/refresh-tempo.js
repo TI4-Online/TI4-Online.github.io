@@ -194,6 +194,7 @@ class Tempo {
       ctx.fillStyle = GameDataUtil.colorNameToHex(colorName);
       ctx.strokeStyle = GameDataUtil.colorNameToHex(colorName);
       const points = playerColorNameToXYs[colorName];
+      points.shift(); // remove [0,0]
       for (const [x, y] of points) {
         ctx.beginPath();
         ctx.arc(x, y, pointRadius, 0, Math.PI * 2, true);
