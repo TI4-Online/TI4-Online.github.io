@@ -18,6 +18,7 @@ class Timer {
     this._anchorTimestamp = undefined;
     this._anchorSeconds = undefined;
     this._anchorDirection = undefined;
+    this._valueSeconds = undefined;
 
     new BroadcastChannel("onGameDataEvent").onmessage = (event) => {
       if (event.data.type === "UPDATE" || event.data.type === "NOT_MODIFIED") {
@@ -25,7 +26,6 @@ class Timer {
       }
     };
 
-    // D
     setInterval(() => {
       this.update();
     }, 1000);
@@ -41,23 +41,27 @@ class Timer {
       this._anchorTimestamp = timer.anchorTimestamp;
       this._anchorSeconds = timer.anchorSeconds;
       this._anchorDirection = timer.direction;
+      this._valueSeconds = timer.seconds;
     }
 
-    let hours = 0;
-    let minutes = 0;
-    let seconds = 0;
+    let timerSeconds = 0;
 
     if (this._anchorTimestamp) {
+      // Timer is running, do the time computation here because updates
+      // do not come every second.
       const deltaSeconds = now - this._anchorTimestamp;
-      const timerSeconds = Math.max(
+      timerSeconds = Math.max(
         this._anchorSeconds + deltaSeconds * this._anchorDirection,
         0
       );
-
-      hours = Math.floor(timerSeconds / 3600);
-      minutes = Math.floor((timerSeconds % 3600) / 60);
-      seconds = Math.floor(timerSeconds % 60);
+    } else if (this._valueSeconds) {
+      // Timer is paused, use the displayed value.
+      timerSeconds = this._valueSeconds;
     }
+
+    let hours = Math.floor(timerSeconds / 3600);
+    let minutes = Math.floor((timerSeconds % 3600) / 60);
+    let seconds = Math.floor(timerSeconds % 60);
 
     hours = String(hours).padStart(2, "0");
     minutes = String(minutes).padStart(2, "0");
