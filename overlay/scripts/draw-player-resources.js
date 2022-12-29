@@ -154,6 +154,11 @@ class DrawPlayerResources {
   _drawLeaders(ctx, boundingBox, resources) {
     const fontSize = Math.floor(boundingBox.width * 0.075);
 
+    const agent = {
+      x: boundingBox.left + boundingBox.width * 0.1,
+      y: boundingBox.top + boundingBox.height * 0.15,
+      text: resources.leaders?.commander?.substring(0, 1).toUpperCase() || "?",
+    };
     const commander = {
       x: boundingBox.left + boundingBox.width * 0.1,
       y: boundingBox.top + boundingBox.height * 0.39,
@@ -172,6 +177,9 @@ class DrawPlayerResources {
     ctx.strokeStyle = "white";
     ctx.fillStyle = "black";
     ctx.lineWidth = Math.floor(fontSize * 0.15);
+
+    ctx.strokeText(agent.text, agent.x, agent.y);
+    ctx.fillText(agent.text, agent.x, agent.y);
 
     ctx.strokeText(commander.text, commander.x, commander.y);
     ctx.fillText(commander.text, commander.x, commander.y);
