@@ -253,6 +253,19 @@ class GameDataUtil {
     return GameDataUtil.__escapeDiv.innerHTML;
   }
 
+  static parseActiveSystem(gameData) {
+    console.assert(typeof gameData === "object");
+
+    const tile = gameData?.activeSystem?.tile || 0;
+    const planets = gameData?.activeSystem?.planets || [];
+    console.assert(typeof tile === "number");
+
+    return {
+      tile,
+      planets: planets.map((s) => GameDataUtil._escapeForHTML(s)),
+    };
+  }
+
   /**
    * Parse current turn color name from overall game data.
    *
@@ -272,7 +285,7 @@ class GameDataUtil {
    * Parse encoded hex summary.  Never used directly no need to escape.
    *
    * @param {Object.{hexSummary:string}} gameData
-   * @returns {string}
+   * @returns {Array}
    */
   static parseHexSummary(gameData) {
     console.assert(typeof gameData === "object");
@@ -439,8 +452,6 @@ class GameDataUtil {
 
       return entry;
     });
-
-    return hexSummary;
   }
 
   /**
@@ -780,6 +791,18 @@ class GameDataUtil {
       return {
         name: GameDataUtil._escapeForHTML(name),
         colorName,
+      };
+    });
+  }
+
+  static parsePlayerUnitModifiers(playerData) {
+    console.assert(typeof playerData === "object");
+
+    const unitModifiers = playerData?.unitModifiers || [];
+    return unitModifiers.map((m) => {
+      return {
+        name: GameDataUtil._escapeForHTML(m.name),
+        localeName: GameDataUtil._escapeForHTML(m.localeName),
       };
     });
   }

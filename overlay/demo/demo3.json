@@ -1,0 +1,1065 @@
+{
+  "activeSystem": {
+    "planets": ["Ixth"],
+    "tile": 52
+  },
+  "config": {
+    "baseMagen": true,
+    "codex1": true,
+    "codex2": true,
+    "codex3": true
+  },
+  "hexSummary": "82-4-3,80-1-1*e,79-1+3*e,78+0-4*e,75+2+2Gc;i;i;i,72+0-2Pcf;i;i,69-2-4;Po;o,67+1-3;Bo,66-2-2Pd;im*x,64+2+0,63+2-2Wc2d1fi;2i,62-1+1Ycf;2i,61+1-1,50+1+1*e,49-1+5Rr*e,48-3+1*e,46+3-1*e,45+3+1*e,42+1-5*e,41+0+2*e,40-2+0*e,37+0+4;Ro;*w,35-1-5Bcf;o;i,31+1+5Rc;i;o,30+2-4Bdy;Wi;Bi,27-2+4Ycf;i;o,26-1-3,25+1+3Rdi;*z,24+2+4Gcf;i,23-2+2;Yi*I,21-3-1,18+0+0Gd3f;2i1s,15-3+3Yr;ips,54-3-3Pd2f1r*h;P4i1ms,10+0-6B2y;so;o,11+3+3Gr;o;o,52+0+6R2fyG3y;R2i1sG3i,8+3-3Wdiry;3i1ms",
+  "history": [
+    {
+      "hexSummary": "82-4-3,80-1-1,79-1+3,78+0-4,75+2+2,72+0-2,69-2-4,67+1-3,66-2-2,64+2+0,63+2-2,62-1+1,61+1-1,50+1+1,49-1+5,48-3+1,46+3-1,45+3+1,42+1-5,41+0+2,40-2+0,37+0+4,35-1-5,31+1+5,30+2-4,27-2+4,26-1-3,25+1+3,24+2+4,23-2+2,21-3-1,18+0+0,15-3+3Y2cf1ir;4i1ps,54-3-3Pcd3f1ir*h;P2i1s,10+0-6Bcdf3i1y;so;o,11+3+3G2cf4i1r;s,52+0+6Rcd2f3i1rs,8+3-3Wcd2fi1r;s",
+      "laws": [],
+      "perf": {
+        "mean": 33.333,
+        "median": 33.333,
+        "scrubbed": 33.333,
+        "stdDev": 0.001
+      },
+      "players": [
+        {
+          "alliances": [],
+          "color": "White",
+          "colorActual": "White",
+          "commandTokens": {
+            "fleet": 3,
+            "strategy": 2,
+            "tactics": 3
+          },
+          "commodities": 0,
+          "custodiansPoints": 0,
+          "handSummary": {
+            "Promissory": 6,
+            "Secret Objectives": 1
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "locked",
+            "hero": "locked"
+          },
+          "maxCommodities": 3,
+          "objectives": [],
+          "planetTotals": {
+            "influence": {
+              "avail": 0,
+              "total": 0
+            },
+            "legendary": 0,
+            "resources": {
+              "avail": 4,
+              "total": 4
+            },
+            "techs": {
+              "blue": 0,
+              "green": 0,
+              "red": 0,
+              "yellow": 0
+            },
+            "traits": {
+              "cultural": 0,
+              "hazardous": 0,
+              "industrial": 0
+            }
+          },
+          "score": 0,
+          "strategyCards": [],
+          "technologies": 3,
+          "tradeGoods": 0,
+          "unitUpgrades": []
+        },
+        {
+          "alliances": [],
+          "color": "Blue",
+          "colorActual": "Blue",
+          "commandTokens": {
+            "fleet": 3,
+            "strategy": 2,
+            "tactics": 3
+          },
+          "commodities": 0,
+          "custodiansPoints": 0,
+          "handSummary": {
+            "Promissory": 6,
+            "Secret Objectives": 1
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "locked",
+            "hero": "locked"
+          },
+          "maxCommodities": 2,
+          "objectives": [],
+          "planetTotals": {
+            "influence": {
+              "avail": 1,
+              "total": 1
+            },
+            "legendary": 0,
+            "resources": {
+              "avail": 6,
+              "total": 6
+            },
+            "techs": {
+              "blue": 0,
+              "green": 0,
+              "red": 0,
+              "yellow": 0
+            },
+            "traits": {
+              "cultural": 0,
+              "hazardous": 0,
+              "industrial": 0
+            }
+          },
+          "score": 0,
+          "strategyCards": [],
+          "technologies": 2,
+          "tradeGoods": 0,
+          "unitUpgrades": []
+        },
+        {
+          "alliances": [],
+          "color": "Purple",
+          "colorActual": "Purple",
+          "commandTokens": {
+            "fleet": 3,
+            "strategy": 2,
+            "tactics": 3
+          },
+          "commodities": 0,
+          "custodiansPoints": 0,
+          "handSummary": {
+            "Promissory": 6,
+            "Secret Objectives": 1
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "locked",
+            "hero": "locked"
+          },
+          "maxCommodities": 2,
+          "objectives": [],
+          "planetTotals": {
+            "influence": {
+              "avail": 0,
+              "total": 0
+            },
+            "legendary": 0,
+            "resources": {
+              "avail": 4,
+              "total": 4
+            },
+            "techs": {
+              "blue": 0,
+              "green": 0,
+              "red": 0,
+              "yellow": 0
+            },
+            "traits": {
+              "cultural": 0,
+              "hazardous": 0,
+              "industrial": 0
+            }
+          },
+          "score": 0,
+          "strategyCards": [],
+          "technologies": 1,
+          "tradeGoods": 0,
+          "unitUpgrades": []
+        },
+        {
+          "alliances": [],
+          "color": "Yellow",
+          "colorActual": "Yellow",
+          "commandTokens": {
+            "fleet": 3,
+            "strategy": 2,
+            "tactics": 3
+          },
+          "commodities": 0,
+          "custodiansPoints": 0,
+          "handSummary": {
+            "Promissory": 6,
+            "Secret Objectives": 1
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "locked",
+            "hero": "locked"
+          },
+          "maxCommodities": 3,
+          "objectives": [],
+          "planetTotals": {
+            "influence": {
+              "avail": 5,
+              "total": 5
+            },
+            "legendary": 0,
+            "resources": {
+              "avail": 3,
+              "total": 3
+            },
+            "techs": {
+              "blue": 0,
+              "green": 0,
+              "red": 0,
+              "yellow": 0
+            },
+            "traits": {
+              "cultural": 0,
+              "hazardous": 0,
+              "industrial": 0
+            }
+          },
+          "score": 0,
+          "strategyCards": [],
+          "technologies": 1,
+          "tradeGoods": 0,
+          "unitUpgrades": []
+        },
+        {
+          "alliances": ["red"],
+          "color": "Red",
+          "colorActual": "Red",
+          "commandTokens": {
+            "fleet": 3,
+            "strategy": 2,
+            "tactics": 3
+          },
+          "commodities": 0,
+          "custodiansPoints": 0,
+          "handSummary": {
+            "Promissory": 5,
+            "Secret Objectives": 1
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "locked",
+            "hero": "locked"
+          },
+          "maxCommodities": 3,
+          "objectives": [],
+          "planetTotals": {
+            "influence": {
+              "avail": 0,
+              "total": 0
+            },
+            "legendary": 0,
+            "resources": {
+              "avail": 0,
+              "total": 0
+            },
+            "techs": {
+              "blue": 0,
+              "green": 0,
+              "red": 0,
+              "yellow": 0
+            },
+            "traits": {
+              "cultural": 0,
+              "hazardous": 0,
+              "industrial": 0
+            }
+          },
+          "score": 0,
+          "strategyCards": [],
+          "technologies": 2,
+          "tradeGoods": 0,
+          "unitUpgrades": []
+        },
+        {
+          "alliances": [],
+          "color": "Green",
+          "colorActual": "Green",
+          "commandTokens": {
+            "fleet": 3,
+            "strategy": 2,
+            "tactics": 3
+          },
+          "commodities": 0,
+          "custodiansPoints": 0,
+          "handSummary": {
+            "Promissory": 6,
+            "Secret Objectives": 1
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "locked",
+            "hero": "locked"
+          },
+          "maxCommodities": 3,
+          "objectives": [],
+          "planetTotals": {
+            "influence": {
+              "avail": 1,
+              "total": 1
+            },
+            "legendary": 0,
+            "resources": {
+              "avail": 3,
+              "total": 3
+            },
+            "techs": {
+              "blue": 0,
+              "green": 0,
+              "red": 0,
+              "yellow": 0
+            },
+            "traits": {
+              "cultural": 0,
+              "hazardous": 0,
+              "industrial": 0
+            }
+          },
+          "score": 0,
+          "strategyCards": [],
+          "technologies": 1,
+          "tradeGoods": 0,
+          "unitUpgrades": []
+        }
+      ],
+      "round": 1,
+      "setupTimestamp": 1672325023.124,
+      "speaker": "White",
+      "timestamp": 1672327709.783
+    },
+    {
+      "hexSummary": "82-4-3,80-1-1*e,79-1+3*e,78+0-4*e,75+2+2Gct;i;i;i,72+0-2Pcft;i;i,69-2-4;Po;o,67+1-3;Bo,66-2-2Pdt;im*x,64+2+0,63+2-2Wc2d1fit;2i,62-1+1Ycft;2i,61+1-1,50+1+1*e,49-1+5Rrt*e,48-3+1*e,46+3-1*e,45+3+1*e,42+1-5*e,41+0+2*e,40-2+0*e,37+0+4BtGtPtWtYt;Ro;*w,35-1-5Bcft;o;i,31+1+5Rct;i;o,30+2-4BdytWt;i;Bi,27-2+4Ycft;i;o,26-1-3,25+1+3Rdit;*z,24+2+4Gcft;i,23-2+2;Yi*I,21-3-1,18+0+0Gd3f1t;2i1s,15-3+3Yr;ips,54-3-3Pd2f1rt*h;P4i1ms,10+0-6B2y;so;o,11+3+3Gr;o;o,52+0+6R2fy1t;2i1s,8+3-3Wdiryt;3i1ms",
+      "laws": [],
+      "perf": {
+        "mean": 36.411,
+        "median": 33.333,
+        "scrubbed": 34.124,
+        "stdDev": 6.532
+      },
+      "players": [
+        {
+          "alliances": [],
+          "color": "White",
+          "colorActual": "White",
+          "commandTokens": {
+            "fleet": 3,
+            "strategy": 0,
+            "tactics": 2
+          },
+          "commodities": 0,
+          "custodiansPoints": 0,
+          "handSummary": {
+            "Actions": 2,
+            "Promissory": 6,
+            "Secret Objectives": 1
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "locked",
+            "hero": "locked"
+          },
+          "maxCommodities": 3,
+          "objectives": [],
+          "planetTotals": {
+            "influence": {
+              "avail": 0,
+              "total": 4
+            },
+            "legendary": 0,
+            "resources": {
+              "avail": 0,
+              "total": 4
+            },
+            "techs": {
+              "blue": 0,
+              "green": 1,
+              "red": 0,
+              "yellow": 0
+            },
+            "traits": {
+              "cultural": 2,
+              "hazardous": 0,
+              "industrial": 0
+            }
+          },
+          "score": 0,
+          "strategyCards": ["Trade"],
+          "technologies": 4,
+          "tradeGoods": 0,
+          "unitUpgrades": []
+        },
+        {
+          "alliances": [],
+          "color": "Blue",
+          "colorActual": "Blue",
+          "commandTokens": {
+            "fleet": 3,
+            "strategy": 0,
+            "tactics": 0
+          },
+          "commodities": 0,
+          "custodiansPoints": 0,
+          "handSummary": {
+            "Actions": 1,
+            "Promissory": 6,
+            "Secret Objectives": 1
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "unlocked",
+            "hero": "locked"
+          },
+          "maxCommodities": 2,
+          "objectives": ["Corner the Market"],
+          "planetTotals": {
+            "influence": {
+              "avail": 0,
+              "total": 6
+            },
+            "legendary": 0,
+            "resources": {
+              "avail": 0,
+              "total": 16
+            },
+            "techs": {
+              "blue": 0,
+              "green": 0,
+              "red": 0,
+              "yellow": 0
+            },
+            "traits": {
+              "cultural": 0,
+              "hazardous": 4,
+              "industrial": 0
+            }
+          },
+          "score": 1,
+          "strategyCards": ["Technology"],
+          "technologies": 4,
+          "tradeGoods": 1,
+          "unitUpgrades": []
+        },
+        {
+          "alliances": [],
+          "color": "Purple",
+          "colorActual": "Purple",
+          "commandTokens": {
+            "fleet": 2,
+            "strategy": 0,
+            "tactics": 0
+          },
+          "commodities": 0,
+          "custodiansPoints": 0,
+          "handSummary": {
+            "Actions": 2,
+            "Promissory": 4,
+            "Secret Objectives": 1
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "locked",
+            "hero": "locked"
+          },
+          "maxCommodities": 2,
+          "objectives": ["Corner the Market"],
+          "planetTotals": {
+            "influence": {
+              "avail": 0,
+              "total": 11
+            },
+            "legendary": 1,
+            "resources": {
+              "avail": 0,
+              "total": 16
+            },
+            "techs": {
+              "blue": 0,
+              "green": 0,
+              "red": 1,
+              "yellow": 0
+            },
+            "traits": {
+              "cultural": 0,
+              "hazardous": 1,
+              "industrial": 4
+            }
+          },
+          "score": 1,
+          "strategyCards": ["Warfare"],
+          "technologies": 2,
+          "tradeGoods": 6,
+          "unitUpgrades": ["carrier"]
+        },
+        {
+          "alliances": [],
+          "color": "Yellow",
+          "colorActual": "Yellow",
+          "commandTokens": {
+            "fleet": 3,
+            "strategy": 2,
+            "tactics": 0
+          },
+          "commodities": 0,
+          "custodiansPoints": 0,
+          "handSummary": {
+            "Actions": 2,
+            "Promissory": 6,
+            "Secret Objectives": 1
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "locked",
+            "hero": "locked"
+          },
+          "maxCommodities": 3,
+          "objectives": ["Sway the Council"],
+          "planetTotals": {
+            "influence": {
+              "avail": 0,
+              "total": 11
+            },
+            "legendary": 0,
+            "resources": {
+              "avail": 0,
+              "total": 12
+            },
+            "techs": {
+              "blue": 0,
+              "green": 2,
+              "red": 0,
+              "yellow": 1
+            },
+            "traits": {
+              "cultural": 1,
+              "hazardous": 1,
+              "industrial": 2
+            }
+          },
+          "score": 1,
+          "strategyCards": ["Politics"],
+          "technologies": 2,
+          "tradeGoods": 2,
+          "unitUpgrades": []
+        },
+        {
+          "alliances": ["red"],
+          "color": "Red",
+          "colorActual": "Red",
+          "commandTokens": {
+            "fleet": 3,
+            "strategy": 1,
+            "tactics": 1
+          },
+          "commodities": 0,
+          "custodiansPoints": 0,
+          "handSummary": {
+            "Actions": 2,
+            "Promissory": 5,
+            "Secret Objectives": 1
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "locked",
+            "hero": "locked"
+          },
+          "maxCommodities": 3,
+          "objectives": ["Sway the Council"],
+          "planetTotals": {
+            "influence": {
+              "avail": 0,
+              "total": 14
+            },
+            "legendary": 0,
+            "resources": {
+              "avail": 0,
+              "total": 10
+            },
+            "techs": {
+              "blue": 0,
+              "green": 0,
+              "red": 1,
+              "yellow": 1
+            },
+            "traits": {
+              "cultural": 1,
+              "hazardous": 2,
+              "industrial": 2
+            }
+          },
+          "score": 1,
+          "strategyCards": ["Diplomacy"],
+          "technologies": 3,
+          "tradeGoods": 2,
+          "unitUpgrades": []
+        },
+        {
+          "alliances": [],
+          "color": "Green",
+          "colorActual": "Green",
+          "commandTokens": {
+            "fleet": 3,
+            "strategy": 0,
+            "tactics": 1
+          },
+          "commodities": 0,
+          "custodiansPoints": 1,
+          "handSummary": {
+            "Actions": 1,
+            "Promissory": 6,
+            "Secret Objectives": 1
+          },
+          "laws": [],
+          "leaders": {
+            "commander": "locked",
+            "hero": "locked"
+          },
+          "maxCommodities": 3,
+          "objectives": [],
+          "planetTotals": {
+            "influence": {
+              "avail": 0,
+              "total": 12
+            },
+            "legendary": 0,
+            "resources": {
+              "avail": 0,
+              "total": 9
+            },
+            "techs": {
+              "blue": 0,
+              "green": 0,
+              "red": 1,
+              "yellow": 0
+            },
+            "traits": {
+              "cultural": 2,
+              "hazardous": 2,
+              "industrial": 0
+            }
+          },
+          "score": 1,
+          "strategyCards": ["Leadership"],
+          "technologies": 2,
+          "tradeGoods": 2,
+          "unitUpgrades": []
+        }
+      ],
+      "round": 2,
+      "setupTimestamp": 1672325023.124,
+      "speaker": "Yellow",
+      "timestamp": 1672331046.117
+    }
+  ],
+  "isPoK": true,
+  "laws": ["Regulated Conscription"],
+  "mapString": "41 50 61 72 80 62 37 25 75 64 63 67 78 26 66 40 23 79 52 31 24 11 45 46 8 30 42 10 35 69 54 21 48 15 27 49",
+  "objectives": {
+    "Agenda": [],
+    "Other": [],
+    "Public Objectives I": [
+      "Sway the Council",
+      "Corner the Market",
+      "Amass Wealth"
+    ],
+    "Public Objectives II": [],
+    "Relics": [],
+    "Secret Objectives": []
+  },
+  "perf": {
+    "mean": 35.481,
+    "median": 33.333,
+    "scrubbed": 33.682,
+    "stdDev": 4.969
+  },
+  "platform": "ttpg",
+  "players": [
+    {
+      "active": false,
+      "alliances": [],
+      "color": "White",
+      "colorActual": "White",
+      "commandTokens": {
+        "fleet": 3,
+        "strategy": 1,
+        "tactics": 3
+      },
+      "commodities": 0,
+      "custodiansPoints": 0,
+      "factionName": "The Nekro Virus",
+      "factionShort": "Nekro",
+      "handSummary": {
+        "Actions": 3,
+        "Promissory": 6,
+        "Secret Objectives": 1
+      },
+      "laws": [],
+      "leaders": {
+        "commander": "locked",
+        "hero": "locked"
+      },
+      "maxCommodities": 3,
+      "objectives": [],
+      "planetTotals": {
+        "influence": {
+          "avail": 4,
+          "total": 4
+        },
+        "legendary": 0,
+        "resources": {
+          "avail": 4,
+          "total": 4
+        },
+        "techs": {
+          "blue": 0,
+          "green": 1,
+          "red": 0,
+          "yellow": 0
+        },
+        "traits": {
+          "cultural": 2,
+          "hazardous": 0,
+          "industrial": 0
+        }
+      },
+      "score": 0,
+      "steamName": "Grindsa",
+      "strategyCards": [],
+      "strategyCardsFaceDown": [],
+      "technologies": [
+        "Gravity Drive",
+        "Valefar Assimilator Y",
+        "Valefar Assimilator X",
+        "Dacxive Animators"
+      ],
+      "tradeGoods": 0,
+      "unitUpgrades": []
+    },
+    {
+      "active": false,
+      "alliances": [],
+      "color": "Blue",
+      "colorActual": "Blue",
+      "commandTokens": {
+        "fleet": 0,
+        "strategy": 2,
+        "tactics": 3
+      },
+      "commodities": 0,
+      "custodiansPoints": 0,
+      "factionName": "The Barony of Letnev",
+      "factionShort": "Letnev",
+      "handSummary": {
+        "Actions": 2,
+        "Promissory": 6,
+        "Secret Objectives": 1
+      },
+      "laws": [],
+      "leaders": {
+        "commander": "unlocked",
+        "hero": "locked"
+      },
+      "maxCommodities": 2,
+      "objectives": ["Corner the Market"],
+      "planetTotals": {
+        "influence": {
+          "avail": 6,
+          "total": 6
+        },
+        "legendary": 0,
+        "resources": {
+          "avail": 16,
+          "total": 16
+        },
+        "techs": {
+          "blue": 0,
+          "green": 0,
+          "red": 0,
+          "yellow": 0
+        },
+        "traits": {
+          "cultural": 0,
+          "hazardous": 4,
+          "industrial": 0
+        }
+      },
+      "score": 1,
+      "steamName": "Toron",
+      "strategyCards": [],
+      "strategyCardsFaceDown": [],
+      "technologies": [
+        "Gravity Drive",
+        "Plasma Scoring",
+        "Antimass Deflectors",
+        "Dark Energy Tap"
+      ],
+      "tradeGoods": 1,
+      "unitUpgrades": []
+    },
+    {
+      "active": false,
+      "alliances": [],
+      "color": "Purple",
+      "colorActual": "Purple",
+      "commandTokens": {
+        "fleet": 2,
+        "strategy": 1,
+        "tactics": 1
+      },
+      "commodities": 0,
+      "custodiansPoints": 0,
+      "factionName": "The Vuil'raith Cabal",
+      "factionShort": "Vuilraith",
+      "handSummary": {
+        "Actions": 3,
+        "Promissory": 4,
+        "Secret Objectives": 1
+      },
+      "laws": [],
+      "leaders": {
+        "commander": "locked",
+        "hero": "locked"
+      },
+      "maxCommodities": 2,
+      "objectives": ["Corner the Market"],
+      "planetTotals": {
+        "influence": {
+          "avail": 11,
+          "total": 11
+        },
+        "legendary": 1,
+        "resources": {
+          "avail": 16,
+          "total": 16
+        },
+        "techs": {
+          "blue": 0,
+          "green": 0,
+          "red": 1,
+          "yellow": 0
+        },
+        "traits": {
+          "cultural": 0,
+          "hazardous": 1,
+          "industrial": 4
+        }
+      },
+      "score": 1,
+      "steamName": "BigAlCupaChino",
+      "strategyCards": [],
+      "strategyCardsFaceDown": [],
+      "technologies": ["Self Assembly Routines", "Carrier II"],
+      "tradeGoods": 6,
+      "unitUpgrades": ["carrier"]
+    },
+    {
+      "active": true,
+      "alliances": [],
+      "color": "Yellow",
+      "colorActual": "Yellow",
+      "commandTokens": {
+        "fleet": 2,
+        "strategy": 2,
+        "tactics": 3
+      },
+      "commodities": 0,
+      "custodiansPoints": 0,
+      "factionName": "The Yssaril Tribes",
+      "factionShort": "Yssaril",
+      "handSummary": {
+        "Actions": 4,
+        "Promissory": 6,
+        "Secret Objectives": 1
+      },
+      "laws": [],
+      "leaders": {
+        "commander": "locked",
+        "hero": "locked"
+      },
+      "maxCommodities": 3,
+      "objectives": ["Sway the Council"],
+      "planetTotals": {
+        "influence": {
+          "avail": 11,
+          "total": 11
+        },
+        "legendary": 0,
+        "resources": {
+          "avail": 12,
+          "total": 12
+        },
+        "techs": {
+          "blue": 0,
+          "green": 2,
+          "red": 0,
+          "yellow": 1
+        },
+        "traits": {
+          "cultural": 1,
+          "hazardous": 1,
+          "industrial": 2
+        }
+      },
+      "score": 1,
+      "steamName": "Alvi",
+      "strategyCards": [],
+      "strategyCardsFaceDown": [],
+      "technologies": ["Neural Motivator", "Psychoarchaeology"],
+      "tradeGoods": 2,
+      "unitUpgrades": []
+    },
+    {
+      "active": false,
+      "alliances": ["red"],
+      "color": "Red",
+      "colorActual": "Red",
+      "commandTokens": {
+        "fleet": 3,
+        "strategy": 2,
+        "tactics": 2
+      },
+      "commodities": 0,
+      "custodiansPoints": 0,
+      "factionName": "The Mahact Gene-Sorcerers",
+      "factionShort": "Mahact",
+      "handSummary": {
+        "Actions": 3,
+        "Promissory": 5,
+        "Secret Objectives": 1
+      },
+      "laws": [],
+      "leaders": {
+        "commander": "locked",
+        "hero": "locked"
+      },
+      "maxCommodities": 3,
+      "objectives": ["Sway the Council"],
+      "planetTotals": {
+        "influence": {
+          "avail": 14,
+          "total": 14
+        },
+        "legendary": 0,
+        "resources": {
+          "avail": 10,
+          "total": 10
+        },
+        "techs": {
+          "blue": 0,
+          "green": 0,
+          "red": 1,
+          "yellow": 1
+        },
+        "traits": {
+          "cultural": 1,
+          "hazardous": 2,
+          "industrial": 2
+        }
+      },
+      "score": 1,
+      "steamName": "Kurapikachu",
+      "strategyCards": [],
+      "strategyCardsFaceDown": [],
+      "technologies": [
+        "Dark Energy Tap",
+        "Predictive Intelligence",
+        "Bio-Stims"
+      ],
+      "tradeGoods": 2,
+      "unitUpgrades": []
+    },
+    {
+      "active": true,
+      "alliances": [],
+      "color": "Green",
+      "colorActual": "Green",
+      "commandTokens": {
+        "fleet": 2,
+        "strategy": 2,
+        "tactics": 2
+      },
+      "commodities": 0,
+      "custodiansPoints": 1,
+      "factionName": "The Clan of Saar",
+      "factionShort": "Saar",
+      "handSummary": {
+        "Actions": 2,
+        "Promissory": 6,
+        "Secret Objectives": 1
+      },
+      "laws": [],
+      "leaders": {
+        "commander": "locked",
+        "hero": "locked"
+      },
+      "maxCommodities": 3,
+      "objectives": [],
+      "planetTotals": {
+        "influence": {
+          "avail": 12,
+          "total": 12
+        },
+        "legendary": 0,
+        "resources": {
+          "avail": 9,
+          "total": 9
+        },
+        "techs": {
+          "blue": 0,
+          "green": 0,
+          "red": 1,
+          "yellow": 0
+        },
+        "traits": {
+          "cultural": 2,
+          "hazardous": 2,
+          "industrial": 0
+        }
+      },
+      "score": 1,
+      "steamName": "Sam Le",
+      "strategyCards": [],
+      "strategyCardsFaceDown": [],
+      "technologies": ["Antimass Deflectors", "Gravity Drive"],
+      "tradeGoods": 2,
+      "unitUpgrades": []
+    }
+  ],
+  "round": 2,
+  "scoreboard": 10,
+  "setupTimestamp": 1672325023.124,
+  "speaker": "Yellow",
+  "timer": {
+    "anchorSeconds": 0,
+    "anchorTimestamp": 1672326214,
+    "direction": -1,
+    "seconds": 4984
+  },
+  "timestamp": 1672331198.796,
+  "turn": "Green",
+  "whispers": [
+    {
+      "backwardStr": "                                                            ",
+      "colorNameA": "purple",
+      "colorNameB": "yellow",
+      "forwardStr": "                                                            "
+    },
+    {
+      "backwardStr": "                                                            ",
+      "colorNameA": "purple",
+      "colorNameB": "white",
+      "forwardStr": "                                                            "
+    },
+    {
+      "backwardStr": "                                                            ",
+      "colorNameA": "yellow",
+      "colorNameB": "red",
+      "forwardStr": "                                                            "
+    },
+    {
+      "backwardStr": "                                                            ",
+      "colorNameA": "yellow",
+      "colorNameB": "white",
+      "forwardStr": "                                                            "
+    }
+  ]
+}

@@ -143,6 +143,11 @@ iframe {
   height: 298px;
 }
 
+.size-calc {
+  width: 1200px;
+  height: 400px;
+}
+
 .size-map {
   width: 1200px;
   height: 1200px;
