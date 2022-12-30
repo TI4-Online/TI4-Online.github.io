@@ -95,14 +95,16 @@ class Leaderboard {
     factionNameDiv.style.color = color;
   }
 
-  fillPlayerName(cell, playerName, color) {
+  fillPlayerName(cell, playerName, color, active) {
     console.assert(typeof cell === "object");
     console.assert(typeof playerName === "string");
     console.assert(typeof color === "string");
 
     const playerNameDiv = cell.getElementsByClassName("player-name")[0];
     console.assert(playerNameDiv);
-    playerNameDiv.textContent = playerName;
+    playerNameDiv.innerHTML = active
+      ? playerName
+      : `<s><i>&nbsp;${playerName}&nbsp;</i></s>`;
     playerNameDiv.style.color = color;
   }
 
@@ -146,7 +148,7 @@ class Leaderboard {
     if (isCurrentTurn) {
       bgColor = this._activeTurnBgColor;
     } else if (!active) {
-      bgColor = this._passedBgColor;
+      //  bgColor = this._passedBgColor;
     }
     cell.style.backgroundColor = bgColor;
   }
@@ -187,7 +189,7 @@ class Leaderboard {
       const isCurrentTurn = colorNameAndHex.colorName === currentTurnColorName;
 
       this.fillFaction(cell, faction, color);
-      this.fillPlayerName(cell, playerName, color);
+      this.fillPlayerName(cell, playerName, color, active);
       this.fillScore(cell, score, color);
       this.fillStrategyCards(cell, strategyCards, color);
       this.fillBackgroundColor(cell, isCurrentTurn, active);
