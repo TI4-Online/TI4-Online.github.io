@@ -153,6 +153,8 @@ class Calc {
       this._fillCalcFaction(input.options.defender, peerPlayerData);
       this._fillCalcFleet(input.attackerUnits, region, activePlayerColorName);
       this._fillCalcFleet(input.defenderUnits, region, peerColorName);
+      this._fillCalcUnitUpgrades(input.attackerUnits, activePlayerData);
+      this._fillCalcUnitUpgrades(input.defenderUnits, peerPlayerData);
       this._fillCalcModifiers(input.options.attacker, activePlayerData);
       this._fillCalcModifiers(input.options.defender, peerPlayerData);
 
@@ -181,10 +183,13 @@ class Calc {
         im.imitationIterations = 100000; // fewer has minimal effect on simulation time
         var start = Date.now();
         var expected = im.estimateProbabilities(input).distribution;
+        simulation.distribution = expected.toString();
         simulation.attacker = Math.round(expected.downTo(-1) * 100);
         simulation.defender = Math.round(expected.downTo(1) * 100);
         simulation.draw = 100 - (simulation.attacker + simulation.defender);
         simulation.msecs = Date.now() - start;
+
+        console.log(JSON.stringify(simulation));
       }
 
       regionNameTDs[regionIndex].innerText = regionName.toUpperCase();
@@ -288,9 +293,32 @@ class Calc {
     }
   }
 
+  _fillCalcUnitUpgrades(fleet, playerData) {
+    const unitUpgrades = GameDataUtil.parsePlayerUnitUpgrades(playerData);
+
+    const unitToCalc = {
+      flagship: game.UnitType.Flagship,
+      war_sun: game.UnitType.WarSun,
+      dreadnought: game.UnitType.Dreadnought,
+      carrier: game.UnitType.Carrier,
+      cruiser: game.UnitType.Cruiser,
+      destroyer: game.UnitType.Destroyer,
+      fighter: game.UnitType.Fighter,
+      pds: game.UnitType.PDS,
+      mech: game.UnitType.Mech,
+      infantry: game.UnitType.Infantry,
+    };
+    for (const unitName of unitUpgrades) {
+      const calcName = unitToCalc[unitName];
+      const entry = fleet[calcName];
+      if (entry) {
+        entry.upgraded = true;
+      }
+    }
+  }
+
   _fillCalcModifiers(options, playerData) {
     const modifiers = GameDataUtil.parsePlayerUnitModifiers(playerData);
-    const upgrades = GameDataUtil.parsePlayerUnitUpgrades(playerData);
   }
 }
 

@@ -413,6 +413,7 @@ class GameDataUtil {
           const colorName = colorCodeToColorName[c];
           if (colorName) {
             stickyColor = colorName;
+            stickyCount = 1; // reset count with new color
             continue;
           }
 
