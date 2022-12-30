@@ -1151,7 +1151,7 @@
         return result;
       }
 
-      function fromExtraDice(fleet, throwType, modifier, extraDice) {
+      function FromExtraDice(fleet, throwType, modifier, extraDice) {
         var bestUnit = getUnitWithLowest(fleet, game.ThrowValues[throwType]);
         if (bestUnit) {
           var unitWithOneDie = bestUnit.clone();

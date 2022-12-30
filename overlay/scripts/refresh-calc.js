@@ -189,7 +189,7 @@ class Calc {
         simulation.draw = 100 - (simulation.attacker + simulation.defender);
         simulation.msecs = Date.now() - start;
 
-        console.log(JSON.stringify(simulation));
+        //console.log(JSON.stringify(simulation));
       }
 
       regionNameTDs[regionIndex].innerText = regionName.toUpperCase();
@@ -319,6 +319,30 @@ class Calc {
 
   _fillCalcModifiers(options, playerData) {
     const modifiers = GameDataUtil.parsePlayerUnitModifiers(playerData);
+
+    const modifierToCalc = {
+      antimass_deflectors: "antimassDeflectors",
+      plasma_scoring: "plasmaScoring",
+    };
+
+    for (const modifier of modifiers) {
+      const calc = modifierToCalc[modifier.localeName];
+      if (calc) {
+        options[calc] = true;
+      }
+    }
+
+    const techToCalc = {
+      "Antimass Deflectors": "antimassDeflectors",
+    };
+
+    const technologies = GameDataUtil.parsePlayerTechnologies(playerData);
+    for (const tech of technologies) {
+      const calc = techToCalc[tech.name];
+      if (calc) {
+        options[calc] = true;
+      }
+    }
   }
 }
 
