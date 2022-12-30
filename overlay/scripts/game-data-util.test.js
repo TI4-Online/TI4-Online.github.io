@@ -259,10 +259,11 @@ it("parseTimer", () => {
   const gameData = getGameData();
   const timer = GameDataUtil.parseTimer(gameData);
   assert.deepEqual(timer, {
-    anchorTimestamp: 1670088961,
     anchorSeconds: 3600,
-    seconds: 3632,
+    anchorTimestamp: 1670088961,
+    countDown: 0,
     direction: 1,
+    seconds: 3632,
   });
 });
 
