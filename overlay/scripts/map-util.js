@@ -64,6 +64,13 @@ class MapUtil {
       ],
     };
 
+    this._tileToOverrideRegionCount = {
+      25: 3, // quann
+      26: 3, // lodor
+      51: 3, // creuss
+      64: 3, // atlas
+    };
+
     this._canvas = canvas;
 
     if (this._canvas.width === 0 && this._canvas.height === 0) {
@@ -107,7 +114,7 @@ class MapUtil {
     );
   }
 
-  drawTile(x, y, hexSummaryEntry) {
+  drawTile(x, y, hexSummaryEntry, drawTileNumber = false) {
     const tile = hexSummaryEntry.tile;
     const src = ImageUtil.getSrc(
       `tiles/tile_${String(tile).padStart(3, "0")}.png`
@@ -117,9 +124,19 @@ class MapUtil {
       height: this._tileWidth, // images have transparent top/botom for square
     });
 
-    this._canvasContext.font = `800 ${this._fontSize}px Open Sans, sans-serif`;
-    this._canvasContext.fillStyle = "white";
-    this._canvasContext.fillText(tile, x, y + this._tileWidth / 2);
+    if (drawTileNumber) {
+      this._canvasContext.save();
+      this._canvasContext.font = `800 ${this._fontSize}px Open Sans, sans-serif`;
+      this._canvasContext.fillStyle = "white";
+      this._canvasContext.textBaseline = "middle";
+      this._canvasContext.textAlign = "left";
+      this._canvasContext.fillText(
+        tile,
+        x + this._deltaX,
+        y + this._tileWidth / 2
+      );
+      this._canvasContext.restore();
+    }
   }
 
   drawCommandTokens(x, y, hexSummaryEntry) {
@@ -216,7 +233,10 @@ class MapUtil {
       }
     }
 
-    const numRegions = hexSummaryEntry.regions.length;
+    let numRegions = this._tileToOverrideRegionCount[hexSummaryEntry.tile];
+    if (!numRegions) {
+      numRegions = hexSummaryEntry.regions.length;
+    }
     const [cx, cy, avail] = this._numRegionsToCenters[numRegions][regionIndex];
     x += (cx / 2 + 0.5) * this._tileWidth;
     y += (cy / 2 + 0.5) * this._tileWidth;
