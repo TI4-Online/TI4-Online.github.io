@@ -15,35 +15,6 @@ const im = window.imitator;
 const structs = window;
 const game = window;
 
-function demo() {
-  console.log("XXX DEMO");
-  var fleet1 = {};
-  var fleet2 = {};
-
-  fleet1[game.UnitType.Dreadnought] = { count: 3 };
-  fleet1[game.UnitType.Cruiser] = { count: 3 };
-  fleet1[game.UnitType.Fighter] = { count: 3 };
-
-  fleet2[game.UnitType.Dreadnought] = { count: 2 };
-  fleet2[game.UnitType.Cruiser] = { count: 3 };
-  fleet2[game.UnitType.Fighter] = { count: 5 };
-
-  var input = {
-    attackerUnits: fleet1,
-    defenderUnits: fleet2,
-    battleType: game.BattleType.Space,
-    options: {
-      attacker: { race: game.Race.Arborec },
-      defender: { race: game.Race.Arborec, duraniumArmor: true },
-    },
-  };
-  im.imitationIterations = 100000; // fewer has minimal effect on simulation time
-  var start = new Date();
-  var expected = im.estimateProbabilities(input).distribution;
-  console.log("passed", new Date() - start);
-  console.log(expected.toString());
-}
-
 class Calc {
   static getInstance() {
     if (!Calc.__instance) {
@@ -53,13 +24,23 @@ class Calc {
   }
 
   constructor() {
-    const elementId = "calc";
+    let elementId = "calc";
     this._div = document.getElementById(elementId);
     if (!this._div) {
       throw new Error(`Missing element id "${elementId}"`);
     }
 
-    this._currentKey = undefined;
+    elementId = "calc-map";
+    const mapCanvas = document.getElementById(elementId);
+    if (!mapCanvas) {
+      throw new Error(`Missing element id "${elementId}"`);
+    }
+
+    const w = Math.floor(mapCanvas.parentNode.offsetWidth * 1.45); // x2 MSAA
+    this._mapUtil = new MapUtil(mapCanvas, w);
+
+    // Cache per-tile results.
+    this._tileToRegionToSimulation = {};
 
     new BroadcastChannel("onGameDataEvent").onmessage = (event) => {
       if (event.data.type === "UPDATE" || event.data.type === "NOT_MODIFIED") {
@@ -71,6 +52,39 @@ class Calc {
   update(gameData) {
     console.assert(typeof gameData === "object");
 
+    // Reset.
+    let regionNameTDs = document.getElementsByClassName("calc-region");
+    regionNameTDs = [...regionNameTDs];
+    regionNameTDs.forEach((td) => (td.innerText = "-"));
+
+    let regionResultTDs = document.getElementsByClassName("calc-result");
+    regionResultTDs = [...regionResultTDs];
+    const regionResultEntries = regionResultTDs.map((td) => {
+      const attackerDiv = td.getElementsByClassName("calc-attacker")[0];
+      const attackerValue = td.getElementsByClassName("value-attacker")[0];
+      const defenderDiv = td.getElementsByClassName("calc-defender")[0];
+      const defenderValue = td.getElementsByClassName("value-defender")[0];
+
+      td.style.backgroundColor = "unset";
+
+      attackerDiv.style.backgroundColor = "unset";
+      attackerDiv.style.width = "0px";
+      attackerValue.innerText = "";
+
+      defenderDiv.style.backgroundColor = "unset";
+      defenderDiv.style.width = "0px";
+      defenderValue.innerText = "";
+
+      return {
+        td,
+        w: td.offsetWidth - 4,
+        attackerDiv,
+        attackerValue,
+        defenderDiv,
+        defenderValue,
+      };
+    });
+
     // Get player data.
     const colorNameToPlayerData = {};
     const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
@@ -81,56 +95,133 @@ class Calc {
 
     const activePlayerColorName =
       GameDataUtil.parseCurrentTurnColorName(gameData);
-    let playerData = colorNameToPlayerData[activePlayerColorName];
-    if (!playerData) {
+    const activePlayerData = colorNameToPlayerData[activePlayerColorName];
+    if (!activePlayerData) {
       console.log("calc: missing active player");
       return;
     }
 
     // Get active system hex summary.
-    let tileHexSummary = undefined;
     const activeSystem = GameDataUtil.parseActiveSystem(gameData);
     const hexSummary = GameDataUtil.parseHexSummary(gameData);
-    for (const candidate of hexSummary) {
-      if (candidate.tile === activeSystem.tile) {
-        tileHexSummary = candidate;
-        break;
-      }
-    }
+    const tileHexSummary = hexSummary.filter((entry) => {
+      return entry.tile === activeSystem.tile;
+    })[0];
     if (!tileHexSummary) {
       console.log("calc: missing tile hex summary");
       return;
     }
 
-    // Modifiers.
-    const modifiers = GameDataUtil.parsePlayerUnitModifiers(playerData);
-    const upgrades = GameDataUtil.parsePlayerUnitUpgrades(playerData);
+    // Draw map.
+    const { tileWidth, tileHeight, canvasWidth, canvasHeight } =
+      this._mapUtil.getSizes();
 
-    // This is somewhat expensive, only update if something changed.
-    const key = JSON.stringify({
-      activePlayerColorName,
-      tileHexSummary,
-      modifiers,
-      upgrades,
+    const x = Math.floor((canvasWidth - tileWidth) / 2);
+    const y = -Math.floor((canvasHeight - tileHeight) / 2);
+    this._mapUtil.clear();
+    this._mapUtil.drawTile(x, y, tileHexSummary);
+    tileHexSummary.regions.forEach((region, regionIndex) => {
+      this._mapUtil.drawOccupants(x, y, tileHexSummary, regionIndex);
     });
-    if (this._currentKey === key) {
-      return;
-    }
-    this._currentKey = key;
 
     // Simulate!
-    const unitToCalc = {
-      flagship: game.UnitType.Flagship,
-      war_sun: game.UnitType.WarSun,
-      dreadnought: game.UnitType.Dreadnought,
-      carrier: game.UnitType.Carrier,
-      cruiser: game.UnitType.Cruiser,
-      destroyer: game.UnitType.Destroyer,
-      fighter: game.UnitType.Fighter,
-      pds: game.UnitType.PDS,
-      mech: game.UnitType.Mech,
-      infantry: game.UnitType.Infantry,
-    };
+    for (let regionIndex = 0; regionIndex < 4; regionIndex++) {
+      const region = tileHexSummary.regions[regionIndex] || {};
+      const regionName =
+        regionIndex === 0
+          ? "SPACE"
+          : activeSystem.planets[regionIndex - 1] || "-";
+
+      const input = {
+        attackerUnits: {},
+        defenderUnits: {},
+        battleType:
+          regionIndex === 0 ? game.BattleType.Space : game.BattleType.Ground,
+        options: {
+          attacker: {},
+          defender: {},
+        },
+      };
+
+      const peerColorName = this._getPeerColor(region, activePlayerColorName);
+      const peerPlayerData = colorNameToPlayerData[peerColorName];
+      if (!peerPlayerData) {
+        return;
+      }
+
+      this._fillCalcFaction(input.options.attacker, activePlayerData);
+      this._fillCalcFaction(input.options.defender, peerPlayerData);
+      this._fillCalcFleet(input.attackerUnits, region, activePlayerColorName);
+      this._fillCalcFleet(input.defenderUnits, region, peerColorName);
+      this._fillCalcModifiers(input.options.attacker, activePlayerData);
+      this._fillCalcModifiers(input.options.defender, peerPlayerData);
+
+      let regionToSimulation =
+        this._tileToRegionToSimulation[tileHexSummary.tile];
+      if (!regionToSimulation) {
+        regionToSimulation = {};
+        this._tileToRegionToSimulation[tileHexSummary.tile] =
+          regionToSimulation;
+      }
+      let simulation = regionToSimulation[regionIndex];
+      if (!simulation) {
+        simulation = {};
+        regionToSimulation[regionIndex] = simulation;
+      }
+
+      // Deterministic stringify (sort keys).
+      const allKeys = new Set();
+      JSON.stringify(input, (key, value) => (allKeys.add(key), value));
+      const simulationKey = JSON.stringify(input, Array.from(allKeys).sort());
+
+      // Only update result if something changed.
+      if (simulation.key !== simulationKey) {
+        simulation.key = simulationKey;
+
+        im.imitationIterations = 100000; // fewer has minimal effect on simulation time
+        var start = Date.now();
+        var expected = im.estimateProbabilities(input).distribution;
+        simulation.attacker = Math.round(expected.downTo(-1) * 100);
+        simulation.defender = Math.round(expected.downTo(1) * 100);
+        simulation.draw = 100 - (simulation.attacker + simulation.defender);
+        simulation.msecs = Date.now() - start;
+      }
+
+      regionNameTDs[regionIndex].innerText = regionName.toUpperCase();
+
+      const { td, w, attackerDiv, attackerValue, defenderDiv, defenderValue } =
+        regionResultEntries[regionIndex];
+
+      td.style.backgroundColor = "#aaa";
+
+      attackerDiv.style.backgroundColor = GameDataUtil.colorNameToHex(
+        activePlayerColorName
+      );
+      attackerDiv.style.width = `${Math.floor(
+        (w * simulation.attacker) / 100
+      )}px`;
+      attackerValue.innerText = `${simulation.attacker}%`;
+
+      defenderDiv.style.backgroundColor =
+        GameDataUtil.colorNameToHex(peerColorName);
+      defenderDiv.style.width = `${Math.floor(
+        (w * simulation.defender) / 100
+      )}px`;
+      defenderValue.innerText = `${simulation.defender}%`;
+    }
+  }
+
+  _getPeerColor(region, activePlayerColorName) {
+    for (const [unitColorName, unitNameToCount] of Object.entries(
+      region.colorToUnitNameToCount || {}
+    )) {
+      if (unitColorName !== activePlayerColorName) {
+        return unitColorName;
+      }
+    }
+  }
+
+  _fillCalcFaction(options, playerData) {
     const factionToCalc = {
       arborec: game.Race.Arborec,
       creuss: game.Race.Creuss,
@@ -158,69 +249,51 @@ class Calc {
       ul: game.Race.Titans,
       keleres: game.Race.Keleres,
     };
-    tileHexSummary.regions.forEach((region, index) => {
-      const regionName =
-        index === 0 ? "SPACE" : activeSystem.planets[index - 1];
-      console.log(`XXX CALC "${regionName}"`);
+    const faction = GameDataUtil.parsePlayerFaction(playerData);
+    const calcFaction = factionToCalc[faction];
+    if (!calcFaction) {
+      console.log(`Calc._fillCalcFaction: unknown "${faction}"`);
+      return false;
+    }
+    options.race = calcFaction;
+    return true;
+  }
 
-      let peerColorName = undefined;
-      const fleet1 = {};
-      const fleet2 = {};
-
-      for (const [colorName, unitNameToCount] of Object.entries(
-        region.colorToUnitNameToCount
-      )) {
-        if (colorName !== activePlayerColorName) {
-          peerColorName = colorName;
+  _fillCalcFleet(fleet, region, colorName) {
+    const unitToCalc = {
+      flagship: game.UnitType.Flagship,
+      war_sun: game.UnitType.WarSun,
+      dreadnought: game.UnitType.Dreadnought,
+      carrier: game.UnitType.Carrier,
+      cruiser: game.UnitType.Cruiser,
+      destroyer: game.UnitType.Destroyer,
+      fighter: game.UnitType.Fighter,
+      pds: game.UnitType.PDS,
+      mech: game.UnitType.Mech,
+      infantry: game.UnitType.Infantry,
+    };
+    for (const [unitColorName, unitNameToCount] of Object.entries(
+      region.colorToUnitNameToCount
+    )) {
+      if (unitColorName !== colorName) {
+        continue;
+      }
+      for (const [unitName, count] of Object.entries(unitNameToCount)) {
+        const calcName = unitToCalc[unitName];
+        if (!calcName) {
+          continue;
         }
-        const fleet = colorName === activePlayerColorName ? fleet1 : fleet2;
-        for (const [unitName, count] of Object.entries(unitNameToCount)) {
-          const calcName = unitToCalc[unitName];
-          if (!calcName) {
-            continue;
-          }
-          fleet[calcName] = { count };
-        }
+        fleet[calcName] = { count };
       }
-      console.log(
-        `calc fleets: ${JSON.stringify(fleet1)} vs ${JSON.stringify(fleet2)}`
-      );
+    }
+  }
 
-      const peerPlayerData = colorNameToPlayerData[peerColorName];
-      if (!peerPlayerData) {
-        console.log("calc: no player data for peer");
-        return;
-      }
-      const faction1 =
-        factionToCalc[GameDataUtil.parsePlayerFaction(playerData)];
-      const faction2 =
-        factionToCalc[GameDataUtil.parsePlayerFaction(peerPlayerData)];
-      if (!faction1 || !faction2) {
-        console.log("calc: missing faction");
-        return;
-      }
-
-      const input = {
-        attackerUnits: fleet1,
-        defenderUnits: fleet2,
-        battleType:
-          index === 0 ? game.BattleType.Space : game.BattleType.Ground,
-        options: {
-          attacker: { race: faction1 },
-          defender: { race: faction2 },
-        },
-      };
-      im.imitationIterations = 100000; // fewer has minimal effect on simulation time
-      var start = new Date();
-      var expected = im.estimateProbabilities(input).distribution;
-      console.log("Calc", new Date() - start);
-      console.log(expected.toString());
-    });
+  _fillCalcModifiers(options, playerData) {
+    const modifiers = GameDataUtil.parsePlayerUnitModifiers(playerData);
+    const upgrades = GameDataUtil.parsePlayerUnitUpgrades(playerData);
   }
 }
 
 window.addEventListener("load", () => {
   Calc.getInstance();
-
-  demo();
 });

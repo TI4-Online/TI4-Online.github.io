@@ -1,0 +1,59 @@
+.calc {
+  border-collapse: collapse;
+}
+
+.calc td {
+  position: relative;
+  border: 1px solid #aaa;
+}
+
+.calc-map-container {
+  height: 272px;
+}
+
+.calc-region {
+  width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.calc-result {
+  position: relative;
+  overflow: hidden;
+}
+
+.calc-result div {
+  position: absolute;
+  display: inline-block;
+  top: 0;
+  height: 100%;
+  line-height: 30px;
+  overflow: hidden;
+}
+
+.calc-attacker {
+  width: 20%;
+  background-color: green;
+}
+.value-attacker {
+  left: 0;
+  text-align: left;
+  padding-left: 5px;
+  color: black;
+}
+
+.calc-defender {
+  right: 0;
+  width: 20%;
+  text-align: right;
+  color: black;
+  background-color: red;
+}
+.value-defender {
+  right: 0;
+  text-align: right;
+  padding-right: 5px;
+  color: black;
+}

@@ -3,11 +3,59 @@
   <head>
     <title>Round</title>
     <link rel="stylesheet" href="/overlay/css/main.css" />
+    <link rel="stylesheet" href="/overlay/css/calc.css" />
     <script src="/overlay/scripts/game-data-util.js"></script>
+    <script src="/overlay/scripts/image-util.js"></script>
+    <script src="/overlay/scripts/map-util.js"></script>
     <script type="module" src="/overlay/scripts/refresh-calc.js"></script>
     <script src="/overlay/scripts/game-data-refresh.js"></script>
   </head>
   <body class="no-margin">
-    <div class="size-calc" id="calc">CALC</div>
+    <table class="size-calc calc" id="calc">
+      <!-- map -->
+      <tr class="calc-map-tr">
+        <td colspan="2" class="calc-map-container">
+          <canvas id="calc-map" width="0" height="0"></canvas>
+        </td>
+      </tr>
+
+      <!-- regions -->
+      <tr>
+        <td class="calc-region">region 0</td>
+        <td class="calc-result">
+          <div class="calc-attacker"></div>
+          <div class="calc-defender"></div>
+          <div class="value-attacker"></div>
+          <div class="value-defender"></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="calc-region">region 1</td>
+        <td class="calc-result">
+          <div class="calc-attacker"></div>
+          <div class="calc-defender"></div>
+          <div class="value-attacker"></div>
+          <div class="value-defender"></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="calc-region">region 2</td>
+        <td class="calc-result">
+          <div class="calc-attacker"></div>
+          <div class="calc-defender"></div>
+          <div class="value-attacker"></div>
+          <div class="value-defender"></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="calc-region">region 3</td>
+        <td class="calc-result">
+          <div class="calc-attacker"></div>
+          <div class="calc-defender"></div>
+          <div class="value-attacker"></div>
+          <div class="value-defender"></div>
+        </td>
+      </tr>
+    </table>
   </body>
 </html>
