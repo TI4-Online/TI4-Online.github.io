@@ -69,6 +69,7 @@ class MapUtil {
       26: 3, // lodor
       51: 3, // creuss
       64: 3, // atlas
+      67: 3, //cormund
     };
 
     this._canvas = canvas;
@@ -85,8 +86,8 @@ class MapUtil {
 
     this._tileWidth = overrideTileWidth || this._canvas.width * 0.16;
     this._tileHeight = (this._tileWidth * 433) / 500;
-    this._unitSize = this._tileWidth * 0.2;
-    this._deltaX = this._unitSize * 0.5;
+    this._unitSize = this._tileWidth * 0.175;
+    this._deltaX = this._unitSize * 0.6;
     this._fontSize = this._unitSize * 0.5;
     this._textY = this._unitSize * 0.3;
     this._lineWidth = Math.ceil(this._unitSize * 0.04);
