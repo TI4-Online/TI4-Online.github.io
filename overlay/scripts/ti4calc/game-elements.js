@@ -933,6 +933,10 @@
       var counter = thisSideCounters[unitType] || { count: 0 };
       for (var i = 0; i < counter.count; i++) {
         var unit = (counter.upgraded ? upgradedUnits : standardUnits)[unitType];
+        if (!unit && counter.upgraded) {
+          // Some units do not support upgrades.
+          unit = standardUnits[unitType];
+        }
         var addedUnit = unit.clone();
         result.push(addedUnit);
         if (battleType === root.BattleType.Space) {

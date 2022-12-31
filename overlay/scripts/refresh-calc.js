@@ -349,3 +349,50 @@ class Calc {
 window.addEventListener("load", () => {
   Calc.getInstance();
 });
+
+const TEST = false;
+if (TEST) {
+  const factions = Object.values(game.Race);
+  const unitTypes = Object.values(game.UnitType);
+  const battleTypes = Object.values(game.BattleType);
+  const noUpgrade = new Set([game.UnitType.Flagship, game.UnitType.WarSun]);
+  for (const faction of factions) {
+    for (const upgraded of [false, true]) {
+      for (const battleType of battleTypes) {
+        console.log(
+          `testing ${factionA} vs ${factionB}: upgraded ${upgraded}, battleType ${battleType}`
+        );
+
+        const input = {
+          attackerUnits: {},
+          defenderUnits: {},
+          battleType: undefined,
+          options: {
+            attacker: {},
+            defender: {},
+          },
+        };
+
+        input.battleType = battleType;
+        input.options.attacker.race = faction;
+        input.options.defender.race = faction;
+        for (const unitType of unitTypes) {
+          input.attackerUnits[unitType] = {
+            count: 2,
+            upgraded: noUpgrade.has(unitType) ? false : upgraded,
+          };
+          input.defenderUnits[unitType] = {
+            count: 2,
+            upgraded: noUpgrade.has(unitType) ? false : upgraded,
+          };
+        }
+
+        im.imitationIterations = 1000; // fewer has minimal effect on simulation time
+        var start = Date.now();
+        var expected = im.estimateProbabilities(input).distribution;
+        const msecs = Date.now() - start;
+        console.log(`${expected.toString()} MSECS ${msecs}`);
+      }
+    }
+  }
+}
