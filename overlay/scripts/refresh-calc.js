@@ -184,8 +184,10 @@ class Calc {
         var start = Date.now();
         var expected = im.estimateProbabilities(input).distribution;
         simulation.distribution = expected.toString();
-        simulation.attacker = Math.round(expected.downTo(-1) * 100);
-        simulation.defender = Math.round(expected.downTo(1) * 100);
+        simulation.attacker = expected.downTo(-1) * 100;
+        simulation.attacker = Number(simulation.attacker.toPrecision(1));
+        simulation.defender = expected.downTo(1) * 100;
+        simulation.defender = Number(simulation.defender.toPrecision(1));
         simulation.draw = 100 - (simulation.attacker + simulation.defender);
         simulation.msecs = Date.now() - start;
 
