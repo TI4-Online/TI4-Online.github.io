@@ -119,12 +119,14 @@ class MapUtil {
 
   drawTile(x, y, hexSummaryEntry, drawTileNumber = false) {
     const tile = hexSummaryEntry.tile;
-    const src = ImageUtil.getSrc(
-      `tiles/tile_${String(tile).padStart(3, "0")}.png`
-    );
+    const src =
+      tile > 0
+        ? ImageUtil.getSrc(`tiles/tile_${String(tile).padStart(3, "0")}.png`)
+        : ImageUtil.getSrc("tiles/blank.png");
     ImageUtil.drawMagic(this._canvasContext, src, x, y, {
       width: this._tileWidth,
       height: this._tileWidth, // images have transparent top/botom for square
+      color: tile <= 0 ? "#444" : undefined,
     });
 
     if (drawTileNumber) {

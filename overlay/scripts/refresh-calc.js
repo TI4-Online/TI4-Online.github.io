@@ -96,33 +96,33 @@ class Calc {
     const activePlayerColorName =
       GameDataUtil.parseCurrentTurnColorName(gameData);
     const activePlayerData = colorNameToPlayerData[activePlayerColorName];
-    if (!activePlayerData) {
-      console.log("calc: missing active player");
-      return;
-    }
 
     // Get active system hex summary.
     const activeSystem = GameDataUtil.parseActiveSystem(gameData);
     const hexSummary = GameDataUtil.parseHexSummary(gameData);
-    const tileHexSummary = hexSummary.filter((entry) => {
+    let tileHexSummary = hexSummary.filter((entry) => {
       return entry.tile === activeSystem.tile;
     })[0];
     if (!tileHexSummary) {
-      console.log("calc: missing tile hex summary");
-      return;
+      tileHexSummary = { tile: 0, regions: [] };
     }
 
-    // Draw map.
     const { tileWidth, tileHeight, canvasWidth, canvasHeight } =
       this._mapUtil.getSizes();
-
     const x = Math.floor((canvasWidth - tileWidth) / 2);
     const y = -Math.floor((canvasHeight - tileHeight) / 2);
+
+    // Draw map.
     this._mapUtil.clear();
     this._mapUtil.drawTile(x, y, tileHexSummary);
     tileHexSummary.regions.forEach((region, regionIndex) => {
       this._mapUtil.drawOccupants(x, y, tileHexSummary, regionIndex);
     });
+
+    // Abort if no active player or zero tile.
+    if (!activePlayerData || tileHexSummary.tile <= 0) {
+      return;
+    }
 
     // Simulate!
     for (let regionIndex = 0; regionIndex < 4; regionIndex++) {
@@ -350,7 +350,10 @@ class Calc {
 }
 
 window.addEventListener("load", () => {
-  Calc.getInstance();
+  Calc.getInstance().update({});
+  setTimeout(() => {
+    Calc.getInstance().update({});
+  }, 500);
 });
 
 const TEST = false;
