@@ -340,6 +340,8 @@ class GameDataUtil {
       p: "paradise_world",
       q: "ul_sleeper",
       r: "rich_world",
+      t: "ul_terraform",
+      u: "ul_geoform",
       w: "warfare_research_facility_back",
       x: "lazax_survivors",
       z: "dmz",
