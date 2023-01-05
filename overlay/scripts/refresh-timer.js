@@ -58,7 +58,7 @@ class Timer {
       timerSeconds = this._valueSeconds;
     }
 
-    if (this._countDown) {
+    if (this._countDown > 0) {
       timerSeconds = Math.max(this._countDown - timerSeconds, 0);
     }
 
