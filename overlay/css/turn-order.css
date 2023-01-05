@@ -1,0 +1,76 @@
+.turn-order {
+  table-layout: fixed;
+  border-collapse: collapse;
+  overflow: hidden;
+}
+
+.turn-order td {
+  position: relative;
+  border: 1px solid #aaa;
+}
+
+.faction-icon {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  width: 45px;
+  height: 45px;
+  z-index: 1;
+  -webkit-filter: drop-shadow(-0.5px -0.5px 0 white)
+    drop-shadow(-0.5px 0.5px 0 white) drop-shadow(0.5px 0.5px 0 white)
+    drop-shadow(0.51px -0.5px 0 white);
+  filter: drop-shadow(-0.5px -0.5px 0 white) drop-shadow(-0.5px 0.5px 0 white)
+    drop-shadow(0.5px 0.5px 0 white) drop-shadow(0.51px -0.5px 0 white);
+}
+
+.faction-name {
+  overflow: visible;
+  white-space: nowrap;
+  text-align: center;
+  font-size: 12px;
+  line-height: 15px;
+  position: absolute;
+  left: 0%;
+  bottom: 0%;
+  width: 61px;
+  height: 20px;
+  z-index: 2;
+}
+
+.score {
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: right;
+  font-size: 65px;
+  line-height: 74px;
+  position: absolute;
+  right: 8px;
+  top: 0%;
+  width: 100px;
+  height: 100%;
+  z-index: 2;
+}
+
+.player-name {
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 24px;
+  position: absolute;
+  left: 50%;
+  top: 27%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 3;
+}
+
+.strategy-cards {
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 24px;
+  position: absolute;
+  left: 50%;
+  top: 70%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 3;
+}

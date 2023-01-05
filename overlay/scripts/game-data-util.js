@@ -626,7 +626,7 @@ class GameDataUtil {
   /**
    * Extract the player data array, in clockwise player order from lower right.
    *
-   * @param {Object.{playerData.Array.{Object}}} gameData
+   * @param {Object.{players:Array.{Object}}} gameData
    * @returns {Array.{Object}}
    */
   static parsePlayerDataArray(gameData) {
@@ -905,6 +905,26 @@ class GameDataUtil {
     console.assert(typeof countDown === "number");
 
     return { seconds, anchorTimestamp, anchorSeconds, direction, countDown };
+  }
+
+  /**
+   * Parse turn order.
+   *
+   * @param {Object.{players:Array.{Object}}} gameData
+   * @returns {Array.{string}} turn order color names
+   */
+  static parseTurnOrder(gameData) {
+    console.assert(typeof gameData === "object");
+
+    const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
+    const colorNames = new Array(playerDataArray.length).fill("-");
+    for (const playerData of playerDataArray) {
+      const turnOrder = playerData?.turnOrder || 0;
+      const colorName = GameDataUtil.parsePlayerColor(playerData).colorName;
+      console.assert(typeof turnOrder === "number");
+      colorNames[turnOrder] = GameDataUtil._escapeForHTML(colorName);
+    }
+    return colorNames;
   }
 
   /**

@@ -29,6 +29,11 @@ iframe {
   box-sizing: content-box;
 }
 
+.absolute {
+  position: absolute;
+  margin-left: 4px;
+}
+
 /* Apply to body inside iframes to remove border, use standard background color. */
 .no-margin {
   margin: 0;
@@ -151,4 +156,9 @@ iframe {
 .size-map {
   width: 1200px;
   height: 1200px;
+}
+
+.size-turn-order {
+  width: 400px;
+  height: 600px;
 }
