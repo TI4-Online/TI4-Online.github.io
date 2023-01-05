@@ -3,6 +3,7 @@
   height: 150px;
   table-layout: fixed;
   border-collapse: collapse;
+  overflow: hidden;
 }
 
 .leaderboard td {
