@@ -146,7 +146,7 @@ class Calc {
       const peerColorName = this._getPeerColor(region, activePlayerColorName);
       const peerPlayerData = colorNameToPlayerData[peerColorName];
       if (!peerPlayerData) {
-        return;
+        continue;
       }
 
       this._fillCalcFaction(input.options.attacker, activePlayerData);
@@ -258,6 +258,7 @@ class Calc {
     const calcFaction = factionToCalc[faction];
     if (!calcFaction) {
       console.log(`Calc._fillCalcFaction: unknown "${faction}"`);
+      options.race = game.Race.Arborec;
       return false;
     }
     options.race = calcFaction;

@@ -148,7 +148,6 @@ class TurnOrder {
 
     const turnOrder = GameDataUtil.parseTurnOrder(gameData);
     turnOrder.forEach((colorName, index) => {
-      console.log(`xxx ${colorName} ${index}/${this._cells.length}`);
       const playerData = colorNameToPlayerData[colorName];
       const cell = this._cells[index];
       if (!playerData || !cell) {

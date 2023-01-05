@@ -40,7 +40,7 @@ class MapUtil {
       ul_geoform: "tokens/geoform.png",
       ul_sleeper: "tokens/sleeper.png",
       ul_terraform: "tokens/terraform.png",
-      rich_world: "tokens/token_r_Rich_World.png",
+      rich_world: "tokens/exploration_1-0.png",
       warfare_research_facility_back: "tokens/exploration_1-1_red.png",
       lazax_survivors: "tokens/exploration_1-2.png",
       dmz: "tokens/exploration_dmz.png",
