@@ -276,6 +276,7 @@ class Objectives {
       const x = w / 2;
       const y = h / 2;
       const r = Math.min(x, y);
+
       supportColors.forEach((supportColor, index) => {
         let colorHex = "#000000";
         for (const colorNameAndHex of playerColorNamesAndHexValues) {
@@ -295,12 +296,12 @@ class Objectives {
       });
 
       // Frame.
-      // ctx.lineWidth = 2;
-      // ctx.fillStyle = "black";
-      // ctx.beginPath();
-      // ctx.arc(x, y, r - 1, 0, Math.PI * 2);
-      // ctx.closePath();
-      // ctx.stroke();
+      ctx.lineWidth = 1;
+      ctx.fillStyle = "black";
+      ctx.beginPath();
+      ctx.arc(x, y, r - ctx.lineWidth / 2, 0, Math.PI * 2);
+      ctx.closePath();
+      ctx.stroke();
 
       td.appendChild(canvas);
     });
