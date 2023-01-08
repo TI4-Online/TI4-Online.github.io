@@ -16,11 +16,17 @@
   width: 45px;
   height: 45px;
   z-index: 1;
+  /*
   -webkit-filter: drop-shadow(-0.5px -0.5px 0 white)
     drop-shadow(-0.5px 0.5px 0 white) drop-shadow(0.5px 0.5px 0 white)
-    drop-shadow(0.51px -0.5px 0 white);
+    drop-shadow(0.5px -0.5px 0 white);
   filter: drop-shadow(-0.5px -0.5px 0 white) drop-shadow(-0.5px 0.5px 0 white)
-    drop-shadow(0.5px 0.5px 0 white) drop-shadow(0.51px -0.5px 0 white);
+    drop-shadow(0.5px 0.5px 0 white) drop-shadow(0.5px -0.5px 0 white);
+  */
+  -webkit-filter: drop-shadow(-1px -1px 0 white) drop-shadow(-1px 1px 0 white)
+    drop-shadow(1px 1px 0 white) drop-shadow(1px -1px 0 white);
+  filter: drop-shadow(-1px -1px 0 white) drop-shadow(-1px 1px 0 white)
+    drop-shadow(1px 1px 0 white) drop-shadow(1px -1px 0 white);
 }
 
 .faction-name {
