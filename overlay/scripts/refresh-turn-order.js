@@ -38,7 +38,10 @@ class TurnOrder {
 
     const factionIconImg = cell.getElementsByClassName("faction-icon")[0];
     console.assert(factionIconImg);
-    factionIconImg.src = ImageUtil.getSrc(`faction-icons/${faction}_icon.png`);
+    const src = ImageUtil.getSrc(`faction-icons/${faction}_icon.png`);
+    if (factionIconImg.src !== src) {
+      factionIconImg.src = src;
+    }
 
     const factionNameDiv = cell.getElementsByClassName("faction-name")[0];
     console.assert(factionNameDiv);
@@ -120,7 +123,10 @@ class TurnOrder {
 
     const factionIconImg = cell.getElementsByClassName("faction-icon")[0];
     console.assert(factionIconImg);
-    factionIconImg.src = ImageUtil.getSrc(`tokens/speaker_square.png`);
+    const src = ImageUtil.getSrc(`tokens/speaker_square.png`);
+    if (factionIconImg.src !== src) {
+      factionIconImg.src = src;
+    }
   }
 
   fillAll(gameData) {
