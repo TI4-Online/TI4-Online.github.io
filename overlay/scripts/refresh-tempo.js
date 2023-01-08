@@ -134,6 +134,7 @@ class Tempo {
     for (const colorName of colorNames) {
       playerColorNameToXYs[colorName] = [];
     }
+    const playerColorNameToLastX = {};
     for (const colorName of colorNames) {
       const points = playerColorNameToXYs[colorName];
       points.push([bb.left, bb.top + bb.height]);
@@ -171,6 +172,8 @@ class Tempo {
         x += Math.floor(left + offset);
 
         points.push([x, y]);
+
+        playerColorNameToLastX[colorName] = x;
       }
     }
 
@@ -181,12 +184,22 @@ class Tempo {
       ImageUtil.bezierCurveThrough(ctx, points);
     }
 
+    // Axis.
+    ctx.strokeStyle = "#aaa";
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(bb.left, bb.top);
+    ctx.lineTo(bb.left, bb.top + bb.height);
+    ctx.lineTo(bb.left + bb.width, bb.top + bb.height);
+    ctx.stroke();
+
     // Draw points.
     for (const colorName of colorNames) {
+      const lastX = playerColorNameToLastX[colorName] || 0;
       const points = playerColorNameToXYs[colorName];
       for (const [x, y] of points) {
-        if (y >= bb.top + bb.height) {
-          continue; // only draw points when 1+.
+        if (y >= bb.top + bb.height && x < lastX) {
+          continue; // only draw points when 1+ or if last point
         }
 
         ctx.fillStyle = "#222";
@@ -200,15 +213,6 @@ class Tempo {
         ctx.fill();
       }
     }
-
-    // Axis.
-    ctx.strokeStyle = "#aaa";
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.moveTo(bb.left, bb.top);
-    ctx.lineTo(bb.left, bb.top + bb.height);
-    ctx.lineTo(bb.left + bb.width, bb.top + bb.height);
-    ctx.stroke();
   }
 }
 
