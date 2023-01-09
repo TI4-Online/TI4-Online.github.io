@@ -322,22 +322,24 @@ class DrawPlayerResources {
   _drawCommodities(ctx, boundingBox, resources) {
     const center = {
       x: boundingBox.left + boundingBox.width * 0.636,
-      y: boundingBox.top + boundingBox.height * 0.66,
+      y: boundingBox.top + boundingBox.height * 0.62,
     };
+
+    const text = `${resources.commodities}/${resources.maxCommidities}`;
 
     this._drawTokenAndText(
       ctx,
       boundingBox,
       center,
       this._image.commodity,
-      resources.commodities
+      text
     );
   }
 
   _drawTradegoods(ctx, boundingBox, resources) {
     const center = {
       x: boundingBox.left + boundingBox.width * 0.77,
-      y: boundingBox.top + boundingBox.height * 0.78,
+      y: boundingBox.top + boundingBox.height * 0.81,
     };
 
     this._drawTokenAndText(

@@ -698,6 +698,12 @@ class GameDataUtil {
   static parsePlayerResources(playerData) {
     console.assert(typeof playerData === "object");
 
+    const bonusCommodities = (playerData?.relicCards || []).includes(
+      "Dynamis Core"
+    )
+      ? 2
+      : 0;
+
     return {
       influence: {
         avail: playerData?.planetTotals?.influence?.avail || 0,
@@ -709,7 +715,8 @@ class GameDataUtil {
       },
       tradegoods: playerData?.tradeGoods || 0,
       commodities: playerData?.commodities || 0,
-      teckSkips: {
+      maxCommidities: (playerData?.maxCommodities || 0) + bonusCommodities,
+      techSkips: {
         blue: playerData?.planetTotals?.techs?.blue || 0,
         green: playerData?.planetTotals?.techs?.green || 0,
         red: playerData?.planetTotals?.techs?.red || 0,
