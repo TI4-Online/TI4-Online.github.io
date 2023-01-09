@@ -103,6 +103,13 @@ class ImageUtil {
     console.assert(typeof y === "number");
     console.assert(typeof params === "object");
 
+    // Work with a copy so we can mutate it.
+    const copy = {};
+    for (const [k, v] of Object.entries(params)) {
+      copy[k] = v;
+    }
+    params = copy;
+
     // Mandatory params.
     console.assert(typeof params.width === "number");
     console.assert(typeof params.height === "number");

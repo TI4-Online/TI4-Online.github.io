@@ -45,6 +45,11 @@ class DrawPlayerResources {
       influence: "symbols/influence.png",
 
       commandToken: "units/unit_t_Command_Token.png",
+
+      // Truncated cards.
+      action: "cards/action.short.jpg",
+      promissory: "cards/promissory.short.jpg",
+      secret: "cards/secret.short.jpg",
     };
 
     // Replace path with src.
@@ -76,6 +81,7 @@ class DrawPlayerResources {
       this._drawUnitUpgrades(ctx, boundingBox, colorHex, unitUpgrades);
 
       this._drawLeaders(ctx, boundingBox, resources);
+      this._drawCards(ctx, boundingBox, resources);
       this._drawTokens(ctx, boundingBox, colorHex, resources);
       this._drawCommodities(ctx, boundingBox, resources);
       this._drawTradegoods(ctx, boundingBox, resources);
@@ -104,14 +110,15 @@ class DrawPlayerResources {
     center,
     tokenImage,
     text,
-    optionalTintColor
+    optionalTintColor,
+    scale = 1
   ) {
-    const tokenSize = Math.floor(boundingBox.width * 0.06);
+    const tokenSize = Math.floor(boundingBox.width * 0.06 * scale);
     const tokenX = center.x - tokenSize;
     const tokenY = center.y - tokenSize / 2;
 
-    const fontSize = Math.floor(boundingBox.width * 0.075);
-    const textBumpY = Math.floor(boundingBox.width * 0.004);
+    const fontSize = Math.floor(boundingBox.width * 0.07 * scale);
+    const textBumpY = Math.floor(boundingBox.width * 0.004 * scale);
     const textX = center.x + tokenSize * 0.1;
     const textY = center.y + textBumpY;
 
@@ -152,7 +159,7 @@ class DrawPlayerResources {
   }
 
   _drawLeaders(ctx, boundingBox, resources) {
-    const fontSize = Math.floor(boundingBox.width * 0.075);
+    const fontSize = Math.floor(boundingBox.width * 0.07);
 
     const agent = {
       x: boundingBox.left + boundingBox.width * 0.1,
@@ -231,6 +238,87 @@ class DrawPlayerResources {
     );
   }
 
+  _drawCards(ctx, boundingBox, resources) {
+    const scale = 0.8;
+    const cardW = Math.floor(boundingBox.width * 0.088);
+    const cardH = Math.floor((cardW * 220) / 340);
+    const fontSize = Math.floor(boundingBox.width * 0.07 * scale);
+    const lineWidth = Math.floor(fontSize * 0.05);
+    const textBumpY = Math.floor(fontSize * 0.05);
+
+    const params = {
+      width: cardW,
+      height: cardH,
+      outlineColor: "white",
+      outlineWidth: lineWidth,
+    };
+
+    let pos = {
+      x: Math.floor(boundingBox.left + boundingBox.width * 0.54),
+      y: Math.floor(boundingBox.top + lineWidth),
+    };
+    let text = {
+      x: Math.floor(pos.x + cardW + fontSize * 0.5),
+      y: Math.floor(pos.y + cardH / 2 + textBumpY),
+      text: "",
+    };
+    const dx = 0;
+    const dy = cardH;
+
+    let src = this._image.secret;
+    ImageUtil.drawMagic(ctx, src, pos.x, pos.y, params);
+
+    text.text = resources.hand.secret;
+    ctx.save();
+    ctx.font = `800 ${fontSize}px Open Sans, sans-serif`;
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.strokeStyle = "white";
+    ctx.fillStyle = "black";
+    ctx.lineWidth = Math.floor(fontSize * 0.15);
+    ctx.strokeText(text.text, text.x, text.y);
+    ctx.fillText(text.text, text.x, text.y);
+    ctx.restore();
+
+    pos.x += dx;
+    pos.y += dy;
+    text.x += dx;
+    text.y += dy;
+    src = this._image.action;
+    ImageUtil.drawMagic(ctx, src, pos.x, pos.y, params);
+
+    text.text = resources.hand.action;
+    ctx.save();
+    ctx.font = `800 ${fontSize}px Open Sans, sans-serif`;
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.strokeStyle = "white";
+    ctx.fillStyle = "black";
+    ctx.lineWidth = Math.floor(fontSize * 0.15);
+    ctx.strokeText(text.text, text.x, text.y);
+    ctx.fillText(text.text, text.x, text.y);
+    ctx.restore();
+
+    pos.x += dx;
+    pos.y += dy;
+    text.x += dx;
+    text.y += dy;
+    src = this._image.promissory;
+    ImageUtil.drawMagic(ctx, src, pos.x, pos.y, params);
+
+    text.text = resources.hand.promissory;
+    ctx.save();
+    ctx.font = `800 ${fontSize}px Open Sans, sans-serif`;
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.strokeStyle = "white";
+    ctx.fillStyle = "black";
+    ctx.lineWidth = Math.floor(fontSize * 0.15);
+    ctx.strokeText(text.text, text.x, text.y);
+    ctx.fillText(text.text, text.x, text.y);
+    ctx.restore();
+  }
+
   _drawCommodities(ctx, boundingBox, resources) {
     const center = {
       x: boundingBox.left + boundingBox.width * 0.636,
@@ -263,37 +351,44 @@ class DrawPlayerResources {
 
   _drawPlanetResources(ctx, boundingBox, resources) {
     const center = {
-      x: boundingBox.left + boundingBox.width * 0.5,
-      y: boundingBox.top + boundingBox.height * 0.18,
+      x: boundingBox.left + boundingBox.width * 0.36,
+      y: boundingBox.top + boundingBox.height * 0.07,
     };
 
     const text = `${resources.resources.avail}/${resources.resources.total}`;
+    const scale = 0.8;
 
     this._drawTokenAndText(
       ctx,
       boundingBox,
       center,
       this._image.resources,
-      text
+      text,
+      undefined,
+      scale
     );
   }
 
   _drawPlanetInfluence(ctx, boundingBox, resources) {
     const center = {
-      x: boundingBox.left + boundingBox.width * 0.5,
-      y: boundingBox.top + boundingBox.height * 0.4,
+      x: boundingBox.left + boundingBox.width * 0.36,
+      y: boundingBox.top + boundingBox.height * 0.22,
     };
 
     const text = `${resources.influence.avail}/${resources.influence.total}`;
+    const scale = 0.8;
 
     this._drawTokenAndText(
       ctx,
       boundingBox,
       center,
       this._image.influence,
-      text
+      text,
+      undefined,
+      scale
     );
   }
+
   _drawUnitUpgrades(ctx, boundingBox, colorHex, unitUpgrades) {
     const unitSize = boundingBox.width * 0.1;
     const drawUnit = (x, y, unitName) => {

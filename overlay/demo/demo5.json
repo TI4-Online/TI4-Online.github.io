@@ -1,0 +1,2095 @@
+{
+    "activeSystem": {
+        "planets": [
+            "New Albion",
+            "Starpoint"
+        ],
+        "tile": 27
+    },
+    "config": {
+        "baseMagen": true,
+        "codex1": true,
+        "codex2": true,
+        "codex3": true
+    },
+    "hexSummary": "82-4-3;,80+0+2*e,79-2+0Rr*e,78-2+2*e,75+2+2;Gip;Wi;Go,72-1+1BtGtPtRtWtYdf;Yi;Yis,69-1+5;Rp;Rp,67-1-3PtYhyt;BoY2m,66+0+4Rd;Rim*qr,64+2+0Gc2f1ryt*h;G2i1s,63+0-4By;Bo,62-1-1;P4i1m*qt,61-12-4;,50+1+1,49+3-1*e,48-2-4Bcmyt,46+1-5Bcy,45+3+1Rfrt*n,42-3+1*e,41+1-1G2fr1yt*e,40+1+3,37+2-2Wc6f1t;Wis;Wo,35-2+4Yc4f1t;Yi;Yi,31+2-4;Gm;Gi,30-1-5Bt;Bpo;Bmpo,27-3-1PcdYt;Pi*i;Po,26-1+3Rd;R3i1p*q,25+1-3;Gi*p,24+2+4;Gip,23-2-2;Bo*O,21+1+5Rd;Rmp*c,18+0+0G2df1h*g;Gi2m,55+0+6R3r1t;R4i2m1s*u,53-3+3Yd4f1y;Y4i2m1s,9+3-3GtR3r1tWt;W2im1p;W2m1ps,15+0-6Bhy;Bimps;Bi,81+0-2P7f2mwy,4-3-3P2f;Pims,54+3+3Gcd6f*h;Gms",
+    "history": [
+        {
+            "hexSummary": "82-4-3;,80+0+2*e,79-2+0*e,78-2+2*e,75+2+2;;;,72-1+1;;,69-1+5;;,67-1-3;,66+0+4;,64+2+0;,63+0-4;,62-1-1;,61+0-2;,50+1+1*e,49+3-1*e,48-2-4*e,46+1-5*e,45+3+1*e,42-3+1*e,41+1-1*e,40+1+3*e,37+2-2;;,35-2+4;;,31+2-4;;,30-1-5;;,27-3-1;;,26-1+3;,25+1-3;,24+2+4;,23-2-2;,21+1+5;,18+0+0;,55+0+6Rd2fr;R3i1s,53-3+3Yc3f1hy;Y4i1s,9+3-3Wc3f1ry;W3i1p;Wis,15+0-6B2cf1r;B2i1ps;B3i,81-9-10*e,4-3-3P2f1w;P4i1s,54+3+3Gcd3f1r*h;G3i1s",
+            "laws": [],
+            "perf": {
+                "mean": 39.223,
+                "median": 33.858,
+                "scrubbed": 35.608,
+                "stdDev": 8.437
+            },
+            "players": [
+                {
+                    "alliances": [],
+                    "color": "White",
+                    "colorActual": "White",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "unlocked",
+                        "commander": "locked",
+                        "hero": "locked"
+                    },
+                    "objectives": [],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 3,
+                            "total": 3
+                        },
+                        "legendary": 0,
+                        "resources": {
+                            "avail": 3,
+                            "total": 3
+                        },
+                        "techs": {
+                            "blue": 0,
+                            "green": 0,
+                            "red": 0,
+                            "yellow": 0
+                        },
+                        "traits": {
+                            "cultural": 0,
+                            "hazardous": 0,
+                            "industrial": 0
+                        }
+                    },
+                    "score": 0,
+                    "strategyCards": [],
+                    "technologies": 2,
+                    "tradeGoods": 0
+                },
+                {
+                    "alliances": [],
+                    "color": "Blue",
+                    "colorActual": "Blue",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "unlocked",
+                        "commander": "locked",
+                        "hero": "locked"
+                    },
+                    "objectives": [],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 5,
+                            "total": 5
+                        },
+                        "legendary": 0,
+                        "resources": {
+                            "avail": 3,
+                            "total": 3
+                        },
+                        "techs": {
+                            "blue": 0,
+                            "green": 0,
+                            "red": 0,
+                            "yellow": 0
+                        },
+                        "traits": {
+                            "cultural": 0,
+                            "hazardous": 0,
+                            "industrial": 0
+                        }
+                    },
+                    "score": 0,
+                    "strategyCards": [],
+                    "technologies": 1,
+                    "tradeGoods": 0
+                },
+                {
+                    "alliances": [],
+                    "color": "Purple",
+                    "colorActual": "Purple",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "unlocked",
+                        "commander": "locked",
+                        "hero": "locked"
+                    },
+                    "objectives": [],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 1,
+                            "total": 1
+                        },
+                        "legendary": 0,
+                        "resources": {
+                            "avail": 4,
+                            "total": 4
+                        },
+                        "techs": {
+                            "blue": 0,
+                            "green": 0,
+                            "red": 0,
+                            "yellow": 0
+                        },
+                        "traits": {
+                            "cultural": 0,
+                            "hazardous": 0,
+                            "industrial": 0
+                        }
+                    },
+                    "score": 0,
+                    "strategyCards": [],
+                    "technologies": 1,
+                    "tradeGoods": 0
+                },
+                {
+                    "alliances": [],
+                    "color": "Yellow",
+                    "colorActual": "Yellow",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "unlocked",
+                        "commander": "locked",
+                        "hero": "locked"
+                    },
+                    "objectives": [],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 4,
+                            "total": 4
+                        },
+                        "legendary": 0,
+                        "resources": {
+                            "avail": 4,
+                            "total": 4
+                        },
+                        "techs": {
+                            "blue": 0,
+                            "green": 0,
+                            "red": 0,
+                            "yellow": 0
+                        },
+                        "traits": {
+                            "cultural": 0,
+                            "hazardous": 0,
+                            "industrial": 0
+                        }
+                    },
+                    "score": 0,
+                    "strategyCards": [],
+                    "technologies": 1,
+                    "tradeGoods": 0
+                },
+                {
+                    "alliances": [],
+                    "color": "Red",
+                    "colorActual": "Red",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "unlocked",
+                        "commander": "locked",
+                        "hero": "locked"
+                    },
+                    "objectives": [],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 1,
+                            "total": 1
+                        },
+                        "legendary": 0,
+                        "resources": {
+                            "avail": 4,
+                            "total": 4
+                        },
+                        "techs": {
+                            "blue": 0,
+                            "green": 0,
+                            "red": 0,
+                            "yellow": 0
+                        },
+                        "traits": {
+                            "cultural": 0,
+                            "hazardous": 0,
+                            "industrial": 0
+                        }
+                    },
+                    "score": 0,
+                    "strategyCards": [],
+                    "technologies": 2,
+                    "tradeGoods": 0
+                },
+                {
+                    "alliances": [],
+                    "color": "Green",
+                    "colorActual": "Green",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "unlocked",
+                        "commander": "locked",
+                        "hero": "locked"
+                    },
+                    "objectives": [],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 0,
+                            "total": 0
+                        },
+                        "legendary": 0,
+                        "resources": {
+                            "avail": 4,
+                            "total": 4
+                        },
+                        "techs": {
+                            "blue": 0,
+                            "green": 0,
+                            "red": 0,
+                            "yellow": 0
+                        },
+                        "traits": {
+                            "cultural": 0,
+                            "hazardous": 0,
+                            "industrial": 0
+                        }
+                    },
+                    "score": 0,
+                    "strategyCards": [],
+                    "technologies": 1,
+                    "tradeGoods": 0
+                }
+            ],
+            "round": 1,
+            "setupTimestamp": 1673102117.297,
+            "speaker": "Green",
+            "timestamp": 1673105167.713
+        },
+        {
+            "hexSummary": "82-4-3;,80+0+2*e,79-2+0*e,78-2+2*e,75+2+2;;;,72-1+1BtGtPtRtWtYfht;Yi;Yi,69-1+5R3r1t;Rip;Rip,67-1-3;,66+0+4Rdt;Ri*qr,64+2+0Gdt;Gi,63+0-4Bcf;Bo,62-1-1;,61+0-2Bcft;Bi,50+1+1*e,49+3-1*e,48-2-4*e,46+1-5*e,45+3+1*e,42-3+1Yyt*e,41+1-1*e,40+1+3*e,37+2-2;Wi;Wo,35-2+4Ycft;Yi;Yi,31+2-4Wcft;Wi;Wo,30-1-5Bct;Bi;Bo,27-3-1Pcft;Pi*i;,26-1+3;,25+1-3Wcft;Wi*p,24+2+4Gc2f1t;Gi,23-2-2Pfwt;Pi*O,21+1+5Rrt;Rm*q,18+0+0;,55+0+6R2f;Rs,53-3+3Y3f;Yms,9+3-3Wc3f1ryt;Wp;Ws,15+0-6Br;Bips;Bi,81-5-16*e,4-3-3Py;Pis,54+3+3Gcd2f1rt*h;G2i1ms",
+            "laws": [],
+            "perf": {
+                "mean": 46.616,
+                "median": 39.87,
+                "scrubbed": 41.193,
+                "stdDev": 20.545
+            },
+            "players": [
+                {
+                    "alliances": [],
+                    "color": "White",
+                    "colorActual": "White",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "locked",
+                        "commander": "locked",
+                        "hero": "locked"
+                    },
+                    "objectives": [
+                        "Amass Wealth",
+                        "Support for the Throne (Blue)"
+                    ],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 0,
+                            "total": 13
+                        },
+                        "legendary": 0,
+                        "resources": {
+                            "avail": 0,
+                            "total": 9
+                        },
+                        "techs": {
+                            "blue": 0,
+                            "green": 0,
+                            "red": 1,
+                            "yellow": 1
+                        },
+                        "traits": {
+                            "cultural": 1,
+                            "hazardous": 2,
+                            "industrial": 2
+                        }
+                    },
+                    "score": 2,
+                    "strategyCards": [
+                        "Politics"
+                    ],
+                    "technologies": 2,
+                    "tradeGoods": 0
+                },
+                {
+                    "alliances": [],
+                    "color": "Blue",
+                    "colorActual": "Blue",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "locked",
+                        "commander": "locked",
+                        "hero": "locked"
+                    },
+                    "objectives": [
+                        "Amass Wealth",
+                        "Support for the Throne (White)"
+                    ],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 2,
+                            "total": 10
+                        },
+                        "legendary": 0,
+                        "resources": {
+                            "avail": 1,
+                            "total": 8
+                        },
+                        "techs": {
+                            "blue": 0,
+                            "green": 1,
+                            "red": 1,
+                            "yellow": 0
+                        },
+                        "traits": {
+                            "cultural": 2,
+                            "hazardous": 1,
+                            "industrial": 1
+                        }
+                    },
+                    "score": 2,
+                    "strategyCards": [
+                        "Leadership"
+                    ],
+                    "technologies": 1,
+                    "tradeGoods": 1
+                },
+                {
+                    "alliances": [],
+                    "color": "Purple",
+                    "colorActual": "Purple",
+                    "commodities": 2,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "locked",
+                        "commander": "locked",
+                        "hero": "locked"
+                    },
+                    "objectives": [
+                        "Erect a Monument"
+                    ],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 0,
+                            "total": 6
+                        },
+                        "legendary": 0,
+                        "resources": {
+                            "avail": 0,
+                            "total": 11
+                        },
+                        "techs": {
+                            "blue": 1,
+                            "green": 1,
+                            "red": 0,
+                            "yellow": 0
+                        },
+                        "traits": {
+                            "cultural": 0,
+                            "hazardous": 1,
+                            "industrial": 2
+                        }
+                    },
+                    "score": 1,
+                    "strategyCards": [
+                        "Technology"
+                    ],
+                    "technologies": 2,
+                    "tradeGoods": 2
+                },
+                {
+                    "alliances": [],
+                    "color": "Yellow",
+                    "colorActual": "Yellow",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "unlocked",
+                        "commander": "locked",
+                        "hero": "locked"
+                    },
+                    "objectives": [
+                        "Erect a Monument"
+                    ],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 0,
+                            "total": 11
+                        },
+                        "legendary": 0,
+                        "resources": {
+                            "avail": 0,
+                            "total": 13
+                        },
+                        "techs": {
+                            "blue": 0,
+                            "green": 0,
+                            "red": 1,
+                            "yellow": 0
+                        },
+                        "traits": {
+                            "cultural": 0,
+                            "hazardous": 2,
+                            "industrial": 2
+                        }
+                    },
+                    "score": 1,
+                    "strategyCards": [
+                        "Diplomacy"
+                    ],
+                    "technologies": 2,
+                    "tradeGoods": 1
+                },
+                {
+                    "alliances": [],
+                    "color": "Red",
+                    "colorActual": "Red",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "unlocked",
+                        "commander": "locked",
+                        "hero": "locked"
+                    },
+                    "objectives": [
+                        "Erect a Monument"
+                    ],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 0,
+                            "total": 8
+                        },
+                        "legendary": 1,
+                        "resources": {
+                            "avail": 0,
+                            "total": 13
+                        },
+                        "techs": {
+                            "blue": 1,
+                            "green": 0,
+                            "red": 0,
+                            "yellow": 0
+                        },
+                        "traits": {
+                            "cultural": 0,
+                            "hazardous": 1,
+                            "industrial": 3
+                        }
+                    },
+                    "score": 1,
+                    "strategyCards": [
+                        "Warfare"
+                    ],
+                    "technologies": 3,
+                    "tradeGoods": 1
+                },
+                {
+                    "alliances": [],
+                    "color": "Green",
+                    "colorActual": "Green",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "locked",
+                        "commander": "locked",
+                        "hero": "locked"
+                    },
+                    "objectives": [
+                        "Amass Wealth"
+                    ],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 0,
+                            "total": 4
+                        },
+                        "legendary": 0,
+                        "resources": {
+                            "avail": 0,
+                            "total": 8
+                        },
+                        "techs": {
+                            "blue": 0,
+                            "green": 0,
+                            "red": 1,
+                            "yellow": 0
+                        },
+                        "traits": {
+                            "cultural": 0,
+                            "hazardous": 2,
+                            "industrial": 0
+                        }
+                    },
+                    "score": 1,
+                    "strategyCards": [
+                        "Trade"
+                    ],
+                    "technologies": 2,
+                    "tradeGoods": 2
+                }
+            ],
+            "round": 2,
+            "setupTimestamp": 1673102117.297,
+            "speaker": "White",
+            "timestamp": 1673108564.247
+        },
+        {
+            "hexSummary": "82-4-3;,80+0+2*e,79-2+0*e,78-2+2*e,75+2+2Gcfr;Gi;Gi;Gm,72-1+1Yfh;Yi;Yis,69-1+5Ycf;Rp;Rp,67-1-3Bc;Bo,66+0+4Rd2r;Ri*qr,64+2+0*h;Gis,63+0-4Bcf;Bo,62-1-1Rr;R2i*q,61+0-2Bcf;Bio,50+1+1*e,49+3-1Wc3f1r*e,48-2-4Py*e,46+1-5Wcf*e,45+3+1*e,42-3+1Yy*e,41+1-1*e,40+1+3*e,37+2-2;Wis;Wo,35-2+4Rr;Yi;Yi,31+2-4Gd;Wi;Wo,30-1-5Py;Bo;Bo,27-3-1;Pi*i;Po,26-1+3Rdr;Rip,25+1-3Wcf;Wi*p,24+2+4Gc2f;Gip,23-2-2Pfw;Pim*O,21+1+5Gd;Rm*q,18+0+0;Bo,55+0+6R2f;Rms,53-3+3Yd3f1y;Y2i1ms,9+3-3Wc2f1y;Wmp;Ws,15+0-6Br3y;Bips;Bi,81-5-16*e,4-3-3Pcfw;Pis,54+3+3Gf*h;Gs",
+            "laws": [],
+            "perf": {
+                "mean": 39.813,
+                "median": 33.828,
+                "scrubbed": 36.217,
+                "stdDev": 10.482
+            },
+            "players": [
+                {
+                    "alliances": [
+                        "green"
+                    ],
+                    "color": "White",
+                    "colorActual": "White",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "unlocked",
+                        "commander": "locked",
+                        "hero": "locked"
+                    },
+                    "objectives": [
+                        "Amass Wealth",
+                        "Populate the Outer Rim",
+                        "Support for the Throne (Blue)"
+                    ],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 13,
+                            "total": 13
+                        },
+                        "legendary": 0,
+                        "resources": {
+                            "avail": 9,
+                            "total": 9
+                        },
+                        "techs": {
+                            "blue": 0,
+                            "green": 0,
+                            "red": 1,
+                            "yellow": 1
+                        },
+                        "traits": {
+                            "cultural": 1,
+                            "hazardous": 2,
+                            "industrial": 2
+                        }
+                    },
+                    "score": 3,
+                    "strategyCards": [],
+                    "technologies": 3,
+                    "tradeGoods": 0
+                },
+                {
+                    "alliances": [],
+                    "color": "Blue",
+                    "colorActual": "Blue",
+                    "commodities": 0,
+                    "custodiansPoints": 1,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "unlocked",
+                        "commander": "locked",
+                        "hero": "locked"
+                    },
+                    "objectives": [
+                        "Amass Wealth",
+                        "Support for the Throne (White)"
+                    ],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 16,
+                            "total": 16
+                        },
+                        "legendary": 0,
+                        "resources": {
+                            "avail": 11,
+                            "total": 11
+                        },
+                        "techs": {
+                            "blue": 0,
+                            "green": 1,
+                            "red": 1,
+                            "yellow": 0
+                        },
+                        "traits": {
+                            "cultural": 2,
+                            "hazardous": 2,
+                            "industrial": 1
+                        }
+                    },
+                    "score": 3,
+                    "strategyCards": [],
+                    "technologies": 3,
+                    "tradeGoods": 0
+                },
+                {
+                    "alliances": [],
+                    "color": "Purple",
+                    "colorActual": "Purple",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "unlocked",
+                        "commander": "unlocked",
+                        "hero": "locked"
+                    },
+                    "objectives": [
+                        "Erect a Monument",
+                        "Populate the Outer Rim"
+                    ],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 6,
+                            "total": 6
+                        },
+                        "legendary": 0,
+                        "resources": {
+                            "avail": 11,
+                            "total": 11
+                        },
+                        "techs": {
+                            "blue": 1,
+                            "green": 1,
+                            "red": 0,
+                            "yellow": 0
+                        },
+                        "traits": {
+                            "cultural": 0,
+                            "hazardous": 1,
+                            "industrial": 2
+                        }
+                    },
+                    "score": 2,
+                    "strategyCards": [],
+                    "technologies": 3,
+                    "tradeGoods": 3
+                },
+                {
+                    "alliances": [],
+                    "color": "Yellow",
+                    "colorActual": "Yellow",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "unlocked",
+                        "commander": "locked",
+                        "hero": "locked"
+                    },
+                    "objectives": [
+                        "Erect a Monument",
+                        "Populate the Outer Rim"
+                    ],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 11,
+                            "total": 11
+                        },
+                        "legendary": 0,
+                        "resources": {
+                            "avail": 13,
+                            "total": 13
+                        },
+                        "techs": {
+                            "blue": 0,
+                            "green": 0,
+                            "red": 1,
+                            "yellow": 0
+                        },
+                        "traits": {
+                            "cultural": 0,
+                            "hazardous": 2,
+                            "industrial": 2
+                        }
+                    },
+                    "score": 2,
+                    "strategyCards": [],
+                    "technologies": 3,
+                    "tradeGoods": 3
+                },
+                {
+                    "alliances": [],
+                    "color": "Red",
+                    "colorActual": "Red",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "unlocked",
+                        "commander": "locked",
+                        "hero": "locked"
+                    },
+                    "objectives": [
+                        "Erect a Monument",
+                        "Populate the Outer Rim"
+                    ],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 11,
+                            "total": 11
+                        },
+                        "legendary": 1,
+                        "resources": {
+                            "avail": 19,
+                            "total": 19
+                        },
+                        "techs": {
+                            "blue": 1,
+                            "green": 0,
+                            "red": 0,
+                            "yellow": 1
+                        },
+                        "traits": {
+                            "cultural": 2,
+                            "hazardous": 1,
+                            "industrial": 3
+                        }
+                    },
+                    "score": 2,
+                    "strategyCards": [],
+                    "technologies": 4,
+                    "tradeGoods": 2
+                },
+                {
+                    "alliances": [],
+                    "color": "Green",
+                    "colorActual": "Green",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "unlocked",
+                        "commander": "locked",
+                        "hero": "locked"
+                    },
+                    "objectives": [
+                        "Amass Wealth",
+                        "Populate the Outer Rim"
+                    ],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 6,
+                            "total": 6
+                        },
+                        "legendary": 0,
+                        "resources": {
+                            "avail": 12,
+                            "total": 12
+                        },
+                        "techs": {
+                            "blue": 0,
+                            "green": 0,
+                            "red": 1,
+                            "yellow": 0
+                        },
+                        "traits": {
+                            "cultural": 2,
+                            "hazardous": 3,
+                            "industrial": 0
+                        }
+                    },
+                    "score": 2,
+                    "strategyCards": [],
+                    "technologies": 3,
+                    "tradeGoods": 6
+                }
+            ],
+            "round": 3,
+            "setupTimestamp": 1673102117.297,
+            "speaker": "Purple",
+            "timestamp": 1673113655.258
+        },
+        {
+            "hexSummary": "82-4-3;,80+0+2*e,79-2+0*e,78-2+2*e,75+2+2Gr*h;Gip;Gso;Go,72-1+1Yd;Yi;Yims,69-1+5Ycf;Rp;Rp,67-1-3;Bo,66+0+4Rdr;Rim*qr,64+2+0G2f1hr*h;G3i1ms,63+0-4;Bo,62-1-1Pfw;P2m*q,61+0-2Yfh;Bio,50+1+1*e,49+3-1Wc3f1r*e,48-2-4Py*e,46+1-5By*e,45+3+1*e,42-3+1Yy*e,41+1-1*e,40+1+3*e,37+2-2W3f1r;Wis;Wo,35-2+4;Yi;Yi,31+2-4Bcf;Wi;BmWo,30-1-5Py;Bo;Bmo,27-3-1;Pi*i;Po,26-1+3Rd2r;R3i1p*q,25+1-3Gc2d3f;G3i1m*p,24+2+4Gc2f;Gip,23-2-2Bcy;B2m*O,21+1+5;Rm*q,18+0+0W2c4f;Wim,55+0+6R2f3r;R2im1s*u,53-3+3Yd3f1y;Y2i1ms,9+3-3Wc2f1y;Wmp;Ws,15+0-6Bh3y;Bips;Bi,81-5-16*e,4-3-3Pcfw;Pis,54+3+3Gf*h;Gs",
+            "laws": [
+                "Representative Government"
+            ],
+            "perf": {
+                "mean": 50.003,
+                "median": 42.018,
+                "scrubbed": 44.891,
+                "stdDev": 25.748
+            },
+            "players": [
+                {
+                    "alliances": [
+                        "green"
+                    ],
+                    "color": "White",
+                    "colorActual": "White",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "unlocked",
+                        "commander": "unlocked",
+                        "hero": "unlocked"
+                    },
+                    "objectives": [
+                        "Amass Wealth",
+                        "Erect a Monument",
+                        "Populate the Outer Rim",
+                        "Support for the Throne (Blue)"
+                    ],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 16,
+                            "total": 16
+                        },
+                        "legendary": 0,
+                        "resources": {
+                            "avail": 8,
+                            "total": 8
+                        },
+                        "techs": {
+                            "blue": 0,
+                            "green": 0,
+                            "red": 1,
+                            "yellow": 1
+                        },
+                        "traits": {
+                            "cultural": 0,
+                            "hazardous": 2,
+                            "industrial": 2
+                        }
+                    },
+                    "score": 4,
+                    "strategyCards": [],
+                    "technologies": 4,
+                    "tradeGoods": 0
+                },
+                {
+                    "alliances": [
+                        "white"
+                    ],
+                    "color": "Blue",
+                    "colorActual": "Blue",
+                    "commodities": 0,
+                    "custodiansPoints": 1,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "unlocked",
+                        "commander": "unlocked",
+                        "hero": "unlocked"
+                    },
+                    "objectives": [
+                        "Amass Wealth",
+                        "Hoard Raw Materials",
+                        "Populate the Outer Rim",
+                        "Support for the Throne (White)"
+                    ],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 12,
+                            "total": 12
+                        },
+                        "legendary": 0,
+                        "resources": {
+                            "avail": 12,
+                            "total": 12
+                        },
+                        "techs": {
+                            "blue": 1,
+                            "green": 1,
+                            "red": 1,
+                            "yellow": 0
+                        },
+                        "traits": {
+                            "cultural": 2,
+                            "hazardous": 2,
+                            "industrial": 2
+                        }
+                    },
+                    "score": 5,
+                    "strategyCards": [],
+                    "technologies": 4,
+                    "tradeGoods": 1
+                },
+                {
+                    "alliances": [],
+                    "color": "Purple",
+                    "colorActual": "Purple",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "unlocked",
+                        "commander": "unlocked",
+                        "hero": "unlocked"
+                    },
+                    "objectives": [
+                        "Amass Wealth",
+                        "Erect a Monument",
+                        "Populate the Outer Rim"
+                    ],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 6,
+                            "total": 6
+                        },
+                        "legendary": 0,
+                        "resources": {
+                            "avail": 12,
+                            "total": 12
+                        },
+                        "techs": {
+                            "blue": 0,
+                            "green": 1,
+                            "red": 0,
+                            "yellow": 1
+                        },
+                        "traits": {
+                            "cultural": 1,
+                            "hazardous": 1,
+                            "industrial": 1
+                        }
+                    },
+                    "score": 3,
+                    "strategyCards": [],
+                    "technologies": 4,
+                    "tradeGoods": 0
+                },
+                {
+                    "alliances": [],
+                    "color": "Yellow",
+                    "colorActual": "Yellow",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "unlocked",
+                        "commander": "unlocked",
+                        "hero": "unlocked"
+                    },
+                    "objectives": [
+                        "Develop Weaponry",
+                        "Erect a Monument",
+                        "Populate the Outer Rim",
+                        "Shard of the Throne",
+                        "Support for the Throne (Red)",
+                        "Unveil Flagship"
+                    ],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 11,
+                            "total": 11
+                        },
+                        "legendary": 0,
+                        "resources": {
+                            "avail": 13,
+                            "total": 13
+                        },
+                        "techs": {
+                            "blue": 0,
+                            "green": 0,
+                            "red": 1,
+                            "yellow": 0
+                        },
+                        "traits": {
+                            "cultural": 0,
+                            "hazardous": 2,
+                            "industrial": 2
+                        }
+                    },
+                    "score": 6,
+                    "strategyCards": [],
+                    "technologies": 5,
+                    "tradeGoods": 1
+                },
+                {
+                    "alliances": [],
+                    "color": "Red",
+                    "colorActual": "Red",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "unlocked",
+                        "commander": "locked",
+                        "hero": "unlocked"
+                    },
+                    "objectives": [
+                        "Amass Wealth",
+                        "Destroy Heretical Works",
+                        "Develop Weaponry",
+                        "Erect a Monument",
+                        "Populate the Outer Rim",
+                        "Support for the Throne (Yellow)"
+                    ],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 12,
+                            "total": 12
+                        },
+                        "legendary": 1,
+                        "resources": {
+                            "avail": 19,
+                            "total": 19
+                        },
+                        "techs": {
+                            "blue": 1,
+                            "green": 0,
+                            "red": 0,
+                            "yellow": 0
+                        },
+                        "traits": {
+                            "cultural": 1,
+                            "hazardous": 1,
+                            "industrial": 3
+                        }
+                    },
+                    "score": 6,
+                    "strategyCards": [],
+                    "technologies": 5,
+                    "tradeGoods": 0
+                },
+                {
+                    "alliances": [
+                        "yellow"
+                    ],
+                    "color": "Green",
+                    "colorActual": "Green",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "unlocked",
+                        "commander": "unlocked",
+                        "hero": "unlocked"
+                    },
+                    "objectives": [
+                        "Amass Wealth",
+                        "Develop Weaponry",
+                        "Populate the Outer Rim"
+                    ],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 9,
+                            "total": 9
+                        },
+                        "legendary": 0,
+                        "resources": {
+                            "avail": 14,
+                            "total": 14
+                        },
+                        "techs": {
+                            "blue": 0,
+                            "green": 0,
+                            "red": 1,
+                            "yellow": 0
+                        },
+                        "traits": {
+                            "cultural": 3,
+                            "hazardous": 3,
+                            "industrial": 0
+                        }
+                    },
+                    "score": 3,
+                    "strategyCards": [],
+                    "technologies": 5,
+                    "tradeGoods": 4
+                }
+            ],
+            "round": 4,
+            "setupTimestamp": 1673102117.297,
+            "speaker": "White",
+            "timestamp": 1673120581.893
+        },
+        {
+            "hexSummary": "82-4-3;,80+0+2Wt*e,79-2+0Rrt*e,78-2+2*e,75+2+2RtWcd3f1rt;Gip;GoWi;Go,72-1+1Yd2f1yt;Yim;Yims,69-1+5;Rp;Rp,67-1-3;Bo,66+0+4Rd;Rim*qr,64+2+0G2fr1y*h;G2i1s,63+0-4Byt;Bo,62-1-1;P4i2m*qt,61-12-4;,50+1+1RfrtWt,49+3-1*e,48-2-4Bt*e,46+1-5Bcyt,45+3+1Wc2f1t*e,42-3+1Ydyt*e,41+1-1Wc4f1imt*e,40+1+3Rf4r1t,37+2-2W4f;Ws;Wo,35-2+4;Yi;Yi,31+2-4Gcd3f1ryt;Gm;Gi,30-1-5Py;Bo;Bmo,27-3-1BtPcdyt;Pi*i;Pmo,26-1+3Rd;R3i1p*q,25+1-3;Gi*p,24+2+4;Gip,23-2-2Bcyt;Bmo*O,21+1+5Rdt;Rmp*c,18+0+0G2df1hytWt;Gi2m,55+0+6;R2im1s*u,53-3+3Ycd8f1yt;Y4i2m1s,9+3-3W2f1rt;Wmp;W2im1s,15+0-6Bhy;Bimps;Bi,81+0-2Pfw2y1tWt,4-3-3Pfw;Pims,54+3+3Gcd6f1tWt*h;Gms",
+            "laws": [
+                "Representative Government",
+                "Political Censure"
+            ],
+            "perf": {
+                "mean": 53.526,
+                "median": 47.017,
+                "scrubbed": 49.661,
+                "stdDev": 17.936
+            },
+            "players": [
+                {
+                    "alliances": [],
+                    "color": "White",
+                    "colorActual": "White",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [
+                        "Political Censure"
+                    ],
+                    "leaders": {
+                        "agent": "locked",
+                        "commander": "unlocked"
+                    },
+                    "objectives": [
+                        "Amass Wealth",
+                        "Darken the Skies",
+                        "Develop Weaponry",
+                        "Drive the Debate",
+                        "Erect a Monument",
+                        "Political Censure",
+                        "Populate the Outer Rim",
+                        "Stake Your Claim",
+                        "Support for the Throne (Blue)"
+                    ],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 0,
+                            "total": 9
+                        },
+                        "legendary": 0,
+                        "resources": {
+                            "avail": 0,
+                            "total": 5
+                        },
+                        "techs": {
+                            "blue": 0,
+                            "green": 0,
+                            "red": 1,
+                            "yellow": 0
+                        },
+                        "traits": {
+                            "cultural": 1,
+                            "hazardous": 1,
+                            "industrial": 1
+                        }
+                    },
+                    "score": 9,
+                    "strategyCards": [
+                        "Politics"
+                    ],
+                    "technologies": 5,
+                    "tradeGoods": 0
+                },
+                {
+                    "alliances": [
+                        "white"
+                    ],
+                    "color": "Blue",
+                    "colorActual": "Blue",
+                    "commodities": 0,
+                    "custodiansPoints": 1,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "locked",
+                        "commander": "unlocked"
+                    },
+                    "objectives": [
+                        "Amass Wealth",
+                        "Diversify Research",
+                        "Erect a Monument",
+                        "Hoard Raw Materials",
+                        "Imperial Rider",
+                        "Populate the Outer Rim",
+                        "Support for the Throne (White)"
+                    ],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 0,
+                            "total": 12
+                        },
+                        "legendary": 0,
+                        "resources": {
+                            "avail": 0,
+                            "total": 10
+                        },
+                        "techs": {
+                            "blue": 1,
+                            "green": 1,
+                            "red": 0,
+                            "yellow": 0
+                        },
+                        "traits": {
+                            "cultural": 2,
+                            "hazardous": 2,
+                            "industrial": 1
+                        }
+                    },
+                    "score": 8,
+                    "strategyCards": [
+                        "Imperial"
+                    ],
+                    "technologies": 6,
+                    "tradeGoods": 2
+                },
+                {
+                    "alliances": [],
+                    "color": "Purple",
+                    "colorActual": "Purple",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "locked",
+                        "commander": "unlocked"
+                    },
+                    "objectives": [
+                        "Amass Wealth",
+                        "Demonstrate Your Power",
+                        "Destroy Their Greatest Ship",
+                        "Develop Weaponry",
+                        "Erect a Monument",
+                        "Populate the Outer Rim",
+                        "Support for the Throne (Green)"
+                    ],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 3,
+                            "total": 7
+                        },
+                        "legendary": 0,
+                        "resources": {
+                            "avail": 4,
+                            "total": 13
+                        },
+                        "techs": {
+                            "blue": 0,
+                            "green": 1,
+                            "red": 0,
+                            "yellow": 1
+                        },
+                        "traits": {
+                            "cultural": 2,
+                            "hazardous": 2,
+                            "industrial": 2
+                        }
+                    },
+                    "score": 7,
+                    "strategyCards": [
+                        "Technology"
+                    ],
+                    "technologies": 5,
+                    "tradeGoods": 4
+                },
+                {
+                    "alliances": [
+                        "purple"
+                    ],
+                    "color": "Yellow",
+                    "colorActual": "Yellow",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "unlocked",
+                        "commander": "unlocked",
+                        "hero": "unlocked"
+                    },
+                    "objectives": [
+                        "Develop Weaponry",
+                        "Diversify Research",
+                        "Erect a Monument",
+                        "Populate the Outer Rim",
+                        "Shard of the Throne",
+                        "Support for the Throne (Red)",
+                        "Unveil Flagship"
+                    ],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 0,
+                            "total": 11
+                        },
+                        "legendary": 0,
+                        "resources": {
+                            "avail": 0,
+                            "total": 13
+                        },
+                        "techs": {
+                            "blue": 0,
+                            "green": 0,
+                            "red": 1,
+                            "yellow": 0
+                        },
+                        "traits": {
+                            "cultural": 0,
+                            "hazardous": 2,
+                            "industrial": 2
+                        }
+                    },
+                    "score": 7,
+                    "strategyCards": [
+                        "Trade"
+                    ],
+                    "technologies": 6,
+                    "tradeGoods": 7
+                },
+                {
+                    "alliances": [],
+                    "color": "Red",
+                    "colorActual": "Red",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "locked",
+                        "commander": "unlocked",
+                        "hero": "unlocked"
+                    },
+                    "objectives": [
+                        "Amass Wealth",
+                        "Brave the Void",
+                        "Destroy Heretical Works",
+                        "Develop Weaponry",
+                        "Erect a Monument",
+                        "Foster Cohesion",
+                        "Populate the Outer Rim",
+                        "Support for the Throne (Yellow)"
+                    ],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 0,
+                            "total": 13
+                        },
+                        "legendary": 1,
+                        "resources": {
+                            "avail": 0,
+                            "total": 20
+                        },
+                        "techs": {
+                            "blue": 1,
+                            "green": 0,
+                            "red": 0,
+                            "yellow": 0
+                        },
+                        "traits": {
+                            "cultural": 1,
+                            "hazardous": 1,
+                            "industrial": 3
+                        }
+                    },
+                    "score": 8,
+                    "strategyCards": [
+                        "Leadership"
+                    ],
+                    "technologies": 6,
+                    "tradeGoods": 0
+                },
+                {
+                    "alliances": [
+                        "yellow"
+                    ],
+                    "color": "Green",
+                    "colorActual": "Green",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "unlocked",
+                        "commander": "unlocked"
+                    },
+                    "objectives": [
+                        "Amass Wealth",
+                        "Develop Weaponry",
+                        "Diversify Research",
+                        "Occupy the Seat of the Empire",
+                        "Populate the Outer Rim",
+                        "Support for the Throne (Purple)"
+                    ],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 0,
+                            "total": 16
+                        },
+                        "legendary": 0,
+                        "resources": {
+                            "avail": 0,
+                            "total": 17
+                        },
+                        "techs": {
+                            "blue": 0,
+                            "green": 0,
+                            "red": 1,
+                            "yellow": 1
+                        },
+                        "traits": {
+                            "cultural": 2,
+                            "hazardous": 4,
+                            "industrial": 1
+                        }
+                    },
+                    "score": 6,
+                    "strategyCards": [
+                        "Warfare"
+                    ],
+                    "technologies": 6,
+                    "tradeGoods": 2
+                }
+            ],
+            "round": 5,
+            "setupTimestamp": 1673102117.297,
+            "speaker": "Green",
+            "timestamp": 1673129366.32
+        }
+    ],
+    "isPoK": true,
+    "laws": [
+        "Representative Government",
+        "Political Censure",
+        "Galactic Crisis Pact"
+    ],
+    "mapString": "80 50 41 81 62 72 66 40 75 64 37 25 63 67 23 79 78 26 55 21 24 54 45 49 9 31 46 15 30 48 4 27 42 53 35 69 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 61",
+    "objectives": {
+        "Agenda": [
+            "Political Censure"
+        ],
+        "Other": [
+            "Support for the Throne (White)",
+            "Support for the Throne (Blue)",
+            "Support for the Throne (Purple)",
+            "Support for the Throne (Yellow)",
+            "Support for the Throne (Red)",
+            "Support for the Throne (Green)",
+            "Imperial Rider"
+        ],
+        "Public Objectives I": [
+            "Amass Wealth",
+            "Erect a Monument",
+            "Populate the Outer Rim",
+            "Develop Weaponry",
+            "Diversify Research"
+        ],
+        "Public Objectives II": [
+            "Become a Legend"
+        ],
+        "Relics": [
+            "Shard of the Throne"
+        ],
+        "Secret Objectives": [
+            "Destroy Their Greatest Ship",
+            "Unveil Flagship",
+            "Hoard Raw Materials",
+            "Foster Cohesion",
+            "Darken the Skies",
+            "Betray a Friend",
+            "Drive the Debate",
+            "Occupy the Seat of the Empire",
+            "Demonstrate Your Power",
+            "Brave the Void",
+            "Turn Their Fleets to Dust",
+            "Stake Your Claim",
+            "Destroy Heretical Works"
+        ]
+    },
+    "perf": {
+        "mean": 61.778,
+        "median": 57.843,
+        "scrubbed": 56.964,
+        "stdDev": 22.814
+    },
+    "platform": "ttpg",
+    "players": [
+        {
+            "active": false,
+            "alliances": [],
+            "color": "White",
+            "colorActual": "White",
+            "commandTokens": {
+                "fleet": 3,
+                "strategy": 0,
+                "tactics": 2
+            },
+            "commodities": 0,
+            "custodiansPoints": 0,
+            "factionName": "The Naalu Collective",
+            "factionShort": "Naalu",
+            "handSummary": {
+                "Actions": 6,
+                "Promissory": 5
+            },
+            "laws": [
+                "Political Censure"
+            ],
+            "leaders": {
+                "agent": "locked",
+                "commander": "unlocked"
+            },
+            "maxCommodities": 3,
+            "objectives": [
+                "Amass Wealth",
+                "Darken the Skies",
+                "Develop Weaponry",
+                "Drive the Debate",
+                "Erect a Monument",
+                "Political Censure",
+                "Populate the Outer Rim",
+                "Stake Your Claim",
+                "Support for the Throne (Blue)"
+            ],
+            "planetTotals": {
+                "influence": {
+                    "avail": 2,
+                    "total": 9
+                },
+                "legendary": 0,
+                "resources": {
+                    "avail": 2,
+                    "total": 5
+                },
+                "techs": {
+                    "blue": 0,
+                    "green": 0,
+                    "red": 1,
+                    "yellow": 0
+                },
+                "traits": {
+                    "cultural": 1,
+                    "hazardous": 1,
+                    "industrial": 1
+                }
+            },
+            "score": 9,
+            "steamName": "PC Dart (He/Him/His)",
+            "strategyCards": [
+                "Technology"
+            ],
+            "strategyCardsFaceDown": [
+                "Technology"
+            ],
+            "technologies": [
+                "Carrier II",
+                "Sarween Tools",
+                "Gravity Drive",
+                "Graviton Laser System",
+                "Dreadnought II",
+                "Antimass Deflectors"
+            ],
+            "tradeGoods": 0,
+            "turnOrder": 0,
+            "unitModifiers": [],
+            "unitUpgrades": [
+                "carrier",
+                "dreadnought"
+            ]
+        },
+        {
+            "active": true,
+            "alliances": [
+                "white"
+            ],
+            "color": "Blue",
+            "colorActual": "Blue",
+            "commandTokens": {
+                "fleet": 4,
+                "strategy": 1,
+                "tactics": 3
+            },
+            "commodities": 0,
+            "custodiansPoints": 1,
+            "factionName": "The Yssaril Tribes",
+            "factionShort": "Yssaril",
+            "handSummary": {
+                "Actions": 15,
+                "Promissory": 4,
+                "Secret Objectives": 1
+            },
+            "laws": [],
+            "leaders": {
+                "agent": "locked",
+                "commander": "unlocked"
+            },
+            "maxCommodities": 3,
+            "objectives": [
+                "Amass Wealth",
+                "Diversify Research",
+                "Erect a Monument",
+                "Hoard Raw Materials",
+                "Imperial Rider",
+                "Populate the Outer Rim",
+                "Support for the Throne (White)",
+                "Turn Their Fleets to Dust"
+            ],
+            "planetTotals": {
+                "influence": {
+                    "avail": 0,
+                    "total": 12
+                },
+                "legendary": 0,
+                "resources": {
+                    "avail": 0,
+                    "total": 10
+                },
+                "techs": {
+                    "blue": 1,
+                    "green": 1,
+                    "red": 0,
+                    "yellow": 0
+                },
+                "traits": {
+                    "cultural": 2,
+                    "hazardous": 2,
+                    "industrial": 1
+                }
+            },
+            "score": 9,
+            "steamName": "Ganymede425",
+            "strategyCards": [
+                "Construction"
+            ],
+            "strategyCardsFaceDown": [
+                "Construction"
+            ],
+            "technologies": [
+                "Mageon Implants",
+                "Bio-Stims",
+                "Dark Energy Tap",
+                "Carrier II",
+                "Gravity Drive",
+                "Fighter II",
+                "Fleet Logistics",
+                "Neural Motivator"
+            ],
+            "tradeGoods": 2,
+            "turnOrder": 4,
+            "unitModifiers": [],
+            "unitUpgrades": [
+                "carrier",
+                "fighter"
+            ]
+        },
+        {
+            "active": false,
+            "alliances": [],
+            "color": "Purple",
+            "colorActual": "Purple",
+            "commandTokens": {
+                "fleet": 4,
+                "strategy": 0,
+                "tactics": 2
+            },
+            "commodities": 0,
+            "custodiansPoints": 0,
+            "factionName": "The Embers of Muaat",
+            "factionShort": "Muaat",
+            "handSummary": {
+                "Actions": 3,
+                "Promissory": 5,
+                "Secret Objectives": 1
+            },
+            "laws": [],
+            "leaders": {
+                "agent": "locked",
+                "commander": "unlocked"
+            },
+            "maxCommodities": 4,
+            "objectives": [
+                "Amass Wealth",
+                "Demonstrate Your Power",
+                "Destroy Their Greatest Ship",
+                "Develop Weaponry",
+                "Erect a Monument",
+                "Populate the Outer Rim",
+                "Support for the Throne (Green)"
+            ],
+            "planetTotals": {
+                "influence": {
+                    "avail": 6,
+                    "total": 7
+                },
+                "legendary": 0,
+                "resources": {
+                    "avail": 10,
+                    "total": 13
+                },
+                "techs": {
+                    "blue": 0,
+                    "green": 1,
+                    "red": 0,
+                    "yellow": 1
+                },
+                "traits": {
+                    "cultural": 2,
+                    "hazardous": 2,
+                    "industrial": 2
+                }
+            },
+            "score": 7,
+            "steamName": "LordRook (He/Him)",
+            "strategyCards": [
+                "Leadership"
+            ],
+            "strategyCardsFaceDown": [
+                "Leadership"
+            ],
+            "technologies": [
+                "Destroyer II",
+                "AI Development Algorithm",
+                "Prototype War Sun II",
+                "magmus_reactor",
+                "Plasma Scoring"
+            ],
+            "tradeGoods": 4,
+            "turnOrder": 1,
+            "unitModifiers": [
+                {
+                    "localeName": "plasma_scoring",
+                    "name": "Plasma Scoring"
+                }
+            ],
+            "unitUpgrades": [
+                "destroyer",
+                "war_sun"
+            ]
+        },
+        {
+            "active": true,
+            "alliances": [],
+            "color": "Yellow",
+            "colorActual": "Yellow",
+            "commandTokens": {
+                "fleet": 3,
+                "strategy": 0,
+                "tactics": 2
+            },
+            "commodities": 0,
+            "custodiansPoints": 0,
+            "factionName": "The Nomad",
+            "factionShort": "Nomad",
+            "handSummary": {
+                "Actions": 4,
+                "Promissory": 3,
+                "Secret Objectives": 1
+            },
+            "laws": [],
+            "leaders": {
+                "agent": "unlocked",
+                "commander": "unlocked",
+                "hero": "unlocked"
+            },
+            "maxCommodities": 4,
+            "objectives": [
+                "Betray a Friend",
+                "Develop Weaponry",
+                "Diversify Research",
+                "Erect a Monument",
+                "Populate the Outer Rim",
+                "Shard of the Throne",
+                "Support for the Throne (Red)",
+                "Unveil Flagship"
+            ],
+            "planetTotals": {
+                "influence": {
+                    "avail": 7,
+                    "total": 11
+                },
+                "legendary": 0,
+                "resources": {
+                    "avail": 9,
+                    "total": 13
+                },
+                "techs": {
+                    "blue": 0,
+                    "green": 0,
+                    "red": 1,
+                    "yellow": 0
+                },
+                "traits": {
+                    "cultural": 0,
+                    "hazardous": 2,
+                    "industrial": 2
+                }
+            },
+            "score": 8,
+            "steamName": "Kulganis",
+            "strategyCards": [
+                "Diplomacy"
+            ],
+            "strategyCardsFaceDown": [
+                "Diplomacy"
+            ],
+            "technologies": [
+                "Gravity Drive",
+                "Sling Relay",
+                "Plasma Scoring",
+                "Dreadnought II",
+                "Carrier II",
+                "Predictive Intelligence",
+                "Scanlink Drone Network"
+            ],
+            "tradeGoods": 4,
+            "turnOrder": 2,
+            "unitModifiers": [
+                {
+                    "localeName": "plasma_scoring",
+                    "name": "Plasma Scoring"
+                },
+                {
+                    "localeName": "navarch_feng",
+                    "name": "Navarch Feng"
+                }
+            ],
+            "unitUpgrades": [
+                "carrier",
+                "dreadnought"
+            ]
+        },
+        {
+            "active": true,
+            "alliances": [],
+            "color": "Red",
+            "colorActual": "Red",
+            "commandTokens": {
+                "fleet": 3,
+                "strategy": 0,
+                "tactics": 2
+            },
+            "commodities": 0,
+            "custodiansPoints": 0,
+            "factionName": "The Titans of Ul",
+            "factionShort": "Ul",
+            "handSummary": {
+                "Actions": 2,
+                "Promissory": 5
+            },
+            "laws": [],
+            "leaders": {
+                "agent": "locked",
+                "commander": "unlocked",
+                "hero": "unlocked"
+            },
+            "maxCommodities": 2,
+            "objectives": [
+                "Amass Wealth",
+                "Brave the Void",
+                "Destroy Heretical Works",
+                "Develop Weaponry",
+                "Erect a Monument",
+                "Foster Cohesion",
+                "Populate the Outer Rim",
+                "Support for the Throne (Yellow)"
+            ],
+            "planetTotals": {
+                "influence": {
+                    "avail": 0,
+                    "total": 13
+                },
+                "legendary": 1,
+                "resources": {
+                    "avail": 0,
+                    "total": 20
+                },
+                "techs": {
+                    "blue": 1,
+                    "green": 0,
+                    "red": 0,
+                    "yellow": 0
+                },
+                "traits": {
+                    "cultural": 1,
+                    "hazardous": 1,
+                    "industrial": 3
+                }
+            },
+            "score": 8,
+            "steamName": "Purple Puma",
+            "strategyCards": [
+                "Politics"
+            ],
+            "strategyCardsFaceDown": [
+                "Politics"
+            ],
+            "technologies": [
+                "Saturn Engine II",
+                "Hel-Titan II",
+                "Dark Energy Tap",
+                "Sling Relay",
+                "Scanlink Drone Network",
+                "Antimass Deflectors",
+                "AI Development Algorithm"
+            ],
+            "tradeGoods": 1,
+            "turnOrder": 3,
+            "unitModifiers": [
+                {
+                    "localeName": "ul_the_progenitor",
+                    "name": "Ul the Progenitor"
+                }
+            ],
+            "unitUpgrades": [
+                "cruiser",
+                "pds"
+            ]
+        },
+        {
+            "active": true,
+            "alliances": [
+                "yellow"
+            ],
+            "color": "Green",
+            "colorActual": "Green",
+            "commandTokens": {
+                "fleet": 3,
+                "strategy": 0,
+                "tactics": 3
+            },
+            "commodities": 0,
+            "custodiansPoints": 1,
+            "factionName": "The Vuil'raith Cabal",
+            "factionShort": "Vuilraith",
+            "handSummary": {
+                "Actions": 5,
+                "Promissory": 4,
+                "Secret Objectives": 2
+            },
+            "laws": [],
+            "leaders": {
+                "agent": "unlocked",
+                "commander": "unlocked"
+            },
+            "maxCommodities": 2,
+            "objectives": [
+                "Amass Wealth",
+                "Become a Legend",
+                "Develop Weaponry",
+                "Diversify Research",
+                "Occupy the Seat of the Empire",
+                "Populate the Outer Rim",
+                "Support for the Throne (Purple)"
+            ],
+            "planetTotals": {
+                "influence": {
+                    "avail": 5,
+                    "total": 16
+                },
+                "legendary": 0,
+                "resources": {
+                    "avail": 12,
+                    "total": 17
+                },
+                "techs": {
+                    "blue": 0,
+                    "green": 0,
+                    "red": 1,
+                    "yellow": 1
+                },
+                "traits": {
+                    "cultural": 2,
+                    "hazardous": 4,
+                    "industrial": 1
+                }
+            },
+            "score": 9,
+            "steamName": "Grindsa",
+            "strategyCards": [
+                "Imperial"
+            ],
+            "strategyCardsFaceDown": [
+                "Imperial"
+            ],
+            "technologies": [
+                "Cruiser II",
+                "Vortex",
+                "Dreadnought II",
+                "Integrated Economy",
+                "Scanlink Drone Network",
+                "Self Assembly Routines"
+            ],
+            "tradeGoods": 2,
+            "turnOrder": 5,
+            "unitModifiers": [
+                {
+                    "localeName": "navarch_feng",
+                    "name": "Navarch Feng"
+                },
+                {
+                    "localeName": "that_which_molds_flesh",
+                    "name": "That Which Molds Flesh"
+                }
+            ],
+            "unitUpgrades": [
+                "cruiser",
+                "dreadnought"
+            ]
+        }
+    ],
+    "round": 5,
+    "scoreboard": 10,
+    "setupTimestamp": 1673102117.297,
+    "speaker": "Red",
+    "timer": {
+        "countDown": 28800,
+        "direction": 0,
+        "seconds": 28809
+    },
+    "timestamp": 1673135457.97,
+    "turn": "Blue",
+    "whispers": [
+        {
+            "backwardStr": "                                                  <         ",
+            "colorNameA": "purple",
+            "colorNameB": "white",
+            "forwardStr": "                                                    >       "
+        },
+        {
+            "backwardStr": "                                                            ",
+            "colorNameA": "purple",
+            "colorNameB": "yellow",
+            "forwardStr": "                                                            "
+        },
+        {
+            "backwardStr": "                                                            ",
+            "colorNameA": "purple",
+            "colorNameB": "blue",
+            "forwardStr": "                                                            "
+        },
+        {
+            "backwardStr": "                                                            ",
+            "colorNameA": "green",
+            "colorNameB": "yellow",
+            "forwardStr": "                                                            "
+        },
+        {
+            "backwardStr": "                                                            ",
+            "colorNameA": "green",
+            "colorNameB": "purple",
+            "forwardStr": "                                                            "
+        },
+        {
+            "backwardStr": "                                                            ",
+            "colorNameA": "red",
+            "colorNameB": "white",
+            "forwardStr": "                                                            "
+        },
+        {
+            "backwardStr": "                                                            ",
+            "colorNameA": "green",
+            "colorNameB": "white",
+            "forwardStr": "                                                            "
+        },
+        {
+            "backwardStr": "                                                            ",
+            "colorNameA": "blue",
+            "colorNameB": "white",
+            "forwardStr": "                                                            "
+        }
+    ]
+}

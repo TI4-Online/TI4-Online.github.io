@@ -190,6 +190,7 @@ it("parsePlayerResources", () => {
   assert.deepEqual(resources, {
     alliances: ["blue"],
     commodities: 2,
+    hand: { action: 5, promissory: 5, secret: 0 },
     influence: { avail: 2, total: 13 },
     leaders: { commander: "locked", hero: "locked" },
     resources: { avail: 9, total: 12 },

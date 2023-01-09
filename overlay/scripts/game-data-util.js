@@ -737,6 +737,11 @@ class GameDataUtil {
           playerData?.leaders?.hero || "purged"
         ),
       },
+      hand: {
+        action: playerData?.handSummary?.Actions || 0,
+        promissory: playerData?.handSummary?.Actions || 0,
+        secret: (playerData?.handSummary || {})["Secret Objectives"] || 0,
+      },
     };
   }
 
