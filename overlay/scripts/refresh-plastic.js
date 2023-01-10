@@ -21,6 +21,7 @@ class Plastic {
       infantry: "units/unit_i_Infantry.png",
       space_dock: "units/unit_s_Space_Dock.png",
       mech: "units/unit_m_Mech.png",
+      tradegood: "tokens/tradegood_1.png",
       tech: "tech/blue.png",
     };
 
@@ -65,6 +66,7 @@ class Plastic {
       "fighter",
     ];
     const drawOrderGround = [
+      "tradegood",
       "pds",
       "space_dock",
       "mech",
@@ -95,6 +97,33 @@ class Plastic {
           }
         }
       }
+    }
+
+    // Summarize unit cost.
+    for (const [colorName, unitNameToCount] of Object.entries(
+      colorNameToUnitNameToCount
+    )) {
+      let total = 0;
+      const unitNameToCost = {
+        flagship: 8,
+        war_sun: 12,
+        dreadnought: 4,
+        carrier: 3,
+        cruiser: 2,
+        destroyer: 1,
+        fighter: 0.5,
+        pds: 0,
+        infantry: 0.5,
+        space_dock: 0,
+        mech: 2,
+      };
+      for (const [unitName, count] of Object.entries(unitNameToCount)) {
+        const cost = unitNameToCost[unitName];
+        if (cost) {
+          total += cost * count;
+        }
+      }
+      colorNameToUnitNameToCount[colorName]["tradegood"] = Math.ceil(total);
     }
 
     // Count tech.
@@ -149,10 +178,14 @@ class Plastic {
           const path = this._unitToPath[unitName];
           const src = path && ImageUtil.getSrc(path);
           if (src) {
+            let color = count > 0 ? colorHex : "black";
+            if (unitName === "tradegood") {
+              color = undefined;
+            }
             ImageUtil.drawMagic(ctx, src, unitX, unitY, {
               width: unitSize,
               height: unitSize,
-              color: count > 0 ? colorHex : "black",
+              color,
               outlineColor: "black",
               outlineWidth: outlineSize,
               shadowColor: "white",
