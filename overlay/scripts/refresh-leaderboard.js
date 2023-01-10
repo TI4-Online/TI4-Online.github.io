@@ -142,18 +142,29 @@ class Leaderboard {
     strategyCardsDiv.style.color = color;
   }
 
-  fillBackgroundColor(cell, isCurrentTurn, active) {
+  fillBackgroundColor(cell, isCurrentTurn, color) {
     console.assert(typeof cell === "object");
     console.assert(typeof isCurrentTurn === "boolean");
-    console.assert(typeof active === "boolean");
+    console.assert(typeof color === "string");
 
-    let bgColor = "transparent";
+    let fgColor = color;
+    let bgColor = "unset";
+
     if (isCurrentTurn) {
-      bgColor = this._activeTurnBgColor;
-    } else if (!active) {
-      //  bgColor = this._passedBgColor;
+      fgColor = "black";
+      bgColor = color;
     }
     cell.style.backgroundColor = bgColor;
+
+    const factionNameDiv = cell.getElementsByClassName("faction-name")[0];
+    const playerNameDiv = cell.getElementsByClassName("player-name")[0];
+    const scoreDiv = cell.getElementsByClassName("score")[0];
+    const strategyCardsDiv = cell.getElementsByClassName("strategy-cards")[0];
+
+    factionNameDiv.style.color = fgColor;
+    playerNameDiv.style.color = fgColor;
+    scoreDiv.style.color = fgColor;
+    strategyCardsDiv.style.color = fgColor;
   }
 
   fillSpeaker(cell) {
@@ -198,7 +209,7 @@ class Leaderboard {
       this.fillPlayerName(cell, playerName, color, active);
       this.fillScore(cell, score, color);
       this.fillStrategyCards(cell, strategyCards, color);
-      this.fillBackgroundColor(cell, isCurrentTurn, active);
+      this.fillBackgroundColor(cell, isCurrentTurn, color);
     });
 
     const speakerColorName = GameDataUtil.parseSpeakerColorName(gameData);
