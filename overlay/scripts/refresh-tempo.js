@@ -25,6 +25,10 @@ class Tempo {
       this._canvas.height = h * 2;
     }
 
+    // Keep a memory of history; reloading the game or restarting scripting may
+    // "forget" history.
+    this._roundToPlayerColorNameToScore = {};
+
     new BroadcastChannel("onGameDataEvent").onmessage = (event) => {
       if (event.data.type === "UPDATE" || event.data.type === "NOT_MODIFIED") {
         this.update(event.data.detail);
@@ -50,15 +54,16 @@ class Tempo {
     roundToStartOfRoundGameData[currentRound + 1] = gameData; // not finished, but usable
 
     // Massage to just per-round player/score.
-    const roundToPlayerColorNameToScore = {};
+    const roundToPlayerColorNameToScore = this._roundToPlayerColorNameToScore; // keep memory
     for (let round = 1; round <= currentRound + 1; round++) {
-      const playerColorNameToScore = {};
-      roundToPlayerColorNameToScore[round] = playerColorNameToScore;
-
       const roundGameData = roundToStartOfRoundGameData[round + 1];
       if (!roundGameData) {
         continue;
       }
+
+      const playerColorNameToScore = {};
+      roundToPlayerColorNameToScore[round] = playerColorNameToScore;
+
       const roundPlayerDataArray =
         GameDataUtil.parsePlayerDataArray(roundGameData);
       for (const playerData of roundPlayerDataArray) {
