@@ -197,14 +197,14 @@ class DrawPlayerResources {
     // ctx.restore();
 
     const textToSrcAgent = {
-      L: "/overlay/images/svg/do_not_disturb.svg",
-      U: "/overlay/images/svg/check_circle.svg",
-      P: "/overlay/images/svg/delete_forever.svg",
+      L: "/overlay/images/svg/do_not_disturb.png",
+      U: "/overlay/images/svg/check_circle.png",
+      P: "/overlay/images/svg/delete_forever.png",
     };
     const textToSrcOther = {
-      L: "/overlay/images/svg/lock.svg",
-      U: "/overlay/images/svg/check_circle.svg",
-      P: "/overlay/images/svg/delete_forever.svg",
+      L: "/overlay/images/svg/lock.png",
+      U: "/overlay/images/svg/check_circle.png",
+      P: "/overlay/images/svg/delete_forever.png",
     };
     const textToColorAgent = {
       L: "#444",
