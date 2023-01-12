@@ -155,8 +155,12 @@ class Calc {
       this._fillCalcFleet(input.defenderUnits, region, peerColorName);
       this._fillCalcUnitUpgrades(input.attackerUnits, activePlayerData);
       this._fillCalcUnitUpgrades(input.defenderUnits, peerPlayerData);
-      this._fillCalcModifiers(input.options.attacker, activePlayerData);
-      this._fillCalcModifiers(input.options.defender, peerPlayerData);
+      this._fillCalcModifiers(
+        input.options.attacker,
+        gameData,
+        activePlayerData
+      );
+      this._fillCalcModifiers(input.options.defender, gameData, peerPlayerData);
 
       let regionToSimulation =
         this._tileToRegionToSimulation[tileHexSummary.tile];
@@ -320,14 +324,12 @@ class Calc {
     }
   }
 
-  _fillCalcModifiers(options, playerData) {
-    const modifiers = GameDataUtil.parsePlayerUnitModifiers(playerData);
-
+  _fillCalcModifiers(options, gameData, playerData) {
     const modifierToCalc = {
       antimass_deflectors: "antimassDeflectors",
       plasma_scoring: "plasmaScoring",
     };
-
+    const modifiers = GameDataUtil.parsePlayerUnitModifiers(playerData);
     for (const modifier of modifiers) {
       const calc = modifierToCalc[modifier.localeName];
       if (calc) {
@@ -337,12 +339,36 @@ class Calc {
 
     const techToCalc = {
       "Antimass Deflectors": "antimassDeflectors",
+      "Assault Cannon": "assaultCannon",
+      "Duranium Armor": "duraniumArmor",
+      "Graviton Laser System": "gravitonLaser",
+      "Plasma Scoring": "plasmaScoring",
+      "X-89 Bacterial Weapon": "x89Omega", // game data does not track omega for tech, assume omega
     };
-
     const technologies = GameDataUtil.parsePlayerTechnologies(playerData);
     for (const tech of technologies) {
       const calc = techToCalc[tech.name];
       if (calc) {
+        options[calc] = true;
+      }
+    }
+
+    const agendaToCalc = {
+      "Articles of War": "articlesOfWar",
+      "Prophecy of Ixth": "prophecyOfIxth",
+      "Publicize Weapon Schematics": "publicizeSchematics",
+    };
+    const mustOwn = ["Prophecy of Ixth"];
+    const colorName = GameDataUtil.parsePlayerColor(playerData).colorName;
+    const agendaNamesAndPlayerColorNames = GameDataUtil.parseLaws(gameData);
+    for (const [name, colorNames] of Object.entries(
+      agendaNamesAndPlayerColorNames
+    )) {
+      const calc = agendaToCalc[name];
+      if (calc) {
+        if (mustOwn.includes[name] && !colorNames.includes(colorName)) {
+          continue;
+        }
         options[calc] = true;
       }
     }
