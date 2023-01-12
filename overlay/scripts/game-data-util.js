@@ -737,6 +737,9 @@ class GameDataUtil {
       ),
       leaders: {
         // "locked|unlocked|purged"
+        agent: GameDataUtil._escapeForHTML(
+          playerData?.leaders?.agent || "purged"
+        ),
         commander: GameDataUtil._escapeForHTML(
           playerData?.leaders?.commander || "purged"
         ),

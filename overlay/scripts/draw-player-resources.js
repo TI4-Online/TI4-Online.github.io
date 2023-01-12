@@ -159,12 +159,10 @@ class DrawPlayerResources {
   }
 
   _drawLeaders(ctx, boundingBox, resources) {
-    const fontSize = Math.floor(boundingBox.width * 0.07);
-
     const agent = {
       x: boundingBox.left + boundingBox.width * 0.1,
       y: boundingBox.top + boundingBox.height * 0.15,
-      text: resources.leaders?.commander?.substring(0, 1).toUpperCase() || "?",
+      text: resources.leaders?.agent?.substring(0, 1).toUpperCase() || "?",
     };
     const commander = {
       x: boundingBox.left + boundingBox.width * 0.1,
@@ -177,24 +175,82 @@ class DrawPlayerResources {
       text: resources.leaders?.hero?.substring(0, 1).toUpperCase() || "?",
     };
 
-    ctx.save();
-    ctx.font = `800 ${fontSize}px Open Sans, sans-serif`;
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.strokeStyle = "white";
-    ctx.fillStyle = "black";
-    ctx.lineWidth = Math.floor(fontSize * 0.15);
+    // const fontSize = Math.floor(boundingBox.width * 0.07);
 
-    ctx.strokeText(agent.text, agent.x, agent.y);
-    ctx.fillText(agent.text, agent.x, agent.y);
+    // ctx.save();
+    // ctx.font = `800 ${fontSize}px Open Sans, sans-serif`;
+    // ctx.textAlign = "center";
+    // ctx.textBaseline = "middle";
+    // ctx.strokeStyle = "white";
+    // ctx.fillStyle = "black";
+    // ctx.lineWidth = Math.floor(fontSize * 0.15);
 
-    ctx.strokeText(commander.text, commander.x, commander.y);
-    ctx.fillText(commander.text, commander.x, commander.y);
+    // ctx.strokeText(agent.text, agent.x, agent.y);
+    // ctx.fillText(agent.text, agent.x, agent.y);
 
-    ctx.strokeText(hero.text, hero.x, hero.y);
-    ctx.fillText(hero.text, hero.x, hero.y);
+    // ctx.strokeText(commander.text, commander.x, commander.y);
+    // ctx.fillText(commander.text, commander.x, commander.y);
 
-    ctx.restore();
+    // ctx.strokeText(hero.text, hero.x, hero.y);
+    // ctx.fillText(hero.text, hero.x, hero.y);
+
+    // ctx.restore();
+
+    const textToSrcAgent = {
+      L: "/overlay/images/svg/do_not_disturb.svg",
+      U: "/overlay/images/svg/check_circle.svg",
+      P: "/overlay/images/svg/delete_forever.svg",
+    };
+    const textToSrcOther = {
+      L: "/overlay/images/svg/lock.svg",
+      U: "/overlay/images/svg/check_circle.svg",
+      P: "/overlay/images/svg/delete_forever.svg",
+    };
+    const textToColorAgent = {
+      L: "#444",
+      U: GameDataUtil.colorNameToHex("green"),
+      P: GameDataUtil.colorNameToHex("red"),
+    };
+    const textToColorOther = {
+      L: "#444",
+      U: GameDataUtil.colorNameToHex("green"),
+      P: GameDataUtil.colorNameToHex("red"),
+    };
+    const imgSize = Math.ceil(boundingBox.width * 0.06);
+    const lineSize = Math.ceil(imgSize * 0.1);
+    const params = {
+      width: imgSize,
+      height: imgSize,
+      outlineColor: "white",
+      outlineWidth: lineSize,
+    };
+
+    params.color = textToColorAgent[agent.text];
+    ImageUtil.drawMagic(
+      ctx,
+      textToSrcAgent[agent.text],
+      agent.x - imgSize / 2,
+      agent.y - imgSize / 2,
+      params
+    );
+
+    params.color = textToColorOther[commander.text];
+    ImageUtil.drawMagic(
+      ctx,
+      textToSrcOther[commander.text],
+      commander.x - imgSize / 2,
+      commander.y - imgSize / 2,
+      params
+    );
+
+    params.color = textToColorOther[hero.text];
+    ImageUtil.drawMagic(
+      ctx,
+      textToSrcOther[hero.text],
+      hero.x - imgSize / 2,
+      hero.y - imgSize / 2,
+      params
+    );
   }
 
   _drawTokens(ctx, boundingBox, colorHex, resources) {
