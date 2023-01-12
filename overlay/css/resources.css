@@ -5,6 +5,7 @@
 }
 
 .resources td {
+  overflow: hidden;
   height: 50%;
   border: 1px solid #aaa;
   box-sizing: border-box;
