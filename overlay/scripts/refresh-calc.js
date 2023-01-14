@@ -132,6 +132,10 @@ class Calc {
           ? "SPACE"
           : activeSystem.planets[regionIndex - 1] || "-";
 
+      if (regionIndex > activeSystem.planets.length) {
+        break;
+      }
+
       const input = {
         attackerUnits: {},
         defenderUnits: {},
@@ -145,22 +149,31 @@ class Calc {
 
       const peerColorName = this._getPeerColor(region, activePlayerColorName);
       const peerPlayerData = colorNameToPlayerData[peerColorName];
-      if (!peerPlayerData) {
-        continue;
-      }
+
+      // Continue with simulation even if only one player present.
+      //if (!peerPlayerData) {
+      //  continue;
+      //}
 
       this._fillCalcFaction(input.options.attacker, activePlayerData);
-      this._fillCalcFaction(input.options.defender, peerPlayerData);
       this._fillCalcFleet(input.attackerUnits, region, activePlayerColorName);
-      this._fillCalcFleet(input.defenderUnits, region, peerColorName);
       this._fillCalcUnitUpgrades(input.attackerUnits, activePlayerData);
-      this._fillCalcUnitUpgrades(input.defenderUnits, peerPlayerData);
       this._fillCalcModifiers(
         input.options.attacker,
         gameData,
         activePlayerData
       );
-      this._fillCalcModifiers(input.options.defender, gameData, peerPlayerData);
+
+      if (peerPlayerData) {
+        this._fillCalcFaction(input.options.defender, peerPlayerData);
+        this._fillCalcFleet(input.defenderUnits, region, peerColorName);
+        this._fillCalcUnitUpgrades(input.defenderUnits, peerPlayerData);
+        this._fillCalcModifiers(
+          input.options.defender,
+          gameData,
+          peerPlayerData
+        );
+      }
 
       let regionToSimulation =
         this._tileToRegionToSimulation[tileHexSummary.tile];
@@ -195,7 +208,13 @@ class Calc {
         simulation.draw = 100 - (simulation.attacker + simulation.defender);
         simulation.msecs = Date.now() - start;
 
-        //console.log(JSON.stringify(simulation));
+        if (!peerColorName) {
+          simulation.attacker = 100;
+          simulation.defender = 0;
+          simulation.draw = 0;
+        }
+
+        //console.log(regionName + ": " + JSON.stringify(simulation));
       }
 
       regionNameTDs[regionIndex].innerText = regionName.toUpperCase();
@@ -213,8 +232,9 @@ class Calc {
       )}px`;
       attackerValue.innerText = `${simulation.attacker}%`;
 
-      defenderDiv.style.backgroundColor =
-        GameDataUtil.colorNameToHex(peerColorName);
+      defenderDiv.style.backgroundColor = peerColorName
+        ? GameDataUtil.colorNameToHex(peerColorName)
+        : "black";
       defenderDiv.style.width = `${Math.floor(
         (w * simulation.defender) / 100
       )}px`;
@@ -285,7 +305,7 @@ class Calc {
       infantry: game.UnitType.Infantry,
     };
     for (const [unitColorName, unitNameToCount] of Object.entries(
-      region.colorToUnitNameToCount
+      region.colorToUnitNameToCount || {}
     )) {
       if (unitColorName !== colorName) {
         continue;
