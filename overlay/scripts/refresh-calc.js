@@ -208,7 +208,7 @@ class Calc {
         simulation.draw = 100 - (simulation.attacker + simulation.defender);
         simulation.msecs = Date.now() - start;
 
-        if (!peerColorName) {
+        if (!peerColorName && Object.entries(input.attackerUnits).length > 0) {
           simulation.attacker = 100;
           simulation.defender = 0;
           simulation.draw = 0;
@@ -303,6 +303,7 @@ class Calc {
       pds: game.UnitType.PDS,
       mech: game.UnitType.Mech,
       infantry: game.UnitType.Infantry,
+      space_dock: "SpaceDock",
     };
     for (const [unitColorName, unitNameToCount] of Object.entries(
       region.colorToUnitNameToCount || {}
