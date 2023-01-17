@@ -141,6 +141,7 @@ const OBJECTIVE_NAME_ABBREVIATIONS = {
 };
 
 const TECHNOLOGY_COLOR = {
+  "Agency Supply Network": "yellow",
   "AI Development Algorithm": "red",
   "Advanced Carrier II": "white",
   "Aerie Hololattice": "yellow",
@@ -172,6 +173,7 @@ const TECHNOLOGY_COLOR = {
   "Hel-Titan II": "white",
   "Hybrid Crystal Fighter II": "white",
   "Hyper Metabolism": "green",
+  "I.I.H.Q. Modernization": "yellow",
   "Impulse Core": "yellow",
   "Infantry II": "white",
   "Inheritance Systems": "yellow",
@@ -518,11 +520,17 @@ class GameDataUtil {
       if (nameToEntry[name]) {
         return; // already added!
       }
+      let prefix = "";
+      if (name.startsWith("*")) {
+        name = name.substring(1);
+        prefix = "*";
+      }
       const entry = {
-        name: GameDataUtil._escapeForHTML(name),
+        name: prefix + GameDataUtil._escapeForHTML(name),
         abbr:
-          OBJECTIVE_NAME_ABBREVIATIONS[name] ||
-          GameDataUtil._escapeForHTML(name),
+          prefix +
+          (OBJECTIVE_NAME_ABBREVIATIONS[name] ||
+            GameDataUtil._escapeForHTML(name)),
         scoredBy: [],
       };
       nameToEntry[name] = entry;
