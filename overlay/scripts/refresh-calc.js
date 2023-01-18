@@ -303,7 +303,7 @@ class Calc {
       pds: game.UnitType.PDS,
       mech: game.UnitType.Mech,
       infantry: game.UnitType.Infantry,
-      space_dock: "SpaceDock",
+      space_dock: "SpaceDock", // not official, but add for knowing a unit is there
     };
     for (const [unitColorName, unitNameToCount] of Object.entries(
       region.colorToUnitNameToCount || {}
@@ -365,6 +365,9 @@ class Calc {
       "Graviton Laser System": "gravitonLaser",
       "Plasma Scoring": "plasmaScoring",
       "X-89 Bacterial Weapon": "x89Omega", // game data does not track omega for tech, assume omega
+      "Non-Euclidean Shielding": "nonEuclidean",
+      "L4 Disruptors": "l4Disruptors",
+      "Valkyrie Particle Weave": "valkyrieParticleWeave",
     };
     const technologies = GameDataUtil.parsePlayerTechnologies(playerData);
     for (const tech of technologies) {
