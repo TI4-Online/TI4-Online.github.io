@@ -10,25 +10,30 @@ class Map {
 
   constructor(overrideTileWidth) {
     const elementId = "map";
-    const canvas = document.getElementById(elementId);
-    if (!canvas) {
+    this._canvas = document.getElementById(elementId);
+    if (!this._canvas) {
       throw new Error(`Missing element id "${elementId}"`);
     }
-    this._mapUtil = new MapUtil(canvas);
+    this._mapUtil = new MapUtil(this._canvas);
+    this._gamedata = undefined;
 
     // This is somewhat expensive, update on a slower timer.
-    this._gamedata = undefined;
     const updateSeconds = 15;
-    setInterval(() => {
-      if (this._gamedata) {
-        this.update(this._gamedata);
-        this._gamedata = undefined;
-      }
-    }, updateSeconds * 1000);
+    if (updateSeconds > 0) {
+      setInterval(() => {
+        if (this._gamedata) {
+          this.update(this._gamedata);
+          this._gamedata = undefined;
+        }
+      }, updateSeconds * 1000);
+    }
 
     new BroadcastChannel("onGameDataEvent").onmessage = (event) => {
       if (event.data.type === "UPDATE" || event.data.type === "NOT_MODIFIED") {
         this._gamedata = event.data.detail;
+        if (updateSeconds <= 0) {
+          this.update(this._gamedata);
+        }
       }
     };
   }
@@ -41,6 +46,8 @@ class Map {
     // Fix locations.
     const { tileWidth, tileHeight, canvasWidth, canvasHeight } =
       this._mapUtil.getSizes();
+    const scaleX = (tileWidth * 3) / 4;
+    const scaleY = tileHeight / 2;
     for (const entry of hexSummary) {
       console.assert(typeof entry.x === "number");
       console.assert(typeof entry.y === "number");
@@ -56,8 +63,8 @@ class Map {
       entry.x -= 0.7;
       entry.y += 1.2;
 
-      entry.x = canvasWidth / 2 + (entry.x * tileWidth * 3) / 4;
-      entry.y = canvasHeight / 2 - (entry.y * tileHeight) / 2;
+      entry.x = canvasWidth / 2 + entry.x * scaleX;
+      entry.y = canvasHeight / 2 - entry.y * scaleY;
     }
 
     this._mapUtil.clear();
