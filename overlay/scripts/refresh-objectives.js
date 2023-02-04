@@ -115,12 +115,12 @@ class Objectives {
     } else if (objectiveType === "secret") {
       bgColor = GameDataUtil.colorNameToHex("red");
     } else if (objectiveType === "custodians") {
-      bgColor = "unset";
+      bgColor = "#222222";
     } else if (objectiveType === "other") {
-      bgColor = "unset";
+      bgColor = "#222222";
       color = "unset";
     } else if (objectiveType === "sftt") {
-      bgColor = "unset";
+      bgColor = "#222222";
     }
     nameTD.style.backgroundColor = bgColor;
     nameTD.style.color = color;
@@ -183,6 +183,7 @@ class Objectives {
     // Name.
     const nameTD = this._getObjectiveNameTD(objectiveTR);
     nameTD.innerText = "Custodians";
+    nameTD.style.backgroundColor = "#222222";
 
     // Who scored?
     const colorNameCount = {};
@@ -218,6 +219,7 @@ class Objectives {
     // Name.
     const nameTD = this._getObjectiveNameTD(objectiveTR);
     nameTD.innerText = "Support";
+    nameTD.style.backgroundColor = "#222222";
 
     // Who scored?
     const playerColorToSupportColors = {};
