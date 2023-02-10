@@ -116,11 +116,13 @@ class Objectives {
       bgColor = GameDataUtil.colorNameToHex("red");
     } else if (objectiveType === "custodians") {
       bgColor = "#222222";
+      color = "unset";
     } else if (objectiveType === "other") {
       bgColor = "#222222";
       color = "unset";
     } else if (objectiveType === "sftt") {
       bgColor = "#222222";
+      color = "unset";
     }
     nameTD.style.backgroundColor = bgColor;
     nameTD.style.color = color;
