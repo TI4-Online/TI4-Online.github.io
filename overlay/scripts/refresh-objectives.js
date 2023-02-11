@@ -32,6 +32,7 @@ class Objectives {
       const nameTD = this._getObjectiveNameTD(objectiveTR);
       const scoringTDs = this._getScoringTDs(objectiveTR, playerCount);
       nameTD.innerText = "-";
+      nameTD.style.backgroundColor = "transparent";
       for (const scoringTD of scoringTDs) {
         scoringTD.innerHTML = ""; // do HTML vs Text to remove any contents
         scoringTD.style.backgroundColor = "transparent";
