@@ -408,10 +408,9 @@ class GameDataUtil {
         let stickyCount = 1; // reset for each REGION
         const colorToUnitNameToCount = {};
 
-        let prevC = undefined;
         for (let i = 0; i < region.length; i++) {
           const c = region[i];
-          const prev = region[i - 1];
+          const prevC = region[i - 1];
 
           // Uppercase characters are player colors.
           const colorName = colorCodeToColorName[c];
