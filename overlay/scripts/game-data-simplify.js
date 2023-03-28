@@ -74,6 +74,8 @@ class GameDataSimplify {
         colorName, // string
         colorHex, // string
         faction: GameDataUtil.parsePlayerFaction(playerData), // string
+        isSpeaker: colorName === simplified.speaker,
+        isTurn: colorName === simplified.turn,
         name: GameDataUtil.parsePlayerName(playerData), // string
         // Object.{
         //  influence:Object.{avail:number, total:number},
@@ -130,8 +132,15 @@ class GameDataSimplify {
     }
     simplified.tempo = roundToPlayerColorNameToScore;
 
-    // TODO: is this a combat action?
+    // Is this a combat?
     simplified.ti4calc = window.ti4calcWrapper(gameData);
+    simplified.isCombat = false;
+    for (const region of simplified.ti4calc) {
+      if (region.defender > 0) {
+        simplified.isCombat = true;
+        break;
+      }
+    }
 
     return simplified;
   }
