@@ -50,7 +50,7 @@ class Calc {
 
     // Abort if no active player or zero tile.
     if (!activePlayerData || tileHexSummary.tile <= 0) {
-      return;
+      return [];
     }
 
     // Simulate!
