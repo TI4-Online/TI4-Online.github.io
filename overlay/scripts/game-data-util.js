@@ -140,6 +140,14 @@ const OBJECTIVE_NAME_ABBREVIATIONS = {
   "Strengthen Bonds": "PROM NOTE",
 };
 
+const LAW_ABBREVIATIONS = {
+  "Anti-Intellectual Revolution": "Anti-Int Revolution",
+  "Classified Document Leaks": "Classified Doc Leaks",
+  "Homeland Defense Act": "Homeland Def Act",
+  "Publicize Weapon Schematics": "Pub Weapon Schematics",
+  "Representative Government": "Representative Gov't",
+};
+
 const TECHNOLOGY_COLOR = {
   "Agency Supply Network": "yellow",
   "AI Development Algorithm": "red",
@@ -489,7 +497,12 @@ class GameDataUtil {
 
     return laws.map((law) => {
       const colorNames = lawToColorNames[law] || [];
-      return { name: GameDataUtil._escapeForHTML(law), colorNames };
+      const name = GameDataUtil._escapeForHTML(law);
+      let abbr = LAW_ABBREVIATIONS[name];
+      if (!abbr) {
+        abbr = name;
+      }
+      return { name, abbr, colorNames };
     });
   }
 
