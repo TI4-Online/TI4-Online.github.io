@@ -726,3 +726,166 @@ class SceneComponents {
     };
   }
 }
+
+class SceneComponentsSafe {
+  constructor(canvas) {
+    this._sc = new SceneComponents(canvas);
+  }
+
+  clear() {
+    try {
+      this._sc.clear();
+    } catch (e) {
+      console.log("err");
+    }
+  }
+  fill() {
+    try {
+      this._sc.fill();
+    } catch (e) {
+      console.log("err");
+    }
+  }
+  drawX(box) {
+    try {
+      this._sc.drawX(box);
+    } catch (e) {
+      console.log("err");
+    }
+  }
+
+  drawLabel(box, text) {
+    try {
+      this._sc.drawLabel(box, text);
+    } catch (e) {
+      console.log("err");
+    }
+  }
+  drawRound(box, round) {
+    try {
+      this._sc.drawRound(box, round);
+    } catch (e) {
+      console.log("err");
+    }
+  }
+  drawTimer(box, timer, continuous) {
+    try {
+      this._sc.drawTimer(box, timer, continuous);
+    } catch (e) {
+      console.log("err");
+    }
+  }
+  drawTurnOrder(box, simplified) {
+    try {
+      this._sc.drawTurnOrder(box, simplified);
+    } catch (e) {
+      console.log("err");
+    }
+  }
+  drawPlayer(box, playerData) {
+    try {
+      this._sc.drawPlayer(box, playerData);
+    } catch (e) {
+      console.log("err");
+    }
+  }
+  drawDelimiter(box) {
+    try {
+      this._sc.drawDelimiter(box);
+    } catch (e) {
+      console.log("err");
+    }
+  }
+  drawObjectives(box, lineH, simplified) {
+    try {
+      this._sc.drawObjectives(box, lineH, simplified);
+    } catch (e) {
+      console.log("err");
+    }
+  }
+  drawObjective(box, type, objective, simplified) {
+    try {
+      this._sc.drawObjective(box, type, objective, simplified);
+    } catch (e) {
+      console.log("err");
+    }
+  }
+  drawSecrets(box, lineH, simplified) {
+    try {
+      this._sc.drawSecrets(box, lineH, simplified);
+    } catch (e) {
+      console.log("err");
+    }
+  }
+  drawLaws(box, lineH, simplified) {
+    try {
+      this._sc.drawLaws(box, lineH, simplified);
+    } catch (e) {
+      console.log("err");
+    }
+  }
+  drawTI4Calc(box, lineH, simplified) {
+    try {
+      this._sc.drawTI4Calc(box, lineH, simplified);
+    } catch (e) {
+      console.log("err");
+    }
+  }
+}
+
+/**
+@Description: Takes in an exception or string and turns it into an Error object,
+  then appends the caller name to the message.
+@Returns: A new Error object or null.
+*/
+function wrapError(e, caller) {
+  if (null === e) {
+    return null;
+  }
+  var ret = typeof e === typeof "" ? new Error(e) : new Error(e.message);
+  ret.stackTrace = e.stackTrace || [];
+  ret.stackTrace.push(caller);
+  return ret;
+}
+
+/**
+@Description: Returns a method (function) wrapped in an error handler. Does not 
+  affect the behavior of the underlying function. Does not affec the function 
+  either, only returns the wrapped function, doesn't modify it directly.
+  Usage: function foo() { throw new Error("bar"); }; foo = safeWrapMethod(foo, "foo");
+@Param: fn The function pointer/object to wrap.
+@Param: name A string containing the name of fn as you wish it to be displayed in the call stack.
+@Return: The method/function fn wrapped in an error handler.
+*/
+function safeWrapMethod(fn, name) {
+  try {
+    return function () {
+      /* Wrapper added by safeWrapMethod */
+      try {
+        console.log("xxx " + name);
+        return fn.apply(this, arguments);
+      } catch (e) {
+        throw wrapError(e, name);
+      }
+    };
+  } catch (e) {
+    throw wrapError(e, "ErrorHelpers.safeWrapMethod");
+  }
+}
+
+/**
+@Description: Wraps every method in an object with an error handler. Affects the 
+  instance of the object, but does not alter the underlying behavior of the methods.
+@Param: o The class instance (object) to wrap.
+@Param: name A string containing the name of the class. Method names will show as 
+  "name.methodName" in an error's stack trace.
+*/
+function safeWrapClass(o, name) {
+  for (var m in o) {
+    if (typeof o[m] === "function") {
+      console.log("apply " + m);
+      o[m] = safeWrapMethod(o[m], name + "." + m);
+    }
+  }
+}
+safeWrapClass = safeWrapMethod(safeWrapClass, "ErrorHelpers.safeWrapClass");

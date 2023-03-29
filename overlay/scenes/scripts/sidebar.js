@@ -33,7 +33,8 @@ class Sidebar {
   }
 
   update(simplified) {
-    const sc = new SceneComponents(this._canvas).fill();
+    const sc = new SceneComponentsSafe(this._canvas);
+    sc.fill();
 
     console.log(`${this._canvas.width}x${this._canvas.height}`);
 
