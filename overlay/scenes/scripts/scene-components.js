@@ -717,6 +717,153 @@ class SceneComponents {
     return this;
   }
 
+  drawTempo(box, lineH, simplified) {
+    const ctx = this._ctx;
+
+    const margin = Math.floor(box.w * 0.12);
+    const bb = {
+      left: box.x + margin,
+      top: box.y + margin,
+      width: box.w - margin * 2,
+      height: box.h - margin * 2,
+    };
+    const maxRound = Math.max(6, simplified.round);
+    const maxScore = Math.max(10, simplified.scoreboard);
+
+    // Dotted horizontal lines.
+    ctx.strokeStyle = "#aaa";
+    ctx.lineWidth = 2;
+    ctx.setLineDash([3, 10]);
+    for (let value = 2; value <= maxScore; value += 2) {
+      const y = bb.top + ((maxScore - value) / maxScore) * bb.height;
+      ctx.beginPath();
+      ctx.moveTo(bb.left, y);
+      ctx.lineTo(bb.left + bb.width, y);
+      ctx.stroke();
+    }
+    ctx.setLineDash([]);
+
+    ctx.fillStyle = "#aaa";
+    ctx.font = "600 32px Open Sans, sans-serif";
+
+    ctx.textAlign = "right";
+    ctx.textBaseline = "middle";
+    for (let value = 0; value <= maxScore; value += 2) {
+      const y = bb.top + ((maxScore - value) / maxScore) * bb.height;
+      ctx.fillText(value, bb.left - 10, y);
+    }
+
+    ctx.save();
+    ctx.textAlign = "center";
+    ctx.textBaseline = "bottom";
+    ctx.translate(bb.left - 40, bb.top + bb.height / 2);
+    ctx.rotate((Math.PI * 3) / 2);
+    ctx.fillText("SCORE", 0, 0);
+    ctx.restore();
+
+    ctx.textAlign = "center";
+    ctx.textBaseline = "top";
+    for (let value = 0; value <= maxRound; value += 1) {
+      const x = bb.left + (value / maxRound) * bb.width;
+      ctx.fillText(value, x, bb.top + bb.height + 10);
+    }
+
+    ctx.save();
+    ctx.textAlign = "center";
+    ctx.textBaseline = "top";
+    ctx.translate(bb.left + bb.width / 2, bb.top + bb.height + 50);
+    ctx.fillText("ROUND", 0, 0);
+    ctx.restore();
+
+    // Compute lines for each player. Do this once, then draw lines and
+    // finally draw points OVER lines.
+    const pointRadius = Math.ceil(bb.width * 0.015);
+    const pointOffset = Math.ceil(bb.width * 0.02);
+    const playerColorNameToXYs = {};
+    for (const colorName of simplified.seatOrder) {
+      playerColorNameToXYs[colorName] = [];
+    }
+    const playerColorNameToLastX = {};
+    for (const colorName of simplified.seatOrder) {
+      const points = playerColorNameToXYs[colorName];
+      points.push([bb.left, bb.top + bb.height]);
+      for (let round = 1; round < maxRound; round++) {
+        const colorNameToScore = simplified.tempo[round];
+        if (!colorNameToScore) {
+          continue;
+        }
+        const score = colorNameToScore[colorName];
+        if (score === undefined) {
+          continue;
+        }
+        let x = Math.floor(bb.left + (bb.width * round) / maxRound);
+        let y = Math.floor(
+          bb.top + (bb.height * (maxScore - score)) / maxScore
+        );
+
+        // How many points at this spot, and this player's index therein.
+        let hereCount = 0;
+        let hereMyIndex = 0;
+        Object.entries(colorNameToScore).forEach(
+          ([peerColorName, peerScore]) => {
+            if (peerColorName === colorName) {
+              hereMyIndex = hereCount;
+            }
+            if (peerScore === score) {
+              hereCount += 1;
+            }
+          }
+        );
+
+        // Tweak points slightly to avoid overlap.
+        const left = -((hereCount - 1) * pointOffset) / 2;
+        const offset = hereMyIndex * pointOffset;
+        x += Math.floor(left + offset);
+
+        points.push([x, y]);
+
+        playerColorNameToLastX[colorName] = x;
+      }
+    }
+
+    // Draw lines.
+    for (const colorName of simplified.seatOrder) {
+      ctx.strokeStyle = simplified.players[colorName].colorHex;
+      const points = playerColorNameToXYs[colorName];
+      ImageUtil.bezierCurveThrough(ctx, points);
+    }
+
+    // Axis.
+    ctx.strokeStyle = "#aaa";
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(bb.left, bb.top);
+    ctx.lineTo(bb.left, bb.top + bb.height);
+    ctx.lineTo(bb.left + bb.width, bb.top + bb.height);
+    ctx.stroke();
+
+    // Draw points.
+    for (const colorName of simplified.seatOrder) {
+      const lastX = playerColorNameToLastX[colorName] || 0;
+      const points = playerColorNameToXYs[colorName];
+      for (const [x, y] of points) {
+        if (y >= bb.top + bb.height && x < lastX) {
+          continue; // only draw points when 1+ or if last point
+        }
+
+        ctx.fillStyle = "#222";
+        ctx.beginPath();
+        ctx.arc(x, y, pointRadius + 3, 0, Math.PI * 2, true);
+        ctx.fill();
+
+        ctx.fillStyle = simplified.players[colorName].colorHex;
+        ctx.beginPath();
+        ctx.arc(x, y, pointRadius, 0, Math.PI * 2, true);
+        ctx.fill();
+      }
+    }
+  }
+
   _textPos(box) {
     return {
       fontsize: box.h * 0.6,
@@ -827,6 +974,13 @@ class SceneComponentsSafe {
   drawTI4Calc(box, lineH, simplified) {
     try {
       this._sc.drawTI4Calc(box, lineH, simplified);
+    } catch (e) {
+      console.log("err");
+    }
+  }
+  drawTempo(box, lineH, simplified) {
+    try {
+      this._sc.drawTempo(box, lineH, simplified);
     } catch (e) {
       console.log("err");
     }

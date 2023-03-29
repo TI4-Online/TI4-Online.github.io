@@ -34,6 +34,7 @@ class Sidebar {
 
   update(simplified) {
     const sc = new SceneComponentsSafe(this._canvas);
+    //const sc = new SceneComponents(this._canvas);
     sc.fill();
 
     console.log(`${this._canvas.width}x${this._canvas.height}`);
@@ -145,12 +146,21 @@ class Sidebar {
     }
 
     // TI4-CALC --or-- TEMPO (if no active system / no combat)
-    h = labelH;
-    const boxTI4CalcLabel = SceneComponents.reserveVertical(remaining, h);
-    sc.drawLabel(boxTI4CalcLabel, "TI4-CALC");
-    h = ti4CalcHeight; // calc is square
-    const boxTI4Calc = SceneComponents.reserveVertical(remaining, h);
-    sc.drawTI4Calc(boxTI4Calc, labelH, simplified);
+    if (simplified.isCombat) {
+      h = labelH;
+      const boxTI4CalcLabel = SceneComponents.reserveVertical(remaining, h);
+      sc.drawLabel(boxTI4CalcLabel, "TI4-CALC");
+      h = ti4CalcHeight; // calc is square
+      const boxTI4Calc = SceneComponents.reserveVertical(remaining, h);
+      sc.drawTI4Calc(boxTI4Calc, labelH, simplified);
+    } else {
+      h = labelH;
+      const tempoLabel = SceneComponents.reserveVertical(remaining, h);
+      sc.drawLabel(tempoLabel, "SCORE OVER TIME");
+      h = ti4CalcHeight; // calc is square
+      const boxTempo = SceneComponents.reserveVertical(remaining, h);
+      sc.drawTempo(boxTempo, labelH, simplified);
+    }
   }
 }
 
