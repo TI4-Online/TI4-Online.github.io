@@ -727,6 +727,7 @@ class SceneComponents {
       width: box.w - margin * 2,
       height: box.h - margin * 2,
     };
+    const fontSize = box.h * 0.05;
     const maxRound = Math.max(6, simplified.round);
     const maxScore = Math.max(10, simplified.scoreboard);
 
@@ -744,7 +745,7 @@ class SceneComponents {
     ctx.setLineDash([]);
 
     ctx.fillStyle = "#aaa";
-    ctx.font = "600 32px Open Sans, sans-serif";
+    ctx.font = `600 ${fontSize}px Open Sans, sans-serif`;
 
     ctx.textAlign = "right";
     ctx.textBaseline = "middle";
