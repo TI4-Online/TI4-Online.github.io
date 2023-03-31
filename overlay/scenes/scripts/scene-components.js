@@ -269,7 +269,7 @@ class SceneComponents {
     ctx.fillStyle = playerData.isTurn
       ? SceneComponents.BG
       : playerData.colorHex;
-    ctx.font = `600 ${labelPos.fontsize}px Open Sans, sans-serif`;
+    ctx.font = `600 ${labelPos.fontsizeBigger}px Open Sans, sans-serif`;
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.fillText(
@@ -279,6 +279,7 @@ class SceneComponents {
     );
 
     const lineH = box.h / 2;
+    const squeeze = 0.05;
     const nameBox = SceneComponents.reserveVertical(box, lineH);
     const strategyCardsBox = SceneComponents.reserveVertical(box, lineH);
 
@@ -286,7 +287,7 @@ class SceneComponents {
 
     // Name
     ctx.save();
-    ctx.translate(nameBox.x, nameBox.y);
+    ctx.translate(nameBox.x, nameBox.y + nameBox.h * squeeze);
     ctx.fillStyle = playerData.isTurn
       ? SceneComponents.BG
       : playerData.colorHex;
@@ -294,7 +295,7 @@ class SceneComponents {
       ? playerData.colorHex
       : SceneComponents.BG;
     ctx.lineWidth = namePos.lineWidth;
-    ctx.font = `600 ${namePos.fontsize}px Open Sans, sans-serif`;
+    ctx.font = `600 ${namePos.fontsizeBigger}px Open Sans, sans-serif`;
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.strokeText(playerData.name, box.w / 2, namePos.y);
@@ -316,7 +317,7 @@ class SceneComponents {
       const scBox = SceneComponents.reserveHorizontal(strategyCardsBox, scW);
       const strategyPos = this._textPos(scBox);
       ctx.save();
-      ctx.translate(scBox.x, scBox.y);
+      ctx.translate(scBox.x, scBox.y - scBox.h * squeeze);
       ctx.fillStyle = playerData.isTurn
         ? SceneComponents.BG
         : playerData.colorHex;
@@ -324,7 +325,7 @@ class SceneComponents {
         ? playerData.colorHex
         : SceneComponents.BG;
       ctx.lineWidth = strategyPos.lineWidth;
-      ctx.font = `600 ${strategyPos.fontsize}px Open Sans, sans-serif`;
+      ctx.font = `600 ${strategyPos.fontsizeBigger}px Open Sans, sans-serif`;
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
       ctx.strokeText(text, scBox.w / 2, strategyPos.y);
@@ -352,7 +353,7 @@ class SceneComponents {
     ctx.fillStyle = playerData.isTurn
       ? SceneComponents.BG
       : playerData.colorHex;
-    ctx.font = `600 ${entryTextPos.fontsize}px Open Sans, sans-serif`;
+    ctx.font = `600 ${entryTextPos.fontsizeBigger}px Open Sans, sans-serif`;
     ctx.textAlign = "right";
     ctx.textBaseline = "middle";
     ctx.strokeText(playerData.score, box.w * 0.97, entryTextPos.y);
@@ -727,7 +728,7 @@ class SceneComponents {
       width: box.w - margin * 2,
       height: box.h - margin * 2,
     };
-    const fontSize = box.h * 0.05;
+    const fontSize = box.h * 0.045;
     const maxRound = Math.max(6, simplified.round);
     const maxScore = Math.max(10, simplified.scoreboard);
 
@@ -867,7 +868,8 @@ class SceneComponents {
 
   _textPos(box) {
     return {
-      fontsize: box.h * 0.6,
+      fontsize: box.h * 0.5,
+      fontsizeBigger: box.h * 0.7,
       x: box.w / 2, // (if centered)
       y: (box.h * 1.1) / 2,
       lineWidth: box.h * 0.2,
