@@ -245,9 +245,12 @@ class SceneComponents {
     }
 
     // Faction icon
-    const iconSrc = ImageUtil.getSrc(
-      `faction-icons/${playerData.faction}_icon.png`
-    );
+    let iconSrc = `faction-icons/${playerData.faction}_icon.png`;
+    if (playerData.isSpeaker) {
+      iconSrc = "tokens/speaker_square.png";
+    }
+    iconSrc = ImageUtil.getSrc(iconSrc);
+
     const factionLabelSize = box.h * 0.3;
     const iconSize = (box.h - factionLabelSize) * 0.9;
     const iconMargin = (box.h - (factionLabelSize * 0.7 + iconSize)) / 2;
