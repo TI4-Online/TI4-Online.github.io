@@ -132,9 +132,23 @@ class GameDataSimplify {
     }
     simplified.tempo = roundToPlayerColorNameToScore;
 
-    // Is this a combat?
-    simplified.ti4calc = window.ti4calcWrapper(gameData);
+    // Is this a combat?  Look for more than one color in a region.
     simplified.isCombat = false;
+    if (simplified.activeSystem.tile !== 0) {
+      const activeSummary = simplified.hexSummary.filter(
+        (entry) => (entry.tile = simplified.activeSystem.tile)
+      )[0];
+      if (activeSummary) {
+        for (const region of activeSummary.regions) {
+          if (Object.keys(region.colorToUnitNameToCount).length > 1) {
+            simplified.isCombat = true;
+            break;
+          }
+        }
+      }
+    }
+
+    simplified.ti4calc = window.ti4calcWrapper(gameData);
     for (const region of simplified.ti4calc) {
       if (region.defender > 0) {
         simplified.isCombat = true;
