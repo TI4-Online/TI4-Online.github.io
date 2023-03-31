@@ -659,7 +659,7 @@ class SceneComponents {
       const regionBox = SceneComponents.reserveVertical(box, lineH);
       const labelBox = SceneComponents.reserveHorizontal(
         regionBox,
-        box.w * 0.3
+        box.w * 0.4
       );
 
       const entry =

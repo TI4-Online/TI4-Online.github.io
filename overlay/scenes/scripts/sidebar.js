@@ -70,7 +70,7 @@ class Sidebar {
         1 + // custodians
         1 + // support
         simplified.objectives.other.length,
-      5
+      8
     );
     const secretsLines = Math.max(
       Math.ceil(simplified.objectives.secret.length / 2),

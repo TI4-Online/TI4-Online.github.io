@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&family=Roboto+Mono&display=swap");
+
+body {
+  background-color: transparent;
+  opacity: 1;
+}
+
+.sidebar-space {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  height: 100%;
+  overflow: hidden;
+}
+
+.bottombar {
+  position: relative;
+}
