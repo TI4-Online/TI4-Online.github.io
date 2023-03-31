@@ -402,8 +402,16 @@ class SceneComponents {
     ctx.font = `600 ${entryTextPos.fontsizeBigger}px Open Sans, sans-serif`;
     ctx.textAlign = "right";
     ctx.textBaseline = "middle";
-    ctx.strokeText(playerData.score, box.w * 0.97, entryTextPos.y);
-    ctx.fillText(playerData.score, box.w * 0.97, entryTextPos.y);
+    ctx.strokeText(
+      playerData.score,
+      nameBox.w * 0.97 + lineH * 2,
+      entryTextPos.y
+    );
+    ctx.fillText(
+      playerData.score,
+      nameBox.w * 0.97 + lineH * 2,
+      entryTextPos.y
+    );
     ctx.restore();
 
     // Delimiter
@@ -764,14 +772,98 @@ class SceneComponents {
     return this;
   }
 
+  drawWhispers(box, lineH, simplified) {
+    const ctx = this._ctx;
+
+    const namesW = box.w * 0.4;
+    const gapW = lineH * 0.2;
+
+    for (let entryIndex = 0; entryIndex < 10; entryIndex++) {
+      const entry = simplified.whispers[entryIndex];
+      if (box.h < lineH - 1) {
+        break;
+      }
+      const entryBox = SceneComponents.reserveVertical(box, lineH);
+      const namesBox = SceneComponents.reserveHorizontal(entryBox, namesW);
+      const namesPos = this._textPos(namesBox);
+      const whisperBox = entryBox;
+      const whisperPos = this._textPos(whisperBox);
+
+      ctx.save();
+
+      ctx.translate(namesBox.x, namesBox.y);
+      ctx.strokeStyle = SceneComponents.FG;
+      ctx.lineWidth = 1;
+      ctx.strokeRect(0, 0, namesBox.w, namesBox.h);
+
+      if (entry) {
+        ctx.font = `600 ${namesPos.fontsize}px Open Sans, sans-serif`;
+        ctx.textBaseline = "middle";
+
+        ctx.fillStyle = simplified.players[entry.colorNameA].colorHex;
+        ctx.textAlign = "right";
+        ctx.fillText(`${entry.colorNameA}`, namesBox.w / 2 - gapW, namesPos.y);
+
+        ctx.fillStyle = SceneComponents.FG;
+        ctx.textAlign = "center";
+        ctx.fillText("/", namesBox.w / 2, namesPos.y);
+
+        ctx.fillStyle = simplified.players[entry.colorNameB].colorHex;
+        ctx.textAlign = "left";
+        ctx.fillText(`${entry.colorNameB}`, namesBox.w / 2 + gapW, namesPos.y);
+      }
+      ctx.restore();
+
+      ctx.save();
+      ctx.translate(whisperBox.x, whisperBox.y);
+      ctx.strokeStyle = SceneComponents.FG;
+      ctx.lineWidth = 1;
+      ctx.strokeRect(0, 0, whisperBox.w, whisperBox.h);
+
+      if (entry) {
+        ctx.font = `800 ${whisperPos.fontsize * 0.7}px Open Sans, sans-serif`;
+        ctx.textAlign = "center";
+
+        ctx.fillStyle = simplified.players[entry.colorNameA].colorHex;
+        let str = entry.forwardStr
+          .replaceAll("&nbsp;", " ")
+          .replaceAll("&gt;", ">")
+          .replaceAll("&lt;", "<");
+        for (let i = 0; i < str.length; i++) {
+          const c = str[i];
+          if (c === ">") {
+            const x = (whisperBox.w * i) / str.length;
+            const y = whisperPos.y;
+            ctx.fillText(">", x, y);
+          }
+        }
+
+        ctx.fillStyle = simplified.players[entry.colorNameB].colorHex;
+        str = entry.backwardStr
+          .replaceAll("&nbsp;", " ")
+          .replaceAll("&gt;", ">")
+          .replaceAll("&lt;", "<");
+        for (let i = 0; i < str.length; i++) {
+          const c = str[i];
+          if (c === "<") {
+            const x = (whisperBox.w * i) / str.length;
+            const y = whisperPos.y;
+            ctx.fillText("<", x, y);
+          }
+        }
+      }
+      ctx.restore();
+    }
+  }
+
   drawTempo(box, lineH, simplified) {
     const ctx = this._ctx;
 
     const bb = {
-      left: box.x + lineH * 2,
+      left: box.x + lineH * 1.5,
       top: box.y + lineH,
-      width: box.w - lineH * 3,
-      height: box.h - lineH * 3,
+      width: box.w - lineH * 2.5,
+      height: box.h - lineH * 2.5,
     };
     const fontSize = this._textPos({ x: 0, y: 0, h: lineH, w: 0 }).fontsize;
     const maxRound = Math.max(6, simplified.round);
@@ -797,13 +889,13 @@ class SceneComponents {
     ctx.textBaseline = "middle";
     for (let value = 0; value <= maxScore; value += 2) {
       const y = bb.top + ((maxScore - value) / maxScore) * bb.height;
-      ctx.fillText(value, bb.left - 10, y);
+      ctx.fillText(value, bb.left - fontSize / 4, y);
     }
 
     ctx.save();
     ctx.textAlign = "center";
     ctx.textBaseline = "bottom";
-    ctx.translate(bb.left - 40, bb.top + bb.height / 2);
+    ctx.translate(bb.left - fontSize * 1.2, bb.top + bb.height / 2);
     ctx.rotate((Math.PI * 3) / 2);
     ctx.fillText("SCORE", 0, 0);
     ctx.restore();
@@ -812,13 +904,13 @@ class SceneComponents {
     ctx.textBaseline = "top";
     for (let value = 0; value <= maxRound; value += 1) {
       const x = bb.left + (value / maxRound) * bb.width;
-      ctx.fillText(value, x, bb.top + bb.height + 10);
+      ctx.fillText(value, x, bb.top + bb.height + fontSize * 0.1);
     }
 
     ctx.save();
     ctx.textAlign = "center";
     ctx.textBaseline = "top";
-    ctx.translate(bb.left + bb.width / 2, bb.top + bb.height + 50);
+    ctx.translate(bb.left + bb.width / 2, bb.top + bb.height + fontSize * 1.2);
     ctx.fillText("ROUND", 0, 0);
     ctx.restore();
 
@@ -1299,6 +1391,9 @@ class SceneComponentsSafe {
     } catch (e) {
       console.log("err");
     }
+  }
+  drawWhispers(box, lineH, simplified) {
+    this._sc.drawWhispers(box, lineH, simplified);
   }
   drawTempo(box, lineH, simplified) {
     try {

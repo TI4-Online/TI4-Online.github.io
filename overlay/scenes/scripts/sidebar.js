@@ -157,10 +157,10 @@ class Sidebar {
       // whispers
       h = labelH;
       const whispersLabel = SceneComponents.reserveVertical(remaining, h);
-      sc.drawLabel(whispersLabel, "WHISPER HISTORY");
-      h = (ti4CalcHeight - labelH) / 2; // calc is square
+      sc.drawLabel(whispersLabel, "WHISPER HISTORY (10 MIN, NEWEST LEFT)");
+      h = labelH * 5;
       const boxWhispers = SceneComponents.reserveVertical(remaining, h);
-      sc.drawX(boxWhispers, labelH, simplified);
+      sc.drawWhispers(boxWhispers, labelH, simplified);
 
       // tempo
       h = labelH;
