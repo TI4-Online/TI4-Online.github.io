@@ -154,10 +154,19 @@ class Sidebar {
       const boxTI4Calc = SceneComponents.reserveVertical(remaining, h);
       sc.drawTI4Calc(boxTI4Calc, labelH, simplified);
     } else {
+      // whispers
+      h = labelH;
+      const whispersLabel = SceneComponents.reserveVertical(remaining, h);
+      sc.drawLabel(whispersLabel, "WHISPER HISTORY");
+      h = (ti4CalcHeight - labelH) / 2; // calc is square
+      const boxWhispers = SceneComponents.reserveVertical(remaining, h);
+      sc.drawX(boxWhispers, labelH, simplified);
+
+      // tempo
       h = labelH;
       const tempoLabel = SceneComponents.reserveVertical(remaining, h);
       sc.drawLabel(tempoLabel, "SCORE OVER TIME");
-      h = ti4CalcHeight; // calc is square
+      h = remaining.h;
       const boxTempo = SceneComponents.reserveVertical(remaining, h);
       sc.drawTempo(boxTempo, labelH, simplified);
     }

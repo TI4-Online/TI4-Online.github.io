@@ -16,5 +16,11 @@ body {
 }
 
 .bottombar {
-  position: relative;
+  background-color: green;
+  position: absolute;
+  left: 20%;
+  height: 50%;
+  right: 0; /* script may set to fit sidebar */
+  bottom: 0;
+  overflow: hidden;
 }

@@ -6,6 +6,7 @@ class SceneComponents {
   static DELIMITER_WIDTH = 2;
   static YELLOW = "#ffde17";
   static BLUE = "#00a8cc";
+  static GREEN = "#00a14b";
   static RED = "#e94f64";
   static GROUP_MARGIN = 4;
 
@@ -68,6 +69,43 @@ class SceneComponents {
   constructor(canvas) {
     this._canvas = canvas;
     this._ctx = canvas.getContext("2d");
+
+    this._image = {
+      playerSheets: "sheets/player-sheets.png",
+
+      // Economy.
+      commodity: "tokens/commodity_1.png",
+      tradegood: "tokens/tradegood_1.png",
+
+      // Units.
+      flagship: "units/unit_h_Flagship.png",
+      war_sun: "units/unit_w_War_Sun.png",
+      dreadnought: "units/unit_d_Dreadnought.png",
+      carrier: "units/unit_c_Carrier.png",
+      cruiser: "units/unit_r_Cruiser.png",
+      destroyer: "units/unit_y_Destroyer.png",
+      fighter: "units/unit_f_Fighter.png",
+      pds: "units/unit_p_PDS.png",
+      infantry: "units/unit_i_Infantry.png",
+      space_dock: "units/unit_s_Space_Dock.png",
+      mech: "units/unit_m_Mech.png",
+
+      // Planet resources.
+      resources: "symbols/resources.png",
+      influence: "symbols/influence.png",
+
+      commandToken: "units/unit_t_Command_Token.png",
+
+      // Truncated cards.
+      action: "cards/action.short.jpg",
+      promissory: "cards/promissory.short.jpg",
+      secret: "cards/secret.short.jpg",
+    };
+
+    // Replace path with src.
+    for (const [key, path] of Object.entries(this._image)) {
+      this._image[key] = ImageUtil.getSrc(path);
+    }
   }
 
   clear() {
@@ -289,6 +327,8 @@ class SceneComponents {
     const namePos = this._textPos(nameBox);
 
     // Name
+    nameBox.x += lineH * 2;
+    nameBox.w -= lineH * 4;
     ctx.save();
     ctx.translate(nameBox.x, nameBox.y + nameBox.h * squeeze);
     ctx.fillStyle = playerData.isTurn
@@ -301,20 +341,23 @@ class SceneComponents {
     ctx.font = `600 ${namePos.fontsizeBigger}px Open Sans, sans-serif`;
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    ctx.strokeText(playerData.name, box.w / 2, namePos.y);
-    ctx.fillText(playerData.name, box.w / 2, namePos.y);
+    ctx.strokeText(playerData.name, nameBox.w / 2, namePos.y);
+    ctx.fillText(playerData.name, nameBox.w / 2, namePos.y);
     if (!playerData.active) {
       ctx.strokeStyle = ctx.fillStyle;
       ctx.lineWidth = 2;
       ctx.beginPath();
-      ctx.moveTo(nameBox.w * 0.1, nameBox.h / 2);
-      ctx.lineTo(nameBox.w * 0.9, nameBox.h / 2);
+      ctx.moveTo(0, nameBox.h / 2);
+      ctx.lineTo(nameBox.w, nameBox.h / 2);
       ctx.stroke();
     }
     ctx.restore();
 
     // Strategy Card(s)
-    const scW = box.w / Math.max(playerData.strategyCards.length, 1);
+    strategyCardsBox.x += lineH * 2;
+    strategyCardsBox.w -= lineH * 4;
+    const scW =
+      strategyCardsBox.w / Math.max(playerData.strategyCards.length, 1);
     for (const sc of playerData.strategyCards) {
       const text = sc.name.toUpperCase();
       const scBox = SceneComponents.reserveHorizontal(strategyCardsBox, scW);
@@ -338,8 +381,8 @@ class SceneComponents {
         ctx.strokeStyle = ctx.fillStyle;
         ctx.lineWidth = 2;
         ctx.beginPath();
-        ctx.moveTo(scBox.w * 0.2, scBox.h / 2);
-        ctx.lineTo(scBox.w * 0.8, scBox.h / 2);
+        ctx.moveTo(0, scBox.h / 2);
+        ctx.lineTo(scBox.w, scBox.h / 2);
         ctx.stroke();
       }
 
@@ -724,14 +767,13 @@ class SceneComponents {
   drawTempo(box, lineH, simplified) {
     const ctx = this._ctx;
 
-    const margin = Math.floor(box.w * 0.12);
     const bb = {
-      left: box.x + margin,
-      top: box.y + margin,
-      width: box.w - margin * 2,
-      height: box.h - margin * 2,
+      left: box.x + lineH * 2,
+      top: box.y + lineH,
+      width: box.w - lineH * 3,
+      height: box.h - lineH * 3,
     };
-    const fontSize = box.h * 0.045;
+    const fontSize = this._textPos({ x: 0, y: 0, h: lineH, w: 0 }).fontsize;
     const maxRound = Math.max(6, simplified.round);
     const maxScore = Math.max(10, simplified.scoreboard);
 
@@ -869,9 +911,283 @@ class SceneComponents {
     }
   }
 
+  drawPlayerResources(box, playerColor, simplified) {
+    const ctx = this._ctx;
+    const playerData = simplified.players[playerColor];
+    const resources = playerData.resources;
+
+    // Player sheet.
+    ImageUtil.drawMagic(ctx, this._image.playerSheets, box.x, box.y, {
+      width: box.w,
+      height: box.h,
+      tintColor: simplified.players[playerColor].colorHex,
+      filter: "brightness(120%)",
+    });
+
+    const unitSize = box.w * 0.1;
+    const tokenSize = Math.floor(box.w * 0.06);
+
+    // Unit upgrades.
+    const drawUnit = (x, y, unitName) => {
+      const img = this._image[unitName];
+      console.assert(img);
+
+      const has = playerData.unitUpgrades.includes(unitName);
+
+      const unitX = x - unitSize / 2;
+      const unitY = y - unitSize / 2;
+      ImageUtil.drawMagic(ctx, img, unitX, unitY, {
+        width: unitSize,
+        height: unitSize,
+        shadowColor: has ? "black" : "white",
+        shadowWidth: unitSize * 0.05,
+        color: has ? playerData.colorHex : "black",
+      });
+    };
+
+    const drawToken = (x, y, token, tint) => {
+      ImageUtil.drawMagic(ctx, token, x - tokenSize / 2, y - tokenSize / 2, {
+        width: tokenSize,
+        height: tokenSize,
+        filter: "brightness(150%)",
+        shadowColor: "black",
+        shadowWidth: tokenSize * 0.1,
+        tintColor: tint ? tint : "white",
+      });
+    };
+    const drawTextAlignLeft = (x, y, text) => {
+      const fontSize = box.w * 0.07;
+      y += fontSize * 0.05;
+
+      ctx.save();
+      ctx.font = `800 ${fontSize}px Open Sans, sans-serif`;
+      ctx.textAlign = "left";
+      ctx.textBaseline = "middle";
+      ctx.strokeStyle = "white";
+      ctx.fillStyle = "black";
+      ctx.lineWidth = Math.floor(fontSize * 0.15);
+      ctx.strokeText(text, x, y);
+      ctx.fillText(text, x, y);
+      ctx.restore();
+    };
+    const drawTextAlignCenter = (x, y, text) => {
+      const fontSize = box.w * 0.07;
+      y += fontSize * 0.05;
+
+      ctx.save();
+      ctx.font = `800 ${fontSize}px Open Sans, sans-serif`;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.strokeStyle = "white";
+      ctx.fillStyle = "black";
+      ctx.lineWidth = Math.floor(fontSize * 0.15);
+      ctx.strokeText(text, x, y);
+      ctx.fillText(text, x, y);
+      ctx.restore();
+    };
+
+    let x = box.x + box.w * 0.235;
+    let y = box.y + box.h * 0.18;
+    let text = undefined;
+    drawUnit(x, y, "flagship");
+
+    y = box.y + box.h * 0.4;
+    drawUnit(x, y, "war_sun");
+
+    y = box.y + box.h * 0.625;
+    drawUnit(x, y, "dreadnought");
+
+    y = box.y + box.h * 0.85;
+    drawUnit(x, y, "carrier");
+
+    x = box.x + box.w * 0.36;
+    y = box.y + box.h * 0.39;
+    drawUnit(x, y, "cruiser");
+
+    y = box.y + box.h * 0.62;
+    drawUnit(x, y, "destroyer");
+
+    y = box.y + box.h * 0.83;
+    drawUnit(x, y, "fighter");
+
+    x = box.x + box.w * 0.495;
+    y = box.y + box.h * 0.62;
+    drawUnit(x, y, "pds");
+
+    y = box.y + box.h * 0.84;
+    drawUnit(x, y, "infantry");
+
+    x = box.x + box.w * 0.62;
+    y = box.y + box.h * 0.835;
+    drawUnit(x, y, "space_dock");
+
+    x = box.x + box.w * 0.1;
+    y = box.y + box.h * 0.86;
+    drawUnit(x, y, "mech");
+
+    // Tokens.
+    x = box.x + box.w * 0.77;
+    y = box.y + box.h * 0.2;
+    text = resources.tokens.tactics;
+    drawToken(x, y, this._image.commandToken, playerData.colorHex);
+    x += tokenSize / 2;
+    drawTextAlignLeft(x, y, text);
+
+    x = box.x + box.w * 0.86;
+    y = box.y + box.h * 0.35;
+    text = resources.tokens.fleet;
+    drawToken(x, y, this._image.commandToken, playerData.colorHex);
+    x += tokenSize / 2;
+    drawTextAlignLeft(x, y, text);
+
+    x = box.x + box.w * 0.86;
+    y = box.y + box.h * 0.63;
+    text = resources.tokens.strategy;
+    drawToken(x, y, this._image.commandToken, playerData.colorHex);
+    x += tokenSize / 2;
+    drawTextAlignLeft(x, y, text);
+
+    // Leaders.
+    const agent = {
+      x: box.x + box.w * 0.1,
+      y: box.y + box.h * 0.15,
+      text: resources.leaders?.agent?.substring(0, 1).toUpperCase() || "?",
+    };
+    const commander = {
+      x: box.x + box.w * 0.1,
+      y: box.y + box.h * 0.39,
+      text: resources.leaders?.commander?.substring(0, 1).toUpperCase() || "?",
+    };
+    const hero = {
+      x: box.x + box.w * 0.1,
+      y: box.y + box.h * 0.63,
+      text: resources.leaders?.hero?.substring(0, 1).toUpperCase() || "?",
+    };
+    const textToSrcAgent = {
+      L: "/overlay/images/svg/do_not_disturb.png",
+      U: "/overlay/images/svg/check_circle.png",
+      P: "/overlay/images/svg/delete_forever.png",
+    };
+    const textToSrcOther = {
+      L: "/overlay/images/svg/lock.png",
+      U: "/overlay/images/svg/check_circle.png",
+      P: "/overlay/images/svg/delete_forever.png",
+    };
+    const textToColorAgent = {
+      L: "#444",
+      U: SceneComponents.GREEN,
+      P: SceneComponents.RED,
+    };
+    const textToColorOther = {
+      L: "#444",
+      U: SceneComponents.GREEN,
+      P: SceneComponents.RED,
+    };
+    const imgSize = Math.ceil(box.w * 0.06);
+    let lineSize = Math.ceil(imgSize * 0.1);
+    let params = {
+      width: imgSize,
+      height: imgSize,
+      outlineColor: "white",
+      outlineWidth: lineSize,
+    };
+    params.color = textToColorAgent[agent.text];
+    ImageUtil.drawMagic(
+      ctx,
+      textToSrcAgent[agent.text],
+      agent.x - imgSize / 2,
+      agent.y - imgSize / 2,
+      params
+    );
+    params.color = textToColorOther[commander.text];
+    ImageUtil.drawMagic(
+      ctx,
+      textToSrcOther[commander.text],
+      commander.x - imgSize / 2,
+      commander.y - imgSize / 2,
+      params
+    );
+    params.color = textToColorOther[hero.text];
+    ImageUtil.drawMagic(
+      ctx,
+      textToSrcOther[hero.text],
+      hero.x - imgSize / 2,
+      hero.y - imgSize / 2,
+      params
+    );
+
+    // Cards.
+    const cardX = Math.floor(box.x + box.w * 0.54);
+
+    const cardW = Math.floor(box.w * 0.088);
+    const cardH = Math.floor((cardW * 220) / 340);
+    lineSize = box.w * 0.0035;
+    params = {
+      width: cardW,
+      height: cardH,
+      outlineColor: "white",
+      outlineWidth: lineSize,
+    };
+    let src = this._image.secret;
+    x = cardX;
+    y = Math.floor(box.y + lineSize);
+    ImageUtil.drawMagic(ctx, src, x, y, params);
+    x += cardW + cardW * 0.2;
+    y += cardH / 2;
+    drawTextAlignLeft(x, y, resources.hand.secret);
+
+    src = this._image.action;
+    x = cardX;
+    y += cardH / 2 + lineSize;
+    ImageUtil.drawMagic(ctx, src, x, y, params);
+    x += cardW + cardW * 0.2;
+    y += cardH / 2;
+    drawTextAlignLeft(x, y, resources.hand.action);
+
+    src = this._image.promissory;
+    x = cardX;
+    y += cardH / 2 + lineSize;
+    ImageUtil.drawMagic(ctx, src, x, y, params);
+    x += cardW + cardW * 0.2;
+    y += cardH / 2;
+    drawTextAlignLeft(x, y, resources.hand.promissory);
+
+    // Commodities.
+    x = box.x + box.w * 0.636 - tokenSize / 2;
+    y = box.y + box.h * 0.62;
+    drawToken(x, y, this._image.commodity);
+    x += tokenSize / 2 + tokenSize * 0.1;
+    text = `${resources.commodities}/${resources.maxCommidities}`;
+    drawTextAlignLeft(x, y, text);
+
+    // Tradegoods.
+    x = box.x + box.w * 0.77 - tokenSize / 2;
+    y = box.y + box.h * 0.81;
+    drawToken(x, y, this._image.tradegood);
+    x += tokenSize / 2 + tokenSize * 0.1;
+    text = resources.tradegoods;
+    drawTextAlignLeft(x, y, text);
+
+    // Planet resources.
+    x = box.x + box.w * 0.36 - tokenSize / 2;
+    y = box.y + box.h * 0.07;
+    drawToken(x, y, this._image.resources);
+    x += tokenSize / 2 + tokenSize * 0.1;
+    text = `${resources.resources.avail}/${resources.resources.total}`;
+    drawTextAlignLeft(x, y, text);
+
+    // Planel influence.
+    x = box.x + box.w * 0.36 - tokenSize / 2;
+    y = box.y + box.h * 0.22;
+    drawToken(x, y, this._image.influence);
+    x += tokenSize / 2 + tokenSize * 0.1;
+    text = `${resources.influence.avail}/${resources.influence.total}`;
+    drawTextAlignLeft(x, y, text);
+  }
+
   _textPos(box) {
     return {
-      fontsize: box.h * 0.5,
+      fontsize: box.h * 0.6,
       fontsizeBigger: box.h * 0.7,
       x: box.w / 2, // (if centered)
       y: (box.h * 1.1) / 2,
@@ -987,6 +1303,13 @@ class SceneComponentsSafe {
   drawTempo(box, lineH, simplified) {
     try {
       this._sc.drawTempo(box, lineH, simplified);
+    } catch (e) {
+      console.log("err");
+    }
+  }
+  drawPlayerResources(box, playerColor, simplified) {
+    try {
+      this._sc.drawPlayerResources(box, playerColor, simplified);
     } catch (e) {
       console.log("err");
     }
