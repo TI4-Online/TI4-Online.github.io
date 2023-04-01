@@ -1,0 +1,1448 @@
+{
+    "activeSystem": {
+        "planets": [],
+        "tile": 39
+    },
+    "config": {
+        "baseMagen": true,
+        "codex1": true,
+        "codex2": true,
+        "codex3": true,
+        "codex4": true
+    },
+    "hexSummary": "55+0-6Kf;Kis,23+1-1Rd;Rip,2-3-3Pdfy;Pims,9+0+6Ec3f;Ep;E2i1s,80-2+2*e,40+1-3*e,22+2+4;,65+1+1Gd2f1y;G2i1ps,75+3+1;Gi;Gi*d;Gi,39+2+2Rc3f1iyt,41+0-2Ry*e,59+0+4;Eo,64-1+5Pc2f1y;Pm,30+1+5Ghrt;Gi;Gi,49-2-2*e,46+2-4*e,24-1+1Ecft;Ei*r,72+1+3Gcf;Gi;G2i,71-2+4By*g;Bo*O;Bo,50-1-1*e,42+2+0;Ro*k,32+2-2;Ri;Ri,82-4+3Bcf;Bm,18+0+0Ery;Es*v,26-1+3Bd;Bm,25-2+0;,76-3+1Bcd3f;Bi;Bi;B2m1s*fm,35-2-4Pcdf;Ps;Pip,78+3-1*e,44+0+2Pr*e,62-1-3Kr;Ki*qz,66+1-5Kdr;Kimp*W,38+0-4Kd3r;Kips*x;Kp,45-1-5Kdf*e,67-3-1;Pi,57-3+3;Bs;Bis,10+3-3R2fy;Rs;,53+3+3G2f;Gs",
+    "history": [
+        {
+            "hexSummary": "55+0-6Kd2fr;K3i1s,23+1-1;,2-3-3P2cf1r;P2i1s,9+0+6Ef;Ep;E2i1s,80-2+2*e,40+1-3*e,22+2+4;,65+1+1;,75+3+1;;;,39+2+2*e,41+0-2*e,59+0+4Ec2f1ry;Ei,64-1+5;,30+1+5;;,49-2-2*e,46+2-4*e,24-1+1;,72+1+3;;,71-2+4;;,50-1-1*e,42+2+0*e,32+2-2;;,18+0+0;,26-1+3;,25-2+0;,76-3+1Bct;Bim;;,35-2-4;;,78+3-1*e,44+0+2*e,62-1-3;,66+1-5;,38+0-4;;,45-1-5*e,67-3-1;,57-3+3Bc2f1y;Bs;Bi,10+3-3Rcdfy;Ris;R2i,53+3+3Gc3f1hy;G4i1s",
+            "laws": [],
+            "perf": {
+                "mean": 19.309,
+                "median": 17.716,
+                "scrubbed": 18.128,
+                "stdDev": 5.087
+            },
+            "players": [
+                {
+                    "alliances": [],
+                    "color": "White",
+                    "colorActual": "Red",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "unlocked",
+                        "commander": "locked",
+                        "hero": "locked"
+                    },
+                    "objectives": [],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 1,
+                            "total": 1
+                        },
+                        "legendary": 0,
+                        "resources": {
+                            "avail": 6,
+                            "total": 6
+                        },
+                        "techs": {
+                            "blue": 0,
+                            "green": 0,
+                            "red": 0,
+                            "yellow": 0
+                        },
+                        "traits": {
+                            "cultural": 0,
+                            "hazardous": 0,
+                            "industrial": 0
+                        }
+                    },
+                    "relicCards": [],
+                    "score": 0,
+                    "strategyCards": [
+                        "Trade"
+                    ],
+                    "technologies": 2,
+                    "tradeGoods": 0
+                },
+                {
+                    "alliances": [],
+                    "color": "Blue",
+                    "colorActual": "Pink",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "unlocked",
+                        "commander": "locked",
+                        "hero": "locked"
+                    },
+                    "objectives": [],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 1,
+                            "total": 1
+                        },
+                        "legendary": 0,
+                        "resources": {
+                            "avail": 4,
+                            "total": 4
+                        },
+                        "techs": {
+                            "blue": 0,
+                            "green": 0,
+                            "red": 0,
+                            "yellow": 0
+                        },
+                        "traits": {
+                            "cultural": 0,
+                            "hazardous": 0,
+                            "industrial": 0
+                        }
+                    },
+                    "relicCards": [],
+                    "score": 0,
+                    "strategyCards": [
+                        "Politics"
+                    ],
+                    "technologies": 2,
+                    "tradeGoods": 0
+                },
+                {
+                    "alliances": [],
+                    "color": "Purple",
+                    "colorActual": "Purple",
+                    "commodities": 2,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "unlocked",
+                        "commander": "locked",
+                        "hero": "locked"
+                    },
+                    "objectives": [],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 1,
+                            "total": 1
+                        },
+                        "legendary": 0,
+                        "resources": {
+                            "avail": 4,
+                            "total": 4
+                        },
+                        "techs": {
+                            "blue": 0,
+                            "green": 0,
+                            "red": 0,
+                            "yellow": 0
+                        },
+                        "traits": {
+                            "cultural": 0,
+                            "hazardous": 0,
+                            "industrial": 0
+                        }
+                    },
+                    "relicCards": [],
+                    "score": 0,
+                    "strategyCards": [
+                        "Construction"
+                    ],
+                    "technologies": 4,
+                    "tradeGoods": 1
+                },
+                {
+                    "alliances": [],
+                    "color": "Yellow",
+                    "colorActual": "Blue",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "unlocked",
+                        "commander": "locked",
+                        "hero": "locked"
+                    },
+                    "objectives": [],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 3,
+                            "total": 3
+                        },
+                        "legendary": 0,
+                        "resources": {
+                            "avail": 3,
+                            "total": 3
+                        },
+                        "techs": {
+                            "blue": 0,
+                            "green": 0,
+                            "red": 0,
+                            "yellow": 0
+                        },
+                        "traits": {
+                            "cultural": 0,
+                            "hazardous": 0,
+                            "industrial": 0
+                        }
+                    },
+                    "relicCards": [],
+                    "score": 0,
+                    "strategyCards": [
+                        "Diplomacy"
+                    ],
+                    "technologies": 2,
+                    "tradeGoods": 0
+                },
+                {
+                    "alliances": [],
+                    "color": "Red",
+                    "colorActual": "Orange",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "locked",
+                        "commander": "locked",
+                        "hero": "locked"
+                    },
+                    "objectives": [],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 3,
+                            "total": 6
+                        },
+                        "legendary": 0,
+                        "resources": {
+                            "avail": 3,
+                            "total": 4
+                        },
+                        "techs": {
+                            "blue": 1,
+                            "green": 0,
+                            "red": 0,
+                            "yellow": 0
+                        },
+                        "traits": {
+                            "cultural": 0,
+                            "hazardous": 1,
+                            "industrial": 0
+                        }
+                    },
+                    "relicCards": [],
+                    "score": 0,
+                    "strategyCards": [
+                        "Technology"
+                    ],
+                    "technologies": 2,
+                    "tradeGoods": 0
+                },
+                {
+                    "alliances": [],
+                    "color": "Green",
+                    "colorActual": "Green",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "unlocked",
+                        "commander": "locked",
+                        "hero": "locked"
+                    },
+                    "objectives": [],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 4,
+                            "total": 4
+                        },
+                        "legendary": 0,
+                        "resources": {
+                            "avail": 4,
+                            "total": 4
+                        },
+                        "techs": {
+                            "blue": 0,
+                            "green": 0,
+                            "red": 0,
+                            "yellow": 0
+                        },
+                        "traits": {
+                            "cultural": 0,
+                            "hazardous": 0,
+                            "industrial": 0
+                        }
+                    },
+                    "relicCards": [],
+                    "score": 0,
+                    "strategyCards": [
+                        "Warfare"
+                    ],
+                    "technologies": 1,
+                    "tradeGoods": 0
+                }
+            ],
+            "round": 1,
+            "timestamp": 1680364127.135
+        },
+        {
+            "hexSummary": "55+0-6Kd2f;Kis,23+1-1Rdt;Ri,2-3-3Pfy;Pis,9+0+6Ef;Ep;Es,80-2+2*e,40+1-3*e,22+2+4;,65+1+1G2f1ht;G3i1m,75+3+1Gcft;Gi;Gi*d;Gi,39+2+2,41+0-2Ryt*e,59+0+4;Eo,64-1+5;,30+1+5Ec2f1t;Ei;Ei,49-2-2*e,46+2-4*e,24-1+1;,72+1+3;;,71-2+4Bcdfyt*g;Bm*O;Bm,50-1-1*e,42+2+0Gyt;Go*k,32+2-2Rcft;R2i;Ri,82-4+3;,18+0+0Eryt;*v,26-1+3;,25-2+0Prt;,76-3+1Bcft;Bi;Bi;Bms*m,35-2-4Pcdft;Ps;Pip,78+3-1*e,44+0+2Ec2f1it*e,62-1-3Krt;K2i*q,66+1-5Krt;Ki*Wq,38+0-4Kdrt;Ki*qx;Ki*q,45-1-5*e,67-3-1Pc2f1t;Pim,57-3+3;Bs;Bi,10+3-3R4y;Rs;,53+3+3G2f1r;Gs",
+            "laws": [],
+            "perf": {
+                "mean": 19.086,
+                "median": 18.47,
+                "scrubbed": 18.551,
+                "stdDev": 2.485
+            },
+            "players": [
+                {
+                    "alliances": [],
+                    "color": "White",
+                    "colorActual": "Red",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "unlocked",
+                        "commander": "unlocked",
+                        "hero": "locked"
+                    },
+                    "objectives": [],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 0,
+                            "total": 6
+                        },
+                        "legendary": 0,
+                        "resources": {
+                            "avail": 0,
+                            "total": 9
+                        },
+                        "techs": {
+                            "blue": 0,
+                            "green": 0,
+                            "red": 0,
+                            "yellow": 0
+                        },
+                        "traits": {
+                            "cultural": 2,
+                            "hazardous": 0,
+                            "industrial": 1
+                        }
+                    },
+                    "relicCards": [],
+                    "score": 0,
+                    "strategyCards": [
+                        "Trade"
+                    ],
+                    "technologies": 3,
+                    "tradeGoods": 0
+                },
+                {
+                    "alliances": [],
+                    "color": "Blue",
+                    "colorActual": "Pink",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "unlocked",
+                        "commander": "locked",
+                        "hero": "locked"
+                    },
+                    "objectives": [],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 0,
+                            "total": 5
+                        },
+                        "legendary": 1,
+                        "resources": {
+                            "avail": 0,
+                            "total": 16
+                        },
+                        "techs": {
+                            "blue": 0,
+                            "green": 0,
+                            "red": 1,
+                            "yellow": 1
+                        },
+                        "traits": {
+                            "cultural": 1,
+                            "hazardous": 3,
+                            "industrial": 0
+                        }
+                    },
+                    "relicCards": [],
+                    "score": 0,
+                    "strategyCards": [
+                        "Politics"
+                    ],
+                    "technologies": 2,
+                    "tradeGoods": 1
+                },
+                {
+                    "alliances": [],
+                    "color": "Purple",
+                    "colorActual": "Purple",
+                    "commodities": 1,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "unlocked",
+                        "commander": "locked",
+                        "hero": "locked"
+                    },
+                    "objectives": [
+                        "Learn the Secrets of the Cosmos"
+                    ],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 0,
+                            "total": 8
+                        },
+                        "legendary": 1,
+                        "resources": {
+                            "avail": 0,
+                            "total": 13
+                        },
+                        "techs": {
+                            "blue": 0,
+                            "green": 0,
+                            "red": 0,
+                            "yellow": 0
+                        },
+                        "traits": {
+                            "cultural": 0,
+                            "hazardous": 3,
+                            "industrial": 0
+                        }
+                    },
+                    "relicCards": [],
+                    "score": 1,
+                    "strategyCards": [
+                        "Construction"
+                    ],
+                    "technologies": 3,
+                    "tradeGoods": 0
+                },
+                {
+                    "alliances": [],
+                    "color": "Yellow",
+                    "colorActual": "Blue",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "locked",
+                        "commander": "locked",
+                        "hero": "locked"
+                    },
+                    "objectives": [],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 0,
+                            "total": 7
+                        },
+                        "legendary": 0,
+                        "resources": {
+                            "avail": 0,
+                            "total": 8
+                        },
+                        "techs": {
+                            "blue": 1,
+                            "green": 1,
+                            "red": 0,
+                            "yellow": 0
+                        },
+                        "traits": {
+                            "cultural": 1,
+                            "hazardous": 1,
+                            "industrial": 3
+                        }
+                    },
+                    "relicCards": [],
+                    "score": 0,
+                    "strategyCards": [
+                        "Diplomacy"
+                    ],
+                    "technologies": 2,
+                    "tradeGoods": 0
+                },
+                {
+                    "alliances": [],
+                    "color": "Red",
+                    "colorActual": "Orange",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "locked",
+                        "commander": "locked",
+                        "hero": "locked"
+                    },
+                    "objectives": [
+                        "Make History"
+                    ],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 2,
+                            "total": 9
+                        },
+                        "legendary": 0,
+                        "resources": {
+                            "avail": 0,
+                            "total": 7
+                        },
+                        "techs": {
+                            "blue": 1,
+                            "green": 0,
+                            "red": 0,
+                            "yellow": 0
+                        },
+                        "traits": {
+                            "cultural": 1,
+                            "hazardous": 2,
+                            "industrial": 0
+                        }
+                    },
+                    "relicCards": [],
+                    "score": 1,
+                    "strategyCards": [
+                        "Technology"
+                    ],
+                    "technologies": 3,
+                    "tradeGoods": 0
+                },
+                {
+                    "alliances": [],
+                    "color": "Green",
+                    "colorActual": "Green",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "unlocked",
+                        "commander": "locked",
+                        "hero": "locked"
+                    },
+                    "objectives": [
+                        "Make History"
+                    ],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 2,
+                            "total": 10
+                        },
+                        "legendary": 2,
+                        "resources": {
+                            "avail": 1,
+                            "total": 13
+                        },
+                        "techs": {
+                            "blue": 0,
+                            "green": 0,
+                            "red": 0,
+                            "yellow": 0
+                        },
+                        "traits": {
+                            "cultural": 4,
+                            "hazardous": 1,
+                            "industrial": 0
+                        }
+                    },
+                    "relicCards": [],
+                    "score": 1,
+                    "strategyCards": [
+                        "Warfare"
+                    ],
+                    "technologies": 2,
+                    "tradeGoods": 0
+                }
+            ],
+            "round": 2,
+            "timestamp": 1680367466.002
+        },
+        {
+            "hexSummary": "55+0-6Kf;Kis,23+1-1Rdt;Rip,2-3-3Pdfyt;Pims,9+0+6Ec3f1t;Ep;E2i1s,80-2+2*e,40+1-3*e,22+2+4;,65+1+1Gd2f1yt;G2i1ps,75+3+1;Gi;Gi*d;Gi,39+2+2,41+0-2Ry*e,59+0+4;Eo,64-1+5Pc2f1yt;Pm,30+1+5;Eo;Eo,49-2-2*e,46+2-4*e,24-1+1;,72+1+3Gcfht;G2i;Gi,71-2+4By*g;Bo*O;Bo,50-1-1*e,42+2+0Rc3f1yt;Ri*k,32+2-2;Ri;Ri,82-4+3Bcft;Bm,18+0+0EcfrytGt;Eis*v,26-1+3Bdt;Bm,25-2+0;,76-3+1Bcd3f1t;Bi;Bi;B2m1s*fm,35-2-4Pcdf;Ps;Pip,78+3-1*e,44+0+2Prt*e,62-1-3Krt;Ki*qz,66+1-5Kdrt;Kimp*W,38+0-4Kd3r1t;Kips*x;Kp,45-1-5Kdft*e,67-3-1;Pi,57-3+3Bt;Bs;Bis,10+3-3R2y;Rs;,53+3+3G2f1r;Gs",
+            "laws": [],
+            "perf": {
+                "mean": 26.878,
+                "median": 26.213,
+                "scrubbed": 26.455,
+                "stdDev": 3.126
+            },
+            "players": [
+                {
+                    "alliances": [
+                        "pink"
+                    ],
+                    "color": "White",
+                    "colorActual": "Red",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "locked",
+                        "commander": "unlocked",
+                        "hero": "locked"
+                    },
+                    "objectives": [
+                        "Make History"
+                    ],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 2,
+                            "total": 8
+                        },
+                        "legendary": 1,
+                        "resources": {
+                            "avail": 2,
+                            "total": 10
+                        },
+                        "techs": {
+                            "blue": 0,
+                            "green": 0,
+                            "red": 0,
+                            "yellow": 0
+                        },
+                        "traits": {
+                            "cultural": 3,
+                            "hazardous": 0,
+                            "industrial": 1
+                        }
+                    },
+                    "relicCards": [],
+                    "score": 1,
+                    "strategyCards": [
+                        "Technology"
+                    ],
+                    "technologies": 5,
+                    "tradeGoods": 1
+                },
+                {
+                    "alliances": [
+                        "red"
+                    ],
+                    "color": "Blue",
+                    "colorActual": "Pink",
+                    "commodities": 2,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "unlocked",
+                        "commander": "unlocked",
+                        "hero": "locked"
+                    },
+                    "objectives": [
+                        "Make History",
+                        "Strengthen Bonds"
+                    ],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 0,
+                            "total": 5
+                        },
+                        "legendary": 1,
+                        "resources": {
+                            "avail": 2,
+                            "total": 16
+                        },
+                        "techs": {
+                            "blue": 0,
+                            "green": 0,
+                            "red": 1,
+                            "yellow": 1
+                        },
+                        "traits": {
+                            "cultural": 1,
+                            "hazardous": 3,
+                            "industrial": 0
+                        }
+                    },
+                    "relicCards": [],
+                    "score": 2,
+                    "strategyCards": [
+                        "Leadership"
+                    ],
+                    "technologies": 3,
+                    "tradeGoods": 4
+                },
+                {
+                    "alliances": [],
+                    "color": "Purple",
+                    "colorActual": "Purple",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "locked",
+                        "commander": "unlocked",
+                        "hero": "locked"
+                    },
+                    "objectives": [
+                        "Learn the Secrets of the Cosmos",
+                        "Make History",
+                        "Support for the Throne (Blue)"
+                    ],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 0,
+                            "total": 9
+                        },
+                        "legendary": 1,
+                        "resources": {
+                            "avail": 0,
+                            "total": 16
+                        },
+                        "techs": {
+                            "blue": 0,
+                            "green": 0,
+                            "red": 0,
+                            "yellow": 0
+                        },
+                        "traits": {
+                            "cultural": 0,
+                            "hazardous": 4,
+                            "industrial": 0
+                        }
+                    },
+                    "relicCards": [
+                        "Dynamis Core"
+                    ],
+                    "score": 3,
+                    "strategyCards": [
+                        "Politics"
+                    ],
+                    "technologies": 4,
+                    "tradeGoods": 0
+                },
+                {
+                    "alliances": [],
+                    "color": "Yellow",
+                    "colorActual": "Blue",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "locked",
+                        "commander": "unlocked",
+                        "hero": "locked"
+                    },
+                    "objectives": [
+                        "Make History",
+                        "Prove Endurance",
+                        "Seize an Icon",
+                        "Support for the Throne (Purple)"
+                    ],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 0,
+                            "total": 16
+                        },
+                        "legendary": 2,
+                        "resources": {
+                            "avail": 0,
+                            "total": 16
+                        },
+                        "techs": {
+                            "blue": 1,
+                            "green": 1,
+                            "red": 0,
+                            "yellow": 0
+                        },
+                        "traits": {
+                            "cultural": 3,
+                            "hazardous": 1,
+                            "industrial": 3
+                        }
+                    },
+                    "relicCards": [
+                        "Nano-Forge"
+                    ],
+                    "score": 4,
+                    "strategyCards": [
+                        "Trade"
+                    ],
+                    "technologies": 3,
+                    "tradeGoods": 9
+                },
+                {
+                    "alliances": [],
+                    "color": "Red",
+                    "colorActual": "Orange",
+                    "commodities": 0,
+                    "custodiansPoints": 2,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "locked",
+                        "commander": "unlocked",
+                        "hero": "locked"
+                    },
+                    "objectives": [
+                        "Expand Borders",
+                        "Make History",
+                        "Support for the Throne (Green)"
+                    ],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 0,
+                            "total": 15
+                        },
+                        "legendary": 0,
+                        "resources": {
+                            "avail": 0,
+                            "total": 8
+                        },
+                        "techs": {
+                            "blue": 1,
+                            "green": 0,
+                            "red": 0,
+                            "yellow": 0
+                        },
+                        "traits": {
+                            "cultural": 1,
+                            "hazardous": 2,
+                            "industrial": 0
+                        }
+                    },
+                    "relicCards": [],
+                    "score": 5,
+                    "strategyCards": [
+                        "Imperial"
+                    ],
+                    "technologies": 4,
+                    "tradeGoods": 2
+                },
+                {
+                    "alliances": [],
+                    "color": "Green",
+                    "colorActual": "Green",
+                    "commodities": 0,
+                    "custodiansPoints": 0,
+                    "laws": [],
+                    "leaders": {
+                        "agent": "locked",
+                        "commander": "unlocked",
+                        "hero": "locked"
+                    },
+                    "objectives": [
+                        "Betray a Friend",
+                        "Expand Borders",
+                        "Make History"
+                    ],
+                    "planetTotals": {
+                        "influence": {
+                            "avail": 0,
+                            "total": 11
+                        },
+                        "legendary": 1,
+                        "resources": {
+                            "avail": 0,
+                            "total": 16
+                        },
+                        "techs": {
+                            "blue": 0,
+                            "green": 0,
+                            "red": 1,
+                            "yellow": 0
+                        },
+                        "traits": {
+                            "cultural": 3,
+                            "hazardous": 1,
+                            "industrial": 2
+                        }
+                    },
+                    "relicCards": [],
+                    "score": 3,
+                    "strategyCards": [
+                        "Construction"
+                    ],
+                    "technologies": 2,
+                    "tradeGoods": 0
+                }
+            ],
+            "round": 3,
+            "timestamp": 1680373601.155
+        }
+    ],
+    "isPoK": true,
+    "laws": [
+        "Nexus Sovereignty"
+    ],
+    "mapString": "44 65 23 41 50 24 59 72 39 42 32 40 38 62 49 25 80 26 9 30 22 53 75 78 10 46 66 55 45 35 2 67 76 57 71 64",
+    "objectives": {
+        "Agenda": [],
+        "Other": [
+            "Support for the Throne (Purple)",
+            "Support for the Throne (Green)",
+            "Support for the Throne (Pink)",
+            "Support for the Throne (Blue)",
+            "Support for the Throne (Red)"
+        ],
+        "Public Objectives I": [
+            "Make History",
+            "Develop Weaponry",
+            "Expand Borders",
+            "Negotiate Trade Routes"
+        ],
+        "Public Objectives II": [],
+        "Relics": [
+            "The Crown of Emphidia"
+        ],
+        "Secret Objectives": [
+            "Strengthen Bonds",
+            "Seize an Icon",
+            "Prove Endurance",
+            "Learn the Secrets of the Cosmos",
+            "Betray a Friend"
+        ]
+    },
+    "perf": {
+        "mean": 27.607,
+        "median": 26.481,
+        "scrubbed": 26.986,
+        "stdDev": 5.286
+    },
+    "platform": "ttpg",
+    "players": [
+        {
+            "active": true,
+            "alliances": [
+                "pink"
+            ],
+            "color": "White",
+            "colorActual": "Red",
+            "commandTokens": {
+                "fleet": 1,
+                "strategy": 3,
+                "tactics": 1
+            },
+            "commodities": 0,
+            "custodiansPoints": 0,
+            "factionName": "The Barony of Letnev",
+            "factionShort": "Letnev",
+            "handSummary": {
+                "Actions": 5,
+                "Promissory": 3,
+                "Secret Objectives": 2
+            },
+            "laws": [],
+            "leaders": {
+                "agent": "unlocked",
+                "commander": "unlocked",
+                "hero": "locked"
+            },
+            "maxCommodities": 2,
+            "objectives": [
+                "Make History",
+                "Support for the Throne (Pink)"
+            ],
+            "planetTotals": {
+                "influence": {
+                    "avail": 8,
+                    "total": 8
+                },
+                "legendary": 1,
+                "resources": {
+                    "avail": 6,
+                    "total": 10
+                },
+                "techs": {
+                    "blue": 0,
+                    "green": 0,
+                    "red": 0,
+                    "yellow": 0
+                },
+                "traits": {
+                    "cultural": 3,
+                    "hazardous": 0,
+                    "industrial": 1
+                }
+            },
+            "relicCards": [],
+            "score": 2,
+            "steamName": "nathangray68",
+            "strategyCards": [
+                "Warfare"
+            ],
+            "strategyCardsFaceDown": [],
+            "technologies": [
+                "PDS II",
+                "Dreadnought II",
+                "Scanlink Drone Network",
+                "Plasma Scoring",
+                "Antimass Deflectors",
+                "Gravity Drive"
+            ],
+            "tradeGoods": 4,
+            "turnOrder": 3,
+            "unitModifiers": [
+                {
+                    "localeName": "munitions_reserves",
+                    "name": "Munitions Reserves"
+                },
+                {
+                    "localeName": "plasma_scoring",
+                    "name": "Plasma Scoring"
+                }
+            ],
+            "unitUpgrades": [
+                "dreadnought",
+                "pds"
+            ]
+        },
+        {
+            "active": true,
+            "alliances": [
+                "red"
+            ],
+            "color": "Blue",
+            "colorActual": "Pink",
+            "commandTokens": {
+                "fleet": 4,
+                "strategy": 1,
+                "tactics": 1
+            },
+            "commodities": 0,
+            "custodiansPoints": 0,
+            "factionName": "The Titans of Ul",
+            "factionShort": "Ul",
+            "handSummary": {
+                "Actions": 5,
+                "Promissory": 3,
+                "Secret Objectives": 1
+            },
+            "laws": [],
+            "leaders": {
+                "agent": "unlocked",
+                "commander": "unlocked",
+                "hero": "locked"
+            },
+            "maxCommodities": 2,
+            "objectives": [
+                "Make History",
+                "Strengthen Bonds",
+                "Support for the Throne (Red)"
+            ],
+            "planetTotals": {
+                "influence": {
+                    "avail": 4,
+                    "total": 5
+                },
+                "legendary": 1,
+                "resources": {
+                    "avail": 10,
+                    "total": 16
+                },
+                "techs": {
+                    "blue": 0,
+                    "green": 0,
+                    "red": 1,
+                    "yellow": 1
+                },
+                "traits": {
+                    "cultural": 1,
+                    "hazardous": 3,
+                    "industrial": 0
+                }
+            },
+            "relicCards": [],
+            "score": 3,
+            "steamName": "Drago Thaxton",
+            "strategyCards": [
+                "Technology"
+            ],
+            "strategyCardsFaceDown": [
+                "Technology"
+            ],
+            "technologies": [
+                "Scanlink Drone Network",
+                "Antimass Deflectors",
+                "Hel-Titan II",
+                "Saturn Engine II",
+                "AI Development Algorithm"
+            ],
+            "tradeGoods": 5,
+            "turnOrder": 4,
+            "unitModifiers": [],
+            "unitUpgrades": [
+                "cruiser",
+                "pds"
+            ]
+        },
+        {
+            "active": true,
+            "alliances": [],
+            "color": "Purple",
+            "colorActual": "Purple",
+            "commandTokens": {
+                "fleet": 3,
+                "strategy": 0,
+                "tactics": 2
+            },
+            "commodities": 4,
+            "custodiansPoints": 0,
+            "factionName": "The Council Keleres - Mentak",
+            "factionShort": "Keleres - Mentak",
+            "handSummary": {
+                "Actions": 2,
+                "Promissory": 5,
+                "Secret Objectives": 2
+            },
+            "laws": [],
+            "leaders": {
+                "agent": "unlocked",
+                "commander": "unlocked",
+                "hero": "locked"
+            },
+            "maxCommodities": 2,
+            "objectives": [
+                "Learn the Secrets of the Cosmos",
+                "Make History",
+                "Support for the Throne (Blue)"
+            ],
+            "planetTotals": {
+                "influence": {
+                    "avail": 5,
+                    "total": 9
+                },
+                "legendary": 1,
+                "resources": {
+                    "avail": 10,
+                    "total": 16
+                },
+                "techs": {
+                    "blue": 0,
+                    "green": 0,
+                    "red": 0,
+                    "yellow": 0
+                },
+                "traits": {
+                    "cultural": 0,
+                    "hazardous": 4,
+                    "industrial": 0
+                }
+            },
+            "relicCards": [
+                "Dynamis Core"
+            ],
+            "score": 3,
+            "steamName": "Henry",
+            "strategyCards": [
+                "Politics"
+            ],
+            "strategyCardsFaceDown": [],
+            "technologies": [
+                "Antimass Deflectors",
+                "I.I.H.Q. Modernization",
+                "Dreadnought II",
+                "Sling Relay",
+                "Scanlink Drone Network"
+            ],
+            "tradeGoods": 3,
+            "turnOrder": 2,
+            "unitModifiers": [
+                {
+                    "localeName": "custodia_vigilia",
+                    "name": "Custodia Vigilia"
+                }
+            ],
+            "unitUpgrades": [
+                "dreadnought"
+            ]
+        },
+        {
+            "active": true,
+            "alliances": [],
+            "color": "Yellow",
+            "colorActual": "Blue",
+            "commandTokens": {
+                "fleet": 3,
+                "strategy": 1,
+                "tactics": 2
+            },
+            "commodities": 0,
+            "custodiansPoints": 0,
+            "factionName": "The Naaz-Rokha Alliance",
+            "factionShort": "Naaz-Rokha",
+            "handSummary": {
+                "Actions": 2,
+                "Promissory": 5
+            },
+            "laws": [],
+            "leaders": {
+                "agent": "locked",
+                "commander": "unlocked",
+                "hero": "locked"
+            },
+            "maxCommodities": 3,
+            "objectives": [
+                "Make History",
+                "Prove Endurance",
+                "Seize an Icon",
+                "Support for the Throne (Purple)"
+            ],
+            "planetTotals": {
+                "influence": {
+                    "avail": 13,
+                    "total": 16
+                },
+                "legendary": 2,
+                "resources": {
+                    "avail": 12,
+                    "total": 16
+                },
+                "techs": {
+                    "blue": 1,
+                    "green": 1,
+                    "red": 0,
+                    "yellow": 0
+                },
+                "traits": {
+                    "cultural": 3,
+                    "hazardous": 1,
+                    "industrial": 3
+                }
+            },
+            "relicCards": [
+                "The Crown of Emphidia (PoK)",
+                "Nano-Forge"
+            ],
+            "score": 4,
+            "steamName": "Vindaloo",
+            "strategyCards": [
+                "Imperial"
+            ],
+            "strategyCardsFaceDown": [],
+            "technologies": [
+                "Bio-Stims",
+                "Gravity Drive",
+                "AI Development Algorithm",
+                "Psychoarchaeology"
+            ],
+            "tradeGoods": 10,
+            "turnOrder": 5,
+            "unitModifiers": [],
+            "unitUpgrades": []
+        },
+        {
+            "active": true,
+            "alliances": [],
+            "color": "Red",
+            "colorActual": "Orange",
+            "commandTokens": {
+                "fleet": 3,
+                "strategy": 0,
+                "tactics": 1
+            },
+            "commodities": 0,
+            "custodiansPoints": 2,
+            "factionName": "The Naalu Collective",
+            "factionShort": "Naalu",
+            "handSummary": {
+                "Actions": 3,
+                "Promissory": 6,
+                "Secret Objectives": 1
+            },
+            "laws": [],
+            "leaders": {
+                "agent": "unlocked",
+                "commander": "unlocked",
+                "hero": "locked"
+            },
+            "maxCommodities": 3,
+            "objectives": [
+                "Expand Borders",
+                "Make History",
+                "Support for the Throne (Green)"
+            ],
+            "planetTotals": {
+                "influence": {
+                    "avail": 8,
+                    "total": 12
+                },
+                "legendary": 0,
+                "resources": {
+                    "avail": 1,
+                    "total": 5
+                },
+                "techs": {
+                    "blue": 1,
+                    "green": 0,
+                    "red": 0,
+                    "yellow": 0
+                },
+                "traits": {
+                    "cultural": 0,
+                    "hazardous": 1,
+                    "industrial": 0
+                }
+            },
+            "relicCards": [],
+            "score": 5,
+            "steamName": "Rand",
+            "strategyCards": [
+                "Trade"
+            ],
+            "strategyCardsFaceDown": [],
+            "technologies": [
+                "Sarween Tools",
+                "Neural Motivator",
+                "Carrier II",
+                "Hybrid Crystal Fighter II",
+                "Antimass Deflectors"
+            ],
+            "tradeGoods": 1,
+            "turnOrder": 0,
+            "unitModifiers": [],
+            "unitUpgrades": [
+                "carrier",
+                "fighter"
+            ]
+        },
+        {
+            "active": true,
+            "alliances": [],
+            "color": "Green",
+            "colorActual": "Green",
+            "commandTokens": {
+                "fleet": 3,
+                "strategy": 1,
+                "tactics": 1
+            },
+            "commodities": 0,
+            "custodiansPoints": 0,
+            "factionName": "The Nomad",
+            "factionShort": "Nomad",
+            "handSummary": {
+                "Actions": 1,
+                "Promissory": 5,
+                "Secret Objectives": 1
+            },
+            "laws": [],
+            "leaders": {
+                "agent": "unlocked",
+                "commander": "unlocked",
+                "hero": "locked"
+            },
+            "maxCommodities": 4,
+            "objectives": [
+                "Betray a Friend",
+                "Expand Borders",
+                "Make History"
+            ],
+            "planetTotals": {
+                "influence": {
+                    "avail": 7,
+                    "total": 14
+                },
+                "legendary": 1,
+                "resources": {
+                    "avail": 12,
+                    "total": 19
+                },
+                "techs": {
+                    "blue": 0,
+                    "green": 0,
+                    "red": 1,
+                    "yellow": 0
+                },
+                "traits": {
+                    "cultural": 4,
+                    "hazardous": 2,
+                    "industrial": 2
+                }
+            },
+            "relicCards": [],
+            "score": 3,
+            "steamName": "afinati",
+            "strategyCards": [
+                "Leadership"
+            ],
+            "strategyCardsFaceDown": [],
+            "technologies": [
+                "Carrier II",
+                "Sling Relay",
+                "Dark Energy Tap"
+            ],
+            "tradeGoods": 3,
+            "turnOrder": 1,
+            "unitModifiers": [
+                {
+                    "localeName": "navarch_feng",
+                    "name": "Navarch Feng"
+                }
+            ],
+            "unitUpgrades": [
+                "carrier"
+            ]
+        }
+    ],
+    "round": 3,
+    "scoreboard": 10,
+    "setupTimestamp": 1680362297.725,
+    "speaker": "Pink",
+    "timer": {
+        "anchorSeconds": 0,
+        "anchorTimestamp": 1680362297,
+        "countDown": -1,
+        "direction": 1,
+        "seconds": 14429
+    },
+    "timestamp": 1680376727.372,
+    "turn": "Blue",
+    "unpickedStrategyCards": {
+        "Construction": 1,
+        "Diplomacy": 2
+    },
+    "whispers": [
+        {
+            "backwardStr": "         <                                                  ",
+            "colorNameA": "purple",
+            "colorNameB": "pink",
+            "forwardStr": "    >                                                       "
+        },
+        {
+            "backwardStr": "                                                            ",
+            "colorNameA": "blue",
+            "colorNameB": "red",
+            "forwardStr": "                                 >>                         "
+        },
+        {
+            "backwardStr": "                                                <     <     ",
+            "colorNameA": "purple",
+            "colorNameB": "blue",
+            "forwardStr": "                                                 >       >> "
+        },
+        {
+            "backwardStr": "                                                          < ",
+            "colorNameA": "green",
+            "colorNameB": "pink",
+            "forwardStr": "                                                            "
+        },
+        {
+            "backwardStr": "                                                            ",
+            "colorNameA": "green",
+            "colorNameB": "red",
+            "forwardStr": "                                                            "
+        },
+        {
+            "backwardStr": "                                                            ",
+            "colorNameA": "green",
+            "colorNameB": "orange",
+            "forwardStr": "                                                            "
+        },
+        {
+            "backwardStr": "                                                            ",
+            "colorNameA": "blue",
+            "colorNameB": "orange",
+            "forwardStr": "                                                            "
+        },
+        {
+            "backwardStr": "                                                            ",
+            "colorNameA": "pink",
+            "colorNameB": "red",
+            "forwardStr": "                                                            "
+        }
+    ]
+}

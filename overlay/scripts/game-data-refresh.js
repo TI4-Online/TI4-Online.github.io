@@ -59,7 +59,7 @@ class GameDataRefresh {
 
   setDemoGameData(value) {
     if (value) {
-      this._url = "/overlay/demo/demo8.json";
+      this._url = "/overlay/demo/demo9.json";
     } else {
       this._url = this._localhostUrl;
     }

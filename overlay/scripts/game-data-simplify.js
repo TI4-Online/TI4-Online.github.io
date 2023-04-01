@@ -147,14 +147,7 @@ class GameDataSimplify {
         }
       }
     }
-
     simplified.ti4calc = window.ti4calcWrapper(gameData);
-    for (const region of simplified.ti4calc) {
-      if (region.defender > 0) {
-        simplified.isCombat = true;
-        break;
-      }
-    }
 
     return simplified;
   }
