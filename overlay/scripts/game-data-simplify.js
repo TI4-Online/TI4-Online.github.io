@@ -136,7 +136,7 @@ class GameDataSimplify {
     simplified.isCombat = false;
     if (simplified.activeSystem.tile !== 0) {
       const activeSummary = simplified.hexSummary.filter(
-        (entry) => (entry.tile = simplified.activeSystem.tile)
+        (entry) => entry.tile === simplified.activeSystem.tile
       )[0];
       if (activeSummary) {
         for (const region of activeSummary.regions) {
