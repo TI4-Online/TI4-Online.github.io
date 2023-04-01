@@ -986,7 +986,7 @@ class SceneComponents {
       const lastX = playerColorNameToLastX[colorName] || 0;
       const points = playerColorNameToXYs[colorName];
       for (const [x, y] of points) {
-        if (y >= bb.top + bb.height && x < lastX) {
+        if (Math.ceil(y) >= Math.floor(bb.top + bb.height) && x < lastX) {
           continue; // only draw points when 1+ or if last point
         }
 
