@@ -67,6 +67,16 @@ class GameDataSimplify {
       whispers: GameDataUtil.parseWhispers(gameData),
     };
 
+    // No need to escape whispers.
+    for (const entry of simplified.whispers) {
+      for (const [k, v] of Object.entries(entry)) {
+        entry[k] = v
+          .replaceAll("&nbsp;", " ")
+          .replaceAll("&gt;", ">")
+          .replaceAll("&lt;", "<");
+      }
+    }
+
     playerDataArray.map((playerData) => {
       const { colorName, colorHex } = GameDataUtil.parsePlayerColor(playerData);
       simplified.players[colorName] = {
