@@ -152,6 +152,14 @@ class Calc {
         defender: simulation.defender,
         draw: simulation.draw,
       });
+
+      // Simulation sometimes reports > 100%
+      const last = result[result.length - 1];
+      if (last.attacker < last.defender) {
+        last.defender = 100 - (last.attacker + last.draw);
+      } else {
+        last.attacker = 100 - (last.defender + last.draw);
+      }
     }
     return result;
   }

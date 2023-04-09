@@ -214,6 +214,13 @@ class Calc {
           simulation.draw = 0;
         }
 
+        // Simulation sometimes reports > 100%
+        if (simulation.attacker < simulation.defender) {
+          simulation.defender = 100 - (simulation.attacker + simulation.draw);
+        } else {
+          simulation.attacker = 100 - (simulation.defender + simulation.draw);
+        }
+
         //console.log(regionName + ": " + JSON.stringify(simulation));
       }
 

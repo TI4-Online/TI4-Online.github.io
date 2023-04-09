@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Rotating</title>
+    <link rel="stylesheet" href="/overlay/css/main.css" />
+    <link rel="stylesheet" href="/overlay/css/resources.css" />
+    <link rel="stylesheet" href="/overlay/css/technology.css" />
+    <script src="/overlay/scripts/image-util.js"></script>
+    <script src="/overlay/scripts/draw-player-resources.js"></script>
+    <script src="/overlay/scripts/game-data-util.js"></script>
+    <script src="/overlay/scripts/refresh-rotating-active-player.js"></script>
+    <script src="/overlay/scripts/game-data-refresh.js"></script>
+  </head>
+  <body class="no-margin">
+    <div class="size-rotating rotating-container">
+      <!------------>
+      <!-- copy 1 -->
+      <!------------>
+      <div class="size-rotating rotating-content" id="rotating-1">
+        <table class="size-rotating technology">
+          <tr>
+            <th class="tech-header">PLAYER</th>
+          </tr>
+          <tr>
+            <td class="tech-column">TECH</td>
+          </tr>
+        </table>
+        <div class="resources player-resources-aspect-ratio-bottom">
+          <canvas class="resources-canvas" width="0" height="0"></canvas>
+        </div>
+      </div>
+
+      <!------------>
+      <!-- copy 2 -->
+      <!------------>
+      <div class="size-rotating rotating-content" id="rotating-2">
+        <table class="size-rotating technology">
+          <tr>
+            <th class="tech-header">PLAYER</th>
+          </tr>
+          <tr>
+            <td class="tech-column">TECH</td>
+          </tr>
+        </table>
+        <div class="resources player-resources-aspect-ratio-bottom">
+          <canvas class="resources-canvas" width="0" height="0"></canvas>
+        </div>
+      </div>
+
+      <!------------>
+    </div>
+  </body>
+</html>
