@@ -13,6 +13,6 @@ body {
   box-sizing: border-box;
   background-color: blue;
   aspect-ratio: 600/1994;
-  height: 100%;
   overflow: hidden;
+  min-height: 1200px;
 }
