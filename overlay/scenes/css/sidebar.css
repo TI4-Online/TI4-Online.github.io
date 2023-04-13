@@ -12,7 +12,11 @@ body {
   bottom: 0;
   box-sizing: border-box;
   background-color: blue;
-  aspect-ratio: 600/1994;
   overflow: hidden;
+  /*
   min-height: 1200px;
+  aspect-ratio: 600/1994;
+  */
+  height: 2000px;
+  width: 600px;
 }

@@ -10,8 +10,7 @@ class Bottombar {
 
   constructor() {
     this._lastSimplified = undefined;
-    this._marginPctW = 0.02;
-    this._margin = 0;
+    this._marginPctW = 0.005;
 
     const elementId = "bottombar-canvas";
     this._canvas = document.getElementById(elementId);
@@ -19,6 +18,9 @@ class Bottombar {
       throw new Error(`Missing element id "${elementId}"`);
     }
 
+    this._margin = Math.ceil(this._canvas.width * this._marginPctW);
+
+    /*
     // If sidebar is present move bottom left.
     const sidebarCanvas = document.getElementById("sidebar-canvas");
     if (sidebarCanvas) {
@@ -43,6 +45,7 @@ class Bottombar {
         this.update(this._lastSimplified);
       }
     });
+    */
 
     new BroadcastChannel("onSimplifiedGameDataEvent").onmessage = (event) => {
       if (event.data.type === "UPDATE" || event.data.type === "NOT_MODIFIED") {
@@ -73,7 +76,7 @@ class Bottombar {
     // Sizing used 6p layout, might be slighly off for other counts.
     const topCount = simplified.seatLayout.top.length;
     const boxCount = simplified.seatLayout.bottom.length;
-    const topW = (topRow.w - (this._margin * topCount + 1)) / topCount;
+    const topW = (topRow.w - this._margin * (topCount + 1)) / topCount;
     const botW = (botRow.w - this._margin * (boxCount + 1)) / boxCount;
 
     for (const playerColor of simplified.seatLayout.top) {

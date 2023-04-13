@@ -17,12 +17,14 @@ class Sidebar {
       throw new Error(`Missing element id "${elementId}"`);
     }
 
+    /*
     SceneComponents.resizeCanvas(this._canvas, () => {
       ImageUtil.resetCache();
       if (this._lastSimplified) {
         this.update(this._lastSimplified);
       }
     });
+*/
 
     new BroadcastChannel("onSimplifiedGameDataEvent").onmessage = (event) => {
       if (event.data.type === "UPDATE" || event.data.type === "NOT_MODIFIED") {
