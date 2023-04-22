@@ -94,7 +94,7 @@ class Leaderboard {
 
     const factionNameDiv = cell.getElementsByClassName("faction-name")[0];
     console.assert(factionNameDiv);
-    factionNameDiv.textContent = capitalizeFirstLetter(faction);
+    factionNameDiv.textContent = faction.toUpperCase();
     factionNameDiv.style.color = color;
   }
 
