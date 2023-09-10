@@ -1,0 +1,1800 @@
+{
+    "activeSystem": {
+        "planets": [],
+        "tile": 0
+    },
+    "hexSummary": [
+        {
+            "regions": [
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "blue": {
+                            "command_token": 1
+                        },
+                        "green": {
+                            "command_token": 1
+                        },
+                        "pink": {
+                            "command_token": 1
+                        },
+                        "purple": {
+                            "command_token": 1
+                        },
+                        "red": {
+                            "carrier": 1,
+                            "cruiser": 2,
+                            "dreadnought": 1,
+                            "fighter": 5
+                        },
+                        "yellow": {
+                            "command_token": 1
+                        }
+                    }
+                },
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "red": {
+                            "space_dock": 1
+                        }
+                    }
+                },
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "red": {
+                            "pds": 1
+                        }
+                    }
+                }
+            ],
+            "tile": 15,
+            "x": 0,
+            "y": 6
+        },
+        {
+            "regions": [
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "yellow": {
+                            "dreadnought": 2,
+                            "fighter": 2
+                        }
+                    }
+                },
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "yellow": {
+                            "infantry": 3,
+                            "mech": 1,
+                            "pds": 1,
+                            "space_dock": 1
+                        }
+                    }
+                }
+            ],
+            "tile": 53,
+            "x": -3,
+            "y": 3
+        },
+        {
+            "regions": [
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "blue": {
+                            "command_token": 1
+                        },
+                        "purple": {
+                            "fighter": 3,
+                            "flagship": 1
+                        },
+                        "yellow": {
+                            "command_token": 1
+                        }
+                    }
+                },
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "purple": {
+                            "infantry": 2,
+                            "pds": 1,
+                            "space_dock": 1
+                        }
+                    }
+                },
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "purple": {
+                            "infantry": 2,
+                            "pds": 1,
+                            "space_dock": 1
+                        }
+                    }
+                }
+            ],
+            "tile": 12,
+            "x": -3,
+            "y": -3
+        },
+        {
+            "regions": [
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "red": {
+                            "destroyer": 1
+                        }
+                    }
+                },
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {}
+                }
+            ],
+            "tile": 82,
+            "x": -4,
+            "y": -3
+        },
+        {
+            "regions": [
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "green": {
+                            "command_token": 1,
+                            "destroyer": 1
+                        }
+                    }
+                }
+            ],
+            "tile": 79,
+            "x": 2,
+            "y": 0
+        },
+        {
+            "regions": [
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "red": {
+                            "carrier": 1,
+                            "cruiser": 1,
+                            "destroyer": 2,
+                            "fighter": 4
+                        }
+                    }
+                },
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "red": {
+                            "infantry": 3,
+                            "space_dock": 1
+                        }
+                    }
+                },
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "red": {
+                            "infantry": 2,
+                            "mech": 1
+                        }
+                    }
+                }
+            ],
+            "tile": 72,
+            "x": -1,
+            "y": 5
+        },
+        {
+            "regions": [
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "pink": {
+                            "command_token": 1
+                        },
+                        "yellow": {
+                            "carrier": 1,
+                            "command_token": 1,
+                            "fighter": 2,
+                            "flagship": 1
+                        }
+                    }
+                },
+                {
+                    "attachments": [
+                        "biotic_research_facility_face"
+                    ],
+                    "colorToUnitNameToCount": {
+                        "yellow": {
+                            "infantry": 4,
+                            "mech": 2
+                        }
+                    }
+                },
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "blue": {
+                            "infantry": 4
+                        }
+                    }
+                }
+            ],
+            "tile": 71,
+            "x": 1,
+            "y": -1
+        },
+        {
+            "regions": [
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {}
+                },
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "blue": {
+                            "infantry": 2
+                        }
+                    }
+                },
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "blue": {
+                            "infantry": 2
+                        }
+                    }
+                }
+            ],
+            "tile": 70,
+            "x": 0,
+            "y": -4
+        },
+        {
+            "regions": [
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {}
+                },
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "red": {
+                            "infantry": 1,
+                            "mech": 1
+                        }
+                    }
+                }
+            ],
+            "tile": 68,
+            "x": 0,
+            "y": 2
+        },
+        {
+            "regions": [
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "blue": {
+                            "carrier": 1,
+                            "command_token": 1,
+                            "destroyer": 1,
+                            "fighter": 3
+                        }
+                    }
+                },
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "blue": {
+                            "infantry": 3
+                        },
+                        "red": {
+                            "infantry": 1,
+                            "mech": 2
+                        }
+                    }
+                }
+            ],
+            "tile": 66,
+            "x": 2,
+            "y": 4
+        },
+        {
+            "regions": [
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "purple": {
+                            "command_token": 1,
+                            "dreadnought": 1
+                        }
+                    }
+                },
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "purple": {
+                            "mech": 1
+                        }
+                    }
+                }
+            ],
+            "tile": 65,
+            "x": 1,
+            "y": -5
+        },
+        {
+            "regions": [
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "yellow": {
+                            "command_token": 1,
+                            "dreadnought": 1,
+                            "fighter": 1
+                        }
+                    }
+                },
+                {
+                    "attachments": [
+                        "mining_world",
+                        "rich_world",
+                        "lazax_survivors"
+                    ],
+                    "colorToUnitNameToCount": {
+                        "yellow": {
+                            "infantry": 1,
+                            "space_dock": 1
+                        }
+                    }
+                }
+            ],
+            "tile": 64,
+            "x": -2,
+            "y": 2
+        },
+        {
+            "regions": [
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "red": {
+                            "command_token": 1,
+                            "flagship": 1
+                        }
+                    }
+                },
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "green": {
+                            "control_token": 1
+                        }
+                    }
+                }
+            ],
+            "tile": 63,
+            "x": 1,
+            "y": 5
+        },
+        {
+            "regions": [
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "yellow": {
+                            "carrier": 1,
+                            "command_token": 1,
+                            "destroyer": 1,
+                            "dreadnought": 1,
+                            "fighter": 8
+                        }
+                    }
+                },
+                {
+                    "attachments": [
+                        "dyson_sphere"
+                    ],
+                    "colorToUnitNameToCount": {
+                        "yellow": {
+                            "infantry": 2,
+                            "pds": 1,
+                            "space_dock": 1
+                        }
+                    }
+                }
+            ],
+            "tile": 62,
+            "x": -1,
+            "y": 3
+        },
+        {
+            "regions": [
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "pink": {
+                            "command_token": 1,
+                            "cruiser": 1
+                        }
+                    }
+                },
+                {
+                    "attachments": [
+                        "cybernetic_Research_Facility_back"
+                    ],
+                    "colorToUnitNameToCount": {
+                        "pink": {
+                            "infantry": 15,
+                            "mech": 1,
+                            "space_dock": 1
+                        }
+                    }
+                }
+            ],
+            "tile": 61,
+            "x": 2,
+            "y": -2
+        },
+        {
+            "regions": [
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {}
+                },
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "blue": {
+                            "control_token": 1,
+                            "infantry": 3
+                        }
+                    }
+                }
+            ],
+            "tile": 59,
+            "x": 3,
+            "y": -1
+        },
+        {
+            "regions": [
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "purple": {
+                            "command_token": 1,
+                            "dreadnought": 1,
+                            "fighter": 1
+                        }
+                    }
+                }
+            ],
+            "tile": 50,
+            "x": -2,
+            "y": 0
+        },
+        {
+            "regions": [
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "purple": {
+                            "command_token": 1,
+                            "dreadnought": 2
+                        },
+                        "yellow": {
+                            "command_token": 1
+                        }
+                    }
+                }
+            ],
+            "tile": 49,
+            "x": -1,
+            "y": 1
+        },
+        {
+            "regions": [
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "green": {
+                            "carrier": 1,
+                            "command_token": 1,
+                            "destroyer": 1
+                        }
+                    }
+                }
+            ],
+            "tile": 48,
+            "x": 3,
+            "y": 1
+        },
+        {
+            "regions": [
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "purple": {
+                            "command_token": 1,
+                            "destroyer": 1
+                        }
+                    }
+                }
+            ],
+            "tile": 47,
+            "x": -1,
+            "y": -5
+        },
+        {
+            "regions": [
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "green": {
+                            "command_token": 1,
+                            "dreadnought": 1,
+                            "infantry": 1
+                        }
+                    }
+                }
+            ],
+            "tile": 46,
+            "x": 1,
+            "y": 3
+        },
+        {
+            "regions": [
+                {
+                    "attachments": [
+                        "frontier"
+                    ],
+                    "colorToUnitNameToCount": {
+                        "blue": {
+                            "command_token": 1
+                        },
+                        "yellow": {
+                            "destroyer": 1
+                        }
+                    }
+                }
+            ],
+            "tile": 45,
+            "x": -2,
+            "y": 4
+        },
+        {
+            "regions": [
+                {
+                    "attachments": [
+                        "frontier"
+                    ],
+                    "colorToUnitNameToCount": {
+                        "blue": {
+                            "command_token": 1
+                        }
+                    }
+                }
+            ],
+            "tile": 44,
+            "x": -1,
+            "y": -3
+        },
+        {
+            "regions": [
+                {
+                    "attachments": [
+                        "frontier"
+                    ],
+                    "colorToUnitNameToCount": {
+                        "blue": {
+                            "command_token": 1
+                        }
+                    }
+                }
+            ],
+            "tile": 43,
+            "x": 1,
+            "y": -3
+        },
+        {
+            "regions": [
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "purple": {
+                            "command_token": 1
+                        },
+                        "red": {
+                            "carrier": 1,
+                            "command_token": 1,
+                            "dreadnought": 1,
+                            "fighter": 2
+                        }
+                    }
+                }
+            ],
+            "tile": 41,
+            "x": -1,
+            "y": -1
+        },
+        {
+            "regions": [
+                {
+                    "attachments": [
+                        "frontier"
+                    ],
+                    "colorToUnitNameToCount": {
+                        "pink": {
+                            "command_token": 1,
+                            "dreadnought": 1
+                        }
+                    }
+                }
+            ],
+            "tile": 40,
+            "x": 0,
+            "y": 4
+        },
+        {
+            "regions": [
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "purple": {
+                            "command_token": 1,
+                            "fighter": 2,
+                            "infantry": 1,
+                            "mech": 1,
+                            "war_sun": 1
+                        }
+                    }
+                }
+            ],
+            "tile": 39,
+            "x": 2,
+            "y": -4
+        },
+        {
+            "regions": [
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {}
+                },
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "purple": {
+                            "control_token": 1
+                        }
+                    }
+                },
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "purple": {
+                            "control_token": 1
+                        }
+                    }
+                }
+            ],
+            "tile": 36,
+            "x": -3,
+            "y": -1
+        },
+        {
+            "regions": [
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "purple": {
+                            "carrier": 1
+                        }
+                    }
+                },
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "yellow": {
+                            "infantry": 2
+                        }
+                    }
+                },
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "purple": {
+                            "infantry": 1
+                        }
+                    }
+                }
+            ],
+            "tile": 34,
+            "x": -3,
+            "y": 1
+        },
+        {
+            "regions": [
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "green": {
+                            "command_token": 1
+                        }
+                    }
+                },
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "yellow": {
+                            "control_token": 1
+                        }
+                    }
+                },
+                {
+                    "attachments": [
+                        "dmz"
+                    ],
+                    "colorToUnitNameToCount": {
+                        "green": {
+                            "control_token": 1
+                        }
+                    }
+                }
+            ],
+            "tile": 32,
+            "x": 1,
+            "y": 1
+        },
+        {
+            "regions": [
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {}
+                },
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "purple": {
+                            "infantry": 1,
+                            "pds": 1
+                        }
+                    }
+                }
+            ],
+            "tile": 25,
+            "x": -2,
+            "y": -2
+        },
+        {
+            "regions": [
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "purple": {
+                            "carrier": 1,
+                            "command_token": 1,
+                            "dreadnought": 1,
+                            "fighter": 1
+                        }
+                    }
+                },
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "blue": {
+                            "infantry": 1
+                        },
+                        "purple": {
+                            "mech": 1
+                        }
+                    }
+                }
+            ],
+            "tile": 24,
+            "x": -2,
+            "y": -4
+        },
+        {
+            "regions": [
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "purple": {
+                            "command_token": 1
+                        },
+                        "yellow": {
+                            "command_token": 1,
+                            "destroyer": 2
+                        }
+                    }
+                },
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "yellow": {
+                            "control_token": 1
+                        }
+                    }
+                }
+            ],
+            "tile": 22,
+            "x": 2,
+            "y": 2
+        },
+        {
+            "regions": [
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {}
+                },
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "purple": {
+                            "control_token": 1
+                        }
+                    }
+                }
+            ],
+            "tile": 19,
+            "x": 0,
+            "y": -2
+        },
+        {
+            "regions": [
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "blue": {
+                            "command_token": 1
+                        },
+                        "purple": {
+                            "command_token": 1
+                        }
+                    }
+                },
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "blue": {
+                            "infantry": 7
+                        }
+                    }
+                }
+            ],
+            "tile": 18,
+            "x": 0,
+            "y": 0
+        },
+        {
+            "regions": [
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "yellow": {
+                            "command_token": 1,
+                            "dreadnought": 1,
+                            "fighter": 5,
+                            "war_sun": 1
+                        }
+                    }
+                },
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "yellow": {
+                            "infantry": 3
+                        }
+                    }
+                }
+            ],
+            "tile": 56,
+            "x": 3,
+            "y": 3
+        },
+        {
+            "regions": [
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {}
+                },
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "blue": {
+                            "mech": 2,
+                            "pds": 1,
+                            "space_dock": 1
+                        }
+                    }
+                }
+            ],
+            "tile": 5,
+            "x": 0,
+            "y": -6
+        },
+        {
+            "regions": [
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "pink": {
+                            "command_token": 1,
+                            "cruiser": 1,
+                            "destroyer": 2,
+                            "dreadnought": 2,
+                            "fighter": 2
+                        }
+                    }
+                },
+                {
+                    "attachments": [],
+                    "colorToUnitNameToCount": {
+                        "pink": {
+                            "infantry": 14,
+                            "mech": 2,
+                            "space_dock": 1
+                        }
+                    }
+                }
+            ],
+            "tile": 2,
+            "x": 3,
+            "y": -3
+        }
+    ],
+    "isCombat": false,
+    "laws": [
+        {
+            "abbr": "Pol Censure",
+            "colorNames": [],
+            "name": "Political Censure"
+        },
+        {
+            "abbr": "Nexus Sovereignty",
+            "colorNames": [],
+            "name": "Nexus Sovereignty"
+        }
+    ],
+    "objectives": {
+        "custodians": [
+            {
+                "abbr": "custodians",
+                "name": "custodians",
+                "scoredBy": [
+                    "blue",
+                    "blue",
+                    "green"
+                ]
+            }
+        ],
+        "other": [
+            {
+                "abbr": "Political Censure",
+                "name": "Political Censure",
+                "scoredBy": []
+            }
+        ],
+        "secret": [
+            {
+                "abbr": "4 PLANETS W/ MECH",
+                "name": "Mechanize the Military",
+                "scoredBy": [
+                    "pink"
+                ]
+            },
+            {
+                "abbr": "4 TECH 1 COLOR",
+                "name": "Master the Laws of Physics",
+                "scoredBy": [
+                    "pink"
+                ]
+            },
+            {
+                "abbr": "4 HAZARDOUS",
+                "name": "Mine Rare Minerals",
+                "scoredBy": [
+                    "blue"
+                ]
+            },
+            {
+                "abbr": "WIN IN HOME",
+                "name": "Darken the Skies",
+                "scoredBy": [
+                    "purple"
+                ]
+            },
+            {
+                "abbr": "WIN VS PROM NOTE",
+                "name": "Betray a Friend",
+                "scoredBy": [
+                    "purple"
+                ]
+            },
+            {
+                "abbr": "4 INDUSTRIAL",
+                "name": "Monopolize Production",
+                "scoredBy": [
+                    "purple"
+                ]
+            },
+            {
+                "abbr": "12 RESOURCES",
+                "name": "Hoard Raw Materials",
+                "scoredBy": [
+                    "yellow"
+                ]
+            },
+            {
+                "abbr": "WIN W/ FLAGSHIP",
+                "name": "Unveil Flagship",
+                "scoredBy": [
+                    "yellow"
+                ]
+            },
+            {
+                "abbr": "WIN IN ANOMALY",
+                "name": "Brave the Void",
+                "scoredBy": [
+                    "red"
+                ]
+            },
+            {
+                "abbr": "PROM NOTE",
+                "name": "Strengthen Bonds",
+                "scoredBy": [
+                    "red"
+                ]
+            },
+            {
+                "abbr": "5 ACTION CARDS",
+                "name": "Form a Spy Network",
+                "scoredBy": [
+                    "red"
+                ]
+            },
+            {
+                "abbr": "6 SYSTEMS",
+                "name": "Control the Region",
+                "scoredBy": [
+                    "green"
+                ]
+            }
+        ],
+        "sftt": [
+            {
+                "abbr": "Support for the Throne (Green)",
+                "name": "Support for the Throne (Green)",
+                "scoredBy": [
+                    "blue"
+                ],
+                "supportColor": "green"
+            },
+            {
+                "abbr": "Support for the Throne (Red)",
+                "name": "Support for the Throne (Red)",
+                "scoredBy": [
+                    "yellow"
+                ],
+                "supportColor": "red"
+            },
+            {
+                "abbr": "Support for the Throne (Yellow)",
+                "name": "Support for the Throne (Yellow)",
+                "scoredBy": [
+                    "red"
+                ],
+                "supportColor": "yellow"
+            },
+            {
+                "abbr": "Support for the Throne (Blue)",
+                "name": "Support for the Throne (Blue)",
+                "scoredBy": [
+                    "green"
+                ],
+                "supportColor": "blue"
+            }
+        ],
+        "stage1": [
+            {
+                "abbr": "5 NON-FGTR SHIPS",
+                "name": "Raise a Fleet",
+                "scoredBy": [
+                    "purple",
+                    "red"
+                ]
+            },
+            {
+                "abbr": "3 EMPTY SYS",
+                "name": "Explore Deep Space",
+                "scoredBy": [
+                    "blue",
+                    "yellow",
+                    "red",
+                    "green"
+                ]
+            },
+            {
+                "abbr": "4 PLANET SAME TRAIT",
+                "name": "Corner the Market",
+                "scoredBy": [
+                    "pink",
+                    "blue",
+                    "green"
+                ]
+            },
+            {
+                "abbr": "8 RESOURCES",
+                "name": "Erect a Monument",
+                "scoredBy": [
+                    "blue",
+                    "red",
+                    "green"
+                ]
+            },
+            {
+                "abbr": "3 INF 3 RES 3 TG",
+                "name": "Amass Wealth",
+                "scoredBy": [
+                    "blue",
+                    "purple"
+                ]
+            }
+        ],
+        "stage2": [
+            {
+                "abbr": "16 RESOURCES",
+                "name": "Found a Golden Age",
+                "scoredBy": [
+                    "pink",
+                    "red"
+                ]
+            }
+        ]
+    },
+    "players": {
+        "blue": {
+            "active": true,
+            "colorHex": "#00a8cc",
+            "colorName": "blue",
+            "faction": "arborec",
+            "isSpeaker": false,
+            "isTurn": false,
+            "name": "-",
+            "resources": {
+                "alliances": [
+                    "blue"
+                ],
+                "commodities": 0,
+                "hand": {
+                    "action": 0,
+                    "promissory": 4,
+                    "secret": 1
+                },
+                "influence": {
+                    "avail": 0,
+                    "total": 18
+                },
+                "leaders": {
+                    "agent": "locked",
+                    "commander": "unlocked",
+                    "hero": "locked"
+                },
+                "maxCommidities": 3,
+                "resources": {
+                    "avail": 0,
+                    "total": 9
+                },
+                "techSkips": {
+                    "blue": 1,
+                    "green": 0,
+                    "red": 1,
+                    "yellow": 0
+                },
+                "tokens": {
+                    "fleet": 2,
+                    "strategy": 1,
+                    "tactics": 0
+                },
+                "tradegoods": 0,
+                "traits": {
+                    "cultural": 1,
+                    "hazardous": 4,
+                    "industrial": 0
+                }
+            },
+            "score": 9,
+            "strategyCards": [
+                {
+                    "faceDown": true,
+                    "name": "Imperial"
+                }
+            ],
+            "technology": [
+                {
+                    "colorName": "red",
+                    "name": "AI Development Algorithm"
+                },
+                {
+                    "colorName": "white",
+                    "name": "Carrier II"
+                },
+                {
+                    "colorName": "blue",
+                    "name": "Gravity Drive"
+                },
+                {
+                    "colorName": "blue",
+                    "name": "Light-Wave Deflector"
+                },
+                {
+                    "colorName": "red",
+                    "name": "Magen Defense Grid"
+                }
+            ],
+            "unitUpgrades": [
+                "carrier"
+            ]
+        },
+        "green": {
+            "active": true,
+            "colorHex": "#00a14b",
+            "colorName": "green",
+            "faction": "empyrean",
+            "isSpeaker": false,
+            "isTurn": false,
+            "name": "-",
+            "resources": {
+                "alliances": [],
+                "commodities": 0,
+                "hand": {
+                    "action": 0,
+                    "promissory": 5,
+                    "secret": 2
+                },
+                "influence": {
+                    "avail": 1,
+                    "total": 3
+                },
+                "leaders": {
+                    "agent": "unlocked",
+                    "commander": "unlocked",
+                    "hero": "purged"
+                },
+                "maxCommidities": 4,
+                "resources": {
+                    "avail": 1,
+                    "total": 1
+                },
+                "techSkips": {
+                    "blue": 0,
+                    "green": 1,
+                    "red": 0,
+                    "yellow": 0
+                },
+                "tokens": {
+                    "fleet": 3,
+                    "strategy": 1,
+                    "tactics": 1
+                },
+                "tradegoods": 0,
+                "traits": {
+                    "cultural": 2,
+                    "hazardous": 0,
+                    "industrial": 0
+                }
+            },
+            "score": 7,
+            "strategyCards": [
+                {
+                    "faceDown": true,
+                    "name": "Trade"
+                }
+            ],
+            "technology": [
+                {
+                    "colorName": "green",
+                    "name": "Voidwatch"
+                },
+                {
+                    "colorName": "blue",
+                    "name": "Aetherstream"
+                },
+                {
+                    "colorName": "red",
+                    "name": "Plasma Scoring"
+                },
+                {
+                    "colorName": "blue",
+                    "name": "Gravity Drive"
+                },
+                {
+                    "colorName": "blue",
+                    "name": "Dark Energy Tap"
+                }
+            ],
+            "unitUpgrades": []
+        },
+        "pink": {
+            "active": true,
+            "colorHex": "#FF69B4",
+            "colorName": "pink",
+            "faction": "keleres",
+            "isSpeaker": false,
+            "isTurn": false,
+            "name": "-",
+            "resources": {
+                "alliances": [],
+                "commodities": 0,
+                "hand": {
+                    "action": 5,
+                    "promissory": 5,
+                    "secret": 1
+                },
+                "influence": {
+                    "avail": 0,
+                    "total": 5
+                },
+                "leaders": {
+                    "agent": "unlocked",
+                    "commander": "locked",
+                    "hero": "purged"
+                },
+                "maxCommidities": 2,
+                "resources": {
+                    "avail": 0,
+                    "total": 9
+                },
+                "techSkips": {
+                    "blue": 0,
+                    "green": 0,
+                    "red": 1,
+                    "yellow": 0
+                },
+                "tokens": {
+                    "fleet": 5,
+                    "strategy": 0,
+                    "tactics": 1
+                },
+                "tradegoods": 0,
+                "traits": {
+                    "cultural": 0,
+                    "hazardous": 0,
+                    "industrial": 1
+                }
+            },
+            "score": 9,
+            "strategyCards": [
+                {
+                    "faceDown": true,
+                    "name": "Leadership"
+                }
+            ],
+            "technology": [
+                {
+                    "colorName": "blue",
+                    "name": "Gravity Drive"
+                },
+                {
+                    "colorName": "white",
+                    "name": "Dreadnought II"
+                },
+                {
+                    "colorName": "yellow",
+                    "name": "Agency Supply Network"
+                },
+                {
+                    "colorName": "yellow",
+                    "name": "I.I.H.Q. Modernization"
+                },
+                {
+                    "colorName": "blue",
+                    "name": "Sling Relay"
+                },
+                {
+                    "colorName": "yellow",
+                    "name": "Sarween Tools"
+                },
+                {
+                    "colorName": "yellow",
+                    "name": "Scanlink Drone Network"
+                }
+            ],
+            "unitUpgrades": [
+                "dreadnought"
+            ]
+        },
+        "purple": {
+            "active": true,
+            "colorHex": "#c147e9",
+            "colorName": "purple",
+            "faction": "jolnar",
+            "isSpeaker": false,
+            "isTurn": false,
+            "name": "-",
+            "resources": {
+                "alliances": [],
+                "commodities": 4,
+                "hand": {
+                    "action": 0,
+                    "promissory": 5,
+                    "secret": 0
+                },
+                "influence": {
+                    "avail": 0,
+                    "total": 13
+                },
+                "leaders": {
+                    "agent": "unlocked",
+                    "commander": "unlocked",
+                    "hero": "purged"
+                },
+                "maxCommidities": 4,
+                "resources": {
+                    "avail": 0,
+                    "total": 12
+                },
+                "techSkips": {
+                    "blue": 1,
+                    "green": 0,
+                    "red": 0,
+                    "yellow": 1
+                },
+                "tokens": {
+                    "fleet": 4,
+                    "strategy": 0,
+                    "tactics": 2
+                },
+                "tradegoods": 33,
+                "traits": {
+                    "cultural": 2,
+                    "hazardous": 0,
+                    "industrial": 4
+                }
+            },
+            "score": 7,
+            "strategyCards": [
+                {
+                    "faceDown": true,
+                    "name": "Warfare"
+                }
+            ],
+            "technology": [
+                {
+                    "colorName": "red",
+                    "name": "Plasma Scoring"
+                },
+                {
+                    "colorName": "blue",
+                    "name": "Gravity Drive"
+                },
+                {
+                    "colorName": "yellow",
+                    "name": "E-res Siphons"
+                },
+                {
+                    "colorName": "red",
+                    "name": "Duranium Armor"
+                },
+                {
+                    "colorName": "white",
+                    "name": "Dreadnought II"
+                },
+                {
+                    "colorName": "white",
+                    "name": "War Sun"
+                },
+                {
+                    "colorName": "red",
+                    "name": "Assault Cannon"
+                },
+                {
+                    "colorName": "green",
+                    "name": "X-89 Bacterial Weapon"
+                },
+                {
+                    "colorName": "yellow",
+                    "name": "Predictive Intelligence"
+                },
+                {
+                    "colorName": "green",
+                    "name": "Bio-Stims"
+                },
+                {
+                    "colorName": "blue",
+                    "name": "Dark Energy Tap"
+                },
+                {
+                    "colorName": "blue",
+                    "name": "Light-Wave Deflector"
+                }
+            ],
+            "unitUpgrades": [
+                "dreadnought",
+                "war_sun"
+            ]
+        },
+        "red": {
+            "active": true,
+            "colorHex": "#e94f64",
+            "colorName": "red",
+            "faction": "yssaril",
+            "isSpeaker": true,
+            "isTurn": false,
+            "name": "-",
+            "resources": {
+                "alliances": [
+                    "purple",
+                    "yellow"
+                ],
+                "commodities": 0,
+                "hand": {
+                    "action": 0,
+                    "promissory": 4,
+                    "secret": 0
+                },
+                "influence": {
+                    "avail": 0,
+                    "total": 9
+                },
+                "leaders": {
+                    "agent": "unlocked",
+                    "commander": "unlocked",
+                    "hero": "purged"
+                },
+                "maxCommidities": 3,
+                "resources": {
+                    "avail": 0,
+                    "total": 13
+                },
+                "techSkips": {
+                    "blue": 0,
+                    "green": 0,
+                    "red": 1,
+                    "yellow": 0
+                },
+                "tokens": {
+                    "fleet": 4,
+                    "strategy": 0,
+                    "tactics": 1
+                },
+                "tradegoods": 0,
+                "traits": {
+                    "cultural": 1,
+                    "hazardous": 1,
+                    "industrial": 2
+                }
+            },
+            "score": 10,
+            "strategyCards": [
+                {
+                    "faceDown": true,
+                    "name": "Diplomacy"
+                }
+            ],
+            "technology": [
+                {
+                    "colorName": "green",
+                    "name": "Bio-Stims"
+                },
+                {
+                    "colorName": "blue",
+                    "name": "Antimass Deflectors"
+                },
+                {
+                    "colorName": "green",
+                    "name": "Mageon Implants"
+                },
+                {
+                    "colorName": "white",
+                    "name": "Destroyer II"
+                },
+                {
+                    "colorName": "green",
+                    "name": "Neural Motivator"
+                },
+                {
+                    "colorName": "blue",
+                    "name": "Dark Energy Tap"
+                }
+            ],
+            "unitUpgrades": []
+        },
+        "yellow": {
+            "active": true,
+            "colorHex": "#ffde17",
+            "colorName": "yellow",
+            "faction": "nomad",
+            "isSpeaker": false,
+            "isTurn": true,
+            "name": "-",
+            "resources": {
+                "alliances": [
+                    "red"
+                ],
+                "commodities": 0,
+                "hand": {
+                    "action": 2,
+                    "promissory": 3,
+                    "secret": 1
+                },
+                "influence": {
+                    "avail": 7,
+                    "total": 22
+                },
+                "leaders": {
+                    "agent": "locked",
+                    "commander": "unlocked",
+                    "hero": "unlocked"
+                },
+                "maxCommidities": 4,
+                "resources": {
+                    "avail": 9,
+                    "total": 24
+                },
+                "techSkips": {
+                    "blue": 0,
+                    "green": 2,
+                    "red": 0,
+                    "yellow": 1
+                },
+                "tokens": {
+                    "fleet": 3,
+                    "strategy": 0,
+                    "tactics": 0
+                },
+                "tradegoods": 9,
+                "traits": {
+                    "cultural": 3,
+                    "hazardous": 1,
+                    "industrial": 2
+                }
+            },
+            "score": 6,
+            "strategyCards": [
+                {
+                    "faceDown": true,
+                    "name": "Construction"
+                }
+            ],
+            "technology": [
+                {
+                    "colorName": "white",
+                    "name": "Dreadnought II"
+                },
+                {
+                    "colorName": "white",
+                    "name": "Carrier II"
+                },
+                {
+                    "colorName": "red",
+                    "name": "Duranium Armor"
+                },
+                {
+                    "colorName": "blue",
+                    "name": "Antimass Deflectors"
+                },
+                {
+                    "colorName": "blue",
+                    "name": "Gravity Drive"
+                },
+                {
+                    "colorName": "blue",
+                    "name": "Light-Wave Deflector"
+                },
+                {
+                    "colorName": "white",
+                    "name": "War Sun"
+                },
+                {
+                    "colorName": "red",
+                    "name": "Assault Cannon"
+                },
+                {
+                    "colorName": "yellow",
+                    "name": "Temporal Command Suite"
+                },
+                {
+                    "colorName": "blue",
+                    "name": "Sling Relay"
+                },
+                {
+                    "colorName": "blue",
+                    "name": "Dark Energy Tap"
+                },
+                {
+                    "colorName": "green",
+                    "name": "Hyper Metabolism"
+                },
+                {
+                    "colorName": "yellow",
+                    "name": "Scanlink Drone Network"
+                },
+                {
+                    "colorName": "green",
+                    "name": "Bio-Stims"
+                },
+                {
+                    "colorName": "white",
+                    "name": "Memoria II"
+                }
+            ],
+            "unitUpgrades": [
+                "carrier",
+                "dreadnought",
+                "flagship",
+                "war_sun"
+            ]
+        }
+    },
+    "round": 5,
+    "scoreboard": 10,
+    "seatLayout": {
+        "bottom": [
+            "purple",
+            "blue",
+            "pink"
+        ],
+        "top": [
+            "yellow",
+            "red",
+            "green"
+        ]
+    },
+    "seatOrder": [
+        "pink",
+        "blue",
+        "purple",
+        "yellow",
+        "red",
+        "green"
+    ],
+    "speaker": "red",
+    "tempo": {
+        "4": {
+            "blue": 9,
+            "green": 7,
+            "pink": 9,
+            "purple": 7,
+            "red": 10,
+            "yellow": 6
+        },
+        "5": {
+            "blue": 9,
+            "green": 7,
+            "pink": 9,
+            "purple": 7,
+            "red": 10,
+            "yellow": 6
+        }
+    },
+    "ti4calc": [],
+    "timer": {
+        "anchorSeconds": 99725,
+        "anchorTimestamp": 1694368124,
+        "countDown": 28800,
+        "direction": -1,
+        "seconds": 99976
+    },
+    "turn": "yellow",
+    "turnOrder": [
+        "pink",
+        "red",
+        "yellow",
+        "green",
+        "purple",
+        "blue"
+    ],
+    "whispers": []
+}
