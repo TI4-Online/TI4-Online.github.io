@@ -16,4 +16,8 @@ Enable the first option, "Allow invalid certificates for resources loaded from l
 
 Serve the current directory on port 8000:
 
-`python3 -m http.server`
+`python3 -m http.server 8000`
+
+Run buddy with demo stats:
+
+`yarn buddy --url "http://localhost:8000/overlay/overlay.html?demo=true"`

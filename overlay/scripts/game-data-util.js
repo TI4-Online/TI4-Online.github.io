@@ -976,6 +976,24 @@ class GameDataUtil {
     return { seconds, anchorTimestamp, anchorSeconds, direction, countDown };
   }
 
+  static parseTurnTimer(gameData) {
+    console.assert(typeof gameData === "object");
+
+    const display = gameData?.extra?.turnTimer?.display || 0;
+    const anchorTimestamp = gameData?.extra?.turnTimer?.anchorTimestamp || 0;
+    const anchorValue = gameData?.extra?.turnTimer?.anchorValue || 0;
+    const timerValue = gameData?.extra?.turnTimer?.timerValue || 0;
+    const active = gameData?.extra?.turnTimer?.active || false;
+
+    console.assert(typeof display === "number");
+    console.assert(typeof anchorTimestamp === "number");
+    console.assert(typeof anchorValue === "number");
+    console.assert(typeof timerValue === "number");
+    console.assert(typeof active === "boolean");
+
+    return { display, anchorTimestamp, anchorValue, timerValue, active };
+  }
+
   /**
    * Parse turn order.
    *
