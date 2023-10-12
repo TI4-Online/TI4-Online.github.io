@@ -87,6 +87,7 @@ class DrawPlayerResources {
       this._drawTradegoods(ctx, boundingBox, resources);
       this._drawPlanetResources(ctx, boundingBox, resources);
       this._drawPlanetInfluence(ctx, boundingBox, resources);
+      this._drawAlliances(ctx, boundingBox, resources);
     } finally {
       ctx.restore();
     }
@@ -503,5 +504,37 @@ class DrawPlayerResources {
     x = boundingBox.left + boundingBox.width * 0.1;
     y = boundingBox.top + boundingBox.height * 0.86;
     drawUnit(x, y, "mech");
+  }
+
+  _drawAlliances(ctx, boundingBox, resources) {
+    const commander = {
+      x: boundingBox.left + boundingBox.width * 0.1,
+      y: boundingBox.top + boundingBox.height * 0.39,
+    };
+
+    const imgSize = Math.ceil(boundingBox.width * 0.06);
+    const lineSize = Math.ceil(imgSize * 0.1);
+    const params = {
+      width: imgSize,
+      height: imgSize,
+      outlineColor: "white",
+      outlineWidth: lineSize,
+    };
+    let x = commander.x - (imgSize * 3) / 2;
+    let y = commander.y - imgSize / 2;
+
+    y = y - ((resources.alliances.length - 1) / 2) * imgSize;
+
+    for (const colorName of resources.alliances) {
+      params.color = GameDataUtil.colorNameToHex(colorName);
+      ImageUtil.drawMagic(
+        ctx,
+        "/overlay/images/svg/check_circle.png",
+        x,
+        y,
+        params
+      );
+      y += imgSize;
+    }
   }
 }
