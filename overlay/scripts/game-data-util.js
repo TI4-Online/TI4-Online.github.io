@@ -640,6 +640,23 @@ class GameDataUtil {
   }
 
   /**
+   * Parse objectives progress.
+   *
+   * @param {Object} gameData
+   * @returns {Array.{abbr:string,stage:number,header:string,values:{Array.{value:string|number,success:boolean},scoredBy:{Array.{number}|undefined}}}}
+   */
+  static parseObjectivesProgress(gameData) {
+    console.assert(typeof gameData === "object");
+
+    const objectivesProgress = gameData?.objectivesProgress || [];
+    return objectivesProgress.map((objectiveProgress) => {
+      const { name, abbr, stage, progress, scoredBy } = objectiveProgress;
+      const { header, values } = progress || { header: "-", values: [] };
+      return { name, abbr, stage, header, values, scoredBy };
+    });
+  }
+
+  /**
    * Parse active (not passed).
    *
    * @param {Object.{active:boolean}} playerData

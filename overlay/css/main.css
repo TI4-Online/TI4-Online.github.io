@@ -22,6 +22,7 @@ canvas {
 iframe {
   border: none;
   display: inline-block;
+  overflow: hidden;
 }
 
 .border {
@@ -156,6 +157,11 @@ iframe {
 .size-map {
   width: 1200px;
   height: 1200px;
+}
+
+.size-objectives-progress {
+  width: 1200px;
+  height: 900px;
 }
 
 .size-turn-order {
