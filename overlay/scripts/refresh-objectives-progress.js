@@ -47,8 +47,19 @@ class ObjectivesProgress {
     const ctx = this._canvas.getContext("2d");
     ctx.clearRect(0, 0, this._canvas.width, this._canvas.height);
 
-    const numRows = 8;
-    const numCols = Math.ceil(objectiveProgressEntries.length / numRows);
+    const isWide = this._canvas.width > this._canvas.height;
+    let numRows;
+    let numCols;
+    if (isWide) {
+      // Wide: expect 40 objectives.
+      numRows = 8;
+      numCols = Math.ceil(objectiveProgressEntries.length / numRows);
+    } else {
+      // Tall: expect max ~10 objectives.
+      numCols = 2;
+      numRows = 5;
+    }
+
     const margin = 12; // canvas is slightly shrunk to avoid overflow
     const gap = 2;
     const box = {
@@ -57,8 +68,15 @@ class ObjectivesProgress {
     };
 
     objectiveProgressEntries.forEach((objectiveProgressEntry, index) => {
-      const col = index % numCols;
-      const row = Math.floor(index / numCols);
+      let col;
+      let row;
+      if (isWide) {
+        col = index % numCols;
+        row = Math.floor(index / numCols);
+      } else {
+        row = index % numRows;
+        col = Math.floor(index / numRows);
+      }
       box.x = margin + (box.w + gap) * col;
       box.y = margin + (box.h + gap) * row;
 
@@ -177,7 +195,7 @@ class ObjectivesProgress {
       ctx.fillText(
         text,
         playerBox.x + playerBox.w / 2,
-        playerBox.y + playerBox.h / 2
+        playerBox.y + playerBox.h / 2 + 1
       );
     });
   }
