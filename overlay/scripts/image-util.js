@@ -13,10 +13,10 @@ class ImageUtil {
    */
   static getSrc(imagePath) {
     console.assert(typeof imagePath === "string");
-    //return `/overlay/images/${imagePath}`;
-    const protocol = location.protocol;
-    const port = protocol === "http:" ? 8080 : 8081;
-    return `${protocol}//localhost:${port}/static/images/${imagePath}`;
+    return `/overlay/images/${imagePath}`;
+    //const protocol = location.protocol;
+    //const port = protocol === "http:" ? 8080 : 8081;
+    //return `${protocol}//localhost:${port}/static/images/${imagePath}`;
   }
 
   static colorNameToFilter(colorName) {
