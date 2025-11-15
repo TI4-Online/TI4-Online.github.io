@@ -58,13 +58,11 @@ it("parseLaws", () => {
   const laws = GameDataUtil.parseLaws(gameData);
   assert.deepEqual(laws, [
     {
-      name: "Committee Formation",
+      abbr: "Committee Formation",
       colorNames: ["blue"],
+      name: "Committee Formation",
     },
-    {
-      name: "Representative Government",
-      colorNames: [],
-    },
+    { abbr: "Rep Gov't", colorNames: [], name: "Representative Government" },
   ]);
 });
 
