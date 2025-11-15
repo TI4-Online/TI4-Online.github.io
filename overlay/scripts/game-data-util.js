@@ -340,7 +340,11 @@ class GameDataUtil {
   static parseHexSummary(gameData) {
     console.assert(typeof gameData === "object");
 
-    const hexSummary = gameData?.hexSummary || "";
+    let hexSummary = gameData?.hexSummary || "";
+
+    if (hexSummary === "foo") {
+      hexSummary = "";
+    }
 
     const colorCodeToColorName = {
       W: "white",
