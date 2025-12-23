@@ -1,0 +1,10 @@
+import { BattleInstance, BattleResult, ParticipantInstance } from "./battle-types";
+import { Place } from "./enums";
+import { UnitInstance } from "./unit";
+export declare function doBattle(battle: BattleInstance): BattleResult;
+export declare function doBombardment(battle: BattleInstance, isDuringCombat: boolean): void;
+export declare function destroyUnit(battle: BattleInstance, unit: UnitInstance): void;
+export declare function isBattleOngoing(battle: BattleInstance): boolean;
+export declare function isParticipantAlive(p: ParticipantInstance, place: Place): boolean;
+export declare function isSustainDisabled(battle: BattleInstance, p: ParticipantInstance, isDuringBombardment: boolean): boolean;
+export declare function getOtherParticipant(battle: BattleInstance, p: ParticipantInstance): ParticipantInstance;

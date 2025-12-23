@@ -1,0 +1,18 @@
+import { ParticipantInstance } from './battle-types';
+import { Place } from './enums';
+import { UnitInstance } from './unit';
+export declare function getHighestWorthUnit(p: ParticipantInstance, place: Place, includeFighter: boolean): UnitInstance | undefined;
+export declare function getNonFighterShips(p: ParticipantInstance): UnitInstance[];
+export declare function getHighestWorthSustainUnit(p: ParticipantInstance, place: Place, includeFighter: boolean): UnitInstance | undefined;
+export declare function getLowestWorthSustainUnit(p: ParticipantInstance, place: Place, includeFighter: boolean): UnitInstance | undefined;
+export declare function getHighestWorthNonSustainUnit(p: ParticipantInstance, place: Place, includeFighter: boolean): UnitInstance | undefined;
+export declare function getLowestWorthNonSustainUndamagedUnit(p: ParticipantInstance, place: Place, includeFighter: boolean): UnitInstance | undefined;
+export declare function getLowestWorthUnit(p: ParticipantInstance, place: Place, includeFighter: boolean): UnitInstance | undefined;
+export declare function getWeakestCombatUnit(p: ParticipantInstance, place: Place, includeFighter: boolean): UnitInstance | undefined;
+export declare function getUndamagedUnits(p: ParticipantInstance, place: Place | undefined, includeFighter: boolean, withSustain?: boolean): UnitInstance[];
+export declare function getUnits(p: ParticipantInstance, place: Place | undefined, includeFighter: boolean, withSustain?: boolean): UnitInstance[];
+export declare function isHighestHitUnit(unit: UnitInstance, p: ParticipantInstance, attackType: 'combat' | 'bombardment' | 'spaceCannon' | 'afb', place: Place | undefined): boolean;
+export declare function getHighestHitUnit(p: ParticipantInstance, attackType: 'combat' | 'bombardment' | 'spaceCannon' | 'afb', place: Place | undefined): UnitInstance | undefined;
+export declare function getHighestDiceCountUnit(p: ParticipantInstance, attackType: 'combat' | 'bombardment' | 'spaceCannon' | 'afb', place: Place | undefined): UnitInstance | undefined;
+export declare function hasAttackType(p: ParticipantInstance, type: 'combat' | 'bombardment' | 'spaceCannon' | 'afb'): boolean;
+export declare function doesUnitFitPlace(u: UnitInstance, place: Place): boolean;

@@ -1,19 +1,8 @@
 "use strict";
 
-import "/overlay/scripts/ti4calc/game-elements.js";
-import "/overlay/scripts/ti4calc/imitator.js";
-import "/overlay/scripts/ti4calc/calculator.js";
-import "/overlay/scripts/ti4calc/structs.js";
-
-//var calc = require("./calculator").calculator;
-//var im = require("./imitator").imitator;
-//var structs = require("./structs");
-//var game = require("./game-elements");
-
-const calc = window.calculator;
-const im = window.imitator;
-const structs = window;
-const game = window;
+const { Faction } = require("./ti4calc2/core/enums");
+const { Place } = require("./ti4calc2/core/enums");
+const { UnitType } = require("./ti4calc2/core/unit");
 
 class Calc {
   static getInstance() {
@@ -99,6 +88,9 @@ class Calc {
 
     // Get active system hex summary.
     const activeSystem = GameDataUtil.parseActiveSystem(gameData);
+    if (!activeSystem) {
+      return;
+    }
     const hexSummary = GameDataUtil.parseHexSummary(gameData);
     let tileHexSummary = hexSummary.filter((entry) => {
       return entry.tile === activeSystem.tile;
@@ -136,15 +128,10 @@ class Calc {
         break;
       }
 
-      const input = {
-        attackerUnits: {},
-        defenderUnits: {},
-        battleType:
-          regionIndex === 0 ? game.BattleType.Space : game.BattleType.Ground,
-        options: {
-          attacker: {},
-          defender: {},
-        },
+      const battle = {
+        place: regionIndex === 0 ? Place.space : Place.ground,
+        attacker: {},
+        defender: {},
       };
 
       const peerColorName = this._getPeerColor(region, activePlayerColorName);
@@ -155,24 +142,16 @@ class Calc {
       //  continue;
       //}
 
-      this._fillCalcFaction(input.options.attacker, activePlayerData);
-      this._fillCalcFleet(input.attackerUnits, region, activePlayerColorName);
-      this._fillCalcUnitUpgrades(input.attackerUnits, activePlayerData);
-      this._fillCalcModifiers(
-        input.options.attacker,
-        gameData,
-        activePlayerData
-      );
+      this._fillCalcFaction(battle.attacker, activePlayerData);
+      this._fillCalcFleet(battle.attacker, region, activePlayerColorName);
+      this._fillCalcUnitUpgrades(battle.attacker, activePlayerData);
+      this._fillCalcModifiers(battle.attacker, gameData, activePlayerData);
 
       if (peerPlayerData) {
-        this._fillCalcFaction(input.options.defender, peerPlayerData);
-        this._fillCalcFleet(input.defenderUnits, region, peerColorName);
-        this._fillCalcUnitUpgrades(input.defenderUnits, peerPlayerData);
-        this._fillCalcModifiers(
-          input.options.defender,
-          gameData,
-          peerPlayerData
-        );
+        this._fillCalcFaction(battle.defender, peerPlayerData);
+        this._fillCalcFleet(battle.defender, region, peerColorName);
+        this._fillCalcUnitUpgrades(battle.defender, peerPlayerData);
+        this._fillCalcModifiers(battle.defender, gameData, peerPlayerData);
       }
 
       let regionToSimulation =
@@ -190,35 +169,48 @@ class Calc {
 
       // Deterministic stringify (sort keys).
       const allKeys = new Set();
-      JSON.stringify(input, (key, value) => (allKeys.add(key), value));
-      const simulationKey = JSON.stringify(input, Array.from(allKeys).sort());
+      JSON.stringify(battle, (key, value) => (allKeys.add(key), value));
+      const simulationKey = JSON.stringify(battle, Array.from(allKeys).sort());
 
       // Only update result if something changed.
       if (simulation.key !== simulationKey) {
         simulation.key = simulationKey;
 
-        im.imitationIterations = 100000; // fewer has minimal effect on simulation time
-        var start = Date.now();
-        var expected = im.estimateProbabilities(input).distribution;
-        simulation.distribution = expected.toString();
-        simulation.attacker = expected.downTo(-1) * 100;
-        simulation.attacker = Number(simulation.attacker.toPrecision(1));
-        simulation.defender = expected.downTo(1) * 100;
-        simulation.defender = Number(simulation.defender.toPrecision(1));
+        const start = Date.now();
+
+        simulation.attacker = 0;
+        simulation.defender = 0;
+        simulation.draw = 0;
+        const numSimulations = 2000;
+        for (let i = 0; i < numSimulations; i++) {
+          const battleInstance = setupBattle(battle);
+          const battleResult = doBattle(battleInstance);
+          if (battleResult.winner === "attacker") {
+            simulation.attacker += 1;
+          } else if (battleResult.winner === "defender") {
+            simulation.defender += 1;
+          } else {
+            simulation.draw += 1;
+          }
+        }
+        simulation.attacker = Math.round(
+          (simulation.attacker * 1000) / numSimulations / 10
+        );
+        simulation.defender = Math.round(
+          (simulation.defender * 1000) / numSimulations / 10
+        );
         simulation.draw = 100 - (simulation.attacker + simulation.defender);
+
         simulation.msecs = Date.now() - start;
 
-        if (!peerColorName && Object.entries(input.attackerUnits).length > 0) {
+        if (
+          !peerColorName ||
+          !battle.defender.units ||
+          Object.entries(battle.defender.units).length === 0
+        ) {
           simulation.attacker = 100;
           simulation.defender = 0;
           simulation.draw = 0;
-        }
-
-        // Simulation sometimes reports > 100%
-        if (simulation.attacker < simulation.defender) {
-          simulation.defender = 100 - (simulation.attacker + simulation.draw);
-        } else {
-          simulation.attacker = 100 - (simulation.defender + simulation.draw);
         }
 
         //console.log(regionName + ": " + JSON.stringify(simulation));
@@ -259,57 +251,69 @@ class Calc {
     }
   }
 
-  _fillCalcFaction(options, playerData) {
+  _fillCalcFaction(participant, playerData) {
     const factionToCalc = {
-      arborec: game.Race.Arborec,
-      creuss: game.Race.Creuss,
-      hacan: game.Race.Hacan,
-      jolnar: game.Race.JolNar,
-      l1z1x: game.Race.L1Z1X,
-      letnev: game.Race.Letnev,
-      mentak: game.Race.Mentak,
-      muaat: game.Race.Muaat,
-      naalu: game.Race.Naalu,
-      saar: game.Race.Saar,
-      norr: game.Race.Sardakk,
-      sol: game.Race.Sol,
-      nekro: game.Race.Virus,
-      winnu: game.Race.Winnu,
-      xxcha: game.Race.Xxcha,
-      yin: game.Race.Yin,
-      yssaril: game.Race.Yssaril,
-      argent: game.Race.Argent,
-      vuilraith: game.Race.Cabal,
-      empyrean: game.Race.Empyrean,
-      mahact: game.Race.Mahact,
-      naazrokha: game.Race.NaazRokha,
-      nomad: game.Race.Nomad,
-      ul: game.Race.Titans,
-      keleres: game.Race.Keleres,
+      arborec: Faction.arborec,
+      creuss: Faction.creuss,
+      hacan: Faction.hacan,
+      jolnar: Faction.jol_nar,
+      l1z1x: Faction.l1z1x,
+      letnev: Faction.barony_of_letnev,
+      mentak: Faction.mentak,
+      muaat: Faction.muaat,
+      naalu: Faction.naalu,
+      saar: Faction.clan_of_saar,
+      norr: Faction.sardakk_norr,
+      sol: Faction.sol,
+      nekro: Faction.nekro,
+      winnu: Faction.winnu,
+      xxcha: Faction.xxcha,
+      yin: Faction.yin,
+      yssaril: Faction.yssaril,
+      // pok
+      argent: Faction.argent_flight,
+      vuilraith: Faction.vuil_raith,
+      empyrean: Faction.empyrean,
+      mahact: Faction.mahact,
+      naazrokha: Faction.naaz_rokha,
+      nomad: Faction.nomad,
+      ul: Faction.titans_of_ul,
+      // codex 3
+      keleres: Faction.keleres,
+      // thunders edge
+      //bastion: Faction.bastion,
+      deepwrought: Faction.deepwrought,
+      //firmament: Faction.firmament,
+      //obsidian: Faction.obsidian,
+      //ralnel: Faction.ralnel,
+      rebellion: Faction.crimson_rebellion,
     };
     const faction = GameDataUtil.parsePlayerFaction(playerData);
     const calcFaction = factionToCalc[faction];
     if (!calcFaction) {
       console.log(`Calc._fillCalcFaction: unknown "${faction}"`);
-      options.race = game.Race.Arborec;
+      participant.faction = Faction.arborec;
       return false;
     }
-    options.race = calcFaction;
+    participant.faction = calcFaction;
     return true;
   }
 
-  _fillCalcFleet(fleet, region, colorName) {
+  _fillCalcFleet(participant, region, colorName) {
+    if (!participant.units) {
+      participant.units = {};
+    }
     const unitToCalc = {
-      flagship: game.UnitType.Flagship,
-      war_sun: game.UnitType.WarSun,
-      dreadnought: game.UnitType.Dreadnought,
-      carrier: game.UnitType.Carrier,
-      cruiser: game.UnitType.Cruiser,
-      destroyer: game.UnitType.Destroyer,
-      fighter: game.UnitType.Fighter,
-      pds: game.UnitType.PDS,
-      mech: game.UnitType.Mech,
-      infantry: game.UnitType.Infantry,
+      flagship: UnitType.Flagship,
+      war_sun: UnitType.WarSun,
+      dreadnought: UnitType.Dreadnought,
+      carrier: UnitType.Carrier,
+      cruiser: UnitType.Cruiser,
+      destroyer: UnitType.Destroyer,
+      fighter: UnitType.Fighter,
+      pds: UnitType.PDS,
+      mech: UnitType.Mech,
+      infantry: UnitType.Infantry,
       space_dock: "SpaceDock", // not official, but add for knowing a unit is there
     };
     for (const [unitColorName, unitNameToCount] of Object.entries(
@@ -323,36 +327,42 @@ class Calc {
         if (!calcName) {
           continue;
         }
-        fleet[calcName] = { count };
+        participant.units[calcName] = { count };
       }
     }
   }
 
-  _fillCalcUnitUpgrades(fleet, playerData) {
+  _fillCalcUnitUpgrades(participant, playerData) {
+    if (!participant.unitUpgrades) {
+      participant.unitUpgrades = {};
+    }
     const unitUpgrades = GameDataUtil.parsePlayerUnitUpgrades(playerData);
 
     const unitToCalc = {
-      flagship: game.UnitType.Flagship,
-      war_sun: game.UnitType.WarSun,
-      dreadnought: game.UnitType.Dreadnought,
-      carrier: game.UnitType.Carrier,
-      cruiser: game.UnitType.Cruiser,
-      destroyer: game.UnitType.Destroyer,
-      fighter: game.UnitType.Fighter,
-      pds: game.UnitType.PDS,
-      mech: game.UnitType.Mech,
-      infantry: game.UnitType.Infantry,
+      flagship: UnitType.Flagship,
+      war_sun: UnitType.WarSun,
+      dreadnought: UnitType.Dreadnought,
+      carrier: UnitType.Carrier,
+      cruiser: UnitType.Cruiser,
+      destroyer: UnitType.Destroyer,
+      fighter: UnitType.Fighter,
+      pds: UnitType.PDS,
+      mech: UnitType.Mech,
+      infantry: UnitType.Infantry,
     };
     for (const unitName of unitUpgrades) {
       const calcName = unitToCalc[unitName];
-      const entry = fleet[calcName];
-      if (entry) {
-        entry.upgraded = true;
+      if (!calcName) {
+        continue;
       }
+      participant.unitUpgrades[calcName] = true;
     }
   }
 
-  _fillCalcModifiers(options, gameData, playerData) {
+  _fillCalcModifiers(participant, gameData, playerData) {
+    if (!participant.battleEffects) {
+      participant.battleEffects = {};
+    }
     const modifierToCalc = {
       antimass_deflectors: "antimassDeflectors",
       plasma_scoring: "plasmaScoring",
@@ -361,7 +371,7 @@ class Calc {
     for (const modifier of modifiers) {
       const calc = modifierToCalc[modifier.localeName];
       if (calc) {
-        options[calc] = true;
+        participant.battleEffects[calc] = 1;
       }
     }
 
@@ -380,7 +390,7 @@ class Calc {
     for (const tech of technologies) {
       const calc = techToCalc[tech.name];
       if (calc) {
-        options[calc] = true;
+        participant.battleEffects[calc] = 1;
       }
     }
 
@@ -397,10 +407,10 @@ class Calc {
     )) {
       const calc = agendaToCalc[name];
       if (calc) {
-        if (mustOwn.includes[name] && !colorNames.includes(colorName)) {
+        if (mustOwn.includes(name) && !colorNames.includes(colorName)) {
           continue;
         }
-        options[calc] = true;
+        participant.battleEffects[calc] = 1;
       }
     }
   }
@@ -412,50 +422,3 @@ window.addEventListener("load", () => {
     Calc.getInstance().update({});
   }, 500);
 });
-
-const TEST = false;
-if (TEST) {
-  const factions = Object.values(game.Race);
-  const unitTypes = Object.values(game.UnitType);
-  const battleTypes = Object.values(game.BattleType);
-  const noUpgrade = new Set([game.UnitType.Flagship, game.UnitType.WarSun]);
-  for (const faction of factions) {
-    for (const upgraded of [false, true]) {
-      for (const battleType of battleTypes) {
-        console.log(
-          `testing ${factionA} vs ${factionB}: upgraded ${upgraded}, battleType ${battleType}`
-        );
-
-        const input = {
-          attackerUnits: {},
-          defenderUnits: {},
-          battleType: undefined,
-          options: {
-            attacker: {},
-            defender: {},
-          },
-        };
-
-        input.battleType = battleType;
-        input.options.attacker.race = faction;
-        input.options.defender.race = faction;
-        for (const unitType of unitTypes) {
-          input.attackerUnits[unitType] = {
-            count: 2,
-            upgraded: noUpgrade.has(unitType) ? false : upgraded,
-          };
-          input.defenderUnits[unitType] = {
-            count: 2,
-            upgraded: noUpgrade.has(unitType) ? false : upgraded,
-          };
-        }
-
-        im.imitationIterations = 1000; // fewer has minimal effect on simulation time
-        var start = Date.now();
-        var expected = im.estimateProbabilities(input).distribution;
-        const msecs = Date.now() - start;
-        console.log(`${expected.toString()} MSECS ${msecs}`);
-      }
-    }
-  }
-}

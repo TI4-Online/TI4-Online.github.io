@@ -1,0 +1,2 @@
+import { BattleEffect } from "../battleeffect/battleEffects";
+export declare const hacan: BattleEffect[];

@@ -1,0 +1,18 @@
+import { BattleEffect } from "./battleEffects";
+export declare function getActioncards(): BattleEffect[];
+export declare const bunker: BattleEffect;
+export declare const courageousToTheEnd: BattleEffect;
+export declare const directHit: BattleEffect;
+export declare const disable: BattleEffect;
+export declare const emergencyRepairs: BattleEffect;
+export declare const experimentalBattlestation: BattleEffect;
+export declare const fighterPrototype: BattleEffect;
+export declare const fireTeam: BattleEffect;
+export declare const maneuveringJets: BattleEffect;
+export declare const moraleBoost: BattleEffect;
+export declare const shieldsHolding: BattleEffect;
+export declare const blitz: BattleEffect;
+export declare const reflectiveShielding: BattleEffect;
+export declare const scrambleFrequency: BattleEffect;
+export declare const solarFlare: BattleEffect;
+export declare const waylay: BattleEffect;

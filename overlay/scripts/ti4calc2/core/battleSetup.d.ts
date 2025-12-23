@@ -1,0 +1,21 @@
+import { PartialRecord } from '../util/util-types';
+import { Battle, BattleInstance, Participant, Side } from './battle-types';
+import { Faction } from './enums';
+import { UnitType } from './unit';
+export declare function setupBattle(battle: Battle): BattleInstance;
+export declare function startBattle(battle: BattleInstance): import("./battle-types").BattleResult;
+export declare function createParticipant(side: Side, faction?: Faction, query?: Record<string, string | string[] | undefined>): Participant;
+export declare const getUnitMap: (units?: PartialRecord<UnitType, number>) => {
+    cruiser: number;
+    carrier: number;
+    destroyer: number;
+    dreadnought: number;
+    fighter: number;
+    flagship: number;
+    infantry: number;
+    mech: number;
+    pds: number;
+    warsun: number;
+    other: number;
+    nonunit: number;
+};
