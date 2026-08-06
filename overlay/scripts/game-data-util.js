@@ -57,6 +57,14 @@ const FACTION_WHITELIST = new Set([
   "xxcha",
   "yin",
   "yssaril",
+  "aur",
+  "janovet",
+  "lurch",
+  "monarch",
+  "rex",
+  "swords",
+  "thorns",
+  "viroset",
 ]);
 const UNKNOWN_FACTION = "bobert";
 
@@ -752,8 +760,7 @@ class GameDataUtil {
       faction = "keleres"; // strip off flavor
     }
 
-    return faction;
-    //return FACTION_WHITELIST.has(faction) ? faction : UNKNOWN_FACTION;
+    return FACTION_WHITELIST.has(faction) ? faction : UNKNOWN_FACTION;
   }
 
   /**
