@@ -752,7 +752,8 @@ class GameDataUtil {
       faction = "keleres"; // strip off flavor
     }
 
-    return FACTION_WHITELIST.has(faction) ? faction : UNKNOWN_FACTION;
+    return faction;
+    //return FACTION_WHITELIST.has(faction) ? faction : UNKNOWN_FACTION;
   }
 
   /**
