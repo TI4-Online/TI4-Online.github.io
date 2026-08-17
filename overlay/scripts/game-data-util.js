@@ -1069,37 +1069,39 @@ class GameDataUtil {
 
     if (TF_FACTION_WHITELIST.has(faction)) {
       const unitUpgrades = [];
-      if (_.intersection(playerData?.technologies, TF_FLAGSHIP_LIST).length !== 0) {
+      const technologies = playerData?.technologies || []; // Safely get technologies
+
+      if (technologies.some(tech => TF_FLAGSHIP_LIST.includes(tech))) {
         unitUpgrades.push("flagship");
       }
-      if (_.intersection(playerData?.technologies, TF_WAR_SUN_LIST).length !== 0) {
+      if (technologies.some(tech => TF_WAR_SUN_LIST.includes(tech))) {
         unitUpgrades.push("war_sun");
       }
-      if (_.intersection(playerData?.technologies, TF_DREADNOUGHT_LIST).length !== 0) {
+      if (technologies.some(tech => TF_DREADNOUGHT_LIST.includes(tech))) {
         unitUpgrades.push("dreadnought");
       }
-      if (_.intersection(playerData?.technologies, TF_CARRIER_LIST).length !== 0) {
+      if (technologies.some(tech => TF_CARRIER_LIST.includes(tech))) {
         unitUpgrades.push("carrier");
       }
-      if (_.intersection(playerData?.technologies, TF_CRUISER_LIST).length !== 0) {
+      if (technologies.some(tech => TF_CRUISER_LIST.includes(tech))) {
         unitUpgrades.push("cruiser");
       }
-      if (_.intersection(playerData?.technologies, TF_DESTROYER_LIST).length !== 0) {
+      if (technologies.some(tech => TF_DESTROYER_LIST.includes(tech))) {
         unitUpgrades.push("destroyer");
       }
-      if (_.intersection(playerData?.technologies, TF_FIGHTER_LIST).length !== 0) {
+      if (technologies.some(tech => TF_FIGHTER_LIST.includes(tech))) {
         unitUpgrades.push("fighter");
       }
-      if (_.intersection(playerData?.technologies, TF_MECH_LIST).length !== 0) {
+      if (technologies.some(tech => TF_MECH_LIST.includes(tech))) {
         unitUpgrades.push("mech");
       }
-      if (_.intersection(playerData?.technologies, TF_INFANTRY_LIST).length !== 0) {
+      if (technologies.some(tech => TF_INFANTRY_LIST.includes(tech))) {
         unitUpgrades.push("infantry");
       }
-      if (_.intersection(playerData?.technologies, TF_PDS_LIST).length !== 0) {
+      if (technologies.some(tech => TF_PDS_LIST.includes(tech))) {
         unitUpgrades.push("pds");
       }
-      if (_.intersection(playerData?.technologies, TF_SPACE_DOCK_LIST).length !== 0) {
+      if (technologies.some(tech => TF_SPACE_DOCK_LIST.includes(tech))) {
         unitUpgrades.push("space_dock");
       }
       return unitUpgrades.map((name) => GameDataUtil._escapeForHTML(name));
