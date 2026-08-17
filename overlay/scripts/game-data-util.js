@@ -382,6 +382,18 @@ const TF_TECHNOLOGY_COLOR = {
   "Zealous": "red",
 };
 
+const TF_FLAGSHIP_LIST = ["Echo of Ascension"];
+const TF_WAR_SUN_LIST = ["Prototype War Sun", "University War Sun", "The Dragon, Freed"];
+const TF_DREADNOUGHT_LIST = ["Dawncrusher", "Exotrireme", "Super-Dreadnought"];
+const TF_CARRIER_LIST = ["Advanced Carrier", "Ambassador", "Vortexer"];
+const TF_CRUISER_LIST = ["Corsair", "Ahk Syl Fier", "Saggitaria"];
+const TF_DESTROYER_LIST = ["Strike Wing Alpha", "Exile", "Linkship"];
+const TF_FIGHTER_LIST = ["Hybrid Crystal Fighter", "Triune", "Morphwing"];
+const TF_MECH_LIST = ["Valefar Prime", "Eidolon Terminus", "Eidolon Landwaster"];
+const TF_INFANTRY_LIST = ["Yin Clone", "Guild Agents", "Letani Warrior"];
+const TF_PDS_LIST = ["Hel-Titan", "Keeper Matrix", "Justicier Rail"];
+const TF_SPACE_DOCK_LIST = ["Production Biomes", "Floating Factories", "Helios Entity"];
+
 /**
  * This class parses data from the game-provided json.  It validates against
  * whitelists when possible, and escapes strings when not (e.g. player name).
@@ -1045,8 +1057,57 @@ class GameDataUtil {
   static parsePlayerUnitUpgrades(playerData) {
     console.assert(typeof playerData === "object");
 
-    const unitUpgrades = playerData?.unitUpgrades || [];
-    return unitUpgrades.map((name) => GameDataUtil._escapeForHTML(name));
+    let faction = playerData?.factionShort?.toLowerCase() || "-";
+    console.assert(typeof faction === "string");
+
+    faction = faction.replace("-", ""); // naaz-rokha
+    faction = faction.replace("'", ""); // vuil'raith, n'orr
+
+    if (faction.startsWith("keleres")) {
+      faction = "keleres"; // strip off flavor
+    }
+
+    if (TF_FACTION_WHITELIST.has(faction)) {
+      const unitUpgrades = [];
+      if (_.intersection(playerData?.technologies, TF_FLAGSHIP_LIST).length !== 0) {
+        unitUpgrades.push("flagship");
+      }
+      if (_.intersection(playerData?.technologies, TF_WAR_SUN_LIST).length !== 0) {
+        unitUpgrades.push("war_sun");
+      }
+      if (_.intersection(playerData?.technologies, TF_DREADNOUGHT_LIST).length !== 0) {
+        unitUpgrades.push("dreadnought");
+      }
+      if (_.intersection(playerData?.technologies, TF_CARRIER_LIST).length !== 0) {
+        unitUpgrades.push("carrier");
+      }
+      if (_.intersection(playerData?.technologies, TF_CRUISER_LIST).length !== 0) {
+        unitUpgrades.push("cruiser");
+      }
+      if (_.intersection(playerData?.technologies, TF_DESTROYER_LIST).length !== 0) {
+        unitUpgrades.push("destroyer");
+      }
+      if (_.intersection(playerData?.technologies, TF_FIGHTER_LIST).length !== 0) {
+        unitUpgrades.push("fighter");
+      }
+      if (_.intersection(playerData?.technologies, TF_MECH_LIST).length !== 0) {
+        unitUpgrades.push("mech");
+      }
+      if (_.intersection(playerData?.technologies, TF_INFANTRY_LIST).length !== 0) {
+        unitUpgrades.push("infantry");
+      }
+      if (_.intersection(playerData?.technologies, TF_PDS_LIST).length !== 0) {
+        unitUpgrades.push("pds");
+      }
+      if (_.intersection(playerData?.technologies, TF_SPACE_DOCK_LIST).length !== 0) {
+        unitUpgrades.push("space_dock");
+      }
+      return unitUpgrades.map((name) => GameDataUtil._escapeForHTML(name));
+    }
+    else {
+      const unitUpgrades = playerData?.unitUpgrades || [];
+      return unitUpgrades.map((name) => GameDataUtil._escapeForHTML(name));
+    }
   }
 
   /**
