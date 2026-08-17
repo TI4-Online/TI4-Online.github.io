@@ -68,6 +68,17 @@ const FACTION_WHITELIST = new Set([
 ]);
 const UNKNOWN_FACTION = "bobert";
 
+const TF_FACTION_WHITELIST = new Set([
+  "aur",
+  "janovet",
+  "lurch",
+  "monarch",
+  "red",
+  "swords",
+  "thorns",
+  "viroset"
+]);
+
 const OBJECTIVE_NAME_ABBREVIATIONS = {
   // Public
   "Diversify Research": "2 TECH 2 COLORS",
@@ -280,6 +291,95 @@ const TECHNOLOGY_COLOR = {
   "X-89 Bacterial Weapon": "green",
   "Yin Spinner": "green",
   "War Sun": "white",
+};
+
+const TF_TECHNOLOGY_COLOR = {
+  "Abundance": "yellow",
+  "Aerie Hololattice": "yellow",
+  "Aetherstream": "blue",
+  "Agency Supply Network": "yellow",
+  "Amalgamation": "red",
+  "Ambush": "red",
+  "Armada": "red",
+  "Assimilate": "yellow",
+  "Awaken": "blue",
+  "Bio-Synthetic Synergy": "green",
+  "Bioplasmosis": "green",
+  "Chaos Mapping": "yellow",
+  "Courier Transport": "blue",
+  "Crafty": "green",
+  "Crucible": "blue",
+  "Devotion": "blue",
+  "Dimensional Splicer": "red",
+  "Dimensional Tear": "blue",
+  "Distant Suns": "blue",
+  "E-Res Siphons": "yellow",
+  "Entropic Harvest": "yellow",
+  "Fabrication": "yellow",
+  "Fleet Logistics": "blue",
+  "Foresight": "blue",
+  "Future Path": "blue",
+  "Genetic Research": "green",
+  "Guild Ships": "blue",
+  "Harrow": "red",
+  "Hegemonic Trade Policy": "yellow",
+  "Indoctrination": "green",
+  "Inheritance Systems": "yellow",
+  "Instinct Training": "green",
+  "Lazax Gate Folding": "blue",
+  "Liberate": "red",
+  "Magmus Reactor": "blue",
+  "Mirror Computing": "yellow",
+  "Mitosis": "green",
+  "Munitions Reserves": "red",
+  "Nanomachines": "red",
+  "Neural Parasite": "green",
+  "Neuroglaive": "red",
+  "Nomadic": "blue",
+  "Non-Euclidean Shielding": "red",
+  "Nullification Field": "yellow",
+  "Orbital Drop": "green",
+  "Overwatch": "red",
+  "Pacifist": "green",
+  "Peace Accords": "yellow",
+  "Pillage": "yellow",
+  "Planesplitter": "red",
+  "Proxima Targeting VI": "red",
+  "Puppet Council": "green",
+  "Quantum Datahub Node": "yellow",
+  "Quantum Drive": "blue",
+  "Quantum Entanglement": "blue",
+  "Radical Advancement": "green",
+  "Raid Formation": "red",
+  "Reclamation": "yellow",
+  "Scavenge": "yellow",
+  "Scheming": "green",
+  "Singularity X": "green",
+  "Singularity Y": "green",
+  "Singularity Z": "green",
+  "Sled Factories": "yellow",
+  "Slipstream": "blue",
+  "Smothering Presence": "green",
+  "Spatial Conduit Cyliner": "blue",
+  "Spec Ops Training": "green",
+  "Stall Tactics": "blue",
+  "Star Forge": "yellow",
+  "Stymie": "green",
+  "Subatomic Splicer": "yellow",
+  "Supercharge": "red",
+  "Survival Instinct": "red",
+  "Tactical Brilliance": "red",
+  "Telepathic": "green",
+  "Temporal Command Suite": "yellow",
+  "Terraform": "blue",
+  "The Burning Eye": "red",
+  "Unrelenting": "red",
+  "Valkyrie Particle Weave": "red",
+  "Valkyrie Vanguard": "blue",
+  "Versatile": "green",
+  "Voidborn": "blue",
+  "Yin Ascendant": "green",
+  "Zealous": "red",
 };
 
 /**
@@ -892,14 +992,36 @@ class GameDataUtil {
   static parsePlayerTechnologies(playerData) {
     console.assert(typeof playerData === "object");
 
-    const technologies = playerData?.technologies || [];
-    return technologies.map((name) => {
-      const colorName = TECHNOLOGY_COLOR[name] || "white";
-      return {
-        name: GameDataUtil._escapeForHTML(name),
-        colorName,
-      };
-    });
+    let faction = playerData?.factionShort?.toLowerCase() || "-";
+    console.assert(typeof faction === "string");
+
+    faction = faction.replace("-", ""); // naaz-rokha
+    faction = faction.replace("'", ""); // vuil'raith, n'orr
+
+    if (faction.startsWith("keleres")) {
+      faction = "keleres"; // strip off flavor
+    }
+
+    if (TF_FACTION_WHITELIST.has(faction)) {
+      const technologies = playerData?.technologies || [];
+      return technologies.map((name) => {
+        const colorName = TF_TECHNOLOGY_COLOR[name] || "white";
+        return {
+          name: GameDataUtil._escapeForHTML(name),
+          colorName,
+        };
+      });
+    }
+    else {
+      const technologies = playerData?.technologies || [];
+      return technologies.map((name) => {
+        const colorName = TECHNOLOGY_COLOR[name] || "white";
+        return {
+          name: GameDataUtil._escapeForHTML(name),
+          colorName,
+        };
+      });
+    }
   }
 
   static parsePlayerUnitModifiers(playerData) {
