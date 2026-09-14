@@ -1,168 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>TI4 Overlay</title>
-    <link rel="stylesheet" href="/overlay/css/main.css" />
-    <script src="/overlay/scripts/game-data-refresh.js"></script>
-    <script src="/overlay/scripts/game-data-simplify.js"></script>
-    <script src="/overlay/scripts/game-data-util.js"></script>
-    <script
-      type="module"
-      src="/overlay/scripts/ti4calc/ti4calc-wrapper.js"
-    ></script>
-  </head>
 
-  <body>
-    <!-- Small items -->
-    <div class="no-wrap">
-      <div class="frame-container">
-        Round
-        <br /><iframe class="size-std border" src="frames/round.html"></iframe>
-      </div>
+<head>
+  <title>TI4 Overlay</title>
+  <link rel="stylesheet" href="/overlay/css/main.css" />
+  <script src="/overlay/scripts/game-data-refresh.js"></script>
+  <script src="/overlay/scripts/game-data-simplify.js"></script>
+  <script src="/overlay/scripts/game-data-util.js"></script>
+  <script type="module" src="/overlay/scripts/ti4calc/ti4calc-wrapper.js"></script>
+</head>
 
-      <div class="frame-container">
-        Timer
-        <br /><iframe class="size-std border" src="frames/timer.html"></iframe>
-      </div>
-
-      <div class="frame-container">
-        Gamedata Updates
-        <br /><iframe
-          class="size-std border"
-          src="frames/heartbeat.html"
-        ></iframe>
-      </div>
-
-      <div class="frame-container absolute">
-        Turn Order
-        <br />
-        <iframe class="size-turn-order" src="frames/turn-order.html"></iframe>
-        <p></p>
-        Rotating (active player)
-        <br />
-        <iframe
-          class="size-rotating border"
-          src="frames/rotating-active-player.html"
-        ></iframe>
-        <p></p>
-        Turn timer
-        <br />
-        <iframe
-          class="size-turn-timer border"
-          src="frames/turn-timer.html"
-        ></iframe>
-        <p></p>
-        Objective progress
-        <br /><iframe
-          class="size-objectives-progress border"
-          src="frames/objectives-progress.html"
-        ></iframe>
-      </div>
+<body>
+  <!-- Small items -->
+  <div class="no-wrap">
+    <div class="frame-container">
+      Round
+      <br /><iframe class="size-std border" src="frames/round.html"></iframe>
     </div>
-
-    <p></p>
 
     <div class="frame-container">
-      Scoreboard
-      <br /><iframe
-        class="size-leaderboard"
-        src="frames/leaderboard.html"
-      ></iframe>
+      Timer
+      <br /><iframe class="size-std border" src="frames/timer.html"></iframe>
     </div>
-
-    <p></p>
-
-    <!-- taller singler column items -->
-    <div class="no-wrap">
-      <div class="frame-container">
-        Objectives & Bonus Points
-        <br /><iframe
-          class="size-objectives border"
-          src="frames/objectives.html"
-        ></iframe>
-      </div>
-
-      <div class="no-wrap">
-        <div class="frame-container">
-          Scored Secrets
-          <br /><iframe
-            class="size-secrets border"
-            src="frames/secrets.html"
-          ></iframe>
-        </div>
-
-        <p></p>
-        <div class="frame-container">
-          Laws
-          <br /><iframe
-            class="size-laws border"
-            src="frames/laws.html"
-          ></iframe>
-        </div>
-      </div>
-
-      <div class="frame-container">
-        Rotating
-        <br /><iframe
-          class="size-rotating border"
-          src="frames/rotating.html"
-        ></iframe>
-      </div>
-    </div>
-
-    <p></p>
 
     <div class="frame-container">
-      Technology
-      <br /><iframe
-        class="size-technology border"
-        src="frames/technology.html"
-      ></iframe>
+      Gamedata Updates
+      <br /><iframe class="size-std border" src="frames/heartbeat.html"></iframe>
     </div>
 
-    <p></p>
+    <div class="frame-container absolute">
+      Turn Order
+      <br />
+      <iframe class="size-turn-order" src="frames/turn-order.html"></iframe>
+      <p></p>
+      Rotating (active player)
+      <br />
+      <iframe class="size-rotating border" src="frames/rotating-active-player.html"></iframe>
+      <p></p>
+      Turn timer
+      <br />
+      <iframe class="size-turn-timer border" src="frames/turn-timer.html"></iframe>
+      <p></p>
+      Objective progress
+      <br /><iframe class="size-objectives-progress border" src="frames/objectives-progress.html"></iframe>
+    </div>
+  </div>
 
+  <p></p>
+
+  <div class="frame-container">
+    Scoreboard
+    <br /><iframe class="size-leaderboard" src="frames/leaderboard.html"></iframe>
+  </div>
+
+  <p></p>
+
+  <!-- taller singler column items -->
+  <div class="no-wrap">
     <div class="frame-container">
-      Resources
-      <br /><iframe class="size-resources" src="frames/resources.html"></iframe>
+      Objectives & Bonus Points
+      <br /><iframe class="size-objectives border" src="frames/objectives.html"></iframe>
     </div>
-
-    <p></p>
 
     <div class="no-wrap">
       <div class="frame-container">
-        Whispers (last 10 minutes, newest at left)
-        <br /><iframe class="size-whispers" src="frames/whispers.html"></iframe>
+        Scored Secrets
+        <br /><iframe class="size-secrets border" src="frames/secrets.html"></iframe>
       </div>
 
+      <p></p>
       <div class="frame-container">
-        Score over time
-        <br /><iframe
-          class="size-tempo border"
-          src="frames/tempo.html"
-        ></iframe>
+        Laws
+        <br /><iframe class="size-laws border" src="frames/laws.html"></iframe>
       </div>
     </div>
 
-    <p></p>
     <div class="frame-container">
-      TI4-Calc (thanks alpha-mouse, quantum, milty)
-      <br /><iframe class="size-calc" src="frames/calc.html"></iframe>
+      Rotating
+      <br /><iframe class="size-rotating border" src="frames/rotating.html"></iframe>
+    </div>
+  </div>
+
+  <p></p>
+
+  <div class="frame-container">
+    Technology
+    <br /><iframe class="size-technology border" src="frames/technology.html"></iframe>
+  </div>
+
+  <p></p>
+
+  <div class="frame-container">
+    Relics
+    <br /><iframe class="size-relics border" src="frames/relics.html"></iframe>
+  </div>
+
+  <p></p>
+
+  <div class="frame-container">
+    Resources
+    <br /><iframe class="size-resources" src="frames/resources.html"></iframe>
+  </div>
+
+  <p></p>
+
+  <div class="no-wrap">
+    <div class="frame-container">
+      Whispers (last 10 minutes, newest at left)
+      <br /><iframe class="size-whispers" src="frames/whispers.html"></iframe>
     </div>
 
     <div class="frame-container">
-      Plastic (overall unit counts, total unit cost) / tech count
-      <br /><iframe
-        class="size-plastic border"
-        src="frames/plastic.html"
-      ></iframe>
+      Score over time
+      <br /><iframe class="size-tempo border" src="frames/tempo.html"></iframe>
     </div>
+  </div>
 
-    <p></p>
+  <p></p>
+  <div class="frame-container">
+    TI4-Calc (thanks alpha-mouse, quantum, milty)
+    <br /><iframe class="size-calc" src="frames/calc.html"></iframe>
+  </div>
 
-    <div class="frame-container">
-      Map (updates less frequently because this is expensive)
-      <br /><iframe class="size-map border" src="frames/map.html"></iframe>
-    </div>
-  </body>
+  <div class="frame-container">
+    Plastic (overall unit counts, total unit cost) / tech count
+    <br /><iframe class="size-plastic border" src="frames/plastic.html"></iframe>
+  </div>
+
+  <p></p>
+
+  <div class="frame-container">
+    Map (updates less frequently because this is expensive)
+    <br /><iframe class="size-map border" src="frames/map.html"></iframe>
+  </div>
+</body>
+
 </html>

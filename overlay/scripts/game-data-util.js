@@ -215,7 +215,7 @@ const TECHNOLOGY_COLOR = {
   Aetherstream: "blue",
   "Antimass Deflectors": "blue",
   "Assault Cannon": "red",
-  "Bio-Stims": "green",
+  "Bio Stims": "green",
   Bioplasmosis: "green",
   "Carrier II": "white",
   "Chaos Mapping": "blue",
@@ -303,7 +303,7 @@ const TF_TECHNOLOGY_COLOR = {
   "Armada": "red",
   "Assimilate": "yellow",
   "Awaken": "blue",
-  "Bio-Synthetic Synergy": "green",
+  "Bio Synthetic Synergy": "green",
   "Bioplasmosis": "green",
   "Chaos Mapping": "yellow",
   "Courier Transport": "blue",
@@ -313,7 +313,7 @@ const TF_TECHNOLOGY_COLOR = {
   "Dimensional Splicer": "red",
   "Dimensional Tear": "blue",
   "Distant Suns": "blue",
-  "E-Res Siphons": "yellow",
+  "E Res Siphons": "yellow",
   "Entropic Harvest": "yellow",
   "Fabrication": "yellow",
   "Fleet Logistics": "blue",
@@ -360,10 +360,11 @@ const TF_TECHNOLOGY_COLOR = {
   "Sled Factories": "yellow",
   "Slipstream": "blue",
   "Smothering Presence": "green",
-  "Spatial Conduit Cyliner": "blue",
+  "Spatial Conduit Cylinder": "blue",
   "Spec Ops Training": "green",
   "Stall Tactics": "blue",
   "Star Forge": "yellow",
+  "Stellar Genesis": "yellow",
   "Stymie": "green",
   "Subatomic Splicer": "yellow",
   "Supercharge": "red",
@@ -391,7 +392,7 @@ const TF_DESTROYER_LIST = ["Strike Wing Alpha", "Exile", "Linkship"];
 const TF_FIGHTER_LIST = ["Hybrid Crystal Fighter", "Triune", "Morphwing"];
 const TF_MECH_LIST = ["Valefar Prime", "Eidolon Terminus", "Eidolon Landwaster"];
 const TF_INFANTRY_LIST = ["Yin Clone", "Guild Agents", "Letani Warrior"];
-const TF_PDS_LIST = ["Hel-Titan", "Keeper Matrix", "Justicier Rail"];
+const TF_PDS_LIST = ["Hel Titan", "Keeper Matrix", "Justicier Rail"];
 const TF_SPACE_DOCK_LIST = ["Production Biomes", "Floating Factories", "Helios Entity"];
 
 /**
@@ -899,7 +900,7 @@ class GameDataUtil {
   static parsePlayerResources(playerData) {
     console.assert(typeof playerData === "object");
 
-    const bonusCommodities = (playerData?.relicCards || []).includes(
+    const bonusCommodities = (playerData?.relics || []).includes(
       "Dynamis Core"
     )
       ? 2
@@ -1069,7 +1070,7 @@ class GameDataUtil {
 
     if (TF_FACTION_WHITELIST.has(faction)) {
       const unitUpgrades = [];
-      const technologies = playerData?.technologies || []; // Safely get technologies
+      const technologies = playerData?.technologies || [];
 
       if (technologies.some(tech => TF_FLAGSHIP_LIST.includes(tech))) {
         unitUpgrades.push("flagship");

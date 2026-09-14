@@ -16,7 +16,8 @@ body {
 }
 
 canvas {
-  display: block; /* must be block otherwise gets space below */
+  display: block;
+  /* must be block otherwise gets space below */
 }
 
 iframe {
@@ -88,6 +89,7 @@ iframe {
 .rotating-container {
   position: relative;
 }
+
 .rotating-content {
   position: absolute;
   transition: opacity 0.75s ease-in-out;
@@ -111,7 +113,8 @@ iframe {
 
 .size-objectives {
   width: 400px;
-  height: 544px; /* 17 rows, must be 528 or taller to avoid table spilling larger than size */
+  height: 544px;
+  /* 17 rows, must be 528 or taller to avoid table spilling larger than size */
 }
 
 .size-secrets {
@@ -127,6 +130,11 @@ iframe {
 .size-technology {
   width: 1200px;
   height: 400px;
+}
+
+.size-relics {
+  width: 1200px;
+  height: 100px;
 }
 
 .size-rotating {

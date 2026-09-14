@@ -57,7 +57,7 @@
                             "industrial": 0
                         }
                     },
-                    "relicCards": [],
+                    "relics": [],
                     "score": 0,
                     "strategyCards": [
                         "Trade"
@@ -100,7 +100,7 @@
                             "industrial": 0
                         }
                     },
-                    "relicCards": [],
+                    "relics": [],
                     "score": 0,
                     "strategyCards": [
                         "Politics"
@@ -143,7 +143,7 @@
                             "industrial": 0
                         }
                     },
-                    "relicCards": [],
+                    "relics": [],
                     "score": 0,
                     "strategyCards": [
                         "Construction"
@@ -186,7 +186,7 @@
                             "industrial": 0
                         }
                     },
-                    "relicCards": [],
+                    "relics": [],
                     "score": 0,
                     "strategyCards": [
                         "Diplomacy"
@@ -229,7 +229,7 @@
                             "industrial": 0
                         }
                     },
-                    "relicCards": [],
+                    "relics": [],
                     "score": 0,
                     "strategyCards": [
                         "Technology"
@@ -272,7 +272,7 @@
                             "industrial": 0
                         }
                     },
-                    "relicCards": [],
+                    "relics": [],
                     "score": 0,
                     "strategyCards": [
                         "Warfare"
@@ -329,7 +329,7 @@
                             "industrial": 1
                         }
                     },
-                    "relicCards": [],
+                    "relics": [],
                     "score": 0,
                     "strategyCards": [
                         "Trade"
@@ -372,7 +372,7 @@
                             "industrial": 0
                         }
                     },
-                    "relicCards": [],
+                    "relics": [],
                     "score": 0,
                     "strategyCards": [
                         "Politics"
@@ -417,7 +417,7 @@
                             "industrial": 0
                         }
                     },
-                    "relicCards": [],
+                    "relics": [],
                     "score": 1,
                     "strategyCards": [
                         "Construction"
@@ -460,7 +460,7 @@
                             "industrial": 3
                         }
                     },
-                    "relicCards": [],
+                    "relics": [],
                     "score": 0,
                     "strategyCards": [
                         "Diplomacy"
@@ -505,7 +505,7 @@
                             "industrial": 0
                         }
                     },
-                    "relicCards": [],
+                    "relics": [],
                     "score": 1,
                     "strategyCards": [
                         "Technology"
@@ -550,7 +550,7 @@
                             "industrial": 0
                         }
                     },
-                    "relicCards": [],
+                    "relics": [],
                     "score": 1,
                     "strategyCards": [
                         "Warfare"
@@ -611,7 +611,7 @@
                             "industrial": 1
                         }
                     },
-                    "relicCards": [],
+                    "relics": [],
                     "score": 1,
                     "strategyCards": [
                         "Technology"
@@ -659,7 +659,7 @@
                             "industrial": 0
                         }
                     },
-                    "relicCards": [],
+                    "relics": [],
                     "score": 2,
                     "strategyCards": [
                         "Leadership"
@@ -706,7 +706,7 @@
                             "industrial": 0
                         }
                     },
-                    "relicCards": [
+                    "relics": [
                         "Dynamis Core"
                     ],
                     "score": 3,
@@ -756,7 +756,7 @@
                             "industrial": 3
                         }
                     },
-                    "relicCards": [
+                    "relics": [
                         "Nano-Forge"
                     ],
                     "score": 4,
@@ -805,7 +805,7 @@
                             "industrial": 0
                         }
                     },
-                    "relicCards": [],
+                    "relics": [],
                     "score": 5,
                     "strategyCards": [
                         "Imperial"
@@ -852,7 +852,7 @@
                             "industrial": 2
                         }
                     },
-                    "relicCards": [],
+                    "relics": [],
                     "score": 3,
                     "strategyCards": [
                         "Construction"
@@ -959,7 +959,7 @@
                     "industrial": 1
                 }
             },
-            "relicCards": [],
+            "relics": [],
             "score": 2,
             "steamName": "nathangray68",
             "strategyCards": [
@@ -1046,7 +1046,7 @@
                     "industrial": 0
                 }
             },
-            "relicCards": [],
+            "relics": [],
             "score": 3,
             "steamName": "Drago Thaxton",
             "strategyCards": [
@@ -1123,7 +1123,7 @@
                     "industrial": 0
                 }
             },
-            "relicCards": [
+            "relics": [
                 "Dynamis Core"
             ],
             "score": 3,
@@ -1204,7 +1204,7 @@
                     "industrial": 3
                 }
             },
-            "relicCards": [
+            "relics": [
                 "The Crown of Emphidia (PoK)",
                 "Nano-Forge"
             ],
@@ -1278,7 +1278,7 @@
                     "industrial": 0
                 }
             },
-            "relicCards": [],
+            "relics": [],
             "score": 5,
             "steamName": "Rand",
             "strategyCards": [
@@ -1353,7 +1353,7 @@
                     "industrial": 2
                 }
             },
-            "relicCards": [],
+            "relics": [],
             "score": 3,
             "steamName": "afinati",
             "strategyCards": [
