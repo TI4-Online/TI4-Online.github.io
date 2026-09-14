@@ -360,20 +360,22 @@ class DrawPlayerResources {
     pos.y += dy;
     text.x += dx;
     text.y += dy;
-    src = this._image.promissory;
-    ImageUtil.drawMagic(ctx, src, pos.x, pos.y, params);
+    if (!resources.isTfFaction) {
+      src = this._image.promissory;
+      ImageUtil.drawMagic(ctx, src, pos.x, pos.y, params);
 
-    text.text = resources.hand.promissory;
-    ctx.save();
-    ctx.font = `800 ${fontSize}px Open Sans, sans-serif`;
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.strokeStyle = "white";
-    ctx.fillStyle = "black";
-    ctx.lineWidth = Math.floor(fontSize * 0.15);
-    ctx.strokeText(text.text, text.x, text.y);
-    ctx.fillText(text.text, text.x, text.y);
-    ctx.restore();
+      text.text = resources.hand.promissory;
+      ctx.save();
+      ctx.font = `800 ${fontSize}px Open Sans, sans-serif`;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.strokeStyle = "white";
+      ctx.fillStyle = "black";
+      ctx.lineWidth = Math.floor(fontSize * 0.15);
+      ctx.strokeText(text.text, text.x, text.y);
+      ctx.fillText(text.text, text.x, text.y);
+      ctx.restore();
+    }
   }
 
   _drawCommodities(ctx, boundingBox, resources) {

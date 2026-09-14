@@ -907,6 +907,7 @@ class GameDataUtil {
       : 0;
 
     return {
+      isTfFaction: TF_FACTION_WHITELIST.has(GameDataUtil.parsePlayerFaction(playerData)),
       influence: {
         avail: playerData?.planetTotals?.influence?.avail || 0,
         total: playerData?.planetTotals?.influence?.total || 0,

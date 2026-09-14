@@ -52,10 +52,33 @@ class Relics {
       const colorNameAndHex = playerColorNamesAndHexValues[index];
       const relics = player?.relics || [];
 
+      const relicCounts = {};
       for (const relic of relics) {
+        relicCounts[relic] = (relicCounts[relic] || 0) + 1;
+      }
+
+      for (const [relic, count] of Object.entries(relicCounts)) {
         const div = document.createElement("div");
-        div.style.color = "white";
-        div.innerText = GameDataUtil._escapeForHTML(relic);
+
+        let color = "gold";
+        if (relic === "Cultural Relic Fragment") {
+          color = GameDataUtil.colorNameToHex("blue") || "blue";
+        } else if (relic === "Hazardous Relic Fragment") {
+          color = GameDataUtil.colorNameToHex("red") || "red";
+        } else if (relic === "Industrial Relic Fragment") {
+          color = GameDataUtil.colorNameToHex("green") || "green";
+        } else if (relic === "Unknown Relic Fragment") {
+          color = GameDataUtil.colorNameToHex("white") || "white";
+        }
+
+        div.style.color = color;
+
+        let text = relic.replace(" Relic Fragment", " Frag.");
+        if (count > 1) {
+          text += ` x${count}`;
+        }
+
+        div.innerText = GameDataUtil._escapeForHTML(text);
         td.appendChild(div);
       }
     });

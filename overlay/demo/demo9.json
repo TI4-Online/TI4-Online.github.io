@@ -1278,7 +1278,16 @@
                     "industrial": 0
                 }
             },
-            "relics": [],
+            "relics": [
+                "Hazardous Relic Fragment",
+                "Cultural Relic Fragment",
+                "Cultural Relic Fragment",
+                "Industrial Relic Fragment",
+                "Industrial Relic Fragment",
+                "Industrial Relic Fragment",
+                "Unknown Relic Fragment",
+                "Maw of Worlds"
+            ],
             "score": 5,
             "steamName": "Rand",
             "strategyCards": [
