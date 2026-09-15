@@ -57,28 +57,54 @@ class Relics {
         relicCounts[relic] = (relicCounts[relic] || 0) + 1;
       }
 
-      for (const [relic, count] of Object.entries(relicCounts)) {
+      const sortedRelicEntries = Object.entries(relicCounts).sort(([relicA], [relicB]) => {
+        const isFragA = relicA.endsWith("Relic Fragment");
+        const isFragB = relicB.endsWith("Relic Fragment");
+        if (isFragA && !isFragB) return -1;
+        if (!isFragA && isFragB) return 1;
+        return relicA.localeCompare(relicB);
+      });
+
+      for (const [relic, count] of sortedRelicEntries) {
         const div = document.createElement("div");
 
-        let color = "gold";
+        let imgName = null;
         if (relic === "Cultural Relic Fragment") {
-          color = GameDataUtil.colorNameToHex("blue") || "blue";
+          imgName = "CFrag.png";
         } else if (relic === "Hazardous Relic Fragment") {
-          color = GameDataUtil.colorNameToHex("red") || "red";
+          imgName = "HFrag.png";
         } else if (relic === "Industrial Relic Fragment") {
-          color = GameDataUtil.colorNameToHex("green") || "green";
+          imgName = "IFrag.png";
         } else if (relic === "Unknown Relic Fragment") {
-          color = GameDataUtil.colorNameToHex("white") || "white";
+          imgName = "UFrag.png";
         }
 
-        div.style.color = color;
+        if (imgName) {
+          div.style.display = "inline-flex";
+          div.style.alignItems = "center";
+          div.style.gap = "4px";
+          div.style.marginRight = "8px";
 
-        let text = relic.replace(" Relic Fragment", " Frag.");
-        if (count > 1) {
-          text += ` x${count}`;
+          const img = document.createElement("img");
+          img.src = `/overlay/images/relic-fragments/${imgName}`;
+          img.style.height = "1.2em";
+          div.appendChild(img);
+
+          const span = document.createElement("span");
+          span.style.color = "white"; // Or match the color theme if needed
+          span.innerText = `x${count}`;
+          div.appendChild(span);
+        } else {
+          div.style.color = "gold";
+
+          let text = relic;
+          if (count > 1) {
+            text += ` x${count}`;
+          }
+
+          div.innerText = GameDataUtil._escapeForHTML(text);
         }
 
-        div.innerText = GameDataUtil._escapeForHTML(text);
         td.appendChild(div);
       }
     });

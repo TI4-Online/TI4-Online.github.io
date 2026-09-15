@@ -1279,14 +1279,13 @@
                 }
             },
             "relics": [
+                "Maw of Worlds",
                 "Hazardous Relic Fragment",
                 "Cultural Relic Fragment",
                 "Cultural Relic Fragment",
                 "Industrial Relic Fragment",
                 "Industrial Relic Fragment",
-                "Industrial Relic Fragment",
-                "Unknown Relic Fragment",
-                "Maw of Worlds"
+                "Industrial Relic Fragment"
             ],
             "score": 5,
             "steamName": "Rand",
