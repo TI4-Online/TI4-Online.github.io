@@ -178,6 +178,17 @@ class Leaderboard {
     }
   }
 
+  fillBenediction(cell) {
+    console.assert(typeof cell === "object");
+
+    const factionIconImg = cell.getElementsByClassName("faction-icon")[0];
+    console.assert(factionIconImg);
+    const src = ImageUtil.getSrc(`tokens/benediction_square.png`);
+    if (factionIconImg.src !== src) {
+      factionIconImg.src = src;
+    }
+  }
+
   fillAll(gameData) {
     console.assert(typeof gameData === "object");
 
@@ -213,11 +224,17 @@ class Leaderboard {
     });
 
     const speakerColorName = GameDataUtil.parseSpeakerColorName(gameData);
+    const benedictionColorName = GameDataUtil.parseBenedictionColorName(gameData);
     cells.forEach((cell, index) => {
       const playerData = playerDataArray[index];
       console.assert(playerData);
 
       const colorNameAndHex = GameDataUtil.parsePlayerColor(playerData);
+      
+      // Fills benediction first in case speaker and benediction are the same color
+      if (colorNameAndHex.colorName === benedictionColorName) {
+        this.fillBenediction(cell);
+      }
       if (colorNameAndHex.colorName === speakerColorName) {
         this.fillSpeaker(cell);
       }
