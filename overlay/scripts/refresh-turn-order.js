@@ -38,7 +38,7 @@ class TurnOrder {
 
     const factionIconImg = cell.getElementsByClassName("faction-icon")[0];
     console.assert(factionIconImg);
-    
+
     let src;
     if (isSpeaker) {
       src = ImageUtil.getSrc(`tokens/speaker_square.png`);
