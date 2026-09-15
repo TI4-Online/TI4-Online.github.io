@@ -1300,6 +1300,22 @@
                 "Hybrid Crystal Fighter II",
                 "Antimass Deflectors"
             ],
+            "tfAbilities": [
+                "Fabrication",
+                "Crucible"
+            ],
+            "tfGenomes": [
+                "Altruistic Genome",
+                "Silver Genome"
+            ],
+            "tfParadigms": [
+                "Flock Migration",
+                "Gravitational Collapse"
+            ],
+            "tfUnitUpgrades": [
+                "Helios Entity",
+                "Triune"
+            ],
             "tradeGoods": 1,
             "turnOrder": 0,
             "unitModifiers": [],

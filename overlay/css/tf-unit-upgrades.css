@@ -1,0 +1,21 @@
+.tf-unit-upgrades {
+  white-space: nowrap;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.tf-unit-upgrades th {
+  height: 20px;
+  font-size: larger;
+  text-transform: capitalize;
+  vertical-align: top;
+}
+
+.tf-unit-upgrades td {
+  vertical-align: top;
+  text-align: center;
+}
+
+.tf-unit-upgrades div {
+  overflow: hidden;
+}

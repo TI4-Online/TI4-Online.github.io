@@ -1,0 +1,21 @@
+.tf-paradigms {
+  white-space: nowrap;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.tf-paradigms th {
+  height: 20px;
+  font-size: larger;
+  text-transform: capitalize;
+  vertical-align: top;
+}
+
+.tf-paradigms td {
+  vertical-align: top;
+  text-align: center;
+}
+
+.tf-paradigms div {
+  overflow: hidden;
+}

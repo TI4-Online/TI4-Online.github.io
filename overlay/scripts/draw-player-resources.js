@@ -80,7 +80,9 @@ class DrawPlayerResources {
 
       this._drawUnitUpgrades(ctx, boundingBox, colorHex, unitUpgrades);
 
-      this._drawLeaders(ctx, boundingBox, resources);
+      if (!resources.isTfFaction) {
+        this._drawLeaders(ctx, boundingBox, resources);
+      }
       this._drawCards(ctx, boundingBox, resources);
       this._drawTokens(ctx, boundingBox, colorHex, resources);
       this._drawCommodities(ctx, boundingBox, resources);

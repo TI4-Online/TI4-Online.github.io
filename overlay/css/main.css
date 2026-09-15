@@ -186,3 +186,23 @@ iframe {
   width: 400px;
   height: 75px;
 }
+
+.size-tf-abilities {
+  width: 1200px;
+  height: 400px;
+}
+
+.size-tf-unit-upgrades {
+  width: 1200px;
+  height: 200px;
+}
+
+.size-tf-genomes {
+  width: 1200px;
+  height: 200px;
+}
+
+.size-tf-paradigms {
+  width: 1200px;
+  height: 200px;
+}

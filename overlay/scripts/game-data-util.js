@@ -293,7 +293,7 @@ const TECHNOLOGY_COLOR = {
   "War Sun": "white",
 };
 
-const TF_TECHNOLOGY_COLOR = {
+const TF_ABILITY_COLOR = {
   "Abundance": "yellow",
   "Aerie Hololattice": "yellow",
   "Aetherstream": "blue",
@@ -303,7 +303,7 @@ const TF_TECHNOLOGY_COLOR = {
   "Armada": "red",
   "Assimilate": "yellow",
   "Awaken": "blue",
-  "Bio Synthetic Synergy": "green",
+  "Bio-Synthetic Synergy": "green",
   "Bioplasmosis": "green",
   "Chaos Mapping": "yellow",
   "Courier Transport": "blue",
@@ -313,7 +313,7 @@ const TF_TECHNOLOGY_COLOR = {
   "Dimensional Splicer": "red",
   "Dimensional Tear": "blue",
   "Distant Suns": "blue",
-  "E Res Siphons": "yellow",
+  "E-Res Siphons": "yellow",
   "Entropic Harvest": "yellow",
   "Fabrication": "yellow",
   "Fleet Logistics": "blue",
@@ -383,17 +383,231 @@ const TF_TECHNOLOGY_COLOR = {
   "Zealous": "red",
 };
 
-const TF_FLAGSHIP_LIST = ["Echo of Ascension"];
-const TF_WAR_SUN_LIST = ["Prototype War Sun", "University War Sun", "The Dragon, Freed"];
-const TF_DREADNOUGHT_LIST = ["Dawncrusher", "Exotrireme", "Super-Dreadnought"];
-const TF_CARRIER_LIST = ["Advanced Carrier", "Ambassador", "Vortexer"];
-const TF_CRUISER_LIST = ["Corsair", "Ahk Syl Fier", "Saggitaria"];
-const TF_DESTROYER_LIST = ["Strike Wing Alpha", "Exile", "Linkship"];
-const TF_FIGHTER_LIST = ["Hybrid Crystal Fighter", "Triune", "Morphwing"];
-const TF_MECH_LIST = ["Valefar Prime", "Eidolon Terminus", "Eidolon Landwaster"];
-const TF_INFANTRY_LIST = ["Yin Clone", "Guild Agents", "Letani Warrior"];
-const TF_PDS_LIST = ["Hel Titan", "Keeper Matrix", "Justicier Rail"];
-const TF_SPACE_DOCK_LIST = ["Production Biomes", "Floating Factories", "Helios Entity"];
+const TF_ABILITY_ORIGIN = {
+  "Abundance": "ul",
+  "Aerie Hololattice": "argent",
+  "Aetherstream": "empyrean",
+  "Agency Supply Network": "keleres",
+  "Amalgamation": "vuilraith",
+  "Ambush": "mentak",
+  "Armada": "letnev",
+  "Assimilate": "l1z1x",
+  "Awaken": "ul",
+  "Bio-Synthetic Synergy": "bastion",
+  "Bioplasmosis": "arborec",
+  "Chaos Mapping": "saar",
+  "Courier Transport": "blue",
+  "Crafty": "ralnel",
+  "Crucible": "vuilraith",
+  "Devotion": "yin",
+  "Dimensional Splicer": "creuss",
+  "Dimensional Tear": "vuilraith",
+  "Distant Suns": "naazrokha",
+  "E-Res Siphons": "jolnar",
+  "Entropic Harvest": "rebellion",
+  "Fabrication": "naazrokha",
+  "Fleet Logistics": "keleres",
+  "Foresight": "naalu",
+  "Future Path": "nomad",
+  "Genetic Research": "deepwrought",
+  "Guild Ships": "hacan",
+  "Harrow": "l1z1x",
+  "Hegemonic Trade Policy": "winnu",
+  "Indoctrination": "yin",
+  "Inheritance Systems": "l1z1x",
+  "Instinct Training": "xxcha",
+  "Lazax Gate Folding": "winnu",
+  "Liberate": "bastion",
+  "Magmus Reactor": "muaat",
+  "Mirror Computing": "mentak",
+  "Mitosis": "arborec",
+  "Munitions Reserves": "letnev",
+  "Nanomachines": "ralnel",
+  "Neural Parasite": "obsidian",
+  "Neuroglaive": "naalu",
+  "Nomadic": "saar",
+  "Non-Euclidean Shielding": "letnev",
+  "Nullification Field": "xxcha",
+  "Orbital Drop": "sol",
+  "Overwatch": "empyrean",
+  "Pacifist": "deepwrought",
+  "Peace Accords": "xxcha",
+  "Pillage": "mentak",
+  "Planesplitter": "obsidian",
+  "Proxima Targeting VI": "bastion",
+  "Puppet Council": "keleres",
+  "Quantum Datahub Node": "hacan",
+  "Quantum Drive": "nomad",
+  "Quantum Entanglement": "creuss",
+  "Radical Advancement": "deepwrought",
+  "Raid Formation": "argent",
+  "Reclamation": "winnu",
+  "Scavenge": "saar",
+  "Scheming": "yssaril",
+  "Singularity X": "nekro",
+  "Singularity Y": "nekro",
+  "Singularity Z": "nekro",
+  "Sled Factories": "hacan",
+  "Slipstream": "creuss",
+  "Smothering Presence": "rebellion",
+  "Spatial Conduit Cylinder": "jolnar",
+  "Spec Ops Training": "sol",
+  "Stall Tactics": "yssaril",
+  "Star Forge": "muaat",
+  "Stellar Genesis": "muaat",
+  "Stymie": "arborec",
+  "Subatomic Splicer": "yellow",
+  "Supercharge": "naazrokha",
+  "Survival Instinct": "ralnel",
+  "Tactical Brilliance": "jolnar",
+  "Telepathic": "naalu",
+  "Temporal Command Suite": "nomad",
+  "Terraform": "ul",
+  "The Burning Eye": "obsidian",
+  "Unrelenting": "norr",
+  "Valkyrie Particle Weave": "norr",
+  "Valkyrie Vanguard": "norr",
+  "Versatile": "sol",
+  "Voidborn": "empyrean",
+  "Yin Ascendant": "yin",
+  "Zealous": "argent",
+};
+
+const TF_GENOME_ORIGIN = {
+  "Action Genome": "keleres",
+  "Altruistic Genome": "ul",
+  "Aristocratic Genome": "letnev",
+  "Breach Genome": "rebellion",
+  "Brutal Genome": "l1z1x",
+  "Captain's Genome": "saar",
+  "Clever Genome": "yssaril",
+  "Cosmic Genome": "empyrean",
+  "Courier Genome": "ralnel",
+  "Curious Genome": "naazrokha",
+  "Deployment Genome": "nomad",
+  "Diplomatic Genome": "xxcha",
+  "Divine Genome": "winnu",
+  "Enigmatic Genome": "creuss",
+  "Experimental Genome": "jolnar",
+  "Human Genome": "sol",
+  "Hyper Genome": "mentak",
+  "Investment Genome": "nomad",
+  "Limit Genome": "naalu",
+  "Mirror Genome": "obsidian",
+  "Molten Genome": "muaat",
+  "Pacific Genome": "arborec",
+  "Ravenous Genome": "vuilraith",
+  "Recursive Genome": "nekro",
+  "Research Genome": "deepwrought",
+  "Scornful Genome": "argent",
+  "Silver Genome": "hacan",
+  "Splitting Genome": "yin",
+  "Swarm Genome": "norr",
+  "Temporal Genome": "nomad",
+  "Valiant Genome": "bastion",
+}
+
+const TF_PARADIGM_ORIGIN = {
+  "Artemiris Ascendant": "keleres",
+  "Awakening": "ul",
+  "Blessing of the Yin": "yin",
+  "Brilliance of the Hylar": "jolnar",
+  "Brood Swarm": "norr",
+  "Changing the Ways": "creuss",
+  "Devour World": "nekro",
+  "Diaspora": "l1z1x",
+  "Dimensional Reflection": "rebellion",
+  "Eternity's End": "obsidian",
+  "Event Horizon": "vuilraith",
+  "Extortion": "yssaril",
+  "Flock Migration": "argent",
+  "Forge Legend": "naazrokha",
+  "Gravitational Collapse": "muaat",
+  "Insurrection": "mentak",
+  "Intelligence Unshackled": "bastion",
+  "Limit Break": "ralnel",
+  "Opening the Eye": "empyrean",
+  "Overgrowth": "arborec",
+  "Poison of the Nefishh": "naalu",
+  "Sanction of the Quieron": "hacan",
+  "Sins of the Father": "winnu",
+  "The Laws Unwritten": "deepwrought",
+  "The Lay of Lisis": "saar",
+  "The Winds of Change": "keleres",
+  "Time Warp": "nomad",
+  "Twilight Directive": "sol",
+  "Voice of the Council": "xxcha",
+  "Void Transference": "letnev",
+  "Witching Hour": "keleres",
+}
+
+const TF_UNIT_UPGRADE_TYPE = {
+  "Echo of Ascension": "flagship",
+  "Prototype War Sun": "war_sun",
+  "University War Sun": "war_sun",
+  "The Dragon, Freed": "war_sun",
+  "Dawncrusher": "dreadnought",
+  "Exotrireme": "dreadnought",
+  "Super-Dreadnought": "dreadnought",
+  "Advanced Carrier": "carrier",
+  "Ambassador": "carrier",
+  "Vortexer": "carrier",
+  "Corsair": "cruiser",
+  "Ahk Syl Fier": "cruiser",
+  "Saggitaria": "cruiser",
+  "Strike Wing Alpha": "destroyer",
+  "Exile": "destroyer",
+  "Linkship": "destroyer",
+  "Hybrid Crystal Fighter": "fighter",
+  "Triune": "fighter",
+  "Morphwing": "fighter",
+  "Valefar Prime": "mech",
+  "Eidolon Terminus": "mech",
+  "Eidolon Landwaster": "mech",
+  "Yin Clone": "infantry",
+  "Guild Agents": "infantry",
+  "Letani Warrior": "infantry",
+  "Hel-Titan": "pds",
+  "Keeper Matrix": "pds",
+  "Justicier Rail": "pds",
+  "Production Biomes": "space_dock",
+  "Floating Factories": "space_dock",
+  "Helios Entity": "space_dock",
+}
+
+const TF_UNIT_UPGRADE_ORIGIN = {
+  "Echo of Ascension": "nomad",
+  "Prototype War Sun": "muaat",
+  "University War Sun": "jolnar",
+  "The Dragon, Freed": "obsidian",
+  "Dawncrusher": "letnev",
+  "Exotrireme": "norr",
+  "Super-Dreadnought": "l1z1x",
+  "Advanced Carrier": "sol",
+  "Ambassador": "deepwrought",
+  "Vortexer": "vuilraith",
+  "Corsair": "mentak",
+  "Ahk Syl Fier": "creuss",
+  "Saggitaria": "keleres",
+  "Strike Wing Alpha": "argent",
+  "Exile": "rebellion",
+  "Linkship": "ralnel",
+  "Hybrid Crystal Fighter": "naalu",
+  "Triune": "empyrean",
+  "Morphwing": "naazrokha",
+  "Valefar Prime": "nekro",
+  "Eidolon Terminus": "vuilraith",
+  "Eidolon Landwaster": "naazrokha",
+  "Yin Clone": "yin",
+  "Guild Agents": "yssaril",
+  "Letani Warrior": "arborec",
+  "Hel-Titan": "ul",
+  "Keeper Matrix": "xxcha",
+  "Justicier Rail": "winnu",
+  "Production Biomes": "hacan",
+  "Floating Factories": "saar",
+  "Helios Entity": "bastion",
+}
 
 /**
  * This class parses data from the game-provided json.  It validates against
@@ -465,6 +679,22 @@ class GameDataUtil {
     console.assert(typeof currentTurn === "string");
 
     return COLOR_NAME_TO_HEX[currentTurn] ? currentTurn : UNKNOWN_COLOR_NAME;
+  }
+
+  /**
+   * Parse galactic events.
+   *
+   * @param {Object.{galacticEvents:Array.{string}}} gameData
+   * @returns {Array.{string}}
+   */
+  static parseGalacticEvents(gameData) {
+    console.assert(typeof gameData === "object");
+
+    let galacticEvents = gameData?.galacticEvents || [];
+    console.assert(Array.isArray(galacticEvents));
+    galacticEvents = galacticEvents.map((name) => GameDataUtil._escapeForHTML(name));
+
+    return galacticEvents;
   }
 
   /**
@@ -907,6 +1137,22 @@ class GameDataUtil {
   }
 
   /**
+   * Parse player relics.
+   *
+   * @param {Object.{relics:Array.{string}}} playerData
+   * @returns {Array.{string}}
+   */
+  static parsePlayerRelics(playerData) {
+    console.assert(typeof playerData === "object");
+
+    let relics = playerData?.relics || [];
+    console.assert(Array.isArray(relics));
+    relics = relics.map((name) => GameDataUtil._escapeForHTML(name));
+
+    return relics;
+  }
+
+  /**
    * Parse player resources.
    *
    * @param {Object} playerData
@@ -1021,36 +1267,94 @@ class GameDataUtil {
   static parsePlayerTechnologies(playerData) {
     console.assert(typeof playerData === "object");
 
-    let faction = playerData?.factionShort?.toLowerCase() || "-";
-    console.assert(typeof faction === "string");
+    const technologies = playerData?.technologies || [];
+    return technologies.map((name) => {
+      const colorName = TECHNOLOGY_COLOR[name] || "white";
+      return {
+        name: GameDataUtil._escapeForHTML(name),
+        colorName,
+      };
+    });
+  }
 
-    faction = faction.replace("-", ""); // naaz-rokha
-    faction = faction.replace("'", ""); // vuil'raith, n'orr
+  /**
+   * Parse Twilight's Fall abilities.
+   *
+   * @param {Object.{tfAbilities:Array.{string}}} playerData
+   * @returns {Array.{Object.{name:string,colorName:string,originName:string}}}
+   */
+  static parsePlayerTFAbilities(playerData) {
+    console.assert(typeof playerData === "object");
 
-    if (faction.startsWith("keleres")) {
-      faction = "keleres"; // strip off flavor
-    }
+    const tfAbilities = playerData?.tfAbilities || [];
+    return tfAbilities.map((name) => {
+      const colorName = TF_ABILITY_COLOR[name] || "white";
+      const originName = TF_ABILITY_ORIGIN[name] || "";
+      return {
+        name: GameDataUtil._escapeForHTML(name),
+        colorName,
+        originName,
+      };
+    });
+  }
 
-    if (TF_FACTION_WHITELIST.has(faction)) {
-      const technologies = playerData?.technologies || [];
-      return technologies.map((name) => {
-        const colorName = TF_TECHNOLOGY_COLOR[name] || "white";
-        return {
-          name: GameDataUtil._escapeForHTML(name),
-          colorName,
-        };
-      });
-    }
-    else {
-      const technologies = playerData?.technologies || [];
-      return technologies.map((name) => {
-        const colorName = TECHNOLOGY_COLOR[name] || "white";
-        return {
-          name: GameDataUtil._escapeForHTML(name),
-          colorName,
-        };
-      });
-    }
+  /**
+   * Parse Twilight's Fall genomes.
+   *
+   * @param {Object.{tfGenomes:Array.{string}}} playerData
+   * @returns {Array.{Object.{name:string,originName:string}}}
+   */
+  static parsePlayerTFGenomes(playerData) {
+    console.assert(typeof playerData === "object");
+
+    const tfGenomes = playerData?.tfGenomes || [];
+    return tfGenomes.map((name) => {
+      const originName = TF_GENOME_ORIGIN[name] || "";
+      return {
+        name: GameDataUtil._escapeForHTML(name),
+        originName,
+      };
+    });
+  }
+
+  /**
+   * Parse Twilight's Fall paradigms.
+   *
+   * @param {Object.{tfParadigms:Array.{string}}} playerData
+   * @returns {Array.{Object.{name:string,originName:string}}}
+   */
+  static parsePlayerTFParadigms(playerData) {
+    console.assert(typeof playerData === "object");
+
+    const tfParadigms = playerData?.tfParadigms || [];
+    return tfParadigms.map((name) => {
+      const originName = TF_PARADIGM_ORIGIN[name] || "";
+      return {
+        name: GameDataUtil._escapeForHTML(name),
+        originName,
+      };
+    });
+  }
+
+  /**
+   * Parse Twilight's Fall unit upgrades.
+   *
+   * @param {Object.{tfUnitUpgrades:Array.{string}}} playerData
+   * @returns {Array.{Object.{name:string,type:string,originName:string}}}
+   */
+  static parsePlayerTFUnitUpgrades(playerData) {
+    console.assert(typeof playerData === "object");
+
+    const tfUnitUpgrades = playerData?.tfUnitUpgrades || [];
+    return tfUnitUpgrades.map((name) => {
+      const type = TF_UNIT_UPGRADE_TYPE[name] || "";
+      const originName = TF_UNIT_UPGRADE_ORIGIN[name] || "";
+      return {
+        name: GameDataUtil._escapeForHTML(name),
+        type: GameDataUtil._escapeForHTML(type),
+        originName: GameDataUtil._escapeForHTML(originName),
+      };
+    });
   }
 
   static parsePlayerUnitModifiers(playerData) {
@@ -1074,59 +1378,8 @@ class GameDataUtil {
   static parsePlayerUnitUpgrades(playerData) {
     console.assert(typeof playerData === "object");
 
-    let faction = playerData?.factionShort?.toLowerCase() || "-";
-    console.assert(typeof faction === "string");
-
-    faction = faction.replace("-", ""); // naaz-rokha
-    faction = faction.replace("'", ""); // vuil'raith, n'orr
-
-    if (faction.startsWith("keleres")) {
-      faction = "keleres"; // strip off flavor
-    }
-
-    if (TF_FACTION_WHITELIST.has(faction)) {
-      const unitUpgrades = [];
-      const technologies = playerData?.technologies || [];
-
-      if (technologies.some(tech => TF_FLAGSHIP_LIST.includes(tech))) {
-        unitUpgrades.push("flagship");
-      }
-      if (technologies.some(tech => TF_WAR_SUN_LIST.includes(tech))) {
-        unitUpgrades.push("war_sun");
-      }
-      if (technologies.some(tech => TF_DREADNOUGHT_LIST.includes(tech))) {
-        unitUpgrades.push("dreadnought");
-      }
-      if (technologies.some(tech => TF_CARRIER_LIST.includes(tech))) {
-        unitUpgrades.push("carrier");
-      }
-      if (technologies.some(tech => TF_CRUISER_LIST.includes(tech))) {
-        unitUpgrades.push("cruiser");
-      }
-      if (technologies.some(tech => TF_DESTROYER_LIST.includes(tech))) {
-        unitUpgrades.push("destroyer");
-      }
-      if (technologies.some(tech => TF_FIGHTER_LIST.includes(tech))) {
-        unitUpgrades.push("fighter");
-      }
-      if (technologies.some(tech => TF_MECH_LIST.includes(tech))) {
-        unitUpgrades.push("mech");
-      }
-      if (technologies.some(tech => TF_INFANTRY_LIST.includes(tech))) {
-        unitUpgrades.push("infantry");
-      }
-      if (technologies.some(tech => TF_PDS_LIST.includes(tech))) {
-        unitUpgrades.push("pds");
-      }
-      if (technologies.some(tech => TF_SPACE_DOCK_LIST.includes(tech))) {
-        unitUpgrades.push("space_dock");
-      }
-      return unitUpgrades.map((name) => GameDataUtil._escapeForHTML(name));
-    }
-    else {
-      const unitUpgrades = playerData?.unitUpgrades || [];
-      return unitUpgrades.map((name) => GameDataUtil._escapeForHTML(name));
-    }
+    const unitUpgrades = playerData?.unitUpgrades || [];
+    return unitUpgrades.map((name) => GameDataUtil._escapeForHTML(name));
   }
 
   /**

@@ -1,0 +1,21 @@
+.tf-abilities {
+  white-space: nowrap;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.tf-abilities th {
+  height: 20px;
+  font-size: larger;
+  text-transform: capitalize;
+  vertical-align: top;
+}
+
+.tf-abilities td {
+  vertical-align: top;
+  text-align: center;
+}
+
+.tf-abilities div {
+  overflow: hidden;
+}

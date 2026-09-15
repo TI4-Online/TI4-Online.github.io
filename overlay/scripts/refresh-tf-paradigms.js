@@ -1,15 +1,15 @@
 "use strict";
 
-class Relics {
+class TFParadigms {
   static getInstance() {
-    if (!Relics.__instance) {
-      Relics.__instance = new Relics();
+    if (!TFParadigms.__instance) {
+      TFParadigms.__instance = new TFParadigms();
     }
-    return Relics.__instance;
+    return TFParadigms.__instance;
   }
 
   constructor() {
-    const elementId = "relics";
+    const elementId = "tf-paradigms";
     this._table = document.getElementById(elementId);
     if (!this._table) {
       throw new Error(`Missing element id "${elementId}"`);
@@ -50,54 +50,28 @@ class Relics {
 
       const player = players[index];
       const colorNameAndHex = playerColorNamesAndHexValues[index];
-      const relics = player?.relics || [];
+      const paradigms = GameDataUtil.parsePlayerTFParadigms(player);
 
-      const relicCounts = {};
-      for (const relic of relics) {
-        relicCounts[relic] = (relicCounts[relic] || 0) + 1;
-      }
+      //td.style.borderColor = colorNameAndHex.colorHex || "transparent";
 
-      const sortedRelicEntries = Object.entries(relicCounts).sort(([relicA], [relicB]) => {
-        const isFragA = relicA.endsWith("Relic Fragment");
-        const isFragB = relicB.endsWith("Relic Fragment");
-        if (isFragA && !isFragB) return -1;
-        if (!isFragA && isFragB) return 1;
-        return relicA.localeCompare(relicB);
-      });
-
-      for (const [relic, count] of sortedRelicEntries) {
+      for (const paradigm of paradigms) {
         const div = document.createElement("div");
+        div.style.color = "white"
+        div.style.display = "flex";
+        div.style.alignItems = "center";
+        div.style.justifyContent = "center";
+        div.style.gap = "4px";
 
-        let imgName = null;
-        if (relic === "Cultural Relic Fragment") {
-          imgName = "CFrag.png";
-        } else if (relic === "Hazardous Relic Fragment") {
-          imgName = "HFrag.png";
-        } else if (relic === "Industrial Relic Fragment") {
-          imgName = "IFrag.png";
-        } else if (relic === "Unknown Relic Fragment") {
-          imgName = "UFrag.png";
-        }
-
-        if (imgName) {
-          div.style.display = "inline-flex";
-          div.style.alignItems = "center";
-          div.style.gap = "4px";
-          div.style.marginRight = "8px";
-
+        if (paradigm.originName) {
           const img = document.createElement("img");
-          img.src = `/overlay/images/relic-fragments/${imgName}`;
+          img.src = `/overlay/images/faction-icons/${paradigm.originName}_icon.png`;
           img.style.height = "1.2em";
           div.appendChild(img);
-
-          const span = document.createElement("span");
-          span.style.color = "white";
-          span.innerText = `x${count}`;
-          div.appendChild(span);
-        } else {
-          div.style.color = "gold";
-          div.innerText = GameDataUtil._escapeForHTML(relic);
         }
+
+        const span = document.createElement("span");
+        span.innerText = paradigm.name;
+        div.appendChild(span);
 
         td.appendChild(div);
       }
@@ -107,7 +81,7 @@ class Relics {
   _getHeaderTHs(playerCount) {
     console.assert(typeof playerCount === "number");
 
-    let ths = this._table.getElementsByClassName("relic-header");
+    let ths = this._table.getElementsByClassName("tf-paradigms-header");
     ths = [...ths]; // convert from HTMLCollection to array
     ths.forEach((th, index) => {
       th.style.display = index < playerCount ? "" : "none";
@@ -118,7 +92,7 @@ class Relics {
   _getColumnTDs(playerCount) {
     console.assert(typeof playerCount === "number");
 
-    let tds = this._table.getElementsByClassName("relic-column");
+    let tds = this._table.getElementsByClassName("tf-paradigms-column");
     tds = [...tds]; // convert from HTMLCollection to array
     tds.forEach((td, index) => {
       td.style.display = index < playerCount ? "" : "none";
@@ -128,5 +102,5 @@ class Relics {
 }
 
 window.addEventListener("load", () => {
-  Relics.getInstance();
+  TFParadigms.getInstance();
 });
