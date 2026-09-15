@@ -1427,7 +1427,7 @@ class GameDataUtil {
         result.add(type);
       }
     });
-    return GameDataUtil._escapeForHTML(Array.from(result));
+    return Array.from(result).map(name => GameDataUtil._escapeForHTML(name));
   }
 
   /**
