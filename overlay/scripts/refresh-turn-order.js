@@ -129,6 +129,17 @@ class TurnOrder {
     }
   }
 
+  fillBenediction(cell) {
+    console.assert(typeof cell === "object");
+
+    const factionIconImg = cell.getElementsByClassName("faction-icon")[0];
+    console.assert(factionIconImg);
+    const src = ImageUtil.getSrc(`tokens/benediction_square.png`);
+    if (factionIconImg.src !== src) {
+      factionIconImg.src = src;
+    }
+  }
+
   fillAll(gameData) {
     console.assert(typeof gameData === "object");
 
@@ -143,6 +154,7 @@ class TurnOrder {
     const currentTurnColorName =
       GameDataUtil.parseCurrentTurnColorName(gameData);
     const speakerColorName = GameDataUtil.parseSpeakerColorName(gameData);
+    const benedictionColorName = GameDataUtil.parseBenedictionColorName(gameData);
 
     this._cells.forEach((cell) => {
       this.fillFaction(cell, "bobert", "white");
@@ -176,6 +188,10 @@ class TurnOrder {
       this.fillStrategyCards(cell, strategyCards, color);
       this.fillBackgroundColor(cell, isCurrentTurn, color);
 
+      // Fills benediction first in case speaker and benediction are the same color
+      if (colorNameAndHex.colorName === benedictionColorName) {
+        this.fillBenediction(cell);
+      }
       if (colorNameAndHex.colorName === speakerColorName) {
         this.fillSpeaker(cell);
       }

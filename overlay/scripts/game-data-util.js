@@ -438,6 +438,21 @@ class GameDataUtil {
   }
 
   /**
+   * Parse current benediction color name from overall game data.
+   *
+   * @param {Object.{speaker:string}} gameData
+   * @returns {string}
+   */
+  static parseBenedictionColorName(gameData) {
+    console.assert(typeof gameData === "object");
+
+    const benediction = gameData?.benediction?.toLowerCase() || "none";
+    console.assert(typeof benediction === "string");
+
+    return benediction;
+  }
+
+  /**
    * Parse current turn color name from overall game data.
    *
    * @param {Object.{turn:string}} gameData
