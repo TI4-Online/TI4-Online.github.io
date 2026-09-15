@@ -208,15 +208,16 @@ const LAW_ABBREVIATIONS = {
 };
 
 const TECHNOLOGY_COLOR = {
+  "4X41C Helios V2": "white",
   "Agency Supply Network": "yellow",
   "AI Development Algorithm": "red",
   "Advanced Carrier II": "white",
   "Aerie Hololattice": "yellow",
-  Aetherstream: "blue",
+  "Aetherstream": "blue",
   "Antimass Deflectors": "blue",
   "Assault Cannon": "red",
   "Bio Stims": "green",
-  Bioplasmosis: "green",
+  "Bioplasmosis": "green",
   "Carrier II": "white",
   "Chaos Mapping": "blue",
   "Crimson Legionnaire II": "white",
@@ -229,6 +230,8 @@ const TECHNOLOGY_COLOR = {
   "Dreadnought II": "white",
   "Duranium Armor": "red",
   "E-res Siphons": "yellow",
+  "Executive Order": "yellow",
+  "Exile II": "white",
   "Exotrireme II": "white",
   "Fighter II": "white",
   "Fleet Logistics": "blue",
@@ -239,8 +242,8 @@ const TECHNOLOGY_COLOR = {
   "Hegemonic Trade Policy": "yellow",
   "Hel-Titan II": "white",
   "Hybrid Crystal Fighter II": "white",
+  "Hydrothermal Mining": "green",
   "Hyper Metabolism": "green",
-  "I.I.H.Q. Modernization": "yellow",
   "Impulse Core": "yellow",
   "Infantry II": "white",
   "Inheritance Systems": "yellow",
@@ -250,23 +253,29 @@ const TECHNOLOGY_COLOR = {
   "Lazax Gate Folding": "blue",
   "Letani Warrior II": "white",
   "Light-Wave Deflector": "blue",
+  "Linkship II": "white",
   "Magen Defense Grid": "red",
   "Mageon Implants": "green",
   "Magmus Reactor": "red",
   "Memoria II": "white",
   "Mirror Computing": "yellow",
+  "Nanomachines": "red",
   "Neural Motivator": "green",
-  Neuroglaive: "green",
+  "Neural Parasite": "green",
+  "Neuroglaive": "green",
   "Non-Euclidean Shielding": "red",
   "Nullification Field": "yellow",
   "PDS II": "white",
+  "Planesplitter": "yellow",
   "Plasma Scoring": "red",
   "Pre-Fab Arcologies": "green",
   "Predictive Intelligence": "yellow",
   "Production Biomes": "green",
   "Prototype War Sun II": "white",
-  Psychoarchaeology: "green",
+  "Proxima Targeting VI": "red",
+  "Psychoarchaeology": "green",
   "Quantum Datahub Node": "yellow",
+  "Radical Advancement": "white",
   "Salvage Operations": "yellow",
   "Sarween Tools": "yellow",
   "Saturn Engine II": "white",
@@ -277,21 +286,51 @@ const TECHNOLOGY_COLOR = {
   "Spacial Conduit Cylinder": "blue",
   "Spec Ops II": "white",
   "Strike Wing Alpha II": "white",
+  "Subatomic Splicer": "yellow",
   "Super-Dreadnought II": "white",
-  Supercharge: "red",
+  "Supercharge": "red",
   "Temporal Command Suite": "yellow",
   "Transit Diodes": "yellow",
   "Transparasteel Plating": "green",
   "Valefar Assimilator X": "white",
   "Valefar Assimilator Y": "white",
   "Valkyrie Particle Weave": "red",
-  Voidwatch: "green",
-  Vortex: "red",
+  "Voidwatch": "green",
+  "Vortex": "red",
   "Wormhole Generator": "blue",
   "X-89 Bacterial Weapon": "green",
   "Yin Spinner": "green",
   "War Sun": "white",
 };
+
+const UNIT_UPGRADE_TYPES = {
+  "4X41C Helios V2": "space_dock",
+  "Advanced Carrier II": "carrier",
+  "Carrier II": "carrier",
+  "Crimson Legionnaire II": "infantry",
+  "Cruiser II": "cruiser",
+  "Destroyer II": "destroyer",
+  "Dimensional Tear II": "space_dock",
+  "Dreadnought II": "dreadnought",
+  "Exile II": "destroyer",
+  "Exotrireme II": "dreadnought",
+  "Fighter II": "fighter",
+  "Floating Factory II": "space_dock",
+  "Hel-Titan II": "pds",
+  "Hybrid Crystal Fighter II": "fighter",
+  "Infantry II": "infantry",
+  "Letani Warrior II": "infantry",
+  "Linkship II": "destroyer",
+  "Memoria II": "flagship",
+  "PDS II": "pds",
+  "Prototype War Sun II": "war_sun",
+  "Saturn Engine II": "cruiser",
+  "Space Dock II": "space_dock",
+  "Spec Ops II": "infantry",
+  "Strike Wing Alpha II": "destroyer",
+  "Super-Dreadnought II": "dreadnought",
+  "War Sun": "war_sun",
+}
 
 const TF_ABILITY_COLOR = {
   "Abundance": "yellow",
@@ -1372,14 +1411,23 @@ class GameDataUtil {
   /**
    * Parse unit upgrades - returns "nsid" style unit types, e.g. "war_sun".
    *
-   * @param {Object.{unitUpgrades:Array.{string}}} playerData
+   * @param {Object.{unitUpgrades:Array.{string},tfUnitUpgrades:Array.{string}}} playerData
    * @returns {Array.{string}}
    */
   static parsePlayerUnitUpgrades(playerData) {
     console.assert(typeof playerData === "object");
 
-    const unitUpgrades = playerData?.unitUpgrades || [];
-    return unitUpgrades.map((name) => GameDataUtil._escapeForHTML(name));
+    const technology = playerData?.technology || [];
+    const tf_unit_upgrades = playerData?.tfUnitUpgrades || [];
+    const unitUpgrades = [...technology, ...tf_unit_upgrades];
+    const result = new Set();
+    unitUpgrades.forEach((name) => {
+      const type = UNIT_UPGRADE_TYPES[name] || TF_UNIT_UPGRADE_TYPE[name];
+      if (type) {
+        result.add(type);
+      }
+    });
+    return GameDataUtil._escapeForHTML(Array.from(result));
   }
 
   /**

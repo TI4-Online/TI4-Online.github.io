@@ -120,7 +120,6 @@ class GameDataSimplify {
         tfGenomes: GameDataUtil.parsePlayerTFGenomes(playerData),
         tfParadigms: GameDataUtil.parsePlayerTFParadigms(playerData),
         tfUnitUpgrades: GameDataUtil.parsePlayerTFUnitUpgrades(playerData),
-        unitUpgrades: GameDataUtil.parsePlayerUnitUpgrades(playerData), // Array.{string}
       };
     });
 
