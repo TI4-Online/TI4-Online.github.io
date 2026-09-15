@@ -98,9 +98,6 @@ class Relics {
           div.style.color = "gold";
 
           let text = relic;
-          if (count > 1) {
-            text += ` x${count}`;
-          }
 
           div.innerText = GameDataUtil._escapeForHTML(text);
         }
