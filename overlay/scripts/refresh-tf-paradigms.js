@@ -64,7 +64,7 @@ class TFParadigms {
 
         if (paradigm.originName) {
           const img = document.createElement("img");
-          img.src = `/overlay/images/faction-icons/${paradigm.originName}_icon.png`;
+          img.src = ImageUtil.getSrc(`faction-icons/${paradigm.originName}_icon.png`);
           img.style.height = "1.2em";
           div.appendChild(img);
         }

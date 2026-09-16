@@ -78,7 +78,7 @@ class TFUnitUpgrades {
 
         if (unitUpgrade.originName) {
           const img = document.createElement("img");
-          img.src = `/overlay/images/faction-icons/${unitUpgrade.originName}_icon.png`;
+          img.src = ImageUtil.getSrc(`faction-icons/${unitUpgrade.originName}_icon.png`);
           img.style.height = "1.2em";
           div.appendChild(img);
         }
@@ -89,7 +89,7 @@ class TFUnitUpgrades {
 
         if (unitUpgrade.type && TFUnitUpgrades.UNIT_UPGRADE_IMAGES[unitUpgrade.type]) {
           const typeImg = document.createElement("img");
-          typeImg.src = `/overlay/images/${TFUnitUpgrades.UNIT_UPGRADE_IMAGES[unitUpgrade.type]}`;
+          typeImg.src = ImageUtil.getSrc(TFUnitUpgrades.UNIT_UPGRADE_IMAGES[unitUpgrade.type]);
           typeImg.style.height = "1.2em";
           div.appendChild(typeImg);
         }
