@@ -1421,7 +1421,8 @@ class GameDataUtil {
     const tf_unit_upgrades = playerData?.tfUnitUpgrades || [];
     const unitUpgrades = [...technology, ...tf_unit_upgrades];
     const result = new Set();
-    unitUpgrades.forEach((name) => {
+    unitUpgrades.forEach((item) => {
+      const name = typeof item === "string" ? item : item.name;
       const type = UNIT_UPGRADE_TYPES[name] || TF_UNIT_UPGRADE_TYPE[name];
       if (type) {
         result.add(type);
