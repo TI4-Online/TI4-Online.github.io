@@ -1417,17 +1417,19 @@ class GameDataUtil {
   static parsePlayerUnitUpgrades(playerData) {
     console.assert(typeof playerData === "object");
 
-    const technology = playerData?.technology || [];
-    const tf_unit_upgrades = playerData?.tfUnitUpgrades || [];
-    const unitUpgrades = [...technology, ...tf_unit_upgrades];
     const result = new Set();
-    unitUpgrades.forEach((item) => {
+    const technologies = playerData?.technologies || playerData?.technology || [];
+    const tf_unit_upgrades = playerData?.tfUnitUpgrades || [];
+    const techsToMap = [...technologies, ...tf_unit_upgrades];
+
+    techsToMap.forEach((item) => {
       const name = typeof item === "string" ? item : item.name;
       const type = UNIT_UPGRADE_TYPES[name] || TF_UNIT_UPGRADE_TYPE[name];
       if (type) {
         result.add(type);
       }
     });
+
     return Array.from(result).map(name => GameDataUtil._escapeForHTML(name));
   }
 

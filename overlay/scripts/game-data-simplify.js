@@ -92,7 +92,7 @@ class GameDataSimplify {
         colorName, // string
         colorHex, // string
         faction: GameDataUtil.parsePlayerFaction(playerData), // string
-        isBenediction: colorname === simplified.benediction,
+        isBenediction: colorName === simplified.benediction,
         isSpeaker: colorName === simplified.speaker,
         isTurn: colorName === simplified.turn,
         name: GameDataUtil.parsePlayerName(playerData), // string
