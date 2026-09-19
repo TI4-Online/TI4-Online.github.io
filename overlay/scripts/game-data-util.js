@@ -477,7 +477,7 @@ const TF_ABILITY_ORIGIN = {
   "Puppet Council": "keleres",
   "Quantum Data. Node": "hacan",
   "Quantum Drive": "nomad",
-  "Quantum Entanglement": "creuss",
+  "Quantum Entangle.": "creuss",
   "Radical Advancement": "deepwrought",
   "Raid Formation": "argent",
   "Reclamation": "winnu",
@@ -597,7 +597,7 @@ const TF_UNIT_UPGRADE_TYPE = {
   "Strike Wing Alpha": "destroyer",
   "Exile": "destroyer",
   "Linkship": "destroyer",
-  "Hybrid Crystal Fighter": "fighter",
+  "Hybrid Cryst. Fight.": "fighter",
   "Triune": "fighter",
   "Morphwing": "fighter",
   "Valefar Prime": "mech",
@@ -631,7 +631,7 @@ const TF_UNIT_UPGRADE_ORIGIN = {
   "Strike Wing Alpha": "argent",
   "Exile": "rebellion",
   "Linkship": "ralnel",
-  "Hybrid Crystal Fighter": "naalu",
+  "Hybrid Cryst. Fight.": "naalu",
   "Triune": "empyrean",
   "Morphwing": "naazrokha",
   "Valefar Prime": "nekro",
@@ -1317,16 +1317,19 @@ class GameDataUtil {
   }
 
   /**
-   * Parse Twilight's Fall abilities.
+   * Parse Twilight's Fall abilities and faction techs.
    *
-   * @param {Object.{tfAbilities:Array.{string}}} playerData
+   * @param {Object.{tfAbilities:Array.{string}, tfFactionTechs:Array.{string}}} playerData
    * @returns {Array.{Object.{name:string,colorName:string,originName:string}}}
    */
   static parsePlayerTFAbilities(playerData) {
     console.assert(typeof playerData === "object");
 
     const tfAbilities = playerData?.tfAbilities || [];
-    return tfAbilities.map((name) => {
+    const tfFactionTechs = playerData?.tfFactionTechs || [];
+    const combined = [...tfAbilities, ...tfFactionTechs];
+
+    return combined.map((name) => {
       const colorName = TF_ABILITY_COLOR[name] || "white";
       const originName = TF_ABILITY_ORIGIN[name] || "";
       return {
