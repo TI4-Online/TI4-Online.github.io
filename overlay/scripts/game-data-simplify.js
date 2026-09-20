@@ -114,11 +114,15 @@ class GameDataSimplify {
         score: GameDataUtil.parsePlayerScore(playerData), // number
         // Array.{Object.{name:string,faceDown:boolean}}
         strategyCards: GameDataUtil.parsePlayerStrategyCards(playerData),
-        // Array.{Object.{name:string,colorName:string}
+        // Array.{Object.{name:string,colorName:string,faceDown:boolean}}
         technology: GameDataUtil.parsePlayerTechnologies(playerData),
+        // Array.{Object.{name:string,colorName:string,originName:string,faceDown:boolean}}
         tfAbilities: GameDataUtil.parsePlayerTFAbilities(playerData),
+        // Array.{Object.{name:string,originName:string,faceDown:boolean}}
         tfGenomes: GameDataUtil.parsePlayerTFGenomes(playerData),
+        // Array.{Object.{name:string,originName:string}}
         tfParadigms: GameDataUtil.parsePlayerTFParadigms(playerData),
+        // Array.{Object.{name:string,originName:string}}
         tfUnitUpgrades: GameDataUtil.parsePlayerTFUnitUpgrades(playerData),
       };
     });

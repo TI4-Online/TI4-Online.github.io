@@ -216,7 +216,7 @@ const TECHNOLOGY_COLOR = {
   "Aetherstream": "blue",
   "Antimass Deflectors": "blue",
   "Assault Cannon": "red",
-  "Bio Stims": "green",
+  "Bio-Stims": "green",
   "Bioplasmosis": "green",
   "Carrier II": "white",
   "Chaos Mapping": "blue",
@@ -331,6 +331,69 @@ const UNIT_UPGRADE_TYPES = {
   "Super-Dreadnought II": "dreadnought",
   "War Sun": "war_sun",
 }
+
+const FACTION_TECHS = {
+  "4X41C Helios V2": "bastion",
+  "Agency Supply Network": "keleres",
+  "Advanced Carrier II": "sol",
+  "Aerie Hololattice": "argent",
+  "Aetherstream": "empyrean",
+  "Bioplasmosis": "arborec",
+  "Chaos Mapping": "saar",
+  "Crimson Legionnaire II": "mahact",
+  "Dimensional Splicer": "creuss",
+  "Dimensional Tear II": "vuilraith",
+  "E-res Siphons": "jolnar",
+  "Executive Order": "keleres",
+  "Exile II": "rebellion",
+  "Exotrireme II": "norr",
+  "Floating Factory II": "saar",
+  "Genetic Recombination": "mahact",
+  "Hegemonic Trade Policy": "winnu",
+  "Hel-Titan II": "ul",
+  "Hybrid Crystal Fighter II": "naalu",
+  "Hydrothermal Mining": "deepwrought",
+  "Impulse Core": "yin",
+  "Inheritance Systems": "l1z1x",
+  "Instinct Training": "xxcha",
+  "L4 Disruptors": "letnev",
+  "Lazax Gate Folding": "winnu",
+  "Letani Warrior II": "arborec",
+  "Linkship II": "ralnel",
+  "Mageon Implants": "yssaril",
+  "Magmus Reactor": "muaat",
+  "Memoria II": "nomad",
+  "Mirror Computing": "mentak",
+  "Nanomachines": "ralnel",
+  "Neural Parasite": "firmament",
+  "Neuroglaive": "naalu",
+  "Non-Euclidean Shielding": "letnev",
+  "Nullification Field": "xxcha",
+  "Planesplitter": "firmament",
+  "Pre-Fab Arcologies": "naazrokha",
+  "Production Biomes": "hacan",
+  "Prototype War Sun II": "muaat",
+  "Proxima Targeting VI": "bastion",
+  "Quantum Datahub Node": "hacan",
+  "Radical Advancement": "deepwrought",
+  "Salvage Operations": "mentak",
+  "Saturn Engine II": "ul",
+  "Spacial Conduit Cylinder": "jolnar",
+  "Spec Ops II": "sol",
+  "Strike Wing Alpha II": "argent",
+  "Subatomic Splicer": "rebellion",
+  "Super-Dreadnought II": "l1z1x",
+  "Supercharge": "naazrokha",
+  "Temporal Command Suite": "nomad",
+  "Transparasteel Plating": "yssaril",
+  "Valefar Assimilator X": "nekro",
+  "Valefar Assimilator Y": "nekro",
+  "Valkyrie Particle Weave": "norr",
+  "Voidwatch": "empyrean",
+  "Vortex": "vuilraith",
+  "Wormhole Generator": "creuss",
+  "Yin Spinner": "yin",
+};
 
 const TF_ABILITY_COLOR = {
   "Abundance": "yellow",
@@ -1300,18 +1363,22 @@ class GameDataUtil {
   /**
    * Parse technologies.
    *
-   * @param {Object.{technologies:Array.{string}}} playerData
-   * @returns {Array.{Object.{name:string,colorName:string}}}
+   * @param {Object.{technologies:Array.{string},technologiesFaceDown:Array.{string}}} playerData
+   * @returns {Array.{Object.{name:string,colorName:string,faceDown:boolean,faction:string,unitUpgradeType:string}}}
    */
   static parsePlayerTechnologies(playerData) {
     console.assert(typeof playerData === "object");
 
     const technologies = playerData?.technologies || [];
+    const technologiesFaceDown = playerData?.technologiesFaceDown || [];
     return technologies.map((name) => {
       const colorName = TECHNOLOGY_COLOR[name] || "white";
       return {
         name: GameDataUtil._escapeForHTML(name),
         colorName,
+        faceDown: technologiesFaceDown.includes(name),
+        faction: FACTION_TECHS[name] || "",
+        unitUpgradeType: UNIT_UPGRADE_TYPES[name] || "",
       };
     });
   }
@@ -1319,13 +1386,14 @@ class GameDataUtil {
   /**
    * Parse Twilight's Fall abilities and faction techs.
    *
-   * @param {Object.{tfAbilities:Array.{string}, tfFactionTechs:Array.{string}}} playerData
-   * @returns {Array.{Object.{name:string,colorName:string,originName:string}}}
+   * @param {Object.{tfAbilities:Array.{string},tfAbilitiesFaceDown:Array.{string},tfFactionTechs:Array.{string}}} playerData
+   * @returns {Array.{Object.{name:string,colorName:string,originName:string,faceDown:boolean}}}
    */
   static parsePlayerTFAbilities(playerData) {
     console.assert(typeof playerData === "object");
 
     const tfAbilities = playerData?.tfAbilities || [];
+    const tfAbilitiesFaceDown = playerData?.tfAbilitiesFaceDown || [];
     const tfFactionTechs = playerData?.tfFactionTechs || [];
     const combined = [...tfAbilities, ...tfFactionTechs];
 
@@ -1336,6 +1404,7 @@ class GameDataUtil {
         name: GameDataUtil._escapeForHTML(name),
         colorName,
         originName,
+        faceDown: tfAbilitiesFaceDown.includes(name),
       };
     });
   }
@@ -1343,18 +1412,20 @@ class GameDataUtil {
   /**
    * Parse Twilight's Fall genomes.
    *
-   * @param {Object.{tfGenomes:Array.{string}}} playerData
-   * @returns {Array.{Object.{name:string,originName:string}}}
+   * @param {Object.{tfGenomes:Array.{string},tfGenomesFaceDown:Array.{string}}} playerData
+   * @returns {Array.{Object.{name:string,originName:string,faceDown:boolean}}}
    */
   static parsePlayerTFGenomes(playerData) {
     console.assert(typeof playerData === "object");
 
     const tfGenomes = playerData?.tfGenomes || [];
+    const faceDown = playerData?.tfGenomesFaceDown || [];
     return tfGenomes.map((name) => {
       const originName = TF_GENOME_ORIGIN[name] || "";
       return {
         name: GameDataUtil._escapeForHTML(name),
         originName,
+        faceDown: faceDown.includes(name),
       };
     });
   }

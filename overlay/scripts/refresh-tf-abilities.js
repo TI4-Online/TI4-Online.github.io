@@ -71,6 +71,9 @@ class TFAbilities {
 
         const span = document.createElement("span");
         span.innerText = ability.name;
+        if (ability.faceDown) {
+          span.style.textDecoration = "line-through";
+        }
         div.appendChild(span);
 
         td.appendChild(div);

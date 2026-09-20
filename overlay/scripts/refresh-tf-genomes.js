@@ -71,6 +71,9 @@ class TFGenomes {
 
         const span = document.createElement("span");
         span.innerText = genome.name;
+        if (genome.faceDown) {
+          span.style.textDecoration = "line-through";
+        }
         div.appendChild(span);
 
         td.appendChild(div);
