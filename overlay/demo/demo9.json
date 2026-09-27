@@ -1220,6 +1220,22 @@
                 "AI Development Algorithm",
                 "Psychoarchaeology"
             ],
+            "tfAbilities": [
+                "Fabrication",
+                "Crucible"
+            ],
+            "tfGenomes": [
+                "Altruistic Genome",
+                "Silver Genome"
+            ],
+            "tfParadigms": [
+                "Flock Migration",
+                "Gravitational Collapse"
+            ],
+            "tfUnitUpgrades": [
+                "Helios Entity",
+                "Triune"
+            ],
             "tradeGoods": 10,
             "turnOrder": 5,
             "unitModifiers": [],
