@@ -161,6 +161,15 @@ it("parseObjectives keeps a converted secret public and preserves its scorer", (
   assert.equal(GameDataUtil.parseObjectives(gameData).secret.length, 5);
 });
 
+it("preserves the local technology color additions", () => {
+  const technologies = GameDataUtil.parsePlayerTechnologies({
+    technologies: ["Neurail Parasite", "Proxima Targeting Vi", "Radical Advancement"],
+  });
+  assert.deepEqual(technologies.map((technology) => technology.colorName), [
+    "green", "red", "green",
+  ]);
+});
+
 it("parsePlayerActive", () => {
   const gameData = getGameData();
   const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
