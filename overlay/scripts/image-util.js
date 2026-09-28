@@ -13,8 +13,12 @@ class ImageUtil {
    */
   static getSrc(imagePath) {
     console.assert(typeof imagePath === "string");
-    if (imagePath.startsWith("faction-icons/") || imagePath.startsWith("tokens/")) {
-      // Redirect for faction icons to get the TE ones.
+    if (
+      imagePath.startsWith("faction-icons/") ||
+      imagePath === "tokens/speaker_square.png" ||
+      imagePath === "tokens/benediction_square.png"
+    ) {
+      // Only these tokens live alongside the newer faction icons on the overlay site.
       return `https://ti4-online.github.io/overlay/images/${imagePath}`;
     }
     const protocol = location.protocol;
