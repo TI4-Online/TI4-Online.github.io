@@ -40,7 +40,7 @@ class GameDataSimplify {
       // Array.{Object.{name:string, colorNames:Array.{string}}}
       laws: GameDataUtil.parseLaws(gameData),
 
-      // Object.{stage1:Array, stage2:Array, secret:Array, custodians:Array, sftt:Array, other:Array}
+      // Object.{stage1:Array, stage2:Array, extraPublic:Array, secret:Array, custodians:Array, sftt:Array, other:Array}
       // ArrayEntry: {name:string, abbr:string, scoredBy:Array.{string}}
       objectives: GameDataUtil.parseObjectives(gameData),
 

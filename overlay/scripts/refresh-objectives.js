@@ -25,9 +25,21 @@ class Objectives {
     });
     const playerCount = players.length;
 
-    // Get and clear objective rows.
+    const objectiveGroups = GameDataUtil.parseObjectives(gameData);
+    const neededRows =
+      objectiveGroups.stage1.length +
+      objectiveGroups.stage2.length +
+      objectiveGroups.extraPublic.length +
+      objectiveGroups.other.length +
+      3; // secrets, custodians, support
+    // Grow the frame only when a game needs more rows.
     let objectiveTRs = document.getElementsByClassName("objective");
     objectiveTRs = [...objectiveTRs]; // convert from HTMLCollection to array
+    while (objectiveTRs.length < neededRows) {
+      const extraRow = objectiveTRs[objectiveTRs.length - 1].cloneNode(true);
+      objectiveTRs[objectiveTRs.length - 1].parentNode.appendChild(extraRow);
+      objectiveTRs.push(extraRow);
+    }
     for (const objectiveTR of objectiveTRs) {
       const nameTD = this._getObjectiveNameTD(objectiveTR);
       const scoringTDs = this._getScoringTDs(objectiveTR, playerCount);
@@ -47,7 +59,6 @@ class Objectives {
     };
 
     // Fill.
-    const objectiveGroups = GameDataUtil.parseObjectives(gameData);
     for (const objective of objectiveGroups.stage1) {
       this._fillObjective(
         getNextObjectiveTR(),
@@ -60,6 +71,15 @@ class Objectives {
       this._fillObjective(
         getNextObjectiveTR(),
         "stage2",
+        objective,
+        playerColorNamesAndHexValues
+      );
+    }
+
+    for (const objective of objectiveGroups.extraPublic) {
+      this._fillObjective(
+        getNextObjectiveTR(),
+        "extraPublic",
         objective,
         playerColorNamesAndHexValues
       );
@@ -109,7 +129,7 @@ class Objectives {
     const nameTD = this._getObjectiveNameTD(objectiveTR);
     let bgColor = "unset";
     let color = "black";
-    if (objectiveType === "stage1") {
+    if (objectiveType === "stage1" || objectiveType === "extraPublic") {
       bgColor = GameDataUtil.colorNameToHex("yellow");
     } else if (objectiveType === "stage2") {
       bgColor = GameDataUtil.colorNameToHex("blue");

@@ -113,8 +113,8 @@ iframe {
 
 .size-objectives {
   width: 400px;
-  height: 544px;
-  /* 17 rows, must be 528 or taller to avoid table spilling larger than size */
+  height: 576px;
+  /* 18 rows, including one extra public objective */
 }
 
 .size-secrets {

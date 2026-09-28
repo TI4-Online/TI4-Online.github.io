@@ -261,6 +261,7 @@ const TECHNOLOGY_COLOR = {
   "Mirror Computing": "yellow",
   "Nanomachines": "red",
   "Neural Motivator": "green",
+  "Neurail Parasite": "green",
   "Neural Parasite": "green",
   "Neural Parasite-Obs.": "green",
   "Neuroglaive": "green",
@@ -275,9 +276,10 @@ const TECHNOLOGY_COLOR = {
   "Production Biomes": "green",
   "Prototype War Sun II": "white",
   "Proxima Targeting VI": "red",
+  "Proxima Targeting Vi": "red",
   "Psychoarchaeology": "green",
   "Quantum Data. Node": "yellow",
-  "Radical Advancement": "white",
+  "Radical Advancement": "green",
   "Salvage Operations": "yellow",
   "Sarween Tools": "yellow",
   "Saturn Engine II": "white",
@@ -1050,6 +1052,7 @@ class GameDataUtil {
     const objectives = {
       stage1: [],
       stage2: [],
+      extraPublic: [],
       secret: [],
       custodians: [],
       sftt: [],
@@ -1091,8 +1094,12 @@ class GameDataUtil {
 
     // Group objectives into categories.  Split out support from other.
     const gameDataObjectives = gameData?.objectives || [];
+    // The extra-public slot wins even if an older save also lists the card as secret.
+    addEntries(gameDataObjectives["Public Objectives Extra"] || [], objectives.extraPublic);
     for (const [key, names] of Object.entries(gameDataObjectives)) {
-      if (key === "Secret Objectives") {
+      if (key === "Public Objectives Extra") {
+        continue;
+      } else if (key === "Secret Objectives") {
         addEntries(names, objectives.secret);
       } else if (key === "Public Objectives I") {
         addEntries(names, objectives.stage1);

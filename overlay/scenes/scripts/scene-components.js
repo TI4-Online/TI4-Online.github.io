@@ -443,6 +443,10 @@ class SceneComponents {
       const objectiveBox = SceneComponents.reserveVertical(box, lineH);
       this.drawObjective(objectiveBox, "stage2", objective, simplified);
     }
+    for (const objective of simplified.objectives.extraPublic) {
+      const objectiveBox = SceneComponents.reserveVertical(box, lineH);
+      this.drawObjective(objectiveBox, "extraPublic", objective, simplified);
+    }
 
     // Secrets are a little different.
     const secretsScoredBy = [];
@@ -498,7 +502,7 @@ class SceneComponents {
     ctx.translate(labelBox.x, labelBox.y);
     let textColor = SceneComponents.FG;
     let bgColor = undefined;
-    if (type === "stage1") {
+    if (type === "stage1" || type === "extraPublic") {
       bgColor = SceneComponents.YELLOW;
       textColor = SceneComponents.BG;
     } else if (type === "stage2") {

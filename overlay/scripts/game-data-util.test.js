@@ -122,6 +122,7 @@ it("parseObjectives", () => {
         scoredBy: ["white"],
       },
     ],
+    extraPublic: [],
     stage1: [
       {
         abbr: "3 COMMAND TOKENS",
@@ -144,6 +145,20 @@ it("parseObjectives", () => {
       { abbr: "6 INF 6 RES 6 TG", name: "Hold Vast Reserves", scoredBy: [] },
     ],
   });
+});
+
+it("parseObjectives keeps a converted secret public and preserves its scorer", () => {
+  const gameData = getGameData();
+  // The dedicated public slot takes precedence over a stale secret listing.
+  gameData.objectives["Public Objectives Extra"] = ["Seize an Icon"];
+  const objectives = GameDataUtil.parseObjectives(gameData);
+  assert.deepEqual(objectives.extraPublic, [
+    { abbr: "LEGENDARY PLANET", name: "Seize an Icon", scoredBy: ["white"] },
+  ]);
+  assert.equal(objectives.secret.length, 4);
+
+  delete gameData.objectives["Public Objectives Extra"];
+  assert.equal(GameDataUtil.parseObjectives(gameData).secret.length, 5);
 });
 
 it("parsePlayerActive", () => {

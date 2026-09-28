@@ -68,6 +68,7 @@ class Sidebar {
     const objectivesLines = Math.max(
       simplified.objectives.stage1.length +
         simplified.objectives.stage2.length +
+        simplified.objectives.extraPublic.length +
         1 + // secret count
         1 + // custodians
         1 + // support
