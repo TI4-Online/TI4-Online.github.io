@@ -252,7 +252,7 @@ const TECHNOLOGY_COLOR = {
   "L4 Disruptors": "yellow",
   "Lazax Gate Folding": "blue",
   "Letani Warrior II": "white",
-  "Light-Wave Deflector": "blue",
+  "Light/Wave Deflector": "blue",
   "Linkship II": "white",
   "Magen Defense Grid": "red",
   "Mageon Implants": "green",
