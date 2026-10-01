@@ -103,7 +103,7 @@ class Technology {
           typeImg.style.height = "1.2em";
           div.appendChild(typeImg);
         }
-        else if (tech.colorName) {
+        else if (tech.colorName && Technology.COLOR_TO_IMG[tech.colorName]) {
           const colorImg = document.createElement("img");
           colorImg.src = ImageUtil.getSrc(Technology.COLOR_TO_IMG[tech.colorName]);
           colorImg.style.height = "1.2em";
