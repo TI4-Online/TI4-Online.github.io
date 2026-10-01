@@ -1,6 +1,27 @@
 "use strict";
 
 class RotatingActivePlayer {
+  static UNIT_UPGRADE_IMAGES = {
+    "flagship": "units/unit_h_Flagship.png",
+    "war_sun": "units/unit_w_War_Sun.png",
+    "dreadnought": "units/unit_d_Dreadnought.png",
+    "carrier": "units/unit_c_Carrier.png",
+    "cruiser": "units/unit_r_Cruiser.png",
+    "destroyer": "units/unit_y_Destroyer.png",
+    "fighter": "units/unit_f_Fighter.png",
+    "pds": "units/unit_p_PDS.png",
+    "infantry": "units/unit_i_Infantry.png",
+    "space_dock": "units/unit_s_Space_Dock.png",
+    "mech": "units/unit_m_Mech.png",
+  };
+
+  static COLOR_TO_IMG = {
+    "blue": "technology/PropulsionTech.png",
+    "green": "technology/BioticTech.png",
+    "red": "technology/WarfareTech.png",
+    "yellow": "technology/CyberneticTech.png",
+  };
+
   static getInstance() {
     if (!RotatingActivePlayer.__instance) {
       RotatingActivePlayer.__instance = new RotatingActivePlayer();
@@ -73,7 +94,38 @@ class RotatingActivePlayer {
     for (const tech of techs) {
       const div = document.createElement("div");
       div.style.color = GameDataUtil.colorNameToHex(tech.colorName);
-      div.innerText = tech.name;
+      div.style.display = "flex";
+      div.style.alignItems = "center";
+      div.style.justifyContent = "center";
+      div.style.gap = "4px";
+
+      if (tech.faction) {
+        const img = document.createElement("img");
+        img.src = ImageUtil.getSrc(`faction-icons/${tech.faction}_icon.png`);
+        img.style.height = "1.2em";
+        div.appendChild(img);
+      }
+
+      const span = document.createElement("span");
+      span.innerText = tech.name;
+      if (tech.faceDown) {
+        span.style.textDecoration = "line-through";
+      }
+      div.appendChild(span);
+
+      if (tech.unitUpgradeType && RotatingActivePlayer.UNIT_UPGRADE_IMAGES[tech.unitUpgradeType]) {
+        const typeImg = document.createElement("img");
+        typeImg.src = ImageUtil.getSrc(RotatingActivePlayer.UNIT_UPGRADE_IMAGES[tech.unitUpgradeType]);
+        typeImg.style.height = "1.2em";
+        div.appendChild(typeImg);
+      }
+      else if (tech.colorName && RotatingActivePlayer.COLOR_TO_IMG[tech.colorName]) {
+        const colorImg = document.createElement("img");
+        colorImg.src = ImageUtil.getSrc(RotatingActivePlayer.COLOR_TO_IMG[tech.colorName]);
+        colorImg.style.height = "1.2em";
+        div.appendChild(colorImg);
+      }
+
       columnTD.appendChild(div);
     }
 
