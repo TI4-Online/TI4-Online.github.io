@@ -143,16 +143,8 @@ iframe {
 }
 
 .size-tf-rotating {
-  width: 392px;
-  height: fit-content;
-  box-sizing: border-box !important;
-  background-color: #222222;
-  margin-left: 4px;
-}
-
-.size-tf-rotating-iframe {
-  width: 400px;
-  height: 1000px;
+  width: 396px;
+  height: 910px;
 }
 
 .size-resources {

@@ -128,6 +128,18 @@ class RotatingTFActivePlayer {
       }
     }
 
+    // Relics
+    const relicsTD = table.getElementsByClassName("tf-relics-content")[0];
+    relicsTD.innerHTML = "";
+    const relics = GameDataUtil.parsePlayerRelics(playerData);
+    for (let i = 0; i < 3; i++) {
+      if (i < relics.length) {
+        relicsTD.appendChild(this._createItemDiv({ name: relics[i] }, false));
+      } else {
+        relicsTD.appendChild(this._createEmptyItemDiv());
+      }
+    }
+
     // Resources.
     const canvas = table.getElementsByClassName("resources-canvas")[0];
 
