@@ -1,5 +1,43 @@
 "use strict";
 
+class LRUCache {
+  constructor(capacity) {
+    this.capacity = capacity;
+    this.cache = new Map();
+  }
+
+  // Get a value from the cache
+  get(key) {
+    console.warn(`Cache access size=${this.cache.size}`);
+
+    if (!this.cache.has(key)) return undefined;
+
+    // Refresh item: get the value, delete it, and re-insert it at the end
+    const value = this.cache.get(key);
+    this.cache.delete(key);
+    this.cache.set(key, value);
+
+    return value;
+  }
+
+  // Add or update a value in the cache
+  put(key, value) {
+    // If the key already exists, delete it so we can refresh its position
+    if (this.cache.has(key)) {
+      this.cache.delete(key);
+    } else if (this.cache.size >= this.capacity) {
+      // Cache is full: evict the oldest item (the first key in the Map iterator)
+      const oldestKey = this.cache.keys().next().value;
+      this.cache.delete(oldestKey);
+    }
+
+    // Insert the new/updated key-value pair (lands at the very end)
+    this.cache.set(key, value);
+
+    console.info(`Cache updated size=${this.cache.size}`);
+  }
+}
+
 class ImageUtil {
   constructor() {
     throw new Error("static only");
@@ -20,6 +58,35 @@ class ImageUtil {
     const protocol = location.protocol;
     const port = protocol === "http:" ? 8080 : 8081;
     return `${protocol}//localhost:${port}/static/images/${imagePath}`;
+  }
+
+  /**
+   * Produce a deterministic JSON string for an arbitrary value, regardless
+   * of key insertion order, and regardless of nesting depth.
+   *
+   * Plain JSON.stringify(obj, Object.keys(obj).sort()) is NOT safe for this
+   * purpose: when the replacer is an array, JSON.stringify applies that same
+   * top-level key whitelist recursively to every nested object, silently
+   * dropping nested properties whose names are not in that top-level list.
+   *
+   * @param {*} value
+   * @returns {string}
+   */
+  static stableStringify(value) {
+    const sorter = (v) => {
+      if (Array.isArray(v)) {
+        return v.map(sorter);
+      }
+      if (v && typeof v === "object") {
+        const sorted = {};
+        for (const key of Object.keys(v).sort()) {
+          sorted[key] = sorter(v[key]);
+        }
+        return sorted;
+      }
+      return v;
+    };
+    return JSON.stringify(sorter(value));
   }
 
   static colorNameToFilter(colorName) {
@@ -154,13 +221,13 @@ class ImageUtil {
 
     // Create a cache key from the image src and params.
     params.src = src;
-    const cacheKey = JSON.stringify(params, Object.keys(params).sort());
+    const cacheKey = ImageUtil.stableStringify(params);
 
     // If ready, draw now!
     if (!ImageUtil.__cache) {
-      ImageUtil.__cache = {};
+      ImageUtil.__cache = new LRUCache(100);
     }
-    let cachedImage = ImageUtil.__cache[cacheKey];
+    let cachedImage = ImageUtil.__cache.get(cacheKey);
     if (cachedImage) {
       if (!cachedImage.image) {
         return; // still loading
@@ -174,7 +241,7 @@ class ImageUtil {
     // For now do all the manipulation for each tint color.  Sure this is an
     // order of magnitude more setup, but simple to manage.
     cachedImage = {}; // store an 'in-progress' marker
-    ImageUtil.__cache[cacheKey] = cachedImage;
+    ImageUtil.__cache.put(cacheKey, cachedImage);
 
     const image = new Image();
     image.crossOrigin = "Anonymous";
@@ -290,10 +357,10 @@ class ImageUtil {
         // Draw outline AND shadow.  We could use shadow blur, but this gives
         // more control over alpha fade.
         const outlineColor = ImageUtil.colorStringToRGBA(
-          params.outlineColor || "white"
+          params.outlineColor || "white",
         );
         const shadowColor = ImageUtil.colorStringToRGBA(
-          params.shadowColor || "black"
+          params.shadowColor || "black",
         );
         const overallWidth = outlineWidth + shadowWidth;
         let rep = false;
