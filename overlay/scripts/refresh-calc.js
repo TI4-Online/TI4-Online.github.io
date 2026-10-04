@@ -3,6 +3,8 @@
 const { Faction } = require("./ti4calc2/core/enums");
 const { Place } = require("./ti4calc2/core/enums");
 const { UnitType } = require("./ti4calc2/core/unit");
+const { setupBattle } = require("./ti4calc2/core/battleSetup");
+const { doBattle } = require("./ti4calc2/core/battle");
 
 class Calc {
   static getInstance() {
@@ -128,10 +130,17 @@ class Calc {
         break;
       }
 
+      const newParticipant = () => ({
+        faction: Faction.barony_of_letnev,
+        units: {},
+        unitUpgrades: {},
+        battleEffects: {},
+        damagedUnits: {},
+      });
       const battle = {
         place: regionIndex === 0 ? Place.space : Place.ground,
-        attacker: {},
-        defender: {},
+        attacker: newParticipant(),
+        defender: newParticipant(),
       };
 
       const peerColorName = this._getPeerColor(region, activePlayerColorName);
