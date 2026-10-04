@@ -23,6 +23,35 @@ class ImageUtil {
     return `${protocol}//localhost:${port}/static/images/${imagePath}`;
   }
 
+  /**
+   * Produce a deterministic JSON string for an arbitrary value, regardless
+   * of key insertion order, and regardless of nesting depth.
+   *
+   * Plain JSON.stringify(obj, Object.keys(obj).sort()) is NOT safe for this
+   * purpose: when the replacer is an array, JSON.stringify applies that same
+   * top-level key whitelist recursively to every nested object, silently
+   * dropping nested properties whose names are not in that top-level list.
+   *
+   * @param {*} value
+   * @returns {string}
+   */
+  static stableStringify(value) {
+    const sorter = (v) => {
+      if (Array.isArray(v)) {
+        return v.map(sorter);
+      }
+      if (v && typeof v === "object") {
+        const sorted = {};
+        for (const key of Object.keys(v).sort()) {
+          sorted[key] = sorter(v[key]);
+        }
+        return sorted;
+      }
+      return v;
+    };
+    return JSON.stringify(sorter(value));
+  }
+
   static colorNameToFilter(colorName) {
     console.assert(typeof colorName === "string");
 
@@ -155,7 +184,7 @@ class ImageUtil {
 
     // Create a cache key from the image src and params.
     params.src = src;
-    const cacheKey = JSON.stringify(params, Object.keys(params).sort());
+    const cacheKey = ImageUtil.stableStringify(params);
 
     // If ready, draw now!
     if (!ImageUtil.__cache) {
