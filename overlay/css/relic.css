@@ -1,0 +1,21 @@
+.relic {
+  white-space: nowrap;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.relic th {
+  height: 20px;
+  font-size: larger;
+  text-transform: capitalize;
+  vertical-align: top;
+}
+
+.relic td {
+  vertical-align: top;
+  text-align: center;
+}
+
+.relic div {
+  overflow: hidden;
+}

@@ -51,7 +51,7 @@ class ImageUtil {
    */
   static getSrc(imagePath) {
     console.assert(typeof imagePath === "string");
-    if (imagePath.startsWith("faction-icons/")) {
+    if (imagePath.startsWith("faction-icons/") || imagePath.startsWith("tokens/") || imagePath.startsWith("technology/")) {
       // Redirect for faction icons to get the TE ones.
       return `https://ti4-online.github.io/overlay/images/${imagePath}`;
     }

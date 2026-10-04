@@ -1,6 +1,6 @@
 "use strict";
 
-class RotatingActivePlayer {
+class RotatingTFActivePlayer {
   static UNIT_UPGRADE_IMAGES = {
     "flagship": "units/unit_h_Flagship.png",
     "war_sun": "units/unit_w_War_Sun.png",
@@ -15,18 +15,11 @@ class RotatingActivePlayer {
     "mech": "units/unit_m_Mech.png",
   };
 
-  static COLOR_TO_IMG = {
-    "blue": "technology/PropulsionTech.png",
-    "green": "technology/BioticTech.png",
-    "red": "technology/WarfareTech.png",
-    "yellow": "technology/CyberneticTech.png",
-  };
-
   static getInstance() {
-    if (!RotatingActivePlayer.__instance) {
-      RotatingActivePlayer.__instance = new RotatingActivePlayer();
+    if (!RotatingTFActivePlayer.__instance) {
+      RotatingTFActivePlayer.__instance = new RotatingTFActivePlayer();
     }
-    return RotatingActivePlayer.__instance;
+    return RotatingTFActivePlayer.__instance;
   }
 
   constructor() {
@@ -87,46 +80,64 @@ class RotatingActivePlayer {
     headerTH.innerText = faction;
     headerTH.style.color = colorNameAndHex.colorHex || "white";
 
-    // Techs.
-    const techs = GameDataUtil.parsePlayerTechnologies(playerData);
-    const columnTD = table.getElementsByClassName("tech-column")[0];
-    columnTD.innerHTML = "";
-    for (const tech of techs) {
-      const div = document.createElement("div");
-      div.style.color = GameDataUtil.colorNameToHex(tech.colorName);
-      div.style.display = "flex";
-      div.style.alignItems = "center";
-      div.style.justifyContent = "center";
-      div.style.gap = "4px";
-
-      if (tech.faction) {
-        const img = document.createElement("img");
-        img.src = ImageUtil.getSrc(`faction-icons/${tech.faction}_icon.png`);
-        img.style.height = "1.2em";
-        div.appendChild(img);
+    // Abilities
+    const abilitiesTD = table.getElementsByClassName("tf-abilities-content")[0];
+    abilitiesTD.innerHTML = "";
+    const abilities = GameDataUtil.parsePlayerTFAbilities(playerData);
+    for (let i = 0; i < 10; i++) {
+      if (i < abilities.length) {
+        abilitiesTD.appendChild(this._createItemDiv(abilities[i], true));
+      } else {
+        abilitiesTD.appendChild(this._createEmptyItemDiv());
       }
+    }
 
-      const span = document.createElement("span");
-      span.innerText = tech.name;
-      if (tech.faceDown) {
-        span.style.textDecoration = "line-through";
+    // Unit Upgrades
+    const unitUpgradesTD = table.getElementsByClassName("tf-unit-upgrades-content")[0];
+    unitUpgradesTD.innerHTML = "";
+    const unitUpgrades = GameDataUtil.parsePlayerTFUnitUpgrades(playerData);
+    for (let i = 0; i < 5; i++) {
+      if (i < unitUpgrades.length) {
+        unitUpgradesTD.appendChild(this._createItemDiv(unitUpgrades[i], false, true));
+      } else {
+        unitUpgradesTD.appendChild(this._createEmptyItemDiv());
       }
-      div.appendChild(span);
+    }
 
-      if (tech.unitUpgradeType && RotatingActivePlayer.UNIT_UPGRADE_IMAGES[tech.unitUpgradeType]) {
-        const typeImg = document.createElement("img");
-        typeImg.src = ImageUtil.getSrc(RotatingActivePlayer.UNIT_UPGRADE_IMAGES[tech.unitUpgradeType]);
-        typeImg.style.height = "1.2em";
-        div.appendChild(typeImg);
+    // Genomes
+    const genomesTD = table.getElementsByClassName("tf-genomes-content")[0];
+    genomesTD.innerHTML = "";
+    const genomes = GameDataUtil.parsePlayerTFGenomes(playerData);
+    for (let i = 0; i < 4; i++) {
+      if (i < genomes.length) {
+        genomesTD.appendChild(this._createItemDiv(genomes[i], false));
+      } else {
+        genomesTD.appendChild(this._createEmptyItemDiv());
       }
-      else if (tech.colorName && RotatingActivePlayer.COLOR_TO_IMG[tech.colorName]) {
-        const colorImg = document.createElement("img");
-        colorImg.src = ImageUtil.getSrc(RotatingActivePlayer.COLOR_TO_IMG[tech.colorName]);
-        colorImg.style.height = "1.2em";
-        div.appendChild(colorImg);
-      }
+    }
 
-      columnTD.appendChild(div);
+    // Paradigms
+    const paradigmsTD = table.getElementsByClassName("tf-paradigms-content")[0];
+    paradigmsTD.innerHTML = "";
+    const paradigms = GameDataUtil.parsePlayerTFParadigms(playerData);
+    for (let i = 0; i < 3; i++) {
+      if (i < paradigms.length) {
+        paradigmsTD.appendChild(this._createItemDiv(paradigms[i], false));
+      } else {
+        paradigmsTD.appendChild(this._createEmptyItemDiv());
+      }
+    }
+
+    // Relics
+    const relicsTD = table.getElementsByClassName("tf-relics-content")[0];
+    relicsTD.innerHTML = "";
+    const relics = GameDataUtil.parsePlayerRelics(playerData);
+    for (let i = 0; i < 3; i++) {
+      if (i < relics.length) {
+        relicsTD.appendChild(this._createItemDiv({ name: relics[i] }, false));
+      } else {
+        relicsTD.appendChild(this._createEmptyItemDiv());
+      }
     }
 
     // Resources.
@@ -168,8 +179,51 @@ class RotatingActivePlayer {
     }
     this._lastTable = table;
   }
+
+  _createItemDiv(item, useColor, isUnitUpgrade) {
+    const div = document.createElement("div");
+    if (useColor && item.colorName) {
+      div.style.color = GameDataUtil.colorNameToHex(item.colorName);
+    } else {
+      div.style.color = "white";
+    }
+    div.style.display = "flex";
+    div.style.alignItems = "center";
+    div.style.justifyContent = "center";
+    div.style.gap = "4px";
+
+    if (item.originName) {
+      const img = document.createElement("img");
+      img.src = ImageUtil.getSrc(`faction-icons/${item.originName}_icon.png`);
+      img.style.height = "1.2em";
+      div.appendChild(img);
+    }
+
+    const span = document.createElement("span");
+    span.innerText = item.name;
+    if (item.faceDown) {
+      span.style.textDecoration = "line-through";
+    }
+    div.appendChild(span);
+
+    if (isUnitUpgrade && item.type && RotatingTFActivePlayer.UNIT_UPGRADE_IMAGES[item.type]) {
+      const typeImg = document.createElement("img");
+      typeImg.src = ImageUtil.getSrc(RotatingTFActivePlayer.UNIT_UPGRADE_IMAGES[item.type]);
+      typeImg.style.height = "1.2em";
+      div.appendChild(typeImg);
+    }
+
+    return div;
+  }
+
+  _createEmptyItemDiv() {
+    const div = document.createElement("div");
+    div.style.height = "1.2em";
+    div.innerHTML = "&nbsp;";
+    return div;
+  }
 }
 
 window.addEventListener("load", () => {
-  RotatingActivePlayer.getInstance();
+  RotatingTFActivePlayer.getInstance();
 });

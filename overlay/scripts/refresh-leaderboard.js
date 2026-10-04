@@ -78,7 +78,7 @@ class Leaderboard {
     return result;
   }
 
-  fillFaction(cell, faction, color) {
+  fillFaction(cell, faction, color, isSpeaker, isBenediction) {
     console.assert(typeof cell === "object");
     console.assert(typeof faction === "string");
     console.assert(typeof color === "string");
@@ -87,7 +87,16 @@ class Leaderboard {
 
     const factionIconImg = cell.getElementsByClassName("faction-icon")[0];
     console.assert(factionIconImg);
-    const src = ImageUtil.getSrc(`faction-icons/${faction}_icon.png`);
+    
+    let src;
+    if (isSpeaker) {
+      src = ImageUtil.getSrc(`tokens/speaker_square.png`);
+    } else if (isBenediction) {
+      src = ImageUtil.getSrc(`tokens/benediction_square.png`);
+    } else {
+      src = ImageUtil.getSrc(`faction-icons/${faction}_icon.png`);
+    }
+
     if (factionIconImg.src !== src) {
       factionIconImg.src = src;
     }
@@ -178,6 +187,17 @@ class Leaderboard {
     }
   }
 
+  fillBenediction(cell) {
+    console.assert(typeof cell === "object");
+
+    const factionIconImg = cell.getElementsByClassName("faction-icon")[0];
+    console.assert(factionIconImg);
+    const src = ImageUtil.getSrc(`tokens/benediction_square.png`);
+    if (factionIconImg.src !== src) {
+      factionIconImg.src = src;
+    }
+  }
+
   fillAll(gameData) {
     console.assert(typeof gameData === "object");
 
@@ -187,6 +207,9 @@ class Leaderboard {
     const currentTurnColorName =
       GameDataUtil.parseCurrentTurnColorName(gameData);
     console.assert(typeof currentTurnColorName === "string");
+
+    const speakerColorName = GameDataUtil.parseSpeakerColorName(gameData);
+    const benedictionColorName = GameDataUtil.parseBenedictionColorName(gameData);
 
     const playerCount = playerDataArray.length;
     const cells = this.getLeaderboardCells(playerCount);
@@ -205,22 +228,14 @@ class Leaderboard {
       const color = colorNameAndHex.colorHex;
       const isCurrentTurn = colorNameAndHex.colorName === currentTurnColorName;
 
-      this.fillFaction(cell, faction, color);
+      const isSpeaker = colorNameAndHex.colorName === speakerColorName;
+      const isBenediction = colorNameAndHex.colorName === benedictionColorName;
+
+      this.fillFaction(cell, faction, color, isSpeaker, isBenediction);
       this.fillPlayerName(cell, playerName, color, active);
       this.fillScore(cell, score, color);
       this.fillStrategyCards(cell, strategyCards, color);
       this.fillBackgroundColor(cell, isCurrentTurn, color);
-    });
-
-    const speakerColorName = GameDataUtil.parseSpeakerColorName(gameData);
-    cells.forEach((cell, index) => {
-      const playerData = playerDataArray[index];
-      console.assert(playerData);
-
-      const colorNameAndHex = GameDataUtil.parsePlayerColor(playerData);
-      if (colorNameAndHex.colorName === speakerColorName) {
-        this.fillSpeaker(cell);
-      }
     });
   }
 }

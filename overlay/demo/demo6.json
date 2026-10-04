@@ -53,7 +53,7 @@
                             "industrial": 0
                         }
                     },
-                    "relicCards": [],
+                    "relics": [],
                     "score": 0,
                     "strategyCards": [
                         "Technology"
@@ -96,7 +96,7 @@
                             "industrial": 0
                         }
                     },
-                    "relicCards": [],
+                    "relics": [],
                     "score": 0,
                     "strategyCards": [
                         "Politics"
@@ -139,7 +139,7 @@
                             "industrial": 0
                         }
                     },
-                    "relicCards": [],
+                    "relics": [],
                     "score": 0,
                     "strategyCards": [
                         "Construction"
@@ -182,7 +182,7 @@
                             "industrial": 0
                         }
                     },
-                    "relicCards": [],
+                    "relics": [],
                     "score": 0,
                     "strategyCards": [
                         "Warfare"
@@ -225,7 +225,7 @@
                             "industrial": 0
                         }
                     },
-                    "relicCards": [],
+                    "relics": [],
                     "score": 0,
                     "strategyCards": [
                         "Leadership"
@@ -268,7 +268,7 @@
                             "industrial": 0
                         }
                     },
-                    "relicCards": [],
+                    "relics": [],
                     "score": 0,
                     "strategyCards": [
                         "Trade"
@@ -351,7 +351,7 @@
                     "industrial": 0
                 }
             },
-            "relicCards": [],
+            "relics": [],
             "score": 0,
             "strategyCards": [
                 "Technology"
@@ -419,7 +419,7 @@
                     "industrial": 0
                 }
             },
-            "relicCards": [],
+            "relics": [],
             "score": 0,
             "strategyCards": [
                 "Politics"
@@ -482,7 +482,7 @@
                     "industrial": 0
                 }
             },
-            "relicCards": [],
+            "relics": [],
             "score": 0,
             "strategyCards": [
                 "Construction"
@@ -545,7 +545,7 @@
                     "industrial": 0
                 }
             },
-            "relicCards": [],
+            "relics": [],
             "score": 0,
             "strategyCards": [
                 "Warfare"
@@ -607,7 +607,7 @@
                     "industrial": 0
                 }
             },
-            "relicCards": [],
+            "relics": [],
             "score": 0,
             "strategyCards": [
                 "Leadership"
@@ -674,7 +674,7 @@
                     "industrial": 0
                 }
             },
-            "relicCards": [],
+            "relics": [],
             "score": 0,
             "strategyCards": [
                 "Trade"

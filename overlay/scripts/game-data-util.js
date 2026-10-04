@@ -57,8 +57,27 @@ const FACTION_WHITELIST = new Set([
   "xxcha",
   "yin",
   "yssaril",
+  "aur",
+  "janovet",
+  "lurch",
+  "monarch",
+  "rex",
+  "swords",
+  "thorns",
+  "viroset",
 ]);
 const UNKNOWN_FACTION = "bobert";
+
+const TF_FACTION_WHITELIST = new Set([
+  "aur",
+  "janovet",
+  "lurch",
+  "monarch",
+  "rex",
+  "swords",
+  "thorns",
+  "viroset"
+]);
 
 const OBJECTIVE_NAME_ABBREVIATIONS = {
   // Public
@@ -189,27 +208,30 @@ const LAW_ABBREVIATIONS = {
 };
 
 const TECHNOLOGY_COLOR = {
-  "Agency Supply Network": "yellow",
-  "AI Development Algorithm": "red",
+  "4X41C Helios V2": "white",
+  "Agency Sup. Net.": "yellow",
+  "AI Dev. Algo.": "red",
   "Advanced Carrier II": "white",
   "Aerie Hololattice": "yellow",
-  Aetherstream: "blue",
+  "Aetherstream": "blue",
   "Antimass Deflectors": "blue",
   "Assault Cannon": "red",
   "Bio-Stims": "green",
-  Bioplasmosis: "green",
+  "Bioplasmosis": "green",
   "Carrier II": "white",
   "Chaos Mapping": "blue",
-  "Crimson Legionnaire II": "white",
+  "Crimson Legion. II": "white",
   "Cruiser II": "white",
   "Dacxive Animators": "green",
   "Dark Energy Tap": "blue",
   "Destroyer II": "white",
-  "Dimensional Splicer": "red",
-  "Dimensional Tear II": "white",
+  "Dim. Splicer": "red",
+  "Dim. Tear II": "white",
   "Dreadnought II": "white",
   "Duranium Armor": "red",
-  "E-res Siphons": "yellow",
+  "E-Res Siphons": "yellow",
+  "Executive Order": "yellow",
+  "Exile II": "white",
   "Exotrireme II": "white",
   "Fighter II": "white",
   "Fleet Logistics": "blue",
@@ -217,11 +239,11 @@ const TECHNOLOGY_COLOR = {
   "Genetic Recombination": "green",
   "Graviton Laser System": "yellow",
   "Gravity Drive": "blue",
-  "Hegemonic Trade Policy": "yellow",
+  "Heg. Trade Pol.": "yellow",
   "Hel-Titan II": "white",
-  "Hybrid Crystal Fighter II": "white",
+  "Hybrid Cryst. Fight. II": "white",
+  "Hydrothermal Mining": "green",
   "Hyper Metabolism": "green",
-  "I.I.H.Q. Modernization": "yellow",
   "Impulse Core": "yellow",
   "Infantry II": "white",
   "Inheritance Systems": "yellow",
@@ -230,49 +252,484 @@ const TECHNOLOGY_COLOR = {
   "L4 Disruptors": "yellow",
   "Lazax Gate Folding": "blue",
   "Letani Warrior II": "white",
-  "Light-Wave Deflector": "blue",
+  "Light/Wave Deflector": "blue",
+  "Linkship II": "white",
   "Magen Defense Grid": "red",
   "Mageon Implants": "green",
   "Magmus Reactor": "red",
   "Memoria II": "white",
   "Mirror Computing": "yellow",
+  "Nanomachines": "red",
   "Neural Motivator": "green",
-  Neuroglaive: "green",
-  "Non-Euclidean Shielding": "red",
+  "Neural Parasite": "green",
+  "Neural Parasite-Obs.": "green",
+  "Neuroglaive": "green",
+  "Non-Euc. Shielding": "red",
   "Nullification Field": "yellow",
   "PDS II": "white",
+  "Planesplitter": "yellow",
+  "Planesplitter-Obs.": "yellow",
   "Plasma Scoring": "red",
   "Pre-Fab Arcologies": "green",
   "Predictive Intelligence": "yellow",
   "Production Biomes": "green",
   "Prototype War Sun II": "white",
-  Psychoarchaeology: "green",
-  "Quantum Datahub Node": "yellow",
+  "Proxima Targeting VI": "red",
+  "Psychoarchaeology": "green",
+  "Quantum Data. Node": "yellow",
+  "Radical Advancement": "white",
   "Salvage Operations": "yellow",
   "Sarween Tools": "yellow",
   "Saturn Engine II": "white",
-  "Scanlink Drone Network": "yellow",
+  "Scanlink Drone Net.": "yellow",
   "Self Assembly Routines": "red",
   "Sling Relay": "blue",
   "Space Dock II": "white",
-  "Spacial Conduit Cylinder": "blue",
+  "Spatial Con. Cyl.": "blue",
   "Spec Ops II": "white",
   "Strike Wing Alpha II": "white",
+  "Subatomic Splicer": "yellow",
   "Super-Dreadnought II": "white",
-  Supercharge: "red",
-  "Temporal Command Suite": "yellow",
+  "Supercharge": "red",
+  "Temp. Com. Suite": "yellow",
   "Transit Diodes": "yellow",
   "Transparasteel Plating": "green",
   "Valefar Assimilator X": "white",
   "Valefar Assimilator Y": "white",
-  "Valkyrie Particle Weave": "red",
-  Voidwatch: "green",
-  Vortex: "red",
+  "Valk. Part. Weave": "red",
+  "Voidwatch": "green",
+  "Vortex": "red",
   "Wormhole Generator": "blue",
   "X-89 Bacterial Weapon": "green",
   "Yin Spinner": "green",
   "War Sun": "white",
 };
+
+const UNIT_UPGRADE_TYPES = {
+  "4X41C Helios V2": "space_dock",
+  "Advanced Carrier II": "carrier",
+  "Carrier II": "carrier",
+  "Crimson Legion. II": "infantry",
+  "Cruiser II": "cruiser",
+  "Destroyer II": "destroyer",
+  "Dim. Tear II": "space_dock",
+  "Dreadnought II": "dreadnought",
+  "Exile II": "destroyer",
+  "Exotrireme II": "dreadnought",
+  "Fighter II": "fighter",
+  "Floating Factory II": "space_dock",
+  "Hel-Titan II": "pds",
+  "Hybrid Cryst. Fight. II": "fighter",
+  "Infantry II": "infantry",
+  "Letani Warrior II": "infantry",
+  "Linkship II": "destroyer",
+  "Memoria II": "flagship",
+  "PDS II": "pds",
+  "Prototype War Sun II": "war_sun",
+  "Saturn Engine II": "cruiser",
+  "Space Dock II": "space_dock",
+  "Spec Ops II": "infantry",
+  "Strike Wing Alpha II": "destroyer",
+  "Super-Dreadnought II": "dreadnought",
+  "War Sun": "war_sun",
+}
+
+const FACTION_TECHS = {
+  "4X41C Helios V2": "bastion",
+  "Agency Sup. Net.": "keleres",
+  "Advanced Carrier II": "sol",
+  "Aerie Hololattice": "argent",
+  "Aetherstream": "empyrean",
+  "Bioplasmosis": "arborec",
+  "Chaos Mapping": "saar",
+  "Crimson Legion. II": "mahact",
+  "Dim. Splicer": "creuss",
+  "Dim. Tear II": "vuilraith",
+  "E-Res Siphons": "jolnar",
+  "Executive Order": "keleres",
+  "Exile II": "rebellion",
+  "Exotrireme II": "norr",
+  "Floating Factory II": "saar",
+  "Genetic Recombination": "mahact",
+  "Heg. Trade Pol.": "winnu",
+  "Hel-Titan II": "ul",
+  "Hybrid Cryst. Fight. II": "naalu",
+  "Hydrothermal Mining": "deepwrought",
+  "Impulse Core": "yin",
+  "Inheritance Systems": "l1z1x",
+  "Instinct Training": "xxcha",
+  "L4 Disruptors": "letnev",
+  "Lazax Gate Folding": "winnu",
+  "Letani Warrior II": "arborec",
+  "Linkship II": "ralnel",
+  "Mageon Implants": "yssaril",
+  "Magmus Reactor": "muaat",
+  "Memoria II": "nomad",
+  "Mirror Computing": "mentak",
+  "Nanomachines": "ralnel",
+  "Neural Parasite": "firmament",
+  "Neural Parasite-Obs.": "obsidian",
+  "Neuroglaive": "naalu",
+  "Non-Euc. Shielding": "letnev",
+  "Nullification Field": "xxcha",
+  "Planesplitter": "firmament",
+  "Planesplitter-Obs.": "obsidian",
+  "Pre-Fab Arcologies": "naazrokha",
+  "Production Biomes": "hacan",
+  "Prototype War Sun II": "muaat",
+  "Proxima Targeting VI": "bastion",
+  "Quantum Data. Node": "hacan",
+  "Radical Advancement": "deepwrought",
+  "Salvage Operations": "mentak",
+  "Saturn Engine II": "ul",
+  "Spatial Con. Cyl.": "jolnar",
+  "Spec Ops II": "sol",
+  "Strike Wing Alpha II": "argent",
+  "Subatomic Splicer": "rebellion",
+  "Super-Dreadnought II": "l1z1x",
+  "Supercharge": "naazrokha",
+  "Temp. Com. Suite": "nomad",
+  "Transparasteel Plating": "yssaril",
+  "Valefar Assimilator X": "nekro",
+  "Valefar Assimilator Y": "nekro",
+  "Valk. Part. Weave": "norr",
+  "Voidwatch": "empyrean",
+  "Vortex": "vuilraith",
+  "Wormhole Generator": "creuss",
+  "Yin Spinner": "yin",
+};
+
+const TF_ABILITY_COLOR = {
+  "Abundance": "yellow",
+  "Aerie Holo.": "yellow",
+  "Aetherstream": "blue",
+  "Agency Sup. Net.": "yellow",
+  "Amalgamation": "red",
+  "Ambush": "red",
+  "Armada": "red",
+  "Assimilate": "yellow",
+  "Awaken": "blue",
+  "Bio-Synthetic Syn.": "green",
+  "Bioplasmosis": "green",
+  "Chaos Mapping": "yellow",
+  "Courier Transport": "blue",
+  "Crafty": "green",
+  "Crucible": "blue",
+  "Devotion": "blue",
+  "Dim. Splicer": "red",
+  "Dim. Tear": "blue",
+  "Distant Suns": "blue",
+  "E-Res Siphons": "yellow",
+  "Entropic Harvest": "yellow",
+  "Fabrication": "yellow",
+  "Fleet Logistics": "blue",
+  "Foresight": "blue",
+  "Future Path": "blue",
+  "Genetic Research": "green",
+  "Guild Ships": "blue",
+  "Harrow": "red",
+  "Heg. Trade Pol.": "yellow",
+  "Indoctrination": "green",
+  "Inheritance Systems": "yellow",
+  "Instinct Training": "green",
+  "Lazax Gate Folding": "blue",
+  "Liberate": "red",
+  "Magmus Reactor": "blue",
+  "Mirror Computing": "yellow",
+  "Mitosis": "green",
+  "Munitions Reserves": "red",
+  "Nanomachines": "red",
+  "Neural Parasite": "green",
+  "Neuroglaive": "red",
+  "Nomadic": "blue",
+  "Non-Euc. Shielding": "red",
+  "Nullification Field": "yellow",
+  "Orbital Drop": "green",
+  "Overwatch": "red",
+  "Pacifist": "green",
+  "Peace Accords": "yellow",
+  "Pillage": "yellow",
+  "Planesplitter": "red",
+  "Proxima Targeting VI": "red",
+  "Puppet Council": "green",
+  "Quantum Data. Node": "yellow",
+  "Quantum Drive": "blue",
+  "Quantum Entangle.": "blue",
+  "Radical Advancement": "green",
+  "Raid Formation": "red",
+  "Reclamation": "yellow",
+  "Scavenge": "yellow",
+  "Scheming": "green",
+  "Singularity X": "green",
+  "Singularity Y": "green",
+  "Singularity Z": "green",
+  "Sled Factories": "yellow",
+  "Slipstream": "blue",
+  "Smothering Presence": "green",
+  "Spatial Con. Cyl.": "blue",
+  "Spec Ops Training": "green",
+  "Stall Tactics": "blue",
+  "Star Forge": "yellow",
+  "Stellar Genesis": "yellow",
+  "Stymie": "green",
+  "Subatomic Splicer": "yellow",
+  "Supercharge": "red",
+  "Survival Instinct": "red",
+  "Tactical Brilliance": "red",
+  "Telepathic": "green",
+  "Temp. Com. Suite": "yellow",
+  "Terraform": "blue",
+  "The Burning Eye": "red",
+  "Unrelenting": "red",
+  "Valk. Part. Weave": "red",
+  "Valkyrie Vanguard": "blue",
+  "Versatile": "green",
+  "Voidborn": "blue",
+  "Yin Ascendant": "green",
+  "Zealous": "red",
+};
+
+const TF_ABILITY_ORIGIN = {
+  "Abundance": "ul",
+  "Aerie Holo.": "argent",
+  "Aetherstream": "empyrean",
+  "Agency Sup. Net.": "keleres",
+  "Amalgamation": "vuilraith",
+  "Ambush": "mentak",
+  "Antimatter: Black": "lurch",
+  "Antimatter: Blue": "swords",
+  "Antimatter: Green": "thorns",
+  "Antimatter: Orange": "aur",
+  "Antimatter: Pink": "janovet",
+  "Antimatter: Purple": "viroset",
+  "Antimatter: Red": "monarch",
+  "Antimatter: Yellow": "rex",
+  "Armada": "letnev",
+  "Assimilate": "l1z1x",
+  "Awaken": "ul",
+  "Bio-Synthetic Syn.": "bastion",
+  "Bioplasmosis": "arborec",
+  "Chaos Mapping": "saar",
+  "Courier Transport": "ralnel",
+  "Crafty": "yssaril",
+  "Crucible": "vuilraith",
+  "Devotion": "yin",
+  "Dim. Splicer": "creuss",
+  "Dim. Tear": "vuilraith",
+  "Distant Suns": "naazrokha",
+  "E-Res Siphons": "jolnar",
+  "Entropic Harvest": "rebellion",
+  "Fabrication": "naazrokha",
+  "Fleet Logistics": "keleres",
+  "Foresight": "naalu",
+  "Future Path": "nomad",
+  "Genetic Research": "deepwrought",
+  "Guild Ships": "hacan",
+  "Harrow": "l1z1x",
+  "Heg. Trade Pol.": "winnu",
+  "Indoctrination": "yin",
+  "Inheritance Systems": "l1z1x",
+  "Instinct Training": "xxcha",
+  "Lazax Gate Folding": "winnu",
+  "Liberate": "bastion",
+  "Magmus Reactor": "muaat",
+  "Mirror Computing": "mentak",
+  "Mitosis": "arborec",
+  "Munitions Reserves": "letnev",
+  "Nanomachines": "ralnel",
+  "Neural Parasite": "obsidian",
+  "Neuroglaive": "naalu",
+  "Nomadic": "saar",
+  "Non-Euc. Shielding": "letnev",
+  "Nullification Field": "xxcha",
+  "Orbital Drop": "sol",
+  "Overwatch": "empyrean",
+  "Pacifist": "deepwrought",
+  "Peace Accords": "xxcha",
+  "Pillage": "mentak",
+  "Planesplitter": "obsidian",
+  "Proxima Targeting VI": "bastion",
+  "Puppet Council": "keleres",
+  "Quantum Data. Node": "hacan",
+  "Quantum Drive": "nomad",
+  "Quantum Entangle.": "creuss",
+  "Radical Advancement": "deepwrought",
+  "Raid Formation": "argent",
+  "Reclamation": "winnu",
+  "Scavenge": "saar",
+  "Scheming": "yssaril",
+  "Singularity X": "nekro",
+  "Singularity Y": "nekro",
+  "Singularity Z": "nekro",
+  "Sled Factories": "hacan",
+  "Slipstream": "creuss",
+  "Smothering Presence": "rebellion",
+  "Spatial Con. Cyl.": "jolnar",
+  "Spec Ops Training": "sol",
+  "Stall Tactics": "yssaril",
+  "Star Forge": "muaat",
+  "Stellar Genesis": "muaat",
+  "Stymie": "arborec",
+  "Subatomic Splicer": "rebellion",
+  "Supercharge": "naazrokha",
+  "Survival Instinct": "ralnel",
+  "Tactical Brilliance": "jolnar",
+  "Telepathic": "naalu",
+  "Temp. Com. Suite": "nomad",
+  "Terraform": "ul",
+  "The Burning Eye": "obsidian",
+  "Unrelenting": "norr",
+  "Valk. Part. Weave": "norr",
+  "Valkyrie Vanguard": "norr",
+  "Versatile": "sol",
+  "Voidborn": "empyrean",
+  "Wavelength: Black": "lurch",
+  "Wavelength: Blue": "swords",
+  "Wavelength: Green": "thorns",
+  "Wavelength: Orange": "aur",
+  "Wavelength: Pink": "janovet",
+  "Wavelength: Purple": "viroset",
+  "Wavelength: Red": "monarch",
+  "Wavelength: Yellow": "rex",
+  "Yin Ascendant": "yin",
+  "Zealous": "argent",
+};
+
+const TF_GENOME_ORIGIN = {
+  "Action Genome": "keleres",
+  "Altruistic Genome": "ul",
+  "Aristocratic Genome": "letnev",
+  "Breach Genome": "rebellion",
+  "Brutal Genome": "l1z1x",
+  "Captain's Genome": "saar",
+  "Clever Genome": "yssaril",
+  "Cosmic Genome": "empyrean",
+  "Courier Genome": "ralnel",
+  "Curious Genome": "naazrokha",
+  "Deployment Genome": "nomad",
+  "Diplomatic Genome": "xxcha",
+  "Divine Genome": "winnu",
+  "Enigmatic Genome": "creuss",
+  "Experimental Genome": "jolnar",
+  "Human Genome": "sol",
+  "Hyper Genome": "mentak",
+  "Investment Genome": "nomad",
+  "Limit Genome": "naalu",
+  "Mirror Genome": "obsidian",
+  "Molten Genome": "muaat",
+  "Pacific Genome": "arborec",
+  "Ravenous Genome": "vuilraith",
+  "Recursive Genome": "nekro",
+  "Research Genome": "deepwrought",
+  "Scornful Genome": "argent",
+  "Silver Genome": "hacan",
+  "Splitting Genome": "yin",
+  "Swarm Genome": "norr",
+  "Temporal Genome": "nomad",
+  "Valiant Genome": "bastion",
+}
+
+const TF_PARADIGM_ORIGIN = {
+  "Artemiris Ascendant": "keleres",
+  "Awakening": "ul",
+  "Blessing of the Yin": "yin",
+  "Brilliance of the Hylar": "jolnar",
+  "Brood Swarm": "norr",
+  "Changing the Ways": "creuss",
+  "Devour World": "nekro",
+  "Diaspora": "l1z1x",
+  "Dimensional Reflection": "rebellion",
+  "Eternity's End": "obsidian",
+  "Event Horizon": "vuilraith",
+  "Extortion": "yssaril",
+  "Flock Migration": "argent",
+  "Forge Legend": "naazrokha",
+  "Gravitational Collapse": "muaat",
+  "Insurrection": "mentak",
+  "Intelligence Unshackled": "bastion",
+  "Limit Break": "ralnel",
+  "Opening the Eye": "empyrean",
+  "Overgrowth": "arborec",
+  "Poison of the Nefishh": "naalu",
+  "Sanction of the Quieron": "hacan",
+  "Sins of the Father": "winnu",
+  "The Laws Unwritten": "deepwrought",
+  "The Lay of Lisis": "saar",
+  "The Winds of Change": "keleres",
+  "Time Warp": "nomad",
+  "Twilight Directive": "sol",
+  "Voice of the Council": "xxcha",
+  "Void Transference": "letnev",
+  "Witching Hour": "keleres",
+}
+
+const TF_UNIT_UPGRADE_TYPE = {
+  "Echo of Ascension": "flagship",
+  "Prototype War Sun": "war_sun",
+  "University War Sun": "war_sun",
+  "The Dragon, Freed": "war_sun",
+  "Dawncrusher": "dreadnought",
+  "Exotrireme": "dreadnought",
+  "Super-Dreadnought": "dreadnought",
+  "Advanced Carrier": "carrier",
+  "Ambassador": "carrier",
+  "Vortexer": "carrier",
+  "Corsair": "cruiser",
+  "Ahk Syl Fier": "cruiser",
+  "Saggitaria": "cruiser",
+  "Strike Wing Alpha": "destroyer",
+  "Exile": "destroyer",
+  "Linkship": "destroyer",
+  "Hybrid Cryst. Fight.": "fighter",
+  "Triune": "fighter",
+  "Morphwing": "fighter",
+  "Valefar Prime": "mech",
+  "Eidolon Terminus": "mech",
+  "Eidolon Landwaster": "mech",
+  "Yin Clone": "infantry",
+  "Guild Agents": "infantry",
+  "Letani Warrior": "infantry",
+  "Hel-Titan": "pds",
+  "Keeper Matrix": "pds",
+  "Justicier Rail": "pds",
+  "Production Biomes": "space_dock",
+  "Floating Factories": "space_dock",
+  "Helios Entity": "space_dock",
+}
+
+const TF_UNIT_UPGRADE_ORIGIN = {
+  "Echo of Ascension": "nomad",
+  "Prototype War Sun": "muaat",
+  "University War Sun": "jolnar",
+  "The Dragon, Freed": "obsidian",
+  "Dawncrusher": "letnev",
+  "Exotrireme": "norr",
+  "Super-Dreadnought": "l1z1x",
+  "Advanced Carrier": "sol",
+  "Ambassador": "deepwrought",
+  "Vortexer": "vuilraith",
+  "Corsair": "mentak",
+  "Ahk Syl Fier": "creuss",
+  "Saggitaria": "keleres",
+  "Strike Wing Alpha": "argent",
+  "Exile": "rebellion",
+  "Linkship": "ralnel",
+  "Hybrid Cryst. Fight.": "naalu",
+  "Triune": "empyrean",
+  "Morphwing": "naazrokha",
+  "Valefar Prime": "nekro",
+  "Eidolon Terminus": "vuilraith",
+  "Eidolon Landwaster": "naazrokha",
+  "Yin Clone": "yin",
+  "Guild Agents": "yssaril",
+  "Letani Warrior": "arborec",
+  "Hel-Titan": "ul",
+  "Keeper Matrix": "xxcha",
+  "Justicier Rail": "winnu",
+  "Production Biomes": "hacan",
+  "Floating Factories": "saar",
+  "Helios Entity": "bastion",
+}
 
 /**
  * This class parses data from the game-provided json.  It validates against
@@ -317,6 +774,21 @@ class GameDataUtil {
   }
 
   /**
+   * Parse current benediction color name from overall game data.
+   *
+   * @param {Object.{speaker:string}} gameData
+   * @returns {string}
+   */
+  static parseBenedictionColorName(gameData) {
+    console.assert(typeof gameData === "object");
+
+    const benediction = gameData?.benediction?.toLowerCase() || "none";
+    console.assert(typeof benediction === "string");
+
+    return benediction;
+  }
+
+  /**
    * Parse current turn color name from overall game data.
    *
    * @param {Object.{turn:string}} gameData
@@ -329,6 +801,22 @@ class GameDataUtil {
     console.assert(typeof currentTurn === "string");
 
     return COLOR_NAME_TO_HEX[currentTurn] ? currentTurn : UNKNOWN_COLOR_NAME;
+  }
+
+  /**
+   * Parse galactic events.
+   *
+   * @param {Object.{galacticEvents:Array.{string}}} gameData
+   * @returns {Array.{string}}
+   */
+  static parseGalacticEvents(gameData) {
+    console.assert(typeof gameData === "object");
+
+    let galacticEvents = gameData?.galacticEvents || [];
+    console.assert(Array.isArray(galacticEvents));
+    galacticEvents = galacticEvents.map((name) => GameDataUtil._escapeForHTML(name));
+
+    return galacticEvents;
   }
 
   /**
@@ -771,6 +1259,22 @@ class GameDataUtil {
   }
 
   /**
+   * Parse player relics.
+   *
+   * @param {Object.{relics:Array.{string}}} playerData
+   * @returns {Array.{string}}
+   */
+  static parsePlayerRelics(playerData) {
+    console.assert(typeof playerData === "object");
+
+    let relics = playerData?.relics || [];
+    console.assert(Array.isArray(relics));
+    relics = relics.map((name) => GameDataUtil._escapeForHTML(name));
+
+    return relics;
+  }
+
+  /**
    * Parse player resources.
    *
    * @param {Object} playerData
@@ -779,13 +1283,14 @@ class GameDataUtil {
   static parsePlayerResources(playerData) {
     console.assert(typeof playerData === "object");
 
-    const bonusCommodities = (playerData?.relicCards || []).includes(
+    const bonusCommodities = (playerData?.relics || []).includes(
       "Dynamis Core"
     )
       ? 2
       : 0;
 
     return {
+      isTfFaction: TF_FACTION_WHITELIST.has(GameDataUtil.parsePlayerFaction(playerData)),
       influence: {
         avail: playerData?.planetTotals?.influence?.avail || 0,
         total: playerData?.planetTotals?.influence?.total || 0,
@@ -878,18 +1383,109 @@ class GameDataUtil {
   /**
    * Parse technologies.
    *
-   * @param {Object.{technologies:Array.{string}}} playerData
-   * @returns {Array.{Object.{name:string,colorName:string}}}
+   * @param {Object.{technologies:Array.{string},technologiesFaceDown:Array.{string}}} playerData
+   * @returns {Array.{Object.{name:string,colorName:string,faceDown:boolean,faction:string,unitUpgradeType:string}}}
    */
   static parsePlayerTechnologies(playerData) {
     console.assert(typeof playerData === "object");
 
     const technologies = playerData?.technologies || [];
+    const technologiesFaceDown = playerData?.technologiesFaceDown || [];
     return technologies.map((name) => {
       const colorName = TECHNOLOGY_COLOR[name] || "white";
       return {
         name: GameDataUtil._escapeForHTML(name),
         colorName,
+        faceDown: technologiesFaceDown.includes(name),
+        faction: FACTION_TECHS[name] || "",
+        unitUpgradeType: UNIT_UPGRADE_TYPES[name] || "",
+      };
+    });
+  }
+
+  /**
+   * Parse Twilight's Fall abilities and faction techs.
+   *
+   * @param {Object.{tfAbilities:Array.{string},tfAbilitiesFaceDown:Array.{string},tfFactionTechs:Array.{string}}} playerData
+   * @returns {Array.{Object.{name:string,colorName:string,originName:string,faceDown:boolean}}}
+   */
+  static parsePlayerTFAbilities(playerData) {
+    console.assert(typeof playerData === "object");
+
+    const tfAbilities = playerData?.tfAbilities || [];
+    const tfAbilitiesFaceDown = playerData?.tfAbilitiesFaceDown || [];
+    const tfFactionTechs = playerData?.tfFactionTechs || [];
+    const combined = [...tfAbilities, ...tfFactionTechs];
+
+    return combined.map((name) => {
+      const colorName = TF_ABILITY_COLOR[name] || "white";
+      const originName = TF_ABILITY_ORIGIN[name] || "";
+      return {
+        name: GameDataUtil._escapeForHTML(name),
+        colorName,
+        originName,
+        faceDown: tfAbilitiesFaceDown.includes(name),
+      };
+    });
+  }
+
+  /**
+   * Parse Twilight's Fall genomes.
+   *
+   * @param {Object.{tfGenomes:Array.{string},tfGenomesFaceDown:Array.{string}}} playerData
+   * @returns {Array.{Object.{name:string,originName:string,faceDown:boolean}}}
+   */
+  static parsePlayerTFGenomes(playerData) {
+    console.assert(typeof playerData === "object");
+
+    const tfGenomes = playerData?.tfGenomes || [];
+    const faceDown = playerData?.tfGenomesFaceDown || [];
+    return tfGenomes.map((name) => {
+      const originName = TF_GENOME_ORIGIN[name] || "";
+      return {
+        name: GameDataUtil._escapeForHTML(name),
+        originName,
+        faceDown: faceDown.includes(name),
+      };
+    });
+  }
+
+  /**
+   * Parse Twilight's Fall paradigms.
+   *
+   * @param {Object.{tfParadigms:Array.{string}}} playerData
+   * @returns {Array.{Object.{name:string,originName:string}}}
+   */
+  static parsePlayerTFParadigms(playerData) {
+    console.assert(typeof playerData === "object");
+
+    const tfParadigms = playerData?.tfParadigms || [];
+    return tfParadigms.map((name) => {
+      const originName = TF_PARADIGM_ORIGIN[name] || "";
+      return {
+        name: GameDataUtil._escapeForHTML(name),
+        originName,
+      };
+    });
+  }
+
+  /**
+   * Parse Twilight's Fall unit upgrades.
+   *
+   * @param {Object.{tfUnitUpgrades:Array.{string}}} playerData
+   * @returns {Array.{Object.{name:string,type:string,originName:string}}}
+   */
+  static parsePlayerTFUnitUpgrades(playerData) {
+    console.assert(typeof playerData === "object");
+
+    const tfUnitUpgrades = playerData?.tfUnitUpgrades || [];
+    return tfUnitUpgrades.map((name) => {
+      const type = TF_UNIT_UPGRADE_TYPE[name] || "";
+      const originName = TF_UNIT_UPGRADE_ORIGIN[name] || "";
+      return {
+        name: GameDataUtil._escapeForHTML(name),
+        type: GameDataUtil._escapeForHTML(type),
+        originName: GameDataUtil._escapeForHTML(originName),
       };
     });
   }
@@ -909,14 +1505,26 @@ class GameDataUtil {
   /**
    * Parse unit upgrades - returns "nsid" style unit types, e.g. "war_sun".
    *
-   * @param {Object.{unitUpgrades:Array.{string}}} playerData
+   * @param {Object.{unitUpgrades:Array.{string},tfUnitUpgrades:Array.{string}}} playerData
    * @returns {Array.{string}}
    */
   static parsePlayerUnitUpgrades(playerData) {
     console.assert(typeof playerData === "object");
 
-    const unitUpgrades = playerData?.unitUpgrades || [];
-    return unitUpgrades.map((name) => GameDataUtil._escapeForHTML(name));
+    const result = new Set();
+    const technologies = playerData?.technologies || playerData?.technology || [];
+    const tf_unit_upgrades = playerData?.tfUnitUpgrades || [];
+    const techsToMap = [...technologies, ...tf_unit_upgrades];
+
+    techsToMap.forEach((item) => {
+      const name = typeof item === "string" ? item : item.name;
+      const type = UNIT_UPGRADE_TYPES[name] || TF_UNIT_UPGRADE_TYPE[name];
+      if (type) {
+        result.add(type);
+      }
+    });
+
+    return Array.from(result).map(name => GameDataUtil._escapeForHTML(name));
   }
 
   /**

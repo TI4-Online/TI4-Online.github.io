@@ -62,7 +62,7 @@
                             "industrial": 1
                         }
                     },
-                    "relicCards": [],
+                    "relics": [],
                     "score": 9,
                     "strategyCards": [
                         "Leadership"
@@ -114,7 +114,7 @@
                             "industrial": 0
                         }
                     },
-                    "relicCards": [],
+                    "relics": [],
                     "score": 9,
                     "strategyCards": [
                         "Imperial"
@@ -163,7 +163,7 @@
                             "industrial": 4
                         }
                     },
-                    "relicCards": [
+                    "relics": [
                         "Scepter of Emelpar"
                     ],
                     "score": 7,
@@ -215,7 +215,7 @@
                             "industrial": 2
                         }
                     },
-                    "relicCards": [],
+                    "relics": [],
                     "score": 6,
                     "strategyCards": [
                         "Construction"
@@ -269,7 +269,7 @@
                             "industrial": 2
                         }
                     },
-                    "relicCards": [],
+                    "relics": [],
                     "score": 10,
                     "strategyCards": [
                         "Diplomacy"
@@ -317,7 +317,7 @@
                             "industrial": 0
                         }
                     },
-                    "relicCards": [],
+                    "relics": [],
                     "score": 7,
                     "strategyCards": [
                         "Trade"
@@ -503,7 +503,7 @@
                     "industrial": 1
                 }
             },
-            "relicCards": [],
+            "relics": [],
             "score": 9,
             "steamName": "-",
             "strategyCards": [
@@ -590,7 +590,7 @@
                     "industrial": 0
                 }
             },
-            "relicCards": [],
+            "relics": [],
             "score": 9,
             "steamName": "-",
             "strategyCards": [
@@ -665,7 +665,7 @@
                     "industrial": 4
                 }
             },
-            "relicCards": [
+            "relics": [
                 "Scepter of Emelpar"
             ],
             "score": 7,
@@ -767,7 +767,7 @@
                     "industrial": 2
                 }
             },
-            "relicCards": [],
+            "relics": [],
             "score": 6,
             "steamName": "-",
             "strategyCards": [
@@ -870,7 +870,7 @@
                     "industrial": 2
                 }
             },
-            "relicCards": [],
+            "relics": [],
             "score": 10,
             "steamName": "-",
             "strategyCards": [
@@ -950,7 +950,7 @@
                     "industrial": 0
                 }
             },
-            "relicCards": [],
+            "relics": [],
             "score": 7,
             "steamName": "-",
             "strategyCards": [

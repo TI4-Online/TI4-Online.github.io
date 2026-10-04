@@ -29,7 +29,7 @@ class TurnOrder {
     };
   }
 
-  fillFaction(cell, faction, color) {
+  fillFaction(cell, faction, color, isSpeaker, isBenediction) {
     console.assert(typeof cell === "object");
     console.assert(typeof faction === "string");
     console.assert(typeof color === "string");
@@ -38,7 +38,16 @@ class TurnOrder {
 
     const factionIconImg = cell.getElementsByClassName("faction-icon")[0];
     console.assert(factionIconImg);
-    const src = ImageUtil.getSrc(`faction-icons/${faction}_icon.png`);
+
+    let src;
+    if (isSpeaker) {
+      src = ImageUtil.getSrc(`tokens/speaker_square.png`);
+    } else if (isBenediction) {
+      src = ImageUtil.getSrc(`tokens/benediction_square.png`);
+    } else {
+      src = ImageUtil.getSrc(`faction-icons/${faction}_icon.png`);
+    }
+
     if (factionIconImg.src !== src) {
       factionIconImg.src = src;
     }
@@ -118,16 +127,7 @@ class TurnOrder {
     strategyCardsDiv.style.color = fgColor;
   }
 
-  fillSpeaker(cell) {
-    console.assert(typeof cell === "object");
 
-    const factionIconImg = cell.getElementsByClassName("faction-icon")[0];
-    console.assert(factionIconImg);
-    const src = ImageUtil.getSrc(`tokens/speaker_square.png`);
-    if (factionIconImg.src !== src) {
-      factionIconImg.src = src;
-    }
-  }
 
   fillAll(gameData) {
     console.assert(typeof gameData === "object");
@@ -143,6 +143,7 @@ class TurnOrder {
     const currentTurnColorName =
       GameDataUtil.parseCurrentTurnColorName(gameData);
     const speakerColorName = GameDataUtil.parseSpeakerColorName(gameData);
+    const benedictionColorName = GameDataUtil.parseBenedictionColorName(gameData);
 
     this._cells.forEach((cell) => {
       this.fillFaction(cell, "bobert", "white");
@@ -170,15 +171,14 @@ class TurnOrder {
       const color = colorNameAndHex.colorHex;
       const isCurrentTurn = colorNameAndHex.colorName === currentTurnColorName;
 
-      this.fillFaction(cell, faction, color);
+      const isSpeaker = colorNameAndHex.colorName === speakerColorName;
+      const isBenediction = colorNameAndHex.colorName === benedictionColorName;
+
+      this.fillFaction(cell, faction, color, isSpeaker, isBenediction);
       this.fillPlayerName(cell, playerName, color, active);
       this.fillScore(cell, score, color);
       this.fillStrategyCards(cell, strategyCards, color);
       this.fillBackgroundColor(cell, isCurrentTurn, color);
-
-      if (colorNameAndHex.colorName === speakerColorName) {
-        this.fillSpeaker(cell);
-      }
     });
   }
 }
