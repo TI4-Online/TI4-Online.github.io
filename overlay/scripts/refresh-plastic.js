@@ -53,6 +53,12 @@ class Plastic {
   update(gameData) {
     console.assert(typeof gameData === "object");
 
+    const gameDataString = JSON.stringify(gameData);
+    if (this._lastProcessedGameDataString === gameDataString) {
+      return;
+    }
+    this._lastProcessedGameDataString = gameDataString;
+
     const ctx = this._canvas.getContext("2d");
     ctx.clearRect(0, 0, this._canvas.width, this._canvas.height);
 

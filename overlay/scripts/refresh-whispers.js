@@ -24,6 +24,12 @@ class Whispers {
 
   update(gameData) {
     console.assert(typeof gameData === "object");
+
+    const gameDataString = JSON.stringify(gameData);
+    if (this._lastProcessedGameDataString === gameDataString) {
+      return;
+    }
+    this._lastProcessedGameDataString = gameDataString;
     const whispers = GameDataUtil.parseWhispers(gameData);
 
     const trs = [...this._table.rows];

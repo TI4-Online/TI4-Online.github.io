@@ -19,6 +19,12 @@ class Laws {
   update(gameData) {
     console.assert(typeof gameData === "object");
 
+    const gameDataString = JSON.stringify(gameData);
+    if (this._lastProcessedGameDataString === gameDataString) {
+      return;
+    }
+    this._lastProcessedGameDataString = gameDataString;
+
     const laws = GameDataUtil.parseLaws(gameData);
 
     const container = document.getElementById("laws");

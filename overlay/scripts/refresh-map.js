@@ -41,6 +41,12 @@ class Map {
   update(gameData) {
     console.assert(typeof gameData === "object");
 
+    const gameDataString = JSON.stringify(gameData);
+    if (this._lastProcessedGameDataString === gameDataString) {
+      return;
+    }
+    this._lastProcessedGameDataString = gameDataString;
+
     const hexSummary = GameDataUtil.parseHexSummary(gameData);
 
     // Fix locations.

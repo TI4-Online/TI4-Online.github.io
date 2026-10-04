@@ -33,6 +33,11 @@ class Timer {
   }
 
   update(gameData) {
+    const gameDataString = JSON.stringify(gameData);
+    if (this._lastProcessedGameDataString === gameDataString) {
+      return;
+    }
+    this._lastProcessedGameDataString = gameDataString;
     const now = Math.floor(Date.now() / 1000);
 
     if (gameData) {

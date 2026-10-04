@@ -39,6 +39,12 @@ class Tempo {
   update(gameData) {
     console.assert(typeof gameData === "object");
 
+    const gameDataString = JSON.stringify(gameData);
+    if (this._lastProcessedGameDataString === gameDataString) {
+      return;
+    }
+    this._lastProcessedGameDataString = gameDataString;
+
     const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
     const playerColorNamesAndHexValues = playerDataArray.map((playerData) => {
       return GameDataUtil.parsePlayerColor(playerData);
