@@ -397,8 +397,20 @@ class ImageUtil {
         ctx.putImageData(imageData, 0, 0);
       }
 
-      // DONE!
-      cachedImage.image = offscreenCanvas;
+      // DONE!  Encode the finished canvas as a WebP image and cache that
+      // instead of the OffscreenCanvas itself.  A WebP-backed Image is far
+      // cheaper to retain (compressed bytes) than an OffscreenCanvas (which
+      // keeps a full uncompressed pixel buffer alive for as long as it's
+      // cached).
+      offscreenCanvas.convertToBlob({ type: "image/webp" }).then((blob) => {
+        const url = URL.createObjectURL(blob);
+        const webpImage = new Image();
+        webpImage.onload = () => {
+          URL.revokeObjectURL(url);
+          cachedImage.image = webpImage;
+        };
+        webpImage.src = url;
+      });
     };
     image.src = src;
   }
