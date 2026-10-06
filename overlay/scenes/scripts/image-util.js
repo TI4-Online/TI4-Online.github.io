@@ -1,12 +1,46 @@
 "use strict";
 
+class LRUCache {
+  constructor(capacity) {
+    this.capacity = capacity;
+    this.cache = new Map();
+  }
+
+  // Get a value from the cache
+  get(key) {
+    if (!this.cache.has(key)) return undefined;
+
+    // Refresh item: get the value, delete it, and re-insert it at the end
+    const value = this.cache.get(key);
+    this.cache.delete(key);
+    this.cache.set(key, value);
+
+    return value;
+  }
+
+  // Add or update a value in the cache
+  put(key, value) {
+    // If the key already exists, delete it so we can refresh its position
+    if (this.cache.has(key)) {
+      this.cache.delete(key);
+    } else if (this.cache.size >= this.capacity) {
+      // Cache is full: evict the oldest item (the first key in the Map iterator)
+      const oldestKey = this.cache.keys().next().value;
+      this.cache.delete(oldestKey);
+    }
+
+    // Insert the new/updated key-value pair (lands at the very end)
+    this.cache.set(key, value);
+  }
+}
+
 class ImageUtil {
   constructor() {
     throw new Error("static only");
   }
 
   static resetCache() {
-    ImageUtil.__cache = {};
+    ImageUtil.__cache = new LRUCache(100);
   }
 
   /**
@@ -175,11 +209,20 @@ class ImageUtil {
       }
     }
 
-    // Only deal in integers.
+    // Only deal in integers.  Reassign floored values back onto params so
+    // the cache key reflects the actual rendered geometry (otherwise
+    // sub-pixel differences between frames would generate a fresh cache
+    // entry on nearly every redraw, defeating the cache / leaking memory).
     params.width = Math.floor(params.width);
     params.height = Math.floor(params.height);
     const outlineWidth = Math.floor(params.outlineWidth || 0);
     const shadowWidth = Math.floor(params.shadowWidth || 0);
+    if (params.outlineWidth !== undefined) {
+      params.outlineWidth = outlineWidth;
+    }
+    if (params.shadowWidth !== undefined) {
+      params.shadowWidth = shadowWidth;
+    }
     const margin = outlineWidth + shadowWidth;
 
     // Create a cache key from the image src and params.
@@ -188,9 +231,9 @@ class ImageUtil {
 
     // If ready, draw now!
     if (!ImageUtil.__cache) {
-      ImageUtil.__cache = {};
+      ImageUtil.__cache = new LRUCache(100);
     }
-    let cachedImage = ImageUtil.__cache[cacheKey];
+    let cachedImage = ImageUtil.__cache.get(cacheKey);
     if (cachedImage) {
       if (!cachedImage.image) {
         return; // still loading
@@ -204,7 +247,7 @@ class ImageUtil {
     // For now do all the manipulation for each tint color.  Sure this is an
     // order of magnitude more setup, but simple to manage.
     cachedImage = {}; // store an 'in-progress' marker
-    ImageUtil.__cache[cacheKey] = cachedImage;
+    ImageUtil.__cache.put(cacheKey, cachedImage);
 
     const image = new Image();
     image.crossOrigin = "Anonymous";
