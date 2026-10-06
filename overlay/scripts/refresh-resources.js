@@ -100,6 +100,12 @@ class Resources {
   update(gameData) {
     console.assert(typeof gameData === "object");
 
+    const gameDataString = JSON.stringify(gameData);
+    if (this._lastProcessedGameDataString === gameDataString) {
+      return;
+    }
+    this._lastProcessedGameDataString = gameDataString;
+
     const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
     console.assert(Array.isArray(playerDataArray));
     const playerCount = playerDataArray.length;

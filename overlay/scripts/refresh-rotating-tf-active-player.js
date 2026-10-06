@@ -49,6 +49,12 @@ class RotatingTFActivePlayer {
   update(gameData) {
     console.assert(typeof gameData === "object");
 
+    const gameDataString = JSON.stringify(gameData);
+    if (this._lastProcessedGameDataString === gameDataString) {
+      return;
+    }
+    this._lastProcessedGameDataString = gameDataString;
+
     const activeColorName = GameDataUtil.parseCurrentTurnColorName(gameData);
     const playerDataArray = GameDataUtil.parsePlayerDataArray(gameData);
     const playerColorNamesAndHexValues = playerDataArray.map((playerData) => {
@@ -132,9 +138,77 @@ class RotatingTFActivePlayer {
     const relicsTD = table.getElementsByClassName("tf-relics-content")[0];
     relicsTD.innerHTML = "";
     const relics = GameDataUtil.parsePlayerRelics(playerData);
+    
+    const relicCounts = {};
+    for (const relic of relics) {
+      relicCounts[relic] = (relicCounts[relic] || 0) + 1;
+    }
+
+    const sortedRelicEntries = Object.entries(relicCounts).sort(([relicA], [relicB]) => {
+      const isFragA = relicA.endsWith("Relic Fragment");
+      const isFragB = relicB.endsWith("Relic Fragment");
+      if (isFragA && !isFragB) return -1;
+      if (!isFragA && isFragB) return 1;
+      return relicA.localeCompare(relicB);
+    });
+
+    const fragmentsDiv = document.createElement("div");
+    fragmentsDiv.style.display = "flex";
+    fragmentsDiv.style.alignItems = "center";
+    fragmentsDiv.style.justifyContent = "center";
+    fragmentsDiv.style.gap = "8px";
+    
+    let hasFragments = false;
+
+    for (const [relic, count] of sortedRelicEntries) {
+      let imgName = null;
+      if (relic === "Cultural Relic Fragment") imgName = "CFrag.png";
+      else if (relic === "Hazardous Relic Fragment") imgName = "HFrag.png";
+      else if (relic === "Industrial Relic Fragment") imgName = "IFrag.png";
+      else if (relic === "Unknown Relic Fragment") imgName = "UFrag.png";
+
+      if (imgName) {
+        hasFragments = true;
+        const fragSpan = document.createElement("div");
+        fragSpan.style.display = "flex";
+        fragSpan.style.alignItems = "center";
+        fragSpan.style.gap = "4px";
+
+        const img = document.createElement("img");
+        img.src = `/overlay/images/relic-fragments/${imgName}`;
+        img.style.height = "1.2em";
+        fragSpan.appendChild(img);
+
+        const span = document.createElement("span");
+        span.style.color = "white";
+        span.innerText = `x${count}`;
+        fragSpan.appendChild(span);
+        
+        fragmentsDiv.appendChild(fragSpan);
+      }
+    }
+
+    const relicRows = [];
+    if (hasFragments) {
+      relicRows.push(fragmentsDiv);
+    }
+
+    for (const [relic, count] of sortedRelicEntries) {
+      if (!relic.endsWith("Relic Fragment")) {
+        const div = document.createElement("div");
+        div.style.display = "flex";
+        div.style.alignItems = "center";
+        div.style.justifyContent = "center";
+        div.style.gap = "4px";
+        div.style.color = "gold";
+        div.innerText = relic;
+        relicRows.push(div);
+      }
+    }
+
     for (let i = 0; i < 3; i++) {
-      if (i < relics.length) {
-        relicsTD.appendChild(this._createItemDiv({ name: relics[i] }, false));
+      if (i < relicRows.length) {
+        relicsTD.appendChild(relicRows[i]);
       } else {
         relicsTD.appendChild(this._createEmptyItemDiv());
       }

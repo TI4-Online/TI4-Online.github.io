@@ -43,6 +43,12 @@ class Calc {
   update(gameData) {
     console.assert(typeof gameData === "object");
 
+    const gameDataString = JSON.stringify(gameData);
+    if (this._lastProcessedGameDataString === gameDataString) {
+      return;
+    }
+    this._lastProcessedGameDataString = gameDataString;
+
     // Reset.
     let regionNameTDs = document.getElementsByClassName("calc-region");
     regionNameTDs = [...regionNameTDs];

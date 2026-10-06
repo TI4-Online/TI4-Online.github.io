@@ -33,6 +33,11 @@ class TurnTimer {
   }
 
   update(gameData) {
+    const gameDataString = JSON.stringify(gameData);
+    if (this._lastProcessedGameDataString === gameDataString) {
+      return;
+    }
+    this._lastProcessedGameDataString = gameDataString;
     if (gameData) {
       console.assert(typeof gameData === "object");
 
