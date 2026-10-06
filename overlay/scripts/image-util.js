@@ -8,8 +8,6 @@ class LRUCache {
 
   // Get a value from the cache
   get(key) {
-    console.warn(`Cache access size=${this.cache.size}`);
-
     if (!this.cache.has(key)) return undefined;
 
     // Refresh item: get the value, delete it, and re-insert it at the end
@@ -33,8 +31,6 @@ class LRUCache {
 
     // Insert the new/updated key-value pair (lands at the very end)
     this.cache.set(key, value);
-
-    console.info(`Cache updated size=${this.cache.size}`);
   }
 }
 
@@ -212,11 +208,20 @@ class ImageUtil {
       }
     }
 
-    // Only deal in integers.
+    // Only deal in integers.  Reassign floored values back onto params so
+    // the cache key reflects the actual rendered geometry (otherwise
+    // sub-pixel differences between frames would generate a fresh cache
+    // entry on nearly every redraw, defeating the cache / churning memory).
     params.width = Math.floor(params.width);
     params.height = Math.floor(params.height);
     const outlineWidth = Math.floor(params.outlineWidth || 0);
     const shadowWidth = Math.floor(params.shadowWidth || 0);
+    if (params.outlineWidth !== undefined) {
+      params.outlineWidth = outlineWidth;
+    }
+    if (params.shadowWidth !== undefined) {
+      params.shadowWidth = shadowWidth;
+    }
     const margin = outlineWidth + shadowWidth;
 
     // Create a cache key from the image src and params.
