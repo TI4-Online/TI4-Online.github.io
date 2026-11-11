@@ -20,33 +20,6 @@ class Bottombar {
 
     this._margin = Math.ceil(this._canvas.width * this._marginPctW);
 
-    /*
-    // If sidebar is present move bottom left.
-    const sidebarCanvas = document.getElementById("sidebar-canvas");
-    if (sidebarCanvas) {
-      SceneComponents.resizeCanvas(sidebarCanvas, () => {
-        const w = sidebarCanvas.parentNode.offsetWidth;
-        this._canvas.parentNode.style.right = `${w}px`;
-      });
-    }
-
-    SceneComponents.resizeCanvas(this._canvas, () => {
-      // Size for 6 players (will pad for other counts).
-      // Could be more adaptive, but this is simpler/safer.
-      const parentW = this._canvas.parentNode.offsetWidth;
-      this._margin = parentW * this._marginPctW;
-      const cellW = (parentW - this._margin * 4) / 3;
-      const cellH = (cellW * 512) / 1310;
-      const h = Math.ceil(cellH * 2 + this._margin * 3);
-      this._canvas.parentNode.style.height = `${h}px`;
-
-      ImageUtil.resetCache();
-      if (this._lastSimplified) {
-        this.update(this._lastSimplified);
-      }
-    });
-    */
-
     new BroadcastChannel("onSimplifiedGameDataEvent").onmessage = (event) => {
       if (event.data.type === "UPDATE" || event.data.type === "NOT_MODIFIED") {
         this._lastSimplified = event.data.detail;

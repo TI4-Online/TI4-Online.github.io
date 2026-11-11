@@ -17,15 +17,6 @@ class Sidebar {
       throw new Error(`Missing element id "${elementId}"`);
     }
 
-    /*
-    SceneComponents.resizeCanvas(this._canvas, () => {
-      ImageUtil.resetCache();
-      if (this._lastSimplified) {
-        this.update(this._lastSimplified);
-      }
-    });
-*/
-
     new BroadcastChannel("onSimplifiedGameDataEvent").onmessage = (event) => {
       if (event.data.type === "UPDATE" || event.data.type === "NOT_MODIFIED") {
         this._lastSimplified = event.data.detail;
@@ -72,11 +63,11 @@ class Sidebar {
         1 + // custodians
         1 + // support
         simplified.objectives.other.length,
-      8
+      8,
     );
     const secretsLines = Math.max(
       Math.ceil(simplified.objectives.secret.length / 2),
-      3
+      3,
     );
     const lawsLines = Math.max(Math.ceil(simplified.laws.length / 2), 3);
     const labelsLines = 5;
@@ -103,7 +94,7 @@ class Sidebar {
     const boxRoundAndTimer = SceneComponents.reserveVertical(remaining, h);
     const roundBox = SceneComponents.reserveHorizontal(
       boxRoundAndTimer,
-      boxRoundAndTimer.w / 2
+      boxRoundAndTimer.w / 2,
     );
     const timerBox = boxRoundAndTimer; // residue
     sc.drawRound(roundBox, simplified.round);
